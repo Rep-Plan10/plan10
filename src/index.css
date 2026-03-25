@@ -155,7 +155,7 @@
     filter: brightness(1.15);
   }
   .step-badge {
-    @apply transition-all duration-[250ms] ease-out;
+    transition: all 250ms ease-out;
   }
 
   /* Footer link hover */
