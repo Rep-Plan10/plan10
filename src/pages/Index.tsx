@@ -1,16 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Differentials from "@/components/Differentials";
+import Process from "@/components/Process";
+import Testimonials from "@/components/Testimonials";
+import FinalCTA from "@/components/FinalCTA";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import FloatingElements from "@/components/FloatingElements";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Differentials />
+        <Process />
+        <Testimonials />
+        <FinalCTA />
+        <Contact />
+      </main>
+      <Footer />
+      <FloatingElements />
+    </>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
