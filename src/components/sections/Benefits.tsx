@@ -15,15 +15,19 @@ export default function Benefits() {
 
   return (
     <section className="py-20 md:py-28 bg-bg-alt" ref={ref}>
-      <div className={`container mx-auto px-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <div className="text-center mb-14">
+      <div className="container mx-auto px-4">
+        <div className={`text-center mb-14 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">Por que escolher a Plan10 para o seu consórcio?</h2>
           <p className="text-lg md:text-xl text-muted-foreground font-inter max-w-2xl mx-auto">Não somos apenas uma corretora — somos sua consultoria estratégica de patrimônio</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((b, i) => (
-            <div key={i} className="glass rounded-2xl p-6 hover:border-accent/30 hover:shadow-[0_0_25px_rgba(242,140,40,0.08)] transition-all duration-300 group" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+            <div
+              key={i}
+              className={`diff-card glass rounded-2xl p-6 group transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+              style={{ transitionDelay: isVisible ? `${i * 100}ms` : "0ms" }}
+            >
+              <div className="diff-icon-wrap w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4 transition-colors duration-300">
                 <b.icon size={22} className="text-accent" />
               </div>
               <h3 className="font-sora font-semibold text-lg text-foreground mb-2">{b.title}</h3>

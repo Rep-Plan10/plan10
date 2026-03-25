@@ -15,7 +15,7 @@ export default function LPHeader() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-accent text-accent-foreground px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold font-inter rounded-lg glow-accent hover:brightness-110 transition-all"
+          className="cta-btn bg-accent text-accent-foreground px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold font-inter rounded-lg"
         >
           Simular agora
         </a>
