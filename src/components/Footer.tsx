@@ -36,7 +36,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-accent transition-colors font-inter"
+                    className="footer-link inline-block text-sm text-muted-foreground font-inter"
                   >
                     {link.label}
                   </a>
@@ -50,22 +50,22 @@ export default function Footer() {
             <h3 className="font-sora font-semibold text-sm text-foreground mb-4">Contato</h3>
             <ul className="space-y-2 text-sm text-muted-foreground font-inter">
               <li>
-                <a href="https://api.whatsapp.com/send/?phone=5511991051616" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                <a href="https://api.whatsapp.com/send/?phone=5511991051616" target="_blank" rel="noopener noreferrer" className="footer-link inline-block">
                   WhatsApp: (11) 99105-1616
                 </a>
               </li>
               <li>
-                <a href="mailto:contato@plan10.com.br" className="hover:text-accent transition-colors">
+                <a href="mailto:contato@plan10.com.br" className="footer-link inline-block">
                   contato@plan10.com.br
                 </a>
               </li>
               <li>
-                <a href="https://instagram.com/plan10seguros" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                <a href="https://instagram.com/plan10seguros" target="_blank" rel="noopener noreferrer" className="footer-link inline-block">
                   @plan10seguros
                 </a>
               </li>
               <li>
-                <a href="https://www.facebook.com/plan10seguros" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                <a href="https://www.facebook.com/plan10seguros" target="_blank" rel="noopener noreferrer" className="footer-link inline-block">
                   /plan10seguros
                 </a>
               </li>

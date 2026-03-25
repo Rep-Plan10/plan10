@@ -57,7 +57,7 @@ export default function Header() {
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className="text-sm text-foreground/80 hover:text-accent transition-colors font-inter"
+              className="nav-link-animated text-sm text-foreground/80 hover:text-accent transition-colors font-inter pb-1"
             >
               {link.label}
             </button>
@@ -66,7 +66,7 @@ export default function Header() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-accent text-accent-foreground px-5 py-2.5 text-sm font-semibold font-inter hover:brightness-110 transition-all glow-hover"
+            className="cta-btn bg-accent text-accent-foreground px-5 py-2.5 text-sm font-semibold font-inter"
           >
             Falar com Especialista
           </a>
@@ -99,7 +99,7 @@ export default function Header() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-accent text-accent-foreground px-8 py-3 text-base font-semibold font-inter hover:brightness-110 transition-all mt-4"
+              className="cta-btn bg-accent text-accent-foreground px-8 py-3 text-base font-semibold font-inter mt-4"
             >
               Falar com Especialista
             </a>

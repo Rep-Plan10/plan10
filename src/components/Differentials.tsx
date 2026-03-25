@@ -16,7 +16,7 @@ export default function Differentials() {
   return (
     <section id="diferenciais" className="py-20 md:py-28" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-14 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className={`text-center mb-14 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <h2 className="font-sora font-semibold text-3xl md:text-4xl text-foreground mb-4">
             Por que escolher a <span className="text-accent">Plan10</span>?
           </h2>
@@ -31,12 +31,14 @@ export default function Differentials() {
             return (
               <div
                 key={item.title}
-                className={`glass glass-hover rounded-lg p-6 transition-all duration-500 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                className={`diff-card glass rounded-lg p-6 transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: isVisible ? `${i * 100}ms` : "0ms" }}
               >
-                <Icon size={32} className="text-accent mb-4" />
+                <div className="diff-icon-wrap w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300">
+                  <Icon size={32} className="text-accent" />
+                </div>
                 <h3 className="font-sora font-semibold text-lg text-foreground mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground font-inter leading-relaxed">{item.desc}</p>
               </div>

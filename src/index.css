@@ -88,4 +88,116 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
   }
+
+  /* CTA Button Enhanced Hover */
+  .cta-btn {
+    @apply transition-all duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)];
+  }
+  .cta-btn:hover {
+    transform: scale(1.04);
+    filter: brightness(1.1);
+    box-shadow: 0 0 30px rgba(242,140,40,0.5);
+  }
+  .cta-btn:active {
+    transform: scale(0.97);
+  }
+
+  /* CTA Glow Pulse */
+  .cta-glow-pulse {
+    animation: ctaGlowPulse 2s ease-in-out infinite;
+  }
+
+  /* Nav link underline animation */
+  .nav-link-animated {
+    @apply relative;
+  }
+  .nav-link-animated::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[2px] bg-accent;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.2s ease;
+  }
+  .nav-link-animated:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Differential card hover */
+  .diff-card {
+    @apply transition-all duration-300 ease-out;
+  }
+  .diff-card:hover {
+    transform: translateY(-6px);
+    border-color: hsl(28 89% 55% / 0.4);
+    box-shadow: 0 0 25px rgba(242,140,40,0.12);
+  }
+  .diff-card:hover .diff-icon-wrap {
+    background-color: rgba(242,140,40,0.12);
+  }
+
+  /* Service card hover enhanced */
+  .service-card {
+    @apply transition-all duration-300 ease-out;
+  }
+  .service-card:hover {
+    transform: scale(1.03);
+  }
+  .service-card:hover .service-icon {
+    transform: rotate(8deg) scale(1.15);
+  }
+  .service-icon {
+    @apply transition-transform duration-300;
+  }
+
+  /* Process step hover */
+  .process-step:hover .step-badge {
+    transform: scale(1.2);
+    filter: brightness(1.15);
+  }
+  .step-badge {
+    @apply transition-all duration-[250ms] ease-out;
+  }
+
+  /* Footer link hover */
+  .footer-link {
+    @apply transition-all duration-200 ease-out;
+  }
+  .footer-link:hover {
+    color: hsl(28 89% 55%);
+    transform: translateX(4px);
+  }
+
+  /* Testimonial marquee pause on hover */
+  .marquee-container:hover .animate-marquee,
+  .marquee-container:hover .animate-marquee-reverse {
+    animation-play-state: paused;
+  }
+
+  /* Testimonial card hover */
+  .testimonial-card {
+    @apply transition-all duration-300;
+  }
+  .testimonial-card:hover {
+    transform: scale(1.02);
+    backdrop-filter: blur(20px);
+    background-color: rgba(255,255,255,0.08);
+  }
+}
+
+@keyframes ctaGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(242,140,40,0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(242,140,40,0.5);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

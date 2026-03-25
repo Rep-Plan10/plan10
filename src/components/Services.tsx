@@ -49,6 +49,14 @@ const colorMap: Record<string, string> = {
   "hub-servicos": "hover:border-hub-servicos hover:shadow-[0_0_30px_hsl(var(--hub-servicos)/0.3)]",
 };
 
+const titleHoverMap: Record<string, string> = {
+  "hub-seguros": "group-hover:text-hub-seguros",
+  "hub-saude": "group-hover:text-hub-saude",
+  "hub-consorcios": "group-hover:text-hub-consorcios",
+  "hub-financeiro": "group-hover:text-hub-financeiro",
+  "hub-servicos": "group-hover:text-foreground/60",
+};
+
 const iconColorMap: Record<string, string> = {
   "hub-seguros": "text-hub-seguros",
   "hub-saude": "text-hub-saude",
@@ -63,7 +71,7 @@ export default function Services() {
   return (
     <section id="solucoes" className="py-20 md:py-28 bg-bg-alt" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-14 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className={`text-center mb-14 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <h2 className="font-sora font-semibold text-3xl md:text-4xl text-foreground mb-4">
             Nossas <span className="text-accent">Soluções</span>
           </h2>
@@ -78,19 +86,19 @@ export default function Services() {
             return (
               <div
                 key={service.title}
-                className={`glass rounded-lg p-6 transition-all duration-500 ${colorMap[service.color]} ${
+                className={`service-card glass rounded-lg p-6 group ${colorMap[service.color]} ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 } ${i >= 3 ? "sm:col-span-1 lg:last:col-start-2" : ""}`}
-                style={{ transitionDelay: isVisible ? `${i * 100}ms` : "0ms" }}
+                style={{ transitionDelay: isVisible ? `${i * 150}ms` : "0ms", transitionDuration: "600ms", transitionTimingFunction: "cubic-bezier(0.4,0,0.2,1)" }}
               >
-                <Icon size={36} className={`${iconColorMap[service.color]} mb-4`} />
-                <h3 className="font-sora font-semibold text-lg text-foreground mb-3">{service.title}</h3>
+                <Icon size={36} className={`${iconColorMap[service.color]} mb-4 service-icon`} />
+                <h3 className={`font-sora font-semibold text-lg text-foreground mb-3 transition-colors duration-300 ${titleHoverMap[service.color]}`}>{service.title}</h3>
                 <p className="text-sm text-muted-foreground font-inter leading-relaxed mb-5">{service.desc}</p>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-accent text-accent-foreground px-5 py-2.5 text-sm font-semibold font-inter hover:brightness-110 transition-all"
+                  className="cta-btn inline-block bg-accent text-accent-foreground px-5 py-2.5 text-sm font-semibold font-inter"
                 >
                   {service.cta}
                 </a>
