@@ -9,7 +9,7 @@ const stats = [
 ];
 
 function StatItem({ value, suffix, label, trigger }: { value: number; suffix: string; label: string; trigger: boolean }) {
-  const count = useCountUp(value, trigger);
+  const count = useCountUp(value, 2000, trigger);
   return (
     <div className="text-center px-4">
       <div className="font-sora font-extrabold text-4xl md:text-5xl text-accent mb-2">
