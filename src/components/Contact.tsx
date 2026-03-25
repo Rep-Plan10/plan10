@@ -45,7 +45,6 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
     setSubmitting(true);
-    // Mock API call
     await new Promise((r) => setTimeout(r, 1000));
     setSubmitting(false);
     toast({ title: "Mensagem enviada com sucesso!", description: "Em breve um especialista entrará em contato." });
@@ -56,10 +55,17 @@ export default function Contact() {
   const inputClass = (field: string) =>
     `w-full bg-white/5 border ${errors[field] ? "border-destructive" : "border-white/10"} rounded-lg px-4 py-3 text-sm text-foreground font-inter placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-colors`;
 
+  const contactLinks = [
+    { href: WHATSAPP_URL, target: "_blank", icon: MessageCircle, title: "WhatsApp", sub: "(11) 99105-1616" },
+    { href: "mailto:contato@plan10.com.br", target: undefined, icon: Mail, title: "E-mail", sub: "contato@plan10.com.br" },
+    { href: "https://instagram.com/plan10seguros", target: "_blank", icon: Instagram, title: "Instagram", sub: "@plan10seguros" },
+    { href: "https://www.facebook.com/plan10seguros", target: "_blank", icon: Facebook, title: "Facebook", sub: "Plan10 Seguros" },
+  ];
+
   return (
     <section id="contato" className="py-20 md:py-28 bg-bg-alt" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-14 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className={`text-center mb-14 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <h2 className="font-sora font-semibold text-3xl md:text-4xl text-foreground mb-4">
             Entre em <span className="text-accent">Contato</span>
           </h2>
@@ -68,14 +74,17 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className={`grid lg:grid-cols-5 gap-10 max-w-5xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="grid lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
           {/* Form */}
-          <form onSubmit={handleSubmit} className="lg:col-span-3 space-y-4">
-            <div>
+          <form
+            onSubmit={handleSubmit}
+            className={`lg:col-span-3 space-y-4 transition-all duration-800 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"}`}
+          >
+            <div className={`transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`} style={{ transitionDelay: "80ms" }}>
               <input type="text" placeholder="Nome completo *" value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} className={inputClass("nome")} maxLength={100} />
               {errors.nome && <p className="text-xs text-destructive mt-1 font-inter">{errors.nome}</p>}
             </div>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className={`grid sm:grid-cols-2 gap-4 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`} style={{ transitionDelay: "160ms" }}>
               <div>
                 <input type="email" placeholder="E-mail *" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass("email")} maxLength={255} />
                 {errors.email && <p className="text-xs text-destructive mt-1 font-inter">{errors.email}</p>}
@@ -85,56 +94,45 @@ export default function Contact() {
                 {errors.telefone && <p className="text-xs text-destructive mt-1 font-inter">{errors.telefone}</p>}
               </div>
             </div>
-            <div>
+            <div className={`transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`} style={{ transitionDelay: "240ms" }}>
               <select value={form.assunto} onChange={(e) => setForm({ ...form, assunto: e.target.value })} className={inputClass("assunto")}>
                 <option value="" disabled>Assunto *</option>
                 {subjects.map((s) => (<option key={s} value={s}>{s}</option>))}
               </select>
               {errors.assunto && <p className="text-xs text-destructive mt-1 font-inter">{errors.assunto}</p>}
             </div>
-            <div>
+            <div className={`transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`} style={{ transitionDelay: "320ms" }}>
               <textarea placeholder="Mensagem *" value={form.mensagem} onChange={(e) => setForm({ ...form, mensagem: e.target.value })} rows={4} className={inputClass("mensagem")} maxLength={1000} />
               {errors.mensagem && <p className="text-xs text-destructive mt-1 font-inter">{errors.mensagem}</p>}
             </div>
             <button
               type="submit"
               disabled={submitting}
-              className="w-full bg-accent text-accent-foreground py-3 text-base font-semibold font-inter hover:brightness-110 transition-all glow-hover disabled:opacity-50"
+              className={`cta-btn cta-glow-pulse w-full bg-accent text-accent-foreground py-3 text-base font-semibold font-inter disabled:opacity-50 transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+              style={{ transitionDelay: "400ms" }}
             >
               {submitting ? "Enviando..." : "Enviar mensagem"}
             </button>
           </form>
 
           {/* Contact info */}
-          <div className="lg:col-span-2 space-y-6">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="glass glass-hover rounded-lg p-5 flex items-center gap-4 group">
-              <MessageCircle className="text-accent shrink-0" size={24} />
-              <div>
-                <p className="text-sm font-semibold text-foreground font-sora">WhatsApp</p>
-                <p className="text-sm text-muted-foreground font-inter">(11) 99105-1616</p>
-              </div>
-            </a>
-            <a href="mailto:contato@plan10.com.br" className="glass glass-hover rounded-lg p-5 flex items-center gap-4 group">
-              <Mail className="text-accent shrink-0" size={24} />
-              <div>
-                <p className="text-sm font-semibold text-foreground font-sora">E-mail</p>
-                <p className="text-sm text-muted-foreground font-inter">contato@plan10.com.br</p>
-              </div>
-            </a>
-            <a href="https://instagram.com/plan10seguros" target="_blank" rel="noopener noreferrer" className="glass glass-hover rounded-lg p-5 flex items-center gap-4 group">
-              <Instagram className="text-accent shrink-0" size={24} />
-              <div>
-                <p className="text-sm font-semibold text-foreground font-sora">Instagram</p>
-                <p className="text-sm text-muted-foreground font-inter">@plan10seguros</p>
-              </div>
-            </a>
-            <a href="https://www.facebook.com/plan10seguros" target="_blank" rel="noopener noreferrer" className="glass glass-hover rounded-lg p-5 flex items-center gap-4 group">
-              <Facebook className="text-accent shrink-0" size={24} />
-              <div>
-                <p className="text-sm font-semibold text-foreground font-sora">Facebook</p>
-                <p className="text-sm text-muted-foreground font-inter">Plan10 Seguros</p>
-              </div>
-            </a>
+          <div className={`lg:col-span-2 space-y-6 transition-all duration-800 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"}`}>
+            {contactLinks.map((link, i) => (
+              <a
+                key={link.title}
+                href={link.href}
+                target={link.target}
+                rel={link.target ? "noopener noreferrer" : undefined}
+                className={`glass glass-hover rounded-lg p-5 flex items-center gap-4 group transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <link.icon className="text-accent shrink-0 transition-transform duration-200 group-hover:scale-110" size={24} />
+                <div>
+                  <p className="text-sm font-semibold text-foreground font-sora">{link.title}</p>
+                  <p className="text-sm text-muted-foreground font-inter">{link.sub}</p>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </div>

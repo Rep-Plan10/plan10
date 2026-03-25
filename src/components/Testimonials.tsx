@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const testimonials = [
   { quote: "A Plan10 me ajudou a encontrar um plano de saúde com rede excelente e um preço que eu não imaginava conseguir. Atendimento impecável do início ao fim.", name: "Fernanda R.", segment: "Plano de Saúde Familiar" },
@@ -11,7 +12,7 @@ const testimonials = [
 
 function TestimonialCard({ quote, name, segment }: typeof testimonials[0]) {
   return (
-    <div className="glass rounded-lg p-6 w-[340px] shrink-0 mx-3">
+    <div className="testimonial-card glass rounded-lg p-6 w-[340px] shrink-0 mx-3">
       <div className="flex gap-1 mb-3">
         {Array.from({ length: 5 }).map((_, i) => (
           <Star key={i} size={16} className="fill-accent text-accent" />
@@ -27,12 +28,13 @@ function TestimonialCard({ quote, name, segment }: typeof testimonials[0]) {
 }
 
 export default function Testimonials() {
+  const { ref, isVisible } = useScrollAnimation(0.15);
   const doubledTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section id="depoimentos" className="py-20 md:py-28 overflow-hidden">
+    <section id="depoimentos" className="py-20 md:py-28 overflow-hidden" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-14">
-        <div className="text-center">
+        <div className={`text-center transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <h2 className="font-sora font-semibold text-3xl md:text-4xl text-foreground mb-4">
             O que nossos <span className="text-accent">clientes</span> dizem
           </h2>
@@ -42,18 +44,20 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Row 1: left to right */}
-      <div className="flex animate-marquee mb-6" style={{ width: "max-content" }}>
-        {doubledTestimonials.map((t, i) => (
-          <TestimonialCard key={`r1-${i}`} {...t} />
-        ))}
-      </div>
+      <div className={`marquee-container transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+        {/* Row 1: left to right */}
+        <div className="flex animate-marquee mb-6" style={{ width: "max-content" }}>
+          {doubledTestimonials.map((t, i) => (
+            <TestimonialCard key={`r1-${i}`} {...t} />
+          ))}
+        </div>
 
-      {/* Row 2: right to left */}
-      <div className="flex animate-marquee-reverse" style={{ width: "max-content" }}>
-        {doubledTestimonials.map((t, i) => (
-          <TestimonialCard key={`r2-${i}`} {...t} />
-        ))}
+        {/* Row 2: right to left */}
+        <div className="flex animate-marquee-reverse" style={{ width: "max-content" }}>
+          {doubledTestimonials.map((t, i) => (
+            <TestimonialCard key={`r2-${i}`} {...t} />
+          ))}
+        </div>
       </div>
     </section>
   );

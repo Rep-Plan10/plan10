@@ -15,7 +15,7 @@ export default function Process() {
   return (
     <section id="como-funciona" className="py-20 md:py-28 bg-bg-alt" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-14 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className={`text-center mb-14 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <h2 className="font-sora font-semibold text-3xl md:text-4xl text-foreground mb-4">
             Como <span className="text-accent">funciona</span>?
           </h2>
@@ -26,17 +26,20 @@ export default function Process() {
 
         {/* Desktop: horizontal */}
         <div className="hidden md:flex items-start justify-between max-w-5xl mx-auto relative">
-          {/* Connecting line */}
-          <div className="absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-accent/20 via-accent to-accent/20" />
+          {/* Connecting line - animated width */}
+          <div
+            className="absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-accent/20 via-accent to-accent/20 origin-left transition-transform duration-[1200ms] ease-out"
+            style={{ transform: isVisible ? "scaleX(1)" : "scaleX(0)" }}
+          />
           {steps.map((step, i) => (
             <div
               key={step.title}
-              className={`flex flex-col items-center text-center w-1/5 relative z-10 transition-all duration-500 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              className={`process-step flex flex-col items-center text-center w-1/5 relative z-10 transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
-              style={{ transitionDelay: isVisible ? `${i * 150}ms` : "0ms" }}
+              style={{ transitionDelay: isVisible ? `${i * 200}ms` : "0ms" }}
             >
-              <div className="w-20 h-20 rounded-full glass flex items-center justify-center text-2xl mb-4 border-2 border-accent/30">
+              <div className="step-badge w-20 h-20 rounded-full glass flex items-center justify-center text-2xl mb-4 border-2 border-accent/30">
                 {step.emoji}
               </div>
               <h3 className="font-sora font-semibold text-base text-foreground mb-2">{step.title}</h3>
@@ -47,17 +50,20 @@ export default function Process() {
 
         {/* Mobile: vertical */}
         <div className="md:hidden space-y-0 relative max-w-sm mx-auto">
-          {/* Vertical line */}
-          <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent/20 via-accent to-accent/20" />
+          {/* Vertical line - animated height */}
+          <div
+            className="absolute left-10 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent/20 via-accent to-accent/20 origin-top transition-transform duration-[1200ms] ease-out"
+            style={{ transform: isVisible ? "scaleY(1)" : "scaleY(0)" }}
+          />
           {steps.map((step, i) => (
             <div
               key={step.title}
-              className={`flex gap-5 items-start relative py-6 transition-all duration-500 ${
+              className={`process-step flex gap-5 items-start relative py-6 transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                 isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
               }`}
-              style={{ transitionDelay: isVisible ? `${i * 150}ms` : "0ms" }}
+              style={{ transitionDelay: isVisible ? `${i * 200}ms` : "0ms" }}
             >
-              <div className="w-20 h-20 rounded-full glass flex items-center justify-center text-2xl shrink-0 border-2 border-accent/30 relative z-10">
+              <div className="step-badge w-20 h-20 rounded-full glass flex items-center justify-center text-2xl shrink-0 border-2 border-accent/30 relative z-10">
                 {step.emoji}
               </div>
               <div>

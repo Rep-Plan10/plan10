@@ -15,20 +15,20 @@ export default function WhatIsConsorcio() {
 
   return (
     <section className="py-20 md:py-28" ref={ref}>
-      <div className={`container mx-auto px-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-foreground text-center mb-6">
+      <div className="container mx-auto px-4">
+        <h2 className={`font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-foreground text-center mb-6 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           O que é consórcio e por que é melhor que financiamento?
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-12 mt-12 items-start">
           {/* Left — text */}
-          <div className="font-inter text-muted-foreground text-base md:text-lg leading-relaxed space-y-4">
+          <div className={`font-inter text-muted-foreground text-base md:text-lg leading-relaxed space-y-4 transition-all duration-800 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
             <p>O consórcio é a forma mais inteligente de adquirir bens e serviços. Você paga parcelas mensais <strong className="text-foreground">sem juros</strong>, entra em um grupo e pode ser contemplado por sorteio ou lance — e recebe uma carta de crédito para usar como quiser.</p>
             <p>Diferente do financiamento, você não paga juros bancários, não precisa de entrada e o custo total é significativamente menor. É ideal para quem planeja com inteligência.</p>
           </div>
 
           {/* Right — comparison */}
-          <div className="glass rounded-2xl overflow-hidden">
+          <div className={`glass rounded-2xl overflow-hidden transition-all duration-800 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
             <div className="grid grid-cols-3 text-sm font-sora font-semibold">
               <div className="p-4 border-b border-white/10" />
               <div className="p-4 border-b border-white/10 text-accent text-center">Consórcio Plan10</div>
@@ -50,8 +50,8 @@ export default function WhatIsConsorcio() {
           </div>
         </div>
 
-        <div className="text-center mt-12">
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-accent text-accent-foreground px-8 py-4 text-base font-bold font-inter rounded-lg glow-accent glow-hover hover:brightness-110 transition-all min-h-[52px]">
+        <div className={`text-center mt-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`} style={{ transitionDelay: "300ms" }}>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="cta-btn cta-glow-pulse inline-flex items-center justify-center bg-accent text-accent-foreground px-8 py-4 text-base font-bold font-inter rounded-lg min-h-[52px]">
             Quero economizar com consórcio
           </a>
         </div>

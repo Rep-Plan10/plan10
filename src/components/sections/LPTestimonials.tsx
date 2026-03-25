@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const testimonials = [
   { quote: "Fiz meu consórcio de imóvel com a Plan10 e foi a melhor decisão. Eles explicaram tudo com clareza e me ajudaram a planejar minha contemplação. Sem juros, sem enrolação.", name: "Marcos T.", type: "Consórcio Imobiliário" },
@@ -23,7 +24,7 @@ function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; re
     <div className="flex overflow-hidden">
       <div className={`flex gap-4 ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`} style={{ animationDuration: "40s" }}>
         {doubled.map((t, i) => (
-          <div key={i} className="glass rounded-2xl p-5 w-[340px] shrink-0">
+          <div key={i} className="testimonial-card glass rounded-2xl p-5 w-[340px] shrink-0">
             <Stars />
             <p className="text-sm text-foreground/90 font-inter leading-relaxed mb-4">"{t.quote}"</p>
             <div>
@@ -38,15 +39,17 @@ function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; re
 }
 
 export default function LPTestimonials() {
+  const { ref, isVisible } = useScrollAnimation(0.15);
+
   return (
-    <section className="py-20 md:py-28 bg-bg-alt overflow-hidden">
+    <section className="py-20 md:py-28 bg-bg-alt overflow-hidden" ref={ref}>
       <div className="container mx-auto px-4 mb-12">
-        <div className="text-center">
+        <div className={`text-center transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">Quem já realizou sonhos com a Plan10</h2>
           <p className="text-lg md:text-xl text-muted-foreground font-inter">A maioria dos nossos clientes chega por indicação — e isso diz tudo.</p>
         </div>
       </div>
-      <div className="space-y-4">
+      <div className={`marquee-container space-y-4 transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
         <MarqueeRow items={testimonials.slice(0, 3)} />
         <MarqueeRow items={testimonials.slice(3)} reverse />
       </div>
