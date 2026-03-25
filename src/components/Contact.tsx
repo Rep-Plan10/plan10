@@ -114,11 +114,11 @@ export default function Contact() {
                 <p className="text-sm text-muted-foreground font-inter">(11) 99105-1616</p>
               </div>
             </a>
-            <a href="mailto:carlos@plangroup.com.br" className="glass glass-hover rounded-lg p-5 flex items-center gap-4 group">
+            <a href="mailto:contato@plan10.com.br" className="glass glass-hover rounded-lg p-5 flex items-center gap-4 group">
               <Mail className="text-accent shrink-0" size={24} />
               <div>
                 <p className="text-sm font-semibold text-foreground font-sora">E-mail</p>
-                <p className="text-sm text-muted-foreground font-inter">carlos@plangroup.com.br</p>
+                <p className="text-sm text-muted-foreground font-inter">contato@plan10.com.br</p>
               </div>
             </a>
             <a href="https://instagram.com/plan10seguros" target="_blank" rel="noopener noreferrer" className="glass glass-hover rounded-lg p-5 flex items-center gap-4 group">

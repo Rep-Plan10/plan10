@@ -55,8 +55,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:carlos@plangroup.com.br" className="hover:text-accent transition-colors">
-                  carlos@plangroup.com.br
+                <a href="mailto:contato@plan10.com.br" className="hover:text-accent transition-colors">
+                  contato@plan10.com.br
                 </a>
               </li>
               <li>
