@@ -8,8 +8,7 @@ export default function LPHeader() {
         <img
           src={logo}
           alt="Plan10 Consórcio"
-          className="h-8 sm:h-10 rounded"
-          style={{ filter: "brightness(1.1) drop-shadow(0 0 8px rgba(242,140,40,0.3))" }}
+          className="h-8 sm:h-10"
         />
         <a
           href={WHATSAPP_URL}
