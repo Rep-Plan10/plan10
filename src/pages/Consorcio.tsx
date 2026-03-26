@@ -131,14 +131,14 @@ function TestimonialCard({ name, role, text }: typeof testimonials[0]) {
 }
 
 function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; reverse?: boolean }) {
-  const doubled = [...items, ...items];
+  const quadrupled = [...items, ...items, ...items, ...items];
   return (
-    <div className="flex overflow-hidden">
+    <div className="overflow-hidden">
       <div
         className={`flex ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}
         style={{ width: "max-content" }}
       >
-        {doubled.map((t, i) => (
+        {quadrupled.map((t, i) => (
           <TestimonialCard key={i} {...t} />
         ))}
       </div>
