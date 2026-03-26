@@ -3,7 +3,7 @@ import { ChevronDown, Check, MessageCircle, ArrowDown, Shield, Phone, Star } fro
 import planLogo from "@/assets/plan10-logo.png";
 
 /* ───────────────────── WHATSAPP ───────────────────── */
-const WA_PHONE = "5511948779809";
+const WA_PHONE = "5511991051616";
 const WA_BASE = `https://api.whatsapp.com/send/?phone=${WA_PHONE}`;
 
 /* ───────────────────── HOOKS ───────────────────── */
