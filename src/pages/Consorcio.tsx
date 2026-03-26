@@ -352,10 +352,10 @@ export default function Consorcio() {
         {/* ═══════ CONFIANÇA E SEGURANÇA ═══════ */}
         <section className="py-20 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
-            <TextReveal as="h2" text="Para nós, seu sonho é bem real." className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
+            <TextReveal as="h2" text="Do sonho ao patrimônio, a Plan10 está com você." className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
-                Por isso cuidamos de tudo para você.
+                Cuidamos de cada detalhe para que você conquiste o que realmente importa.
               </p>
             </Reveal>
 
