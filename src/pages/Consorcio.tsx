@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { ChevronDown, Check, MessageCircle, ArrowDown, Shield, Phone } from "lucide-react";
+import { ChevronDown, Check, MessageCircle, ArrowDown, Shield, Phone, Star } from "lucide-react";
 import planLogo from "@/assets/plan10-logo.png";
 
 /* ───────────────────── WHATSAPP ───────────────────── */
@@ -34,7 +34,7 @@ function TextReveal({ text, as: Tag = "h2", className = "", baseDelay = 0 }: {
   return (
     <Tag ref={ref} className={className}>
       {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.3em] last:mr-0">
+        <span key={i} className="inline-block overflow-hidden pb-2 mr-[0.3em] last:mr-0">
           <span
             className="inline-block transition-all"
             style={{
@@ -103,6 +103,49 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   );
 }
 
+/* ───────────────────── TESTIMONIALS DATA ───────────────────── */
+const testimonials = [
+  { name: "Fernanda R.", role: "Plano de Saúde Familiar", text: "A Plan10 me ajudou a encontrar um plano de saúde com rede excelente e um preço que eu não imaginava conseguir. Atendimento impecável do início ao fim." },
+  { name: "Marcos T.", role: "Consórcio Imobiliário", text: "Fiz meu consórcio de imóvel com a Plan10 e foi a melhor decisão. Eles explicaram tudo com clareza e me ajudaram a planejar minha contemplação." },
+  { name: "Juliana M.", role: "Seguro Auto", text: "Troquei de seguro auto e economizei mais de R$ 800 por ano com cobertura melhor. Recomendo sem hesitar." },
+  { name: "Roberto S.", role: "Serviços Residenciais", text: "Precisei de assistência 24h e o atendimento foi rápido e eficiente. Valeu cada centavo." },
+  { name: "Ana Paula C.", role: "Produtos Financeiros", text: "A consultoria financeira da Plan10 me ajudou a reorganizar meu crédito com taxas muito melhores do que eu tinha." },
+  { name: "Diego F.", role: "Seguros Empresariais", text: "Empresa séria, transparente e que realmente se preocupa com o cliente. Já indiquei para toda a família." },
+];
+
+function TestimonialCard({ name, role, text }: typeof testimonials[0]) {
+  return (
+    <div className="glass rounded-xl p-6 w-[320px] shrink-0 mx-3 testimonial-card">
+      <div className="flex gap-0.5 mb-3">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} size={14} className="fill-accent text-accent" />
+        ))}
+      </div>
+      <p className="text-sm text-muted-foreground font-inter leading-relaxed mb-4 italic">"{text}"</p>
+      <div>
+        <p className="font-sora font-semibold text-sm text-foreground">{name}</p>
+        <p className="text-xs text-muted-foreground font-inter">{role}</p>
+      </div>
+    </div>
+  );
+}
+
+function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; reverse?: boolean }) {
+  const doubled = [...items, ...items];
+  return (
+    <div className="flex overflow-hidden">
+      <div
+        className={`flex ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}
+        style={{ width: "max-content" }}
+      >
+        {doubled.map((t, i) => (
+          <TestimonialCard key={i} {...t} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════════════════════ */
@@ -162,7 +205,7 @@ export default function Consorcio() {
             <TextReveal
               as="h1"
               text="Realize seus sonhos sem pagar juros."
-              className="font-sora font-black text-4xl sm:text-5xl md:text-7xl leading-tight mb-6 max-w-4xl"
+              className="font-sora font-black text-4xl sm:text-5xl md:text-7xl leading-[1.15] pb-3 mb-6 max-w-4xl"
             />
 
             <Reveal delay={500} direction="up">
@@ -188,10 +231,14 @@ export default function Consorcio() {
             </Reveal>
 
             <Reveal delay={800} direction="up">
-              <div className="flex flex-wrap gap-6 md:gap-10">
+              <div className="flex flex-wrap gap-3 md:gap-4">
                 {["Sem juros", "Parcelas menores", "Carta de crédito garantida"].map((t) => (
-                  <div key={t} className="flex items-center gap-2 text-sm text-foreground/80">
-                    <Check size={16} className="text-accent" /> {t}
+                  <div
+                    key={t}
+                    className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2"
+                  >
+                    <span className="text-accent text-sm">✦</span>
+                    <span className="text-sm font-semibold text-foreground">{t}</span>
                   </div>
                 ))}
               </div>
@@ -302,6 +349,34 @@ export default function Consorcio() {
           </div>
         </section>
 
+        {/* ═══════ CONFIANÇA E SEGURANÇA ═══════ */}
+        <section className="py-20 md:py-28 bg-white/[0.02]">
+          <div className="container mx-auto px-4">
+            <TextReveal as="h2" text="Para nós, seu sonho é bem real." className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
+            <Reveal direction="up" delay={200}>
+              <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
+                Por isso cuidamos de tudo para você.
+              </p>
+            </Reveal>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { emoji: "🤝", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você — sem pressão, sem enrolação." },
+                { emoji: "⚡", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
+                { emoji: "🔒", title: "Segurança garantida", desc: "Todo o processo é regulamentado pelo Banco Central. Você investe com a segurança da Porto Bank por trás." },
+              ].map((c, i) => (
+                <Reveal key={i} delay={i * 150} direction="up">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-accent/40 transition-all duration-300">
+                    <span className="text-5xl mb-5 block">{c.emoji}</span>
+                    <h3 className="font-sora font-bold text-lg text-foreground mb-2">{c.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ═══════ COMO FUNCIONA ═══════ */}
         <section className="py-20 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
@@ -379,6 +454,25 @@ export default function Consorcio() {
               </form>
             </Reveal>
           </div>
+        </section>
+
+        {/* ═══════ DEPOIMENTOS ═══════ */}
+        <section className="py-20 md:py-28 overflow-hidden">
+          <div className="container mx-auto px-4 mb-14">
+            <TextReveal as="h2" text="O que nossos clientes dizem" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
+            <Reveal direction="up" delay={200}>
+              <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto">
+                A maioria dos nossos clientes chega por indicação — e isso diz tudo.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal direction="none" delay={400}>
+            <div className="marquee-container space-y-6">
+              <MarqueeRow items={testimonials.slice(0, 3)} />
+              <MarqueeRow items={testimonials.slice(3)} reverse />
+            </div>
+          </Reveal>
         </section>
 
         {/* ═══════ FAQ ═══════ */}
