@@ -131,14 +131,14 @@ function TestimonialCard({ name, role, text }: typeof testimonials[0]) {
 }
 
 function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; reverse?: boolean }) {
-  const doubled = [...items, ...items];
+  const quadrupled = [...items, ...items, ...items, ...items];
   return (
-    <div className="flex overflow-hidden">
+    <div className="overflow-hidden">
       <div
         className={`flex ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}
         style={{ width: "max-content" }}
       >
-        {doubled.map((t, i) => (
+        {quadrupled.map((t, i) => (
           <TestimonialCard key={i} {...t} />
         ))}
       </div>
@@ -352,24 +352,24 @@ export default function Consorcio() {
         {/* ═══════ CONFIANÇA E SEGURANÇA ═══════ */}
         <section className="py-20 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
-            <TextReveal as="h2" text="Para nós, seu sonho é bem real." className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
+            <TextReveal as="h2" text="Do sonho ao patrimônio, a Plan10 está com você." className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
-                Por isso cuidamos de tudo para você.
+                Cuidamos de cada detalhe para que você conquiste o que realmente importa.
               </p>
             </Reveal>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 items-stretch">
               {[
                 { emoji: "🤝", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você — sem pressão, sem enrolação." },
                 { emoji: "⚡", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
                 { emoji: "🔒", title: "Segurança garantida", desc: "Todo o processo é regulamentado pelo Banco Central. Você investe com a segurança da Porto Bank por trás." },
               ].map((c, i) => (
-                <Reveal key={i} delay={i * 150} direction="up">
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-accent/40 transition-all duration-300">
+                <Reveal key={i} delay={i * 150} direction="up" className="h-full">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-accent/40 transition-all duration-300 h-full flex flex-col">
                     <span className="text-5xl mb-5 block">{c.emoji}</span>
                     <h3 className="font-sora font-bold text-lg text-foreground mb-2">{c.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{c.desc}</p>
                   </div>
                 </Reveal>
               ))}
