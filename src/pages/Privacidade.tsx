@@ -6,7 +6,9 @@ export default function Privacidade() {
       {/* Mini header */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <img src={planLogo} alt="Plan10" className="h-9" />
+          <button onClick={() => window.location.href = '/'} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
+            <img src={planLogo} alt="Plan10" className="h-9" />
+          </button>
           <button
             onClick={() => window.history.back()}
             className="text-sm text-muted-foreground hover:text-accent transition-colors font-semibold"
