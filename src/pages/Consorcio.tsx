@@ -152,10 +152,22 @@ function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; re
 export default function Consorcio() {
   const [form, setForm] = useState({ tipo: "", valor: "", nome: "", telefone: "" });
 
+  const formatCurrency = (raw: string): string => {
+    const digits = raw.replace(/\D/g, '');
+    if (!digits) return '';
+    const number = parseInt(digits, 10);
+    return number.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  };
+
   const handleSimular = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     const { tipo, valor, nome } = form;
-    const msg = `Olá! Quero simular um Consórcio de ${tipo || "Imóvel"} no valor de R$ ${valor || "—"}. Meu nome é ${nome || "—"}.`;
+    const msg = `Olá! Quero simular um Consórcio de ${tipo || "Imóvel"} no valor de ${valor || "—"}. Meu nome é ${nome || "—"}.`;
     window.open(`${WA_BASE}&text=${encodeURIComponent(msg)}`, "_blank");
   }, [form]);
 
@@ -433,8 +445,15 @@ export default function Consorcio() {
                   <option value="Carro">Carro</option>
                   <option value="Pesados">Pesados</option>
                 </select>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  placeholder="R$ 0"
+                  value={form.valor}
+                  onChange={(e) => setForm({ ...form, valor: formatCurrency(e.target.value) })}
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3.5 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
+                />
                 {[
-                  { key: "valor", placeholder: "Qual o valor do crédito desejado? (R$)", type: "text" },
                   { key: "nome", placeholder: "Seu nome", type: "text" },
                   { key: "telefone", placeholder: "Seu telefone (WhatsApp)", type: "tel" },
                 ].map((f) => (
