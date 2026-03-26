@@ -66,6 +66,26 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--accent));
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent) / 0.8);
+  }
+  * {
+    scrollbar-color: hsl(var(--accent)) hsl(var(--background));
+    scrollbar-width: thin;
+  }
 }
 
 @layer utilities {
