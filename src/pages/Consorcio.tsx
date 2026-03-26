@@ -521,7 +521,7 @@ export default function Consorcio() {
       <footer className="bg-background py-10 border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
           <img src={planLogo} alt="Plan10" className="h-8 mx-auto mb-4" />
-          <p className="text-sm text-muted-foreground mb-3">© 2025 Plan10 Seguros. Parceiro Oficial Porto Bank.</p>
+          <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Seguros. Parceiro Oficial Porto Bank.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
             <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Política de Privacidade</a>
             <span>|</span>
