@@ -521,10 +521,21 @@ export default function Consorcio() {
           <img src={planLogo} alt="Plan10" className="h-8 mx-auto mb-4" />
           <p className="text-sm text-muted-foreground mb-3">© 2025 Plan10 Seguros. Parceiro Oficial Porto Bank.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
-            <a href="#" className="hover:text-accent transition-colors">Política de Privacidade</a>
+            <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Política de Privacidade</a>
             <span>|</span>
             <a href="/" className="hover:text-accent transition-colors">plan10.com.br</a>
           </div>
+          <p className="text-xs text-muted-foreground mt-3">
+            Desenvolvido por{" "}
+            <a
+              href="https://nextcorporation.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors underline underline-offset-2"
+            >
+              Next Corporation
+            </a>
+          </p>
         </div>
       </footer>
 
