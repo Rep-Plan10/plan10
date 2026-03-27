@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Check, MessageCircle, ArrowDown, Shield, Phone, Star } from "lucide-react";
 import planLogo from "@/assets/plan10-logo.png";
-import portoBankLogo from "@/assets/porto-bank-logo.webp";
 
 /* ───────────────────── WHATSAPP ───────────────────── */
 const WA_PHONE = "5511991051616";
@@ -163,30 +162,14 @@ function PortoBankIcon({ className = "" }: { className?: string }) {
    MAIN PAGE
    ═══════════════════════════════════════════════════════ */
 export default function Consorcio() {
-  const [form, setForm] = useState({ tipo: "", valor: "", nome: "", telefone: "" });
   const [simCategoria, setSimCategoria] = useState<'imovel' | 'veiculo' | 'pesados'>('imovel');
   const [simFaixa, setSimFaixa] = useState(0);
+  const [leadNome, setLeadNome] = useState('');
+  const [leadTelefone, setLeadTelefone] = useState('');
 
-  const formatCurrency = (raw: string): string => {
-    const digits = raw.replace(/\D/g, '');
-    if (!digits) return '';
-    const number = parseInt(digits, 10);
-    return number.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    });
-  };
 
-  const handleSimular = useCallback((e: React.FormEvent) => {
-    e.preventDefault();
-    const { tipo, valor, nome } = form;
-    const msg = `Olá! Quero simular um Consórcio de ${tipo || "Imóvel"} no valor de ${valor || "—"}. Meu nome é ${nome || "—"}.`;
-    window.open(`${WA_BASE}&text=${encodeURIComponent(msg)}`, "_blank");
-  }, [form]);
 
-  const scrollToSim = () => document.getElementById("simulacao")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToSim = () => document.getElementById("simulador-parcelas")?.scrollIntoView({ behavior: "smooth" });
 
   /* ───────────────────── SIMULADOR DATA ───────────────────── */
   const simuladorData = {
@@ -409,9 +392,21 @@ export default function Consorcio() {
 
           <div className="container mx-auto px-4 py-20 relative z-10">
             <Reveal delay={0} direction="up">
-              <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-4 py-2 mb-8">
-                <img src={portoBankLogo} alt="Porto Bank" className="h-5 shrink-0" style={{ filter: "brightness(0) invert(1)" }} />
-                <span className="text-xs md:text-sm font-semibold text-white">Parceiro Oficial Porto Bank</span>
+              <div className="flex flex-col items-center gap-3 mb-8">
+                <div className="flex items-center gap-2 opacity-90">
+                  <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="white" fillOpacity="0.2"/>
+                    <path d="M7 33 C10 24 15 10 21 9 C27 8 33 18 33 18 C27 13 20 15 15 20 C10 25 7 33 7 33Z" fill="white"/>
+                    <path d="M7 33 C11 26 17 19 23 17 C29 15 35 26 35 26 C29 21 21 22 17 26 C12 30 7 33 7 33Z" fill="white" fillOpacity="0.6"/>
+                  </svg>
+                  <span className="text-white font-bold text-xl tracking-wide">
+                    Porto<span className="font-black">Bank</span>
+                  </span>
+                </div>
+                <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-4 py-1.5">
+                  <span className="text-[#4ade80] text-xs">✓</span>
+                  <span className="text-white text-xs font-semibold">Parceiro Oficial Porto Bank</span>
+                </div>
               </div>
             </Reveal>
 
@@ -526,10 +521,16 @@ export default function Consorcio() {
                     </select>
                   </div>
 
-                  {/* Badge oferta */}
-                  <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4">
-                    <span>🔥</span>
-                    <span className="text-sm font-semibold text-foreground">Parcelas 45% menores até a contemplação</span>
+                  {/* Badges oferta */}
+                  <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
+                    <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
+                      <span className="text-lg">🔥</span>
+                      <span className="text-white font-bold text-sm">Parcelas 45% menores até a contemplação</span>
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
+                      <span className="text-lg">💳</span>
+                      <span className="text-white font-semibold text-sm">10% off na taxa adm com Cartão Porto</span>
+                    </div>
                   </div>
 
                   {/* Descrição da taxa */}
@@ -592,15 +593,41 @@ export default function Consorcio() {
                     </div>
                   </div>
 
-                  {/* CTA */}
-                  <a
-                    href={`${WA_BASE}&text=${encodeURIComponent(`Olá! Tenho interesse no Consórcio de ${categoriaLabels[simCategoria]} na faixa de ${faixaAtual.faixa}. Pode me ajudar?`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cta-btn w-full bg-accent text-accent-foreground py-4 rounded-xl font-bold text-base inline-flex items-center justify-center gap-2"
-                  >
-                    <MessageCircle size={20} /> Quero essa condição no WhatsApp
-                  </a>
+                  {/* Lead capture */}
+                  <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <p className="text-white font-semibold text-center mb-4">
+                      Gostou? Fale com um consultor e garanta essa condição
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                      <input
+                        type="text"
+                        placeholder="Seu nome"
+                        value={leadNome}
+                        onChange={(e) => setLeadNome(e.target.value)}
+                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
+                      />
+                      <input
+                        type="tel"
+                        placeholder="Seu WhatsApp"
+                        value={leadTelefone}
+                        onChange={(e) => setLeadTelefone(e.target.value)}
+                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
+                      />
+                    </div>
+                    <button
+                      onClick={() => {
+                        const cat = categoriaLabels[simCategoria];
+                        const faixa = faixaAtual?.faixa || '';
+                        const msg = encodeURIComponent(
+                          `Olá! Tenho interesse no Consórcio de ${cat} na faixa ${faixa}. Meu nome é ${leadNome || '(não informado)'}.`
+                        );
+                        window.open(`${WA_BASE}&text=${msg}`, '_blank');
+                      }}
+                      className="mt-3 w-full max-w-xl mx-auto block bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 px-6 rounded-xl transition-colors duration-200"
+                    >
+                      Quero essa condição no WhatsApp
+                    </button>
+                  </div>
 
                   {/* Nota legal */}
                   <p className="text-[11px] text-muted-foreground text-center mt-4 leading-relaxed">
@@ -767,62 +794,6 @@ export default function Consorcio() {
           </div>
         </section>
 
-        {/* ═══════ SIMULADOR ═══════ */}
-        <section id="simulacao" className="py-20 md:py-28 relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent/5 via-transparent to-transparent" />
-            <div className="absolute top-0 left-0 w-1 h-full bg-accent/20 rounded-full" />
-          </div>
-
-          <div className="container mx-auto px-4 relative z-10">
-            <TextReveal as="h2" text="Simule seu consórcio agora" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
-            <Reveal direction="up" delay={200}>
-              <p className="text-center text-muted-foreground text-lg mb-12">É gratuito, sem compromisso e sem burocracia.</p>
-            </Reveal>
-
-            <Reveal direction="up" delay={300}>
-              <form onSubmit={handleSimular} className="max-w-xl mx-auto space-y-4">
-                <select
-                  value={form.tipo}
-                  onChange={(e) => setForm({ ...form, tipo: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
-                >
-                  <option value="">Qual tipo de consórcio?</option>
-                  <option value="Imóvel">Imóvel</option>
-                  <option value="Veículo">Veículo</option>
-                  <option value="Pesados">Pesados</option>
-                </select>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  placeholder="R$ 0"
-                  value={form.valor}
-                  onChange={(e) => setForm({ ...form, valor: formatCurrency(e.target.value) })}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3.5 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
-                />
-                {[
-                  { key: "nome", placeholder: "Seu nome", type: "text" },
-                  { key: "telefone", placeholder: "Seu telefone (WhatsApp)", type: "tel" },
-                ].map((f) => (
-                  <input
-                    key={f.key}
-                    type={f.type}
-                    placeholder={f.placeholder}
-                    value={form[f.key as keyof typeof form]}
-                    onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3.5 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
-                  />
-                ))}
-                <button type="submit" className="cta-btn w-full bg-accent text-accent-foreground py-4 rounded-xl font-bold text-base">
-                  Quero minha simulação gratuita
-                </button>
-                <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1.5">
-                  <Shield size={14} /> Seus dados são usados apenas para contato. Não compartilhamos com terceiros.
-                </p>
-              </form>
-            </Reveal>
-          </div>
-        </section>
 
         {/* ═══════ DEPOIMENTOS ═══════ */}
         <section className="py-20 md:py-28 overflow-hidden">
