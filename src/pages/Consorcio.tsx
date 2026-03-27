@@ -410,7 +410,7 @@ export default function Consorcio() {
           <div className="container mx-auto px-4 py-20 relative z-10">
             <Reveal delay={0} direction="up">
               <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-4 py-2 mb-8">
-                <PortoBankIcon className="shrink-0" />
+                <img src={portoBankLogo} alt="Porto Bank" className="h-5 shrink-0" style={{ filter: "brightness(0) invert(1)" }} />
                 <span className="text-xs md:text-sm font-semibold text-white">Parceiro Oficial Porto Bank</span>
               </div>
             </Reveal>
