@@ -168,24 +168,7 @@ export default function Consorcio() {
   const [leadNome, setLeadNome] = useState('');
   const [leadTelefone, setLeadTelefone] = useState('');
 
-  const formatCurrency = (raw: string): string => {
-    const digits = raw.replace(/\D/g, '');
-    if (!digits) return '';
-    const number = parseInt(digits, 10);
-    return number.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    });
-  };
 
-  const handleSimular = useCallback((e: React.FormEvent) => {
-    e.preventDefault();
-    const { tipo, valor, nome } = form;
-    const msg = `Olá! Quero simular um Consórcio de ${tipo || "Imóvel"} no valor de ${valor || "—"}. Meu nome é ${nome || "—"}.`;
-    window.open(`${WA_BASE}&text=${encodeURIComponent(msg)}`, "_blank");
-  }, [form]);
 
   const scrollToSim = () => document.getElementById("simulador-parcelas")?.scrollIntoView({ behavior: "smooth" });
 
