@@ -187,7 +187,7 @@ export default function Consorcio() {
     window.open(`${WA_BASE}&text=${encodeURIComponent(msg)}`, "_blank");
   }, [form]);
 
-  const scrollToSim = () => document.getElementById("simulacao")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToSim = () => document.getElementById("simulador-parcelas")?.scrollIntoView({ behavior: "smooth" });
 
   /* ───────────────────── SIMULADOR DATA ───────────────────── */
   const simuladorData = {
