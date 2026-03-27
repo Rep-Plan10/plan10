@@ -146,11 +146,25 @@ function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; re
   );
 }
 
+/* ───────────────────── PORTO BANK SVG ───────────────────── */
+function PortoBankIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} width="20" height="20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect rx="10" width="64" height="64" fill="white" fillOpacity="0.25" />
+      <path d="M16 44C16 44 22 38 28 28C34 18 40 14 48 12" stroke="white" strokeWidth="4" strokeLinecap="round" />
+      <path d="M16 36C16 36 22 30 28 22C34 14 40 12 48 12" stroke="white" strokeWidth="3.5" strokeLinecap="round" opacity="0.7" />
+      <path d="M16 28C16 28 24 22 30 18C36 14 42 12 48 12" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
+    </svg>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════════════════════ */
 export default function Consorcio() {
   const [form, setForm] = useState({ tipo: "", valor: "", nome: "", telefone: "" });
+  const [simCategoria, setSimCategoria] = useState<'imovel' | 'veiculo' | 'pesados'>('imovel');
+  const [simFaixa, setSimFaixa] = useState(0);
 
   const formatCurrency = (raw: string): string => {
     const digits = raw.replace(/\D/g, '');
@@ -172,6 +186,190 @@ export default function Consorcio() {
   }, [form]);
 
   const scrollToSim = () => document.getElementById("simulacao")?.scrollIntoView({ behavior: "smooth" });
+
+  /* ───────────────────── SIMULADOR DATA ───────────────────── */
+  const simuladorData = {
+    imovel: [
+      {
+        faixa: "R$ 70.000 a R$ 140.000",
+        descricao: "Taxa adm 25% · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Com Redução (5x entrada)", "Demais Parcelas"],
+        linhas: [
+          ["R$ 70.000", "R$ 1.889", "R$ 564", "R$ 284"],
+          ["R$ 80.000", "R$ 2.159", "R$ 645", "R$ 325"],
+          ["R$ 90.000", "R$ 2.429", "R$ 725", "R$ 365"],
+          ["R$ 100.000", "R$ 2.699", "R$ 806", "R$ 406"],
+          ["R$ 110.000", "R$ 2.969", "R$ 886", "R$ 446"],
+          ["R$ 120.000", "R$ 3.239", "R$ 967", "R$ 487"],
+          ["R$ 130.000", "R$ 3.509", "R$ 1.048", "R$ 528"],
+          ["R$ 140.000", "R$ 3.779", "R$ 1.128", "R$ 568"],
+        ]
+      },
+      {
+        faixa: "R$ 140.000 a R$ 280.000",
+        descricao: "Taxa adm 23% diluída · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Parcela Reduzida + Entrada diluída"],
+        linhas: [
+          ["R$ 140.000", "R$ 3.763", "R$ 567"],
+          ["R$ 150.000", "R$ 4.032", "R$ 608"],
+          ["R$ 160.000", "R$ 4.301", "R$ 648"],
+          ["R$ 170.000", "R$ 4.569", "R$ 689"],
+          ["R$ 180.000", "R$ 4.838", "R$ 730"],
+          ["R$ 190.000", "R$ 5.107", "R$ 770"],
+          ["R$ 200.000", "R$ 5.376", "R$ 811"],
+          ["R$ 210.000", "R$ 5.645", "R$ 851"],
+          ["R$ 220.000", "R$ 5.913", "R$ 892"],
+          ["R$ 230.000", "R$ 6.182", "R$ 932"],
+          ["R$ 240.000", "R$ 6.451", "R$ 973"],
+          ["R$ 250.000", "R$ 6.720", "R$ 1.013"],
+          ["R$ 260.000", "R$ 6.989", "R$ 1.054"],
+          ["R$ 270.000", "R$ 7.257", "R$ 1.095"],
+          ["R$ 280.000", "R$ 7.526", "R$ 1.135"],
+        ]
+      },
+      {
+        faixa: "R$ 280.000 a R$ 560.000",
+        descricao: "Taxa adm 21% (entrada 2% em 3x) · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Com Redução (3x entrada)", "Demais Parcelas"],
+        linhas: [
+          ["R$ 280.000", "R$ 7.459", "R$ 2.948", "R$ 1.081"],
+          ["R$ 300.000", "R$ 7.992", "R$ 3.158", "R$ 1.158"],
+          ["R$ 320.000", "R$ 8.525", "R$ 3.369", "R$ 1.236"],
+          ["R$ 340.000", "R$ 9.057", "R$ 3.580", "R$ 1.313"],
+          ["R$ 360.000", "R$ 9.590", "R$ 3.790", "R$ 1.390"],
+          ["R$ 380.000", "R$ 10.123", "R$ 4.001", "R$ 1.467"],
+          ["R$ 400.000", "R$ 10.656", "R$ 4.211", "R$ 1.545"],
+          ["R$ 420.000", "R$ 11.189", "R$ 4.422", "R$ 1.622"],
+          ["R$ 440.000", "R$ 11.721", "R$ 4.632", "R$ 1.699"],
+          ["R$ 460.000", "R$ 12.254", "R$ 4.843", "R$ 1.776"],
+          ["R$ 480.000", "R$ 12.787", "R$ 5.054", "R$ 1.854"],
+          ["R$ 500.000", "R$ 13.320", "R$ 5.264", "R$ 1.931"],
+          ["R$ 520.000", "R$ 13.853", "R$ 5.475", "R$ 2.008"],
+          ["R$ 540.000", "R$ 14.386", "R$ 5.685", "R$ 2.085"],
+          ["R$ 560.000", "R$ 14.918", "R$ 5.896", "R$ 2.163"],
+        ]
+      },
+      {
+        faixa: "R$ 632.520 a R$ 948.780",
+        descricao: "Taxa adm 19,5% diluída · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Parcela Reduzida + Entrada diluída"],
+        linhas: [
+          ["R$ 632.520", "R$ 17.118", "R$ 2.627"],
+          ["R$ 685.230", "R$ 18.545", "R$ 2.846"],
+          ["R$ 737.940", "R$ 19.971", "R$ 3.065"],
+          ["R$ 790.650", "R$ 21.398", "R$ 3.284"],
+          ["R$ 843.360", "R$ 22.824", "R$ 3.503"],
+          ["R$ 895.070", "R$ 24.224", "R$ 3.717"],
+          ["R$ 948.780", "R$ 25.677", "R$ 3.940"],
+        ]
+      },
+    ],
+    veiculo: [
+      {
+        faixa: "R$ 25.000 a R$ 50.000",
+        descricao: "Taxa adm 18% · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Parcelas com Redução"],
+        linhas: [
+          ["R$ 25.000", "R$ 663", "R$ 370"],
+          ["R$ 30.000", "R$ 796", "R$ 444"],
+          ["R$ 35.000", "R$ 929", "R$ 518"],
+          ["R$ 40.000", "R$ 1.061", "R$ 592"],
+          ["R$ 45.000", "R$ 1.194", "R$ 666"],
+          ["R$ 50.000", "R$ 1.327", "R$ 740"],
+        ]
+      },
+      {
+        faixa: "R$ 34.000 a R$ 65.000",
+        descricao: "Taxa adm 18% · Lance Fixo 40% · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Parcelas com Redução"],
+        linhas: [
+          ["R$ 34.000", "R$ 663", "R$ 371"],
+          ["R$ 35.000", "R$ 682", "R$ 382"],
+          ["R$ 40.000", "R$ 780", "R$ 437"],
+          ["R$ 45.000", "R$ 877", "R$ 491"],
+          ["R$ 50.000", "R$ 975", "R$ 546"],
+          ["R$ 55.000", "R$ 1.072", "R$ 601"],
+          ["R$ 60.000", "R$ 1.170", "R$ 655"],
+          ["R$ 65.000", "R$ 1.267", "R$ 710"],
+        ]
+      },
+      {
+        faixa: "R$ 62.500 a R$ 125.000",
+        descricao: "Taxa adm 16% · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Parcelas com Redução"],
+        linhas: [
+          ["R$ 62.500", "R$ 998", "R$ 561"],
+          ["R$ 72.500", "R$ 1.158", "R$ 651"],
+          ["R$ 82.500", "R$ 1.317", "R$ 741"],
+          ["R$ 92.500", "R$ 1.477", "R$ 831"],
+          ["R$ 102.500", "R$ 1.637", "R$ 921"],
+          ["R$ 112.500", "R$ 1.797", "R$ 1.011"],
+          ["R$ 122.500", "R$ 1.956", "R$ 1.101"],
+          ["R$ 125.000", "R$ 1.996", "R$ 1.123"],
+        ]
+      },
+      {
+        faixa: "R$ 125.000 a R$ 200.000",
+        descricao: "Taxa adm 15% · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Parcelas com Redução"],
+        linhas: [
+          ["R$ 125.000", "R$ 1.756", "R$ 990"],
+          ["R$ 130.000", "R$ 1.826", "R$ 1.030"],
+          ["R$ 140.000", "R$ 1.966", "R$ 1.109"],
+          ["R$ 150.000", "R$ 2.107", "R$ 1.189"],
+          ["R$ 160.000", "R$ 2.247", "R$ 1.268"],
+          ["R$ 170.000", "R$ 2.388", "R$ 1.347"],
+          ["R$ 180.000", "R$ 2.528", "R$ 1.426"],
+          ["R$ 190.000", "R$ 2.669", "R$ 1.506"],
+          ["R$ 200.000", "R$ 2.809", "R$ 1.585"],
+        ]
+      },
+    ],
+    pesados: [
+      {
+        faixa: "R$ 180.000 a R$ 260.000",
+        descricao: "Taxa adm 14% · Lance Fixo 40% · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Parcelas com Redução"],
+        linhas: [
+          ["R$ 180.000", "R$ 1.863", "R$ 1.060"],
+          ["R$ 190.000", "R$ 1.967", "R$ 1.119"],
+          ["R$ 200.000", "R$ 2.071", "R$ 1.178"],
+          ["R$ 210.000", "R$ 2.174", "R$ 1.237"],
+          ["R$ 220.000", "R$ 2.278", "R$ 1.296"],
+          ["R$ 230.000", "R$ 2.381", "R$ 1.355"],
+          ["R$ 240.000", "R$ 2.485", "R$ 1.414"],
+          ["R$ 250.000", "R$ 2.588", "R$ 1.473"],
+          ["R$ 260.000", "R$ 2.692", "R$ 1.532"],
+        ]
+      },
+      {
+        faixa: "R$ 270.000 a R$ 360.000",
+        descricao: "Taxa adm 14% · Lance Fixo 40% · Fundo Reserva 2% · Seguro 0,038%",
+        colunas: ["Crédito", "Parcela sem Oferta", "Parcelas com Redução"],
+        linhas: [
+          ["R$ 270.000", "R$ 2.795", "R$ 1.591"],
+          ["R$ 280.000", "R$ 2.899", "R$ 1.650"],
+          ["R$ 290.000", "R$ 3.003", "R$ 1.709"],
+          ["R$ 300.000", "R$ 3.106", "R$ 1.768"],
+          ["R$ 310.000", "R$ 3.210", "R$ 1.827"],
+          ["R$ 320.000", "R$ 3.313", "R$ 1.886"],
+          ["R$ 330.000", "R$ 3.417", "R$ 1.944"],
+          ["R$ 340.000", "R$ 3.520", "R$ 2.003"],
+          ["R$ 350.000", "R$ 3.624", "R$ 2.062"],
+          ["R$ 360.000", "R$ 3.727", "R$ 2.121"],
+        ]
+      },
+    ],
+  };
+
+  const categoriaLabels = { imovel: "Imóvel", veiculo: "Veículo", pesados: "Pesados" };
+  const faixas = simuladorData[simCategoria];
+  const faixaAtual = faixas[simFaixa];
+
+  const handleCategoria = (cat: 'imovel' | 'veiculo' | 'pesados') => {
+    setSimCategoria(cat);
+    setSimFaixa(0);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground font-inter">
@@ -211,7 +409,7 @@ export default function Consorcio() {
           <div className="container mx-auto px-4 py-20 relative z-10">
             <Reveal delay={0} direction="up">
               <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-4 py-2 mb-8">
-                <Check size={14} className="text-white" />
+                <PortoBankIcon className="shrink-0" />
                 <span className="text-xs md:text-sm font-semibold text-white">Parceiro Oficial Porto Bank</span>
               </div>
             </Reveal>
@@ -224,12 +422,12 @@ export default function Consorcio() {
 
             <Reveal delay={500} direction="up">
               <p className="text-base md:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-                Consórcio de imóvel, carro e pesados com parcelas inteligentes. Administrado pela Porto Bank — uma das maiores do Brasil.
+                Consórcio de imóvel, veículo e pesados com parcelas inteligentes. Administrado pela Porto Bank — uma das maiores do Brasil.
               </p>
             </Reveal>
 
             <Reveal delay={650} direction="up">
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold">
                   Quero simular agora
                 </button>
@@ -241,6 +439,20 @@ export default function Consorcio() {
                 >
                   <Phone size={18} /> Falar com consultor
                 </a>
+              </div>
+            </Reveal>
+
+            {/* ── BANNER DE OFERTA ── */}
+            <Reveal delay={700} direction="up">
+              <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-xl px-4 py-2.5">
+                  <span className="text-lg">🔥</span>
+                  <span className="text-sm font-semibold text-foreground">Parcelas 45% menores até a contemplação</span>
+                </div>
+                <div className="inline-flex items-center gap-2 bg-[#003087]/20 border border-[#003087]/40 rounded-xl px-4 py-2.5">
+                  <span className="text-lg">💳</span>
+                  <span className="text-sm font-semibold text-foreground">10% off na taxa adm com Cartão Porto</span>
+                </div>
               </div>
             </Reveal>
 
@@ -262,6 +474,140 @@ export default function Consorcio() {
           {/* Scroll arrow */}
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
             <ArrowDown size={24} className="text-white/40" />
+          </div>
+        </section>
+
+        {/* ═══════ SIMULADOR DE PARCELAS ═══════ */}
+        <section id="simulador-parcelas" className="py-20 md:py-28 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <TextReveal as="h2" text="Simule sua parcela agora" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-3" />
+              <Reveal direction="up" delay={200}>
+                <p className="text-center text-muted-foreground text-sm md:text-base mb-10">
+                  Valores reais Porto Bank • Oferta válida até 30/04/2026
+                </p>
+              </Reveal>
+
+              <Reveal direction="up" delay={300}>
+                <div className="glass rounded-2xl p-6 md:p-8 border border-white/10">
+                  {/* Tabs de categoria */}
+                  <div className="flex gap-2 mb-6">
+                    {([
+                      { key: 'imovel' as const, emoji: '🏠', label: 'Imóvel' },
+                      { key: 'veiculo' as const, emoji: '🚗', label: 'Veículo' },
+                      { key: 'pesados' as const, emoji: '🚛', label: 'Pesados' },
+                    ]).map((tab) => (
+                      <button
+                        key={tab.key}
+                        onClick={() => handleCategoria(tab.key)}
+                        className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all ${
+                          simCategoria === tab.key
+                            ? "bg-accent text-accent-foreground"
+                            : "bg-white/5 border border-white/10 text-foreground hover:bg-white/10"
+                        }`}
+                      >
+                        <span>{tab.emoji}</span> {tab.label}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Select de faixa */}
+                  <div className="mb-6">
+                    <label className="block text-xs text-muted-foreground mb-2 font-semibold">Escolha a faixa de crédito</label>
+                    <select
+                      value={simFaixa}
+                      onChange={(e) => setSimFaixa(Number(e.target.value))}
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
+                    >
+                      {faixas.map((f, i) => (
+                        <option key={i} value={i}>{f.faixa}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Badge oferta */}
+                  <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4">
+                    <span>🔥</span>
+                    <span className="text-sm font-semibold text-foreground">Parcelas 45% menores até a contemplação</span>
+                  </div>
+
+                  {/* Descrição da taxa */}
+                  <p className="text-xs text-muted-foreground mb-4">{faixaAtual.descricao}</p>
+
+                  {/* Tabela de parcelas */}
+                  <div
+                    key={`${simCategoria}-${simFaixa}`}
+                    className="animate-fade-in border border-white/10 rounded-xl overflow-hidden mb-6"
+                  >
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm" style={{ minWidth: "500px" }}>
+                        <thead>
+                          <tr>
+                            {faixaAtual.colunas.map((col, ci) => {
+                              const isStrike = col.toLowerCase().includes("sem oferta");
+                              const isLast = ci === faixaAtual.colunas.length - 1 && ci > 0;
+                              return (
+                                <th
+                                  key={ci}
+                                  className={`px-4 py-3 text-left text-xs font-bold whitespace-nowrap ${
+                                    isStrike
+                                      ? "bg-accent text-accent-foreground"
+                                      : isLast
+                                      ? "bg-[#003087] text-white"
+                                      : "bg-white/5 text-foreground"
+                                  }`}
+                                >
+                                  {col}
+                                </th>
+                              );
+                            })}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {faixaAtual.linhas.map((row, ri) => (
+                            <tr key={ri} className={ri % 2 === 0 ? "bg-white/[0.03]" : "bg-transparent"}>
+                              {row.map((cell, ci) => {
+                                const isStrike = faixaAtual.colunas[ci]?.toLowerCase().includes("sem oferta");
+                                const isLast = ci === row.length - 1 && ci > 0;
+                                return (
+                                  <td
+                                    key={ci}
+                                    className={`px-4 py-3 whitespace-nowrap ${
+                                      isStrike
+                                        ? "line-through text-muted-foreground"
+                                        : isLast
+                                        ? "text-[#4ade80] font-bold"
+                                        : "text-foreground/80"
+                                    }`}
+                                  >
+                                    {cell}
+                                  </td>
+                                );
+                              })}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href={`${WA_BASE}&text=${encodeURIComponent(`Olá! Tenho interesse no Consórcio de ${categoriaLabels[simCategoria]} na faixa de ${faixaAtual.faixa}. Pode me ajudar?`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cta-btn w-full bg-accent text-accent-foreground py-4 rounded-xl font-bold text-base inline-flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle size={20} /> Quero essa condição no WhatsApp
+                  </a>
+
+                  {/* Nota legal */}
+                  <p className="text-[11px] text-muted-foreground text-center mt-4 leading-relaxed">
+                    Valores para Pessoa Física. Parcelas reajustadas no aniversário do grupo. Para demais condições, consulte o Regulamento. Oferta válida até 30/04/2026.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </section>
 
@@ -311,9 +657,9 @@ export default function Consorcio() {
                   cta: "Simular Imóvel", solid: true,
                 },
                 {
-                  emoji: "🚗", title: "Consórcio de Carro", popular: false,
-                  desc: "Do primeiro carro à sua próxima troca. Você escolhe o modelo, a marca e recebe a carta de crédito para comprar à vista e negociar melhor.",
-                  items: ["Créditos de R$ 30 mil a R$ 200 mil", "Parcelas a partir de R$ 380/mês", "Prazo de até 100 meses", "Carro novo, usado ou importado"],
+                  emoji: "🚗", title: "Consórcio de Veículo", popular: false,
+                  desc: "Do primeiro veículo à sua próxima troca. Você escolhe o modelo, a marca e recebe a carta de crédito para comprar à vista e negociar melhor.",
+                  items: ["Créditos de R$ 30 mil a R$ 200 mil", "Parcelas a partir de R$ 380/mês", "Prazo de até 100 meses", "Veículo novo, usado ou importado"],
                   cta: "Simular Veículo", solid: false,
                 },
                 {
@@ -442,7 +788,7 @@ export default function Consorcio() {
                 >
                   <option value="">Qual tipo de consórcio?</option>
                   <option value="Imóvel">Imóvel</option>
-                  <option value="Carro">Carro</option>
+                  <option value="Veículo">Veículo</option>
                   <option value="Pesados">Pesados</option>
                 </select>
                 <input
@@ -505,7 +851,7 @@ export default function Consorcio() {
               <div>
                 <FaqItem q="Consórcio tem juros?" a="Não. O consórcio não cobra juros. Você paga apenas a taxa de administração e, em alguns planos, o seguro. É muito mais barato que um financiamento tradicional no longo prazo." />
                 <FaqItem q="Quanto tempo levo para ser contemplado?" a="A contemplação pode acontecer no primeiro mês (por sorteio) ou você pode antecipar ofertando lances. Não há garantia de prazo, por isso o consórcio é indicado para quem tem planejamento." />
-                <FaqItem q="Posso usar a carta de crédito para qualquer imóvel ou carro?" a="Sim. A carta de crédito dá flexibilidade total — você escolhe o bem dentro da categoria contratada (imóvel, carro ou pesados) no momento da contemplação." />
+                <FaqItem q="Posso usar a carta de crédito para qualquer imóvel ou veículo?" a="Sim. A carta de crédito dá flexibilidade total — você escolhe o bem dentro da categoria contratada (imóvel, veículo ou pesados) no momento da contemplação." />
                 <FaqItem q="E se eu precisar cancelar?" a="É possível cancelar o consórcio. Nesse caso, você recebe os valores pagos de volta ao final do grupo, com as devidas correções conforme o contrato." />
                 <FaqItem q="Como a Plan10 me ajuda nesse processo?" a="Nossa equipe faz toda a consultoria gratuita: simulação, escolha do plano, acompanhamento até a contemplação e suporte no uso da carta de crédito. Você não fica sozinho em nenhum momento." />
               </div>
@@ -559,20 +905,6 @@ export default function Consorcio() {
           </p>
         </div>
       </footer>
-
-      {/* ───── FLOATING WA ───── */}
-      <a
-        href={WA_BASE}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group"
-        aria-label="WhatsApp"
-      >
-        <MessageCircle size={26} className="text-white" />
-        <span className="absolute right-full mr-3 bg-background/90 text-foreground text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-          Falar com especialista
-        </span>
-      </a>
     </div>
   );
 }
