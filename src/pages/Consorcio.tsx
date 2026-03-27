@@ -163,9 +163,10 @@ function PortoBankIcon({ className = "" }: { className?: string }) {
    MAIN PAGE
    ═══════════════════════════════════════════════════════ */
 export default function Consorcio() {
-  const [form, setForm] = useState({ tipo: "", valor: "", nome: "", telefone: "" });
   const [simCategoria, setSimCategoria] = useState<'imovel' | 'veiculo' | 'pesados'>('imovel');
   const [simFaixa, setSimFaixa] = useState(0);
+  const [leadNome, setLeadNome] = useState('');
+  const [leadTelefone, setLeadTelefone] = useState('');
 
   const formatCurrency = (raw: string): string => {
     const digits = raw.replace(/\D/g, '');
