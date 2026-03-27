@@ -409,9 +409,21 @@ export default function Consorcio() {
 
           <div className="container mx-auto px-4 py-20 relative z-10">
             <Reveal delay={0} direction="up">
-              <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-4 py-2 mb-8">
-                <img src={portoBankLogo} alt="Porto Bank" className="h-5 shrink-0" style={{ filter: "brightness(0) invert(1)" }} />
-                <span className="text-xs md:text-sm font-semibold text-white">Parceiro Oficial Porto Bank</span>
+              <div className="flex flex-col items-center gap-3 mb-8">
+                <div className="flex items-center gap-2 opacity-90">
+                  <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="white" fillOpacity="0.2"/>
+                    <path d="M7 33 C10 24 15 10 21 9 C27 8 33 18 33 18 C27 13 20 15 15 20 C10 25 7 33 7 33Z" fill="white"/>
+                    <path d="M7 33 C11 26 17 19 23 17 C29 15 35 26 35 26 C29 21 21 22 17 26 C12 30 7 33 7 33Z" fill="white" fillOpacity="0.6"/>
+                  </svg>
+                  <span className="text-white font-bold text-xl tracking-wide">
+                    Porto<span className="font-black">Bank</span>
+                  </span>
+                </div>
+                <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-4 py-1.5">
+                  <span className="text-[#4ade80] text-xs">✓</span>
+                  <span className="text-white text-xs font-semibold">Parceiro Oficial Porto Bank</span>
+                </div>
               </div>
             </Reveal>
 
