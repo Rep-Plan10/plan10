@@ -811,62 +811,6 @@ export default function Consorcio() {
           </div>
         </section>
 
-        {/* ═══════ SIMULADOR ═══════ */}
-        <section id="simulacao" className="py-20 md:py-28 relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent/5 via-transparent to-transparent" />
-            <div className="absolute top-0 left-0 w-1 h-full bg-accent/20 rounded-full" />
-          </div>
-
-          <div className="container mx-auto px-4 relative z-10">
-            <TextReveal as="h2" text="Simule seu consórcio agora" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
-            <Reveal direction="up" delay={200}>
-              <p className="text-center text-muted-foreground text-lg mb-12">É gratuito, sem compromisso e sem burocracia.</p>
-            </Reveal>
-
-            <Reveal direction="up" delay={300}>
-              <form onSubmit={handleSimular} className="max-w-xl mx-auto space-y-4">
-                <select
-                  value={form.tipo}
-                  onChange={(e) => setForm({ ...form, tipo: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3.5 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
-                >
-                  <option value="">Qual tipo de consórcio?</option>
-                  <option value="Imóvel">Imóvel</option>
-                  <option value="Veículo">Veículo</option>
-                  <option value="Pesados">Pesados</option>
-                </select>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  placeholder="R$ 0"
-                  value={form.valor}
-                  onChange={(e) => setForm({ ...form, valor: formatCurrency(e.target.value) })}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3.5 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
-                />
-                {[
-                  { key: "nome", placeholder: "Seu nome", type: "text" },
-                  { key: "telefone", placeholder: "Seu telefone (WhatsApp)", type: "tel" },
-                ].map((f) => (
-                  <input
-                    key={f.key}
-                    type={f.type}
-                    placeholder={f.placeholder}
-                    value={form[f.key as keyof typeof form]}
-                    onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3.5 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
-                  />
-                ))}
-                <button type="submit" className="cta-btn w-full bg-accent text-accent-foreground py-4 rounded-xl font-bold text-base">
-                  Quero minha simulação gratuita
-                </button>
-                <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1.5">
-                  <Shield size={14} /> Seus dados são usados apenas para contato. Não compartilhamos com terceiros.
-                </p>
-              </form>
-            </Reveal>
-          </div>
-        </section>
 
         {/* ═══════ DEPOIMENTOS ═══════ */}
         <section className="py-20 md:py-28 overflow-hidden">
