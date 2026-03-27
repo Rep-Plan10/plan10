@@ -538,10 +538,16 @@ export default function Consorcio() {
                     </select>
                   </div>
 
-                  {/* Badge oferta */}
-                  <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-4">
-                    <span>🔥</span>
-                    <span className="text-sm font-semibold text-foreground">Parcelas 45% menores até a contemplação</span>
+                  {/* Badges oferta */}
+                  <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
+                    <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
+                      <span className="text-lg">🔥</span>
+                      <span className="text-white font-bold text-sm">Parcelas 45% menores até a contemplação</span>
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
+                      <span className="text-lg">💳</span>
+                      <span className="text-white font-semibold text-sm">10% off na taxa adm com Cartão Porto</span>
+                    </div>
                   </div>
 
                   {/* Descrição da taxa */}
