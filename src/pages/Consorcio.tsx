@@ -610,15 +610,41 @@ export default function Consorcio() {
                     </div>
                   </div>
 
-                  {/* CTA */}
-                  <a
-                    href={`${WA_BASE}&text=${encodeURIComponent(`Olá! Tenho interesse no Consórcio de ${categoriaLabels[simCategoria]} na faixa de ${faixaAtual.faixa}. Pode me ajudar?`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cta-btn w-full bg-accent text-accent-foreground py-4 rounded-xl font-bold text-base inline-flex items-center justify-center gap-2"
-                  >
-                    <MessageCircle size={20} /> Quero essa condição no WhatsApp
-                  </a>
+                  {/* Lead capture */}
+                  <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <p className="text-white font-semibold text-center mb-4">
+                      Gostou? Fale com um consultor e garanta essa condição
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                      <input
+                        type="text"
+                        placeholder="Seu nome"
+                        value={leadNome}
+                        onChange={(e) => setLeadNome(e.target.value)}
+                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
+                      />
+                      <input
+                        type="tel"
+                        placeholder="Seu WhatsApp"
+                        value={leadTelefone}
+                        onChange={(e) => setLeadTelefone(e.target.value)}
+                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
+                      />
+                    </div>
+                    <button
+                      onClick={() => {
+                        const cat = categoriaLabels[simCategoria];
+                        const faixa = faixaAtual?.faixa || '';
+                        const msg = encodeURIComponent(
+                          `Olá! Tenho interesse no Consórcio de ${cat} na faixa ${faixa}. Meu nome é ${leadNome || '(não informado)'}.`
+                        );
+                        window.open(`${WA_BASE}&text=${msg}`, '_blank');
+                      }}
+                      className="mt-3 w-full max-w-xl mx-auto block bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 px-6 rounded-xl transition-colors duration-200"
+                    >
+                      Quero essa condição no WhatsApp
+                    </button>
+                  </div>
 
                   {/* Nota legal */}
                   <p className="text-[11px] text-muted-foreground text-center mt-4 leading-relaxed">
