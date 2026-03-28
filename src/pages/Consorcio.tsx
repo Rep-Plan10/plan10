@@ -762,7 +762,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ COMO FUNCIONA ═══════ */}
-        <section className="py-20 md:py-28 bg-white/[0.02]">
+        <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
             <TextReveal as="h2" text="Como funciona o consórcio?" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14" />
 
