@@ -392,7 +392,7 @@ export default function Consorcio() {
 
           <div className="container mx-auto px-4 py-20 relative z-10">
             <Reveal delay={0} direction="up">
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex flex-wrap items-center gap-3 mb-8">
                 <img
                   src="/Logo-PORTO-BANK-Padrao-e1690162927905.webp"
                   alt="Porto Bank"
