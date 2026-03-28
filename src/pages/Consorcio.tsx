@@ -470,7 +470,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ SIMULADOR DE PARCELAS ═══════ */}
-        <section id="simulador-parcelas" className="py-20 md:py-28 bg-muted/30">
+        <section id="simulador-parcelas" className="py-14 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <TextReveal as="h2" text="Simule sua parcela agora" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-3" />
