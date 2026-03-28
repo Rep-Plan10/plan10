@@ -475,7 +475,7 @@ export default function Consorcio() {
             <div className="max-w-5xl mx-auto">
               <TextReveal as="h2" text="Simule sua parcela agora" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-3" />
               <Reveal direction="up" delay={200}>
-                <p className="text-center text-muted-foreground text-sm md:text-base mb-10">
+                <p className="text-center text-muted-foreground text-sm md:text-base mb-10 px-2 break-words">
                   Valores reais Porto Bank • Oferta válida até 30/04/2026
                 </p>
               </Reveal>
