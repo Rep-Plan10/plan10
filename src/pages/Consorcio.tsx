@@ -828,7 +828,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ CTA FINAL ═══════ */}
-        <section className="py-20 md:py-28 bg-accent">
+        <section className="py-14 md:py-28 bg-accent">
           <div className="container mx-auto px-4 text-center">
             <TextReveal as="h2" text="Pronto para conquistar seu sonho?" className="font-sora font-black text-3xl md:text-4xl lg:text-5xl text-accent-foreground mb-4" />
             <Reveal direction="up" delay={200}>
