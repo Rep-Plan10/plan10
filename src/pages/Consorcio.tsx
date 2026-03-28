@@ -361,9 +361,9 @@ export default function Consorcio() {
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
-            <img src={planLogo} alt="Plan10" className="h-9" />
+            <img src={planLogo} alt="Plan10" className="max-h-8 w-auto" />
           </button>
-          <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground px-5 py-2.5 rounded-lg text-sm font-bold">
+          <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold">
             Simular agora
           </button>
         </div>
