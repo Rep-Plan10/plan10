@@ -434,22 +434,8 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            {/* ── BANNER DE OFERTA ── */}
             <Reveal delay={700} direction="up">
-              <div className="flex flex-col sm:flex-row gap-3 mb-8">
-                <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-xl px-4 py-2.5">
-                  <span className="text-lg">🔥</span>
-                  <span className="text-sm font-semibold text-foreground">Parcelas 45% menores até a contemplação</span>
-                </div>
-                <div className="inline-flex items-center gap-2 bg-[#003087]/20 border border-[#003087]/40 rounded-xl px-4 py-2.5">
-                  <span className="text-lg">💳</span>
-                  <span className="text-sm font-semibold text-foreground">10% off na taxa adm com Cartão Porto</span>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={800} direction="up">
-              <div className="flex flex-wrap gap-3 md:gap-4">
+              <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
                 {["Sem juros", "Parcelas menores", "Carta de crédito garantida"].map((t) => (
                   <div
                     key={t}
@@ -459,6 +445,20 @@ export default function Consorcio() {
                     <span className="text-sm font-semibold text-foreground">{t}</span>
                   </div>
                 ))}
+              </div>
+            </Reveal>
+
+            {/* ── BANNER DE OFERTA ── */}
+            <Reveal delay={800} direction="up">
+              <div className="flex flex-wrap justify-center gap-3 mt-4">
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
+                  <span className="text-lg">🔥</span>
+                  <span className="text-white font-bold text-sm">Parcelas 45% menores até a contemplação</span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
+                  <span className="text-lg">💳</span>
+                  <span className="text-white font-semibold text-sm">10% off na taxa adm com Cartão Porto</span>
+                </div>
               </div>
             </Reveal>
           </div>
