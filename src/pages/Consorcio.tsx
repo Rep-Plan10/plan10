@@ -672,7 +672,7 @@ export default function Consorcio() {
               </p>
             </Reveal>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
               {[
                 {
                   emoji: "🏠", title: "Consórcio de Imóvel", popular: true,
