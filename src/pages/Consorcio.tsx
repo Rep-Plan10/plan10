@@ -483,7 +483,7 @@ export default function Consorcio() {
               <Reveal direction="up" delay={300}>
                 <div className="glass rounded-2xl p-6 md:p-8 border border-white/10">
                   {/* Tabs de categoria */}
-                  <div className="flex gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {([
                       { key: 'imovel' as const, emoji: '🏠', label: 'Imóvel' },
                       { key: 'veiculo' as const, emoji: '🚗', label: 'Veículo' },
