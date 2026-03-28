@@ -811,7 +811,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ FAQ ═══════ */}
-        <section className="py-20 md:py-28">
+        <section className="py-14 md:py-28">
           <div className="container mx-auto px-4 max-w-3xl">
             <TextReveal as="h2" text="Dúvidas frequentes" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14" />
 
