@@ -392,17 +392,14 @@ export default function Consorcio() {
 
           <div className="container mx-auto px-4 py-20 relative z-10">
             <Reveal delay={0} direction="up">
-              <div className="flex flex-col items-start gap-2 mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-3 py-1 mb-6">
                 <img
                   src="/Logo-PORTO-BANK-Padrao-e1690162927905.webp"
                   alt="Porto Bank"
-                  className="h-10 w-auto"
+                  className="h-5 w-auto"
                   style={{ filter: 'brightness(0) invert(1)' }}
                 />
-                <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-3 py-1">
-                  <span className="text-[#4ade80] text-xs font-bold">✓</span>
-                  <span className="text-white text-xs font-semibold tracking-wide">Parceiro Oficial Porto Bank</span>
-                </div>
+                <span className="text-white text-xs font-semibold tracking-wide">Parceiro Oficial Porto Bank</span>
               </div>
             </Reveal>
 
@@ -450,7 +447,7 @@ export default function Consorcio() {
 
             {/* ── BANNER DE OFERTA ── */}
             <Reveal delay={800} direction="up">
-              <div className="flex flex-wrap justify-center gap-3 mt-4">
+              <div className="flex flex-wrap gap-3 md:gap-4 mt-2">
                 <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
                   <span className="text-lg">🔥</span>
                   <span className="text-white font-bold text-sm">Parcelas 45% menores até a contemplação</span>
