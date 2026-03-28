@@ -636,7 +636,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ CREDIBILIDADE ═══════ */}
-        <section className="py-20 md:py-28">
+        <section className="py-14 md:py-28">
           <div className="container mx-auto px-4">
             <TextReveal
               as="h2"
