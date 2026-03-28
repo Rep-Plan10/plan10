@@ -492,7 +492,7 @@ export default function Consorcio() {
                       <button
                         key={tab.key}
                         onClick={() => handleCategoria(tab.key)}
-                        className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all ${
+                        className={`flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all ${
                           simCategoria === tab.key
                             ? "bg-accent text-accent-foreground"
                             : "bg-white/5 border border-white/10 text-foreground hover:bg-white/10"
