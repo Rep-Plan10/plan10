@@ -743,7 +743,7 @@ export default function Consorcio() {
               </p>
             </Reveal>
 
-            <div className="grid md:grid-cols-3 gap-6 items-stretch">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
               {[
                 { emoji: "🤝", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você — sem pressão, sem enrolação." },
                 { emoji: "⚡", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
