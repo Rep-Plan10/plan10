@@ -766,7 +766,7 @@ export default function Consorcio() {
           <div className="container mx-auto px-4">
             <TextReveal as="h2" text="Como funciona o consórcio?" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14" />
 
-            <div className="relative grid md:grid-cols-4 gap-8">
+            <div className="relative grid md:grid-cols-4 gap-6 md:gap-8">
               {/* Desktop connector */}
               <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px border-t-2 border-dashed border-accent/30" />
 
