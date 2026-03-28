@@ -792,7 +792,7 @@ export default function Consorcio() {
 
 
         {/* ═══════ DEPOIMENTOS ═══════ */}
-        <section className="py-20 md:py-28 overflow-hidden">
+        <section className="py-14 md:py-28 overflow-hidden">
           <div className="container mx-auto px-4 mb-14">
             <TextReveal as="h2" text="O que nossos clientes dizem" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
             <Reveal direction="up" delay={200}>
