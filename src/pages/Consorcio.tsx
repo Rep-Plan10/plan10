@@ -361,9 +361,9 @@ export default function Consorcio() {
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
-            <img src={planLogo} alt="Plan10" className="h-9" />
+            <img src={planLogo} alt="Plan10" className="max-h-8 w-auto" />
           </button>
-          <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground px-5 py-2.5 rounded-lg text-sm font-bold">
+          <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold">
             Simular agora
           </button>
         </div>
@@ -392,7 +392,7 @@ export default function Consorcio() {
 
           <div className="container mx-auto px-4 py-20 relative z-10">
             <Reveal delay={0} direction="up">
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex flex-wrap items-center gap-3 mb-8">
                 <img
                   src="/Logo-PORTO-BANK-Padrao-e1690162927905.webp"
                   alt="Porto Bank"
@@ -470,12 +470,12 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ SIMULADOR DE PARCELAS ═══════ */}
-        <section id="simulador-parcelas" className="py-20 md:py-28 bg-muted/30">
+        <section id="simulador-parcelas" className="py-14 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <TextReveal as="h2" text="Simule sua parcela agora" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-3" />
               <Reveal direction="up" delay={200}>
-                <p className="text-center text-muted-foreground text-sm md:text-base mb-10">
+                <p className="text-center text-muted-foreground text-sm md:text-base mb-10 px-2 break-words">
                   Valores reais Porto Bank • Oferta válida até 30/04/2026
                 </p>
               </Reveal>
@@ -483,7 +483,7 @@ export default function Consorcio() {
               <Reveal direction="up" delay={300}>
                 <div className="glass rounded-2xl p-6 md:p-8 border border-white/10">
                   {/* Tabs de categoria */}
-                  <div className="flex gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {([
                       { key: 'imovel' as const, emoji: '🏠', label: 'Imóvel' },
                       { key: 'veiculo' as const, emoji: '🚗', label: 'Veículo' },
@@ -492,7 +492,7 @@ export default function Consorcio() {
                       <button
                         key={tab.key}
                         onClick={() => handleCategoria(tab.key)}
-                        className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all ${
+                        className={`flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all ${
                           simCategoria === tab.key
                             ? "bg-accent text-accent-foreground"
                             : "bg-white/5 border border-white/10 text-foreground hover:bg-white/10"
@@ -636,7 +636,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ CREDIBILIDADE ═══════ */}
-        <section className="py-20 md:py-28">
+        <section className="py-14 md:py-28">
           <div className="container mx-auto px-4">
             <TextReveal
               as="h2"
@@ -663,7 +663,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ MODALIDADES ═══════ */}
-        <section className="py-20 md:py-28 bg-muted/30">
+        <section className="py-14 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
             <TextReveal as="h2" text="Escolha seu consórcio" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
             <Reveal direction="up" delay={200}>
@@ -672,7 +672,7 @@ export default function Consorcio() {
               </p>
             </Reveal>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
               {[
                 {
                   emoji: "🏠", title: "Consórcio de Imóvel", popular: true,
@@ -734,7 +734,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ CONFIANÇA E SEGURANÇA ═══════ */}
-        <section className="py-20 md:py-28 bg-white/[0.02]">
+        <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
             <TextReveal as="h2" text="Do sonho ao patrimônio, a Plan10 está com você." className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
             <Reveal direction="up" delay={200}>
@@ -743,7 +743,7 @@ export default function Consorcio() {
               </p>
             </Reveal>
 
-            <div className="grid md:grid-cols-3 gap-6 items-stretch">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
               {[
                 { emoji: "🤝", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você — sem pressão, sem enrolação." },
                 { emoji: "⚡", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
@@ -762,11 +762,11 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ COMO FUNCIONA ═══════ */}
-        <section className="py-20 md:py-28 bg-white/[0.02]">
+        <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
             <TextReveal as="h2" text="Como funciona o consórcio?" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14" />
 
-            <div className="relative grid md:grid-cols-4 gap-8">
+            <div className="relative grid md:grid-cols-4 gap-6 md:gap-8">
               {/* Desktop connector */}
               <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px border-t-2 border-dashed border-accent/30" />
 
@@ -792,7 +792,7 @@ export default function Consorcio() {
 
 
         {/* ═══════ DEPOIMENTOS ═══════ */}
-        <section className="py-20 md:py-28 overflow-hidden">
+        <section className="py-14 md:py-28 overflow-hidden">
           <div className="container mx-auto px-4 mb-14">
             <TextReveal as="h2" text="O que nossos clientes dizem" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
             <Reveal direction="up" delay={200}>
@@ -811,7 +811,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ FAQ ═══════ */}
-        <section className="py-20 md:py-28">
+        <section className="py-14 md:py-28">
           <div className="container mx-auto px-4 max-w-3xl">
             <TextReveal as="h2" text="Dúvidas frequentes" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14" />
 
@@ -828,7 +828,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ CTA FINAL ═══════ */}
-        <section className="py-20 md:py-28 bg-accent">
+        <section className="py-14 md:py-28 bg-accent">
           <div className="container mx-auto px-4 text-center">
             <TextReveal as="h2" text="Pronto para conquistar seu sonho?" className="font-sora font-black text-3xl md:text-4xl lg:text-5xl text-accent-foreground mb-4" />
             <Reveal direction="up" delay={200}>
