@@ -663,7 +663,7 @@ export default function Consorcio() {
         </section>
 
         {/* ═══════ MODALIDADES ═══════ */}
-        <section className="py-20 md:py-28 bg-muted/30">
+        <section className="py-14 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
             <TextReveal as="h2" text="Escolha seu consórcio" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
             <Reveal direction="up" delay={200}>
