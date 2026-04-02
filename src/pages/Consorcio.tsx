@@ -1275,14 +1275,11 @@ export default function Consorcio() {
                     href={`https://api.whatsapp.com/send/?phone=5511991051616&text=${encodeURIComponent(`Olá! Tenho interesse no ${item.label}. Pode me ajudar?`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full max-w-sm px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-medium text-sm hover:border-accent/40 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer group"
+                    className="flex items-center justify-center gap-3 w-full max-w-sm px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-medium text-sm hover:border-accent/40 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer group"
                   >
                     <span className="text-xl">{item.icon}</span>
                     <span className="text-white/80 group-hover:text-white transition-colors">
                       {item.label}
-                    </span>
-                    <span className="ml-auto text-accent opacity-0 group-hover:opacity-100 transition-opacity text-xs">
-                      Consultar →
                     </span>
                   </a>
                 ))}
