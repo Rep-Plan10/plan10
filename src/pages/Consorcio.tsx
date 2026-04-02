@@ -475,7 +475,7 @@ export default function Consorcio() {
             </Reveal>
 
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-7xl leading-[1.15] pb-3 mb-6 max-w-4xl">
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-4xl">
                 {[
                   { text: "Os", accent: false },
                   { text: "melhores", accent: false },
