@@ -511,7 +511,7 @@ export default function Consorcio() {
             </Reveal>
 
             <Reveal delay={650} direction="up">
-              <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
+               <div className="flex flex-wrap gap-3 md:gap-4 mb-3">
                 {["Cotas com desconto de 45%", "Contemplação antecipada possível", "Carta de crédito garantida"].map((t) => (
                   <div key={t} className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2">
                     <span className="text-accent text-sm">✦</span>
