@@ -505,7 +505,7 @@ export default function Consorcio() {
             </div>
 
             <Reveal delay={500} direction="up">
-              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
+              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mb-4 leading-relaxed">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
