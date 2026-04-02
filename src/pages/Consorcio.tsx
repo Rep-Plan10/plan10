@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Check, MessageCircle, ArrowDown, Star } from "lucide-react";
 
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
-const portoLogo = '/Nova-Logo_PortoHolding.png';
+const portoLogo = '/Logo_porto_att.png';
 const imgCasa = '/pngtree-new-house-png-image_12378684.png';
 const imgCarro = '/f1d28ec7cf200232f761fc7820381a1b.jpg';
 const imgCaminhao = '/caminhao-de-entrega-de-caixa-preta-em-fundo-branco_84443-13396.png';
@@ -1327,7 +1327,6 @@ export default function Consorcio() {
               src={portoLogo}
               alt="Porto"
               className="h-8 w-auto"
-              style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
             />
           </div>
           <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto S.A.</p>
