@@ -1326,7 +1326,7 @@ export default function Consorcio() {
             <img
               src={portoLogo}
               alt="Porto"
-              className="h-10 w-auto"
+              className="h-8 w-auto"
               style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
             />
           </div>
