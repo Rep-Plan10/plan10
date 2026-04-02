@@ -649,7 +649,21 @@ export default function Consorcio() {
                         Mais popular
                       </span>
                     )}
-                    <span className="text-4xl mb-4">{p.emoji}</span>
+                    {p.cat === 'imovel' && (
+                      <div className="w-full h-40 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
+                        <img src={imgCasa} alt="Imóvel" className="w-full h-full object-cover rounded-xl" />
+                      </div>
+                    )}
+                    {p.cat === 'veiculo' && (
+                      <div className="w-full h-40 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-white/5">
+                        <img src={imgCarro} alt="Veículo" className="w-auto h-36 object-contain drop-shadow-lg" />
+                      </div>
+                    )}
+                    {p.cat === 'pesados' && (
+                      <div className="w-full h-40 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-white/5">
+                        <img src={imgCaminhao} alt="Pesados" className="w-auto h-36 object-contain drop-shadow-lg" />
+                      </div>
+                    )}
                     <h3 className="font-sora font-bold text-xl text-foreground mb-3 text-center">{p.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-5 text-center">{p.desc}</p>
                     <ul className="space-y-2 mb-6 flex-1 text-left max-w-xs">
