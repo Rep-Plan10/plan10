@@ -4,7 +4,7 @@ import { ChevronDown, Check, MessageCircle, ArrowDown, Star } from "lucide-react
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
 const portoLogo = '/Logo_porto_att.png';
 const imgCasa = '/pngtree-new-house-png-image_12378684.png';
-const imgCarro = '/f1d28ec7cf200232f761fc7820381a1b.jpg';
+const imgCarro = '/f1d28ec7cf200232f761fc7820381a1b.png';
 const imgCaminhao = '/caminhao-de-entrega-de-caixa-preta-em-fundo-branco_84443-13396.png';
 
 /* ───────────────────── WHATSAPP ───────────────────── */
@@ -640,17 +640,17 @@ export default function Consorcio() {
                     )}
                     {p.cat === 'imovel' && (
                       <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
-                        <img src={imgCasa} alt="Imóvel" className="w-full h-full object-contain" style={{ mixBlendMode: 'screen' }} />
+                        <img src={imgCasa} alt="Imóvel" className="w-auto h-44 object-contain" style={{ mixBlendMode: 'screen' }} />
                       </div>
                     )}
                     {p.cat === 'veiculo' && (
-                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-transparent">
-                        <img src={imgCarro} alt="Veículo" className="w-auto h-40 object-contain drop-shadow-2xl" style={{ mixBlendMode: 'multiply' }} />
+                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
+                        <img src={imgCarro} alt="Veículo" className="w-auto h-40 object-contain" style={{ mixBlendMode: 'screen' }} />
                       </div>
                     )}
                     {p.cat === 'pesados' && (
                       <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
-                        <img src={imgCaminhao} alt="Pesados" className="w-auto h-40 object-contain drop-shadow-2xl" />
+                        <img src={imgCaminhao} alt="Pesados" className="w-auto h-40 object-contain" style={{ mixBlendMode: 'screen' }} />
                       </div>
                     )}
                     <h3 className="font-sora font-bold text-xl text-foreground mb-3 text-center">{p.title}</h3>
@@ -761,57 +761,90 @@ export default function Consorcio() {
                     {/* Tabela de parcelas */}
                     <div
                       key={`${simCategoria}-${simFaixa}`}
-                      className="animate-fade-in border border-white/10 rounded-xl overflow-hidden mb-6"
+                      className="animate-fade-in mb-6"
                     >
-                      <div className="overflow-x-auto">
-                        <table className="w-full text-sm" style={{ minWidth: "500px" }}>
-                          <thead>
-                            <tr>
-                              {faixaAtual.colunas.map((col, ci) => {
-                                const isStrike = col.toLowerCase().includes("sem oferta");
-                                const isLast = ci === faixaAtual.colunas.length - 1 && ci > 0;
-                                return (
-                                  <th
-                                    key={ci}
-                                    className={`px-4 py-3 text-left text-xs font-bold whitespace-nowrap ${
-                                      isStrike
-                                        ? "bg-accent text-accent-foreground"
-                                        : isLast
-                                        ? "bg-[#003087] text-white"
-                                        : "bg-white/5 text-foreground"
-                                    }`}
-                                  >
-                                    {col}
-                                  </th>
-                                );
-                              })}
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {faixaAtual.linhas.map((row, ri) => (
-                              <tr key={ri} className={ri % 2 === 0 ? "bg-white/[0.03]" : "bg-transparent"}>
-                                {row.map((cell, ci) => {
-                                  const isStrike = faixaAtual.colunas[ci]?.toLowerCase().includes("sem oferta");
-                                  const isLast = ci === row.length - 1 && ci > 0;
+                      {/* MOBILE: cards empilhados */}
+                      <div className="md:hidden space-y-2">
+                        {faixaAtual.linhas.map((linha, i) => (
+                          <div key={i} className="bg-white/[0.03] border border-white/[0.08] rounded-xl p-4 space-y-2">
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-400 text-xs uppercase tracking-widest">Crédito</span>
+                              <span className="text-white font-bold text-base">{linha[0]}</span>
+                            </div>
+                            {faixaAtual.colunas.slice(1).map((coluna, j) => {
+                              const isRiscada = coluna.toLowerCase().includes('sem oferta');
+                              const isDestaque = j === faixaAtual.colunas.length - 2;
+                              return (
+                                <div key={j} className="flex justify-between items-center border-t border-white/5 pt-2">
+                                  <span className="text-gray-400 text-xs">{coluna}</span>
+                                  <span className={
+                                    isRiscada
+                                      ? 'text-gray-500 text-sm line-through'
+                                      : isDestaque
+                                        ? 'text-[#4ade80] font-bold text-sm'
+                                        : 'text-white text-sm'
+                                  }>
+                                    {linha[j + 1]}
+                                  </span>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* DESKTOP: tabela original */}
+                      <div className="hidden md:block border border-white/10 rounded-xl overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm" style={{ minWidth: "500px" }}>
+                            <thead>
+                              <tr>
+                                {faixaAtual.colunas.map((col, ci) => {
+                                  const isStrike = col.toLowerCase().includes("sem oferta");
+                                  const isLast = ci === faixaAtual.colunas.length - 1 && ci > 0;
                                   return (
-                                    <td
+                                    <th
                                       key={ci}
-                                      className={`px-4 py-3 whitespace-nowrap ${
+                                      className={`px-4 py-3 text-left text-xs font-bold whitespace-nowrap ${
                                         isStrike
-                                          ? "line-through text-muted-foreground"
+                                          ? "bg-accent text-accent-foreground"
                                           : isLast
-                                          ? "text-[#4ade80] font-bold"
-                                          : "text-foreground/80"
+                                          ? "bg-[#003087] text-white"
+                                          : "bg-white/5 text-foreground"
                                       }`}
                                     >
-                                      {cell}
-                                    </td>
+                                      {col}
+                                    </th>
                                   );
                                 })}
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                            </thead>
+                            <tbody>
+                              {faixaAtual.linhas.map((row, ri) => (
+                                <tr key={ri} className={ri % 2 === 0 ? "bg-white/[0.03]" : "bg-transparent"}>
+                                  {row.map((cell, ci) => {
+                                    const isStrike = faixaAtual.colunas[ci]?.toLowerCase().includes("sem oferta");
+                                    const isLast = ci === row.length - 1 && ci > 0;
+                                    return (
+                                      <td
+                                        key={ci}
+                                        className={`px-4 py-3 whitespace-nowrap ${
+                                          isStrike
+                                            ? "line-through text-muted-foreground"
+                                            : isLast
+                                            ? "text-[#4ade80] font-bold"
+                                            : "text-foreground/80"
+                                        }`}
+                                      >
+                                        {cell}
+                                      </td>
+                                    );
+                                  })}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
 
