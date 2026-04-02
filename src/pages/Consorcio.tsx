@@ -178,6 +178,21 @@ export default function Consorcio() {
   const [formWhatsApp, setFormWhatsApp] = useState('');
   const [formEmail, setFormEmail] = useState('');
   const [formMensagem, setFormMensagem] = useState('');
+  const [tipoDropdownAberto, setTipoDropdownAberto] = useState(false);
+
+  /* ── Close dropdown on outside click ── */
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-tipo-dropdown]')) {
+        setTipoDropdownAberto(false);
+      }
+    };
+    if (tipoDropdownAberto) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [tipoDropdownAberto]);
 
   /* ── Hero text reveal ── */
   const { ref: heroRevealRef, visible: heroVisible } = useReveal(0.2);
