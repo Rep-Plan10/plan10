@@ -179,6 +179,7 @@ export default function Consorcio() {
   const [formEmail, setFormEmail] = useState('');
   const [formMensagem, setFormMensagem] = useState('');
   const [tipoDropdownAberto, setTipoDropdownAberto] = useState(false);
+  const [faixaDropdownAberto, setFaixaDropdownAberto] = useState(false);
 
   /* ── Close dropdown on outside click ── */
   useEffect(() => {
@@ -193,6 +194,18 @@ export default function Consorcio() {
     }
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [tipoDropdownAberto]);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest('[data-faixa-dropdown]')) {
+        setFaixaDropdownAberto(false);
+      }
+    };
+    if (faixaDropdownAberto) {
+      document.addEventListener('mousedown', handler);
+    }
+    return () => document.removeEventListener('mousedown', handler);
+  }, [faixaDropdownAberto]);
 
   /* ── Hero text reveal ── */
   const { ref: heroRevealRef, visible: heroVisible } = useReveal(0.2);
@@ -590,7 +603,7 @@ export default function Consorcio() {
 
             {/* ── BANNER DE OFERTA ── */}
             <Reveal delay={750} direction="up">
-              <div className="flex flex-wrap gap-3 md:gap-4 mb-3">
+              <div className="flex flex-col-reverse md:flex-row gap-3 mb-3">
                 <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
                   <span className="text-lg">🔥</span>
                   <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
@@ -604,7 +617,7 @@ export default function Consorcio() {
           </div>
 
           {/* Scroll arrow */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce z-10 hidden sm:block">
             <ArrowDown size={24} className="text-white/40" />
           </div>
         </section>
@@ -740,18 +753,50 @@ export default function Consorcio() {
                       ))}
                     </div>
 
-                    {/* Select de faixa */}
-                    <div className="mb-6">
-                      <label className="block text-xs text-muted-foreground mb-2 font-semibold">Escolha a faixa de crédito</label>
-                      <select
-                        value={simFaixa}
-                        onChange={(e) => setSimFaixa(Number(e.target.value))}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
+                    {/* Select de faixa — dropdown customizado */}
+                    <div className="mb-6 relative w-full" data-faixa-dropdown>
+                      <p className="text-gray-400 text-xs mb-1.5 uppercase tracking-widest">
+                        Escolha a faixa de crédito
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setFaixaDropdownAberto(!faixaDropdownAberto)}
+                        className="w-full flex items-center justify-between bg-white/5 border border-white/15 rounded-xl px-4 py-3.5 text-white text-sm font-medium hover:border-white/25 transition-colors duration-200 focus:outline-none"
                       >
-                        {faixas.map((f, i) => (
-                          <option key={i} value={i}>{f.faixa}</option>
-                        ))}
-                      </select>
+                        <span>{simuladorData[simCategoria][simFaixa]?.faixa || 'Selecione a faixa'}</span>
+                        <svg
+                          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${faixaDropdownAberto ? 'rotate-180' : ''}`}
+                          fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {faixaDropdownAberto && (
+                        <div className="absolute z-50 w-full mt-1 bg-[#0d1117] border border-white/15 rounded-xl shadow-2xl overflow-hidden max-h-64 overflow-y-auto">
+                          {simuladorData[simCategoria].map((faixa, index) => (
+                            <button
+                              key={index}
+                              type="button"
+                              onClick={() => {
+                                setSimFaixa(index);
+                                setFaixaDropdownAberto(false);
+                              }}
+                              className={`w-full text-left px-4 py-3 text-sm transition-colors duration-150 border-b border-white/5 last:border-0 ${
+                                simFaixa === index
+                                  ? 'bg-[#FF6B00]/20 text-[#FF6B00] font-semibold'
+                                  : 'text-gray-200 hover:bg-white/[0.08] hover:text-white'
+                              }`}
+                            >
+                              <span className="flex items-center justify-between">
+                                <span>{faixa.faixa}</span>
+                                {simFaixa === index && (
+                                  <span className="text-[#FF6B00] text-xs">✓</span>
+                                )}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     {/* Benefícios por categoria */}
