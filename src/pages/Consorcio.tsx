@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Check, MessageCircle, ArrowDown, Shield, Phone, Star } from "lucide-react";
-import planLogo from "@/assets/plan10-logo.png";
+
+const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
 
 /* ───────────────────── WHATSAPP ───────────────────── */
 const WA_PHONE = "5511991051616";
@@ -146,17 +147,49 @@ function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; re
   );
 }
 
-/* ───────────────────── PORTO BANK SVG ───────────────────── */
-function PortoBankIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg className={className} width="20" height="20" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect rx="10" width="64" height="64" fill="white" fillOpacity="0.25" />
-      <path d="M16 44C16 44 22 38 28 28C34 18 40 14 48 12" stroke="white" strokeWidth="4" strokeLinecap="round" />
-      <path d="M16 36C16 36 22 30 28 22C34 14 40 12 48 12" stroke="white" strokeWidth="3.5" strokeLinecap="round" opacity="0.7" />
-      <path d="M16 28C16 28 24 22 30 18C36 14 42 12 48 12" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
-    </svg>
-  );
-}
+/* ───────────────────── FAQ DATA ───────────────────── */
+const faqItems = [
+  {
+    question: "O consórcio tem juros?",
+    answer: "Não. O consórcio não cobra juros. Você paga apenas a taxa de administração e o fundo de reserva. Comparado ao financiamento tradicional, é muito mais econômico no longo prazo."
+  },
+  {
+    question: "O consórcio é um bom investimento?",
+    answer: "Sim. Além de ser uma forma disciplinada de poupar, o consórcio permite adquirir bens com poder de compra à vista — o que gera desconto real na negociação. É uma alternativa inteligente para quem não precisa do bem imediatamente."
+  },
+  {
+    question: "O que vale mais a pena: consórcio ou financiamento?",
+    answer: "Depende do seu momento. Se você precisa do bem agora, o financiamento pode ser necessário. Se tem planejamento, o consórcio sai muito mais barato — sem juros, apenas taxa administrativa."
+  },
+  {
+    question: "Como ser contemplado no consórcio?",
+    answer: "Existem duas formas: por sorteio mensal (qualquer cota pode ser contemplada) ou por lance — onde você oferta um valor antecipado para aumentar suas chances. Nos grupos em andamento da Porto Bank, as chances são maiores pois há menos cotas disponíveis."
+  },
+  {
+    question: "Como funciona o lance no consórcio?",
+    answer: "O lance é um valor que você oferta para antecipar sua contemplação. Pode ser com recurso próprio, FGTS (para imóveis) ou lance embutido (parte do próprio crédito). Quem oferta o maior percentual do crédito é contemplado."
+  },
+  {
+    question: "Como funcionam os sorteios no consórcio?",
+    answer: "Todo mês acontece uma assembleia onde cotas são contempladas por sorteio. Nos grupos Porto Bank em andamento, a entrega mensal de cotas varia por segmento: 3 a 5 por mês em imóveis, 4 a 6 em veículos e 2 a 4 em pesados."
+  },
+  {
+    question: "Posso usar a carta de crédito para qualquer finalidade?",
+    answer: "Dentro da categoria contratada, sim. Em imóveis: compra residencial, comercial, rural, terreno, construção, reforma e quitação de financiamento. Em veículos: automóveis, motos, náuticos e placas solares. Em pesados: caminhões, ônibus, máquinas agrícolas e industriais."
+  },
+  {
+    question: "Todos são contemplados até o final do grupo?",
+    answer: "Sim. Todos os participantes que mantiverem suas parcelas em dia serão contemplados até o encerramento do grupo — seja por sorteio ou lance."
+  },
+  {
+    question: "O que é a taxa de administração do consórcio?",
+    answer: "É a remuneração da administradora pelo gerenciamento do grupo. Na Porto Bank, varia conforme o tipo e prazo do consórcio. Para clientes Porto, há 10% de desconto sobre essa taxa."
+  },
+  {
+    question: "Como a Plan10 me ajuda nesse processo?",
+    answer: "Nossa equipe faz toda a consultoria gratuitamente: análise do seu perfil, escolha do grupo ideal, acompanhamento da contemplação e suporte no uso da carta de crédito. Você não fica sozinho em nenhum momento."
+  }
+];
 
 /* ═══════════════════════════════════════════════════════
    MAIN PAGE
@@ -165,9 +198,12 @@ export default function Consorcio() {
   const [simCategoria, setSimCategoria] = useState<'imovel' | 'veiculo' | 'pesados'>('imovel');
   const [simFaixa, setSimFaixa] = useState(0);
   const [leadNome, setLeadNome] = useState('');
+  const [leadEmail, setLeadEmail] = useState('');
   const [leadTelefone, setLeadTelefone] = useState('');
 
-
+  useEffect(() => {
+    document.title = "Plan10 Consórcio — Imóvel, Veículo e Pesados sem juros";
+  }, []);
 
   const scrollToSim = () => document.getElementById("simulador-parcelas")?.scrollIntoView({ behavior: "smooth" });
 
@@ -361,7 +397,7 @@ export default function Consorcio() {
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
-            <img src={planLogo} alt="Plan10" className="max-h-8 w-auto" />
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
           </button>
           <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold">
             Simular agora
@@ -414,29 +450,33 @@ export default function Consorcio() {
 
             <Reveal delay={500} direction="up">
               <p className="text-base md:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-                Consórcio de imóvel, veículo e pesados com parcelas inteligentes. Administrado pela Porto Bank — uma das maiores do Brasil.
+                Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
 
             <Reveal delay={650} direction="up">
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold">
-                  Quero simular agora
+                  Garantir minha cota agora
                 </button>
                 <a
                   href={WA_BASE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cta-btn border border-white/30 text-foreground px-8 py-4 rounded-xl text-base font-bold hover:bg-white/5 transition-colors inline-flex items-center justify-center gap-2"
+                  className="cta-btn bg-[#25D366] border border-[#25D366] text-white hover:bg-[#1ebe57] px-8 py-4 rounded-xl text-base font-bold transition-colors inline-flex items-center justify-center gap-2"
                 >
-                  <Phone size={18} /> Falar com consultor
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.559 4.14 1.535 5.874L0 24l6.278-1.518A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.213-3.727.901.949-3.624-.236-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+                  </svg>
+                  Falar com consultor
                 </a>
               </div>
             </Reveal>
 
             <Reveal delay={700} direction="up">
               <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
-                {["Sem juros", "Parcelas menores", "Carta de crédito garantida"].map((t) => (
+                {["Cotas com desconto de 45%", "Contemplação antecipada possível", "Carta de crédito garantida"].map((t) => (
                   <div
                     key={t}
                     className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2"
@@ -453,11 +493,11 @@ export default function Consorcio() {
               <div className="flex flex-wrap gap-3 md:gap-4 mt-2">
                 <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
                   <span className="text-lg">🔥</span>
-                  <span className="text-white font-bold text-sm">Parcelas 45% menores até a contemplação</span>
+                  <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
                   <span className="text-lg">💳</span>
-                  <span className="text-white font-semibold text-sm">10% off na taxa adm com Cartão Porto</span>
+                  <span className="text-white font-semibold text-sm">10% OFF na taxa adm para clientes Porto</span>
                 </div>
               </div>
             </Reveal>
@@ -521,11 +561,11 @@ export default function Consorcio() {
                   <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
                     <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
                       <span className="text-lg">🔥</span>
-                      <span className="text-white font-bold text-sm">Parcelas 45% menores até a contemplação</span>
+                      <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
                     </div>
                     <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
                       <span className="text-lg">💳</span>
-                      <span className="text-white font-semibold text-sm">10% off na taxa adm com Cartão Porto</span>
+                      <span className="text-white font-semibold text-sm">10% OFF na taxa adm para clientes Porto</span>
                     </div>
                   </div>
 
@@ -603,6 +643,13 @@ export default function Consorcio() {
                         className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
                       />
                       <input
+                        type="email"
+                        placeholder="Seu e-mail"
+                        value={leadEmail}
+                        onChange={(e) => setLeadEmail(e.target.value)}
+                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
+                      />
+                      <input
                         type="tel"
                         placeholder="Seu WhatsApp"
                         value={leadTelefone}
@@ -615,7 +662,7 @@ export default function Consorcio() {
                         const cat = categoriaLabels[simCategoria];
                         const faixa = faixaAtual?.faixa || '';
                         const msg = encodeURIComponent(
-                          `Olá! Tenho interesse no Consórcio de ${cat} na faixa ${faixa}. Meu nome é ${leadNome || '(não informado)'}.`
+                          `Olá! Tenho interesse no Consórcio de ${cat} na faixa ${faixa}. Meu nome é ${leadNome || '(não informado)'}. E-mail: ${leadEmail || 'não informado'}.`
                         );
                         window.open(`${WA_BASE}&text=${msg}`, '_blank');
                       }}
@@ -817,15 +864,58 @@ export default function Consorcio() {
 
             <Reveal direction="up">
               <div>
-                <FaqItem q="Consórcio tem juros?" a="Não. O consórcio não cobra juros. Você paga apenas a taxa de administração e, em alguns planos, o seguro. É muito mais barato que um financiamento tradicional no longo prazo." />
-                <FaqItem q="Quanto tempo levo para ser contemplado?" a="A contemplação pode acontecer no primeiro mês (por sorteio) ou você pode antecipar ofertando lances. Não há garantia de prazo, por isso o consórcio é indicado para quem tem planejamento." />
-                <FaqItem q="Posso usar a carta de crédito para qualquer imóvel ou veículo?" a="Sim. A carta de crédito dá flexibilidade total — você escolhe o bem dentro da categoria contratada (imóvel, veículo ou pesados) no momento da contemplação." />
-                <FaqItem q="E se eu precisar cancelar?" a="É possível cancelar o consórcio. Nesse caso, você recebe os valores pagos de volta ao final do grupo, com as devidas correções conforme o contrato." />
-                <FaqItem q="Como a Plan10 me ajuda nesse processo?" a="Nossa equipe faz toda a consultoria gratuita: simulação, escolha do plano, acompanhamento até a contemplação e suporte no uso da carta de crédito. Você não fica sozinho em nenhum momento." />
+                {faqItems.map((item, i) => (
+                  <FaqItem key={i} q={item.question} a={item.answer} />
+                ))}
               </div>
             </Reveal>
           </div>
         </section>
+
+        {/* ═══════ ATUAMOS TAMBÉM EM ═══════ */}
+        <Reveal direction="up">
+          <section className="py-14 md:py-20 bg-white/[0.02]">
+            <div className="container mx-auto px-4 max-w-3xl text-center">
+              <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-3">
+                Atuamos Também em
+              </h2>
+              <p className="text-gray-400 text-sm md:text-base mb-10">
+                Além dos consórcios principais, a Plan10 oferece soluções para outros objetivos de vida.
+              </p>
+
+              <div className="flex flex-col items-center gap-3">
+                {[
+                  { icon: "🚲", label: "Consórcio de Bike" },
+                  { icon: "✈️", label: "Consórcio de Viagens" },
+                  { icon: "💊", label: "Consórcio de Procedimentos Estéticos" },
+                  { icon: "🏥", label: "Consórcio de Saúde" },
+                  { icon: "📱", label: "Consórcio de Eletrônicos" },
+                  { icon: "🎓", label: "Consórcio de Educação" },
+                ].map((item) => (
+                  <a
+                    key={item.label}
+                    href={`https://api.whatsapp.com/send/?phone=5511991051616&text=${encodeURIComponent(`Olá! Tenho interesse no ${item.label}. Pode me ajudar?`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 w-full max-w-sm px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-medium text-sm hover:border-accent/40 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer group"
+                  >
+                    <span className="text-xl">{item.icon}</span>
+                    <span className="text-white/80 group-hover:text-white transition-colors">
+                      {item.label}
+                    </span>
+                    <span className="ml-auto text-accent opacity-0 group-hover:opacity-100 transition-opacity text-xs">
+                      Consultar →
+                    </span>
+                  </a>
+                ))}
+              </div>
+
+              <p className="text-gray-500 text-xs mt-8">
+                Em breve mais categorias. Fale com um consultor para verificar disponibilidade.
+              </p>
+            </div>
+          </section>
+        </Reveal>
 
         {/* ═══════ CTA FINAL ═══════ */}
         <section className="py-14 md:py-28 bg-accent">
@@ -853,13 +943,24 @@ export default function Consorcio() {
       {/* ───── MINI FOOTER ───── */}
       <footer className="bg-background py-10 border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
-          <img src={planLogo} alt="Plan10" className="h-8 mx-auto mb-4" />
-          <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Seguros. Parceiro Oficial Porto Bank.</p>
+          <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 mx-auto mb-4" />
+          <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto Bank S.A.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
             <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Política de Privacidade</a>
             <span>|</span>
             <a href="/" className="hover:text-accent transition-colors">plan10.com.br</a>
           </div>
+
+          {/* Notas legais */}
+          <div className="border-t border-white/5 pt-4 mt-4 text-xs text-gray-500 text-center space-y-1 max-w-3xl mx-auto">
+            <p>* Valores da simulação são exclusivos para Pessoa Física.</p>
+            <p>* Desconto de 45% incide sobre o valor da parcela até a contemplação. Após a contemplação, o valor será compensado nas parcelas restantes.</p>
+            <p>* Desconto de 10% para clientes Porto incide sobre a taxa de administração.</p>
+            <p>* Cotas sujeitas à disponibilidade de vagas no grupo. Oferta válida até 30/04/2026.</p>
+            <p>* Parcelas reajustadas no aniversário do grupo. Para demais condições, consulte o Regulamento.</p>
+            <p>* Taxa de administração, fundo de reserva e seguro prestamista variam conforme o tipo e grupo do consórcio.</p>
+          </div>
+
           <p className="text-xs text-muted-foreground mt-3">
             Desenvolvido por{" "}
             <a

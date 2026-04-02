@@ -1,4 +1,4 @@
-import planLogo from "@/assets/plan10-logo.png";
+const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
 
 export default function Privacidade() {
   return (
@@ -7,7 +7,7 @@ export default function Privacidade() {
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <button onClick={() => window.location.href = '/'} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
-            <img src={planLogo} alt="Plan10" className="h-9" />
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
           </button>
           <button
             onClick={() => window.history.back()}
