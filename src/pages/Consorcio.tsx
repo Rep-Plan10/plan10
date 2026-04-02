@@ -3,6 +3,9 @@ import { ChevronDown, Check, MessageCircle, ArrowDown, Star } from "lucide-react
 
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
 const portoLogo = '/Nova-Logo_PortoHolding.png';
+const imgCasa = '/casa.jpeg';
+const imgCarro = '/carro-moderno-isolado_23-2151504562.png';
+const imgCaminhao = '/caminhao-de-entrega-de-caixa-preta-em-fundo-branco_84443-13396.png';
 
 /* ───────────────────── WHATSAPP ───────────────────── */
 const WA_PHONE = "5511991051616";
