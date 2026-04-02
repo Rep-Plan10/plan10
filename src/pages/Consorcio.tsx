@@ -505,68 +505,14 @@ export default function Consorcio() {
             </div>
 
             <Reveal delay={500} direction="up">
-              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mb-4 leading-relaxed">
+              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mb-6 leading-relaxed">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
 
-            <Reveal delay={650} direction="up">
-               <div className="flex flex-wrap gap-3 md:gap-4 mb-3">
-                {["Cotas com desconto de 45%", "Contemplação antecipada possível", "Carta de crédito garantida"].map((t) => (
-                  <div key={t} className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2">
-                    <span className="text-accent text-sm">✦</span>
-                    <span className="text-sm font-semibold text-foreground">{t}</span>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-
-            {/* ── BANNER DE OFERTA ── */}
-            <Reveal delay={700} direction="up">
-              <div className="flex flex-wrap gap-3 md:gap-4 mb-3">
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
-                  <span className="text-lg">🔥</span>
-                  <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
-                  <span className="text-lg">💳</span>
-                  <span className="text-white font-semibold text-sm">10% OFF na taxa adm para clientes Porto</span>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* ── COUNTDOWN ── */}
-            <Reveal delay={750} direction="up">
-              <div className="flex items-center gap-2 flex-wrap justify-start py-3 px-4 rounded-xl bg-white/5 border border-white/10 w-fit mb-3">
-                <span className="text-gray-400 text-xs font-medium uppercase tracking-widest">
-                  Termina em:
-                </span>
-                {[
-                  { value: timeLeft.dias, label: 'dias' },
-                  { value: timeLeft.horas, label: 'horas' },
-                  { value: timeLeft.mins, label: 'mins' },
-                  { value: timeLeft.segs, label: 'seg' },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <div className="bg-[#1a1f2e] border border-white/10 rounded-lg px-3 py-1.5 text-center min-w-[52px]">
-                      <div className="text-white font-bold text-lg font-mono leading-none">
-                        {String(item.value).padStart(2, '0')}
-                      </div>
-                      <div className="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">
-                        {item.label}
-                      </div>
-                    </div>
-                    {i < 3 && (
-                      <span className="text-[#FF6B00] font-bold text-lg">:</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-
             {/* ── CTAs ── */}
-            <Reveal delay={800} direction="up">
-              <div className="flex flex-col sm:flex-row gap-4">
+            <Reveal delay={600} direction="up">
+              <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold">
                   Garantir minha cota agora
                 </button>
@@ -582,6 +528,60 @@ export default function Consorcio() {
                   </svg>
                   Falar com consultor
                 </a>
+              </div>
+            </Reveal>
+
+            <Reveal delay={700} direction="up">
+              <div className="flex flex-wrap gap-3 md:gap-4 mb-3">
+                {["Cotas com desconto de 45%", "Contemplação antecipada possível", "Carta de crédito garantida"].map((t) => (
+                  <div key={t} className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2">
+                    <span className="text-accent text-sm">✦</span>
+                    <span className="text-sm font-semibold text-foreground">{t}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            {/* ── BANNER DE OFERTA ── */}
+            <Reveal delay={750} direction="up">
+              <div className="flex flex-wrap gap-3 md:gap-4 mb-3">
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
+                  <span className="text-lg">🔥</span>
+                  <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
+                  <span className="text-lg">💳</span>
+                  <span className="text-white font-semibold text-sm">10% OFF na taxa adm para clientes Porto</span>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* ── COUNTDOWN ── */}
+            <Reveal delay={800} direction="up">
+              <div className="flex items-center gap-1.5 flex-wrap justify-start py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
+                <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">
+                  Termina em:
+                </span>
+                {[
+                  { value: timeLeft.dias, label: 'dias' },
+                  { value: timeLeft.horas, label: 'horas' },
+                  { value: timeLeft.mins, label: 'mins' },
+                  { value: timeLeft.segs, label: 'seg' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-1.5">
+                    <div className="bg-[#1a1f2e] border border-white/10 rounded-md px-2 py-1 text-center min-w-[42px]">
+                      <div className="text-white font-bold text-base font-mono leading-none">
+                        {String(item.value).padStart(2, '0')}
+                      </div>
+                      <div className="text-gray-500 text-[9px] uppercase tracking-wider">
+                        {item.label}
+                      </div>
+                    </div>
+                    {i < 3 && (
+                      <span className="text-[#FF6B00] font-bold text-sm">:</span>
+                    )}
+                  </div>
+                ))}
               </div>
             </Reveal>
           </div>
