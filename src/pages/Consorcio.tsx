@@ -178,6 +178,21 @@ export default function Consorcio() {
   const [formWhatsApp, setFormWhatsApp] = useState('');
   const [formEmail, setFormEmail] = useState('');
   const [formMensagem, setFormMensagem] = useState('');
+  const [tipoDropdownAberto, setTipoDropdownAberto] = useState(false);
+
+  /* ── Close dropdown on outside click ── */
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-tipo-dropdown]')) {
+        setTipoDropdownAberto(false);
+      }
+    };
+    if (tipoDropdownAberto) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [tipoDropdownAberto]);
 
   /* ── Hero text reveal ── */
   const { ref: heroRevealRef, visible: heroVisible } = useReveal(0.2);
@@ -459,8 +474,39 @@ export default function Consorcio() {
           </div>
 
           <div className="container mx-auto px-4 pt-12 pb-10 relative z-10">
+            {/* ── COUNTDOWN ── */}
             <Reveal delay={0} direction="up">
-              <div className="flex flex-col items-start gap-2 mb-6">
+              <div className="flex justify-center mb-6 w-full">
+                <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
+                  <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">
+                    Termina em:
+                  </span>
+                  {[
+                    { value: timeLeft.dias, label: 'dias' },
+                    { value: timeLeft.horas, label: 'horas' },
+                    { value: timeLeft.mins, label: 'mins' },
+                    { value: timeLeft.segs, label: 'seg' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-1.5">
+                      <div className="bg-[#1a1f2e] border border-white/10 rounded-md px-2 py-1 text-center min-w-[42px]">
+                        <div className="text-white font-bold text-base font-mono leading-none">
+                          {String(item.value).padStart(2, '0')}
+                        </div>
+                        <div className="text-gray-500 text-[9px] uppercase tracking-wider">
+                          {item.label}
+                        </div>
+                      </div>
+                      {i < 3 && (
+                        <span className="text-[#FF6B00] font-bold text-sm">:</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={100} direction="up">
+              <div className="flex flex-col items-start gap-3 mb-6">
                 <img
                   src={portoLogo}
                   alt="Porto"
@@ -553,35 +599,6 @@ export default function Consorcio() {
                   <span className="text-lg">💳</span>
                   <span className="text-white font-semibold text-sm">10% OFF na taxa adm para clientes Porto</span>
                 </div>
-              </div>
-            </Reveal>
-
-            {/* ── COUNTDOWN ── */}
-            <Reveal delay={800} direction="up">
-              <div className="flex items-center gap-1.5 flex-wrap justify-start py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
-                <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">
-                  Termina em:
-                </span>
-                {[
-                  { value: timeLeft.dias, label: 'dias' },
-                  { value: timeLeft.horas, label: 'horas' },
-                  { value: timeLeft.mins, label: 'mins' },
-                  { value: timeLeft.segs, label: 'seg' },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-1.5">
-                    <div className="bg-[#1a1f2e] border border-white/10 rounded-md px-2 py-1 text-center min-w-[42px]">
-                      <div className="text-white font-bold text-base font-mono leading-none">
-                        {String(item.value).padStart(2, '0')}
-                      </div>
-                      <div className="text-gray-500 text-[9px] uppercase tracking-wider">
-                        {item.label}
-                      </div>
-                    </div>
-                    {i < 3 && (
-                      <span className="text-[#FF6B00] font-bold text-sm">:</span>
-                    )}
-                  </div>
-                ))}
               </div>
             </Reveal>
           </div>
@@ -1171,18 +1188,57 @@ export default function Consorcio() {
               </p>
             </div>
             <div className="glass rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
-              <select
-                value={formTipo}
-                onChange={(e) => setFormTipo(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-accent focus:outline-none"
-              >
-                <option value="" className="bg-[#0d1117]">Selecione o tipo de consórcio</option>
-                <option value="Imóvel" className="bg-[#0d1117]">Consórcio de Imóvel</option>
-                <option value="Veículo" className="bg-[#0d1117]">Consórcio de Veículo</option>
-                <option value="Pesados" className="bg-[#0d1117]">Consórcio de Pesados</option>
-                <option value="Seguro de Vida" className="bg-[#0d1117]">Seguro de Vida Porto</option>
-                <option value="Outros" className="bg-[#0d1117]">Outros consórcios</option>
-              </select>
+              {/* Dropdown customizado — tipo de consórcio */}
+              <div className="relative w-full" data-tipo-dropdown>
+                <button
+                  type="button"
+                  onClick={() => setTipoDropdownAberto(!tipoDropdownAberto)}
+                  className="w-full flex items-center justify-between bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm hover:border-white/20 transition-colors duration-200 focus:outline-none focus:border-accent"
+                >
+                  <span className={formTipo ? 'text-white' : 'text-gray-500'}>
+                    {formTipo || 'Selecione o tipo de consórcio'}
+                  </span>
+                  <svg
+                    className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${tipoDropdownAberto ? 'rotate-180' : ''}`}
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {tipoDropdownAberto && (
+                  <div className="absolute z-50 w-full mt-1 bg-[#0d1117] border border-white/15 rounded-lg shadow-2xl overflow-hidden">
+                    {[
+                      { value: '', label: 'Selecione o tipo de consórcio', disabled: true },
+                      { value: 'Imóvel', label: '🏠  Consórcio de Imóvel' },
+                      { value: 'Veículo', label: '🚗  Consórcio de Veículo' },
+                      { value: 'Pesados', label: '🚛  Consórcio de Pesados' },
+                      { value: 'Seguro de Vida', label: '🛡️  Seguro de Vida Porto' },
+                      { value: 'Outros', label: '✨  Outros consórcios' },
+                    ].map((option) => (
+                      <button
+                        key={option.value || 'placeholder'}
+                        type="button"
+                        disabled={option.disabled}
+                        onClick={() => {
+                          if (!option.disabled) {
+                            setFormTipo(option.value);
+                            setTipoDropdownAberto(false);
+                          }
+                        }}
+                        className={`w-full text-left px-4 py-3 text-sm transition-colors duration-150 border-b border-white/5 last:border-0 ${
+                          option.disabled
+                            ? 'text-gray-600 cursor-default'
+                            : formTipo === option.value
+                              ? 'bg-[#FF6B00]/20 text-[#FF6B00] font-medium'
+                              : 'text-gray-200 hover:bg-white/[0.08] hover:text-white'
+                        }`}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <input
                 type="text"
