@@ -3,8 +3,8 @@ import { ChevronDown, Check, MessageCircle, ArrowDown, Star } from "lucide-react
 
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
 const portoLogo = '/Nova-Logo_PortoHolding.png';
-const imgCasa = '/casa.jpeg';
-const imgCarro = '/carro-moderno-isolado_23-2151504562.png';
+const imgCasa = '/pngtree-new-house-png-image_12378684.png';
+const imgCarro = '/f1d28ec7cf200232f761fc7820381a1b.jpg';
 const imgCaminhao = '/caminhao-de-entrega-de-caixa-preta-em-fundo-branco_84443-13396.png';
 
 /* ───────────────────── WHATSAPP ───────────────────── */
@@ -435,7 +435,7 @@ export default function Consorcio() {
             <img
               src={portoLogo}
               alt="Porto"
-              className="h-8 w-auto"
+               className="h-7 w-auto"
               style={{ filter: 'brightness(0) invert(1)', opacity: 0.8 }}
             />
             <span className="text-[9px] text-gray-400 uppercase tracking-widest">
@@ -475,7 +475,7 @@ export default function Consorcio() {
                 <img
                   src={portoLogo}
                   alt="Porto"
-                  className="h-8 w-auto"
+                   className="h-10 w-auto"
                   style={{ filter: 'brightness(0) invert(1)', opacity: 0.9 }}
                 />
                 <div className="inline-flex items-center gap-1.5 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-4 py-1.5">
@@ -650,18 +650,18 @@ export default function Consorcio() {
                       </span>
                     )}
                     {p.cat === 'imovel' && (
-                      <div className="w-full h-40 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
-                        <img src={imgCasa} alt="Imóvel" className="w-full h-full object-cover rounded-xl" />
+                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
+                        <img src={imgCasa} alt="Imóvel" className="w-full h-full object-contain" style={{ mixBlendMode: 'screen' }} />
                       </div>
                     )}
                     {p.cat === 'veiculo' && (
-                      <div className="w-full h-40 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-white/5">
-                        <img src={imgCarro} alt="Veículo" className="w-auto h-36 object-contain drop-shadow-lg" />
+                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-transparent">
+                        <img src={imgCarro} alt="Veículo" className="w-auto h-40 object-contain drop-shadow-2xl" style={{ mixBlendMode: 'multiply' }} />
                       </div>
                     )}
                     {p.cat === 'pesados' && (
-                      <div className="w-full h-40 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-white/5">
-                        <img src={imgCaminhao} alt="Pesados" className="w-auto h-36 object-contain drop-shadow-lg" />
+                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
+                        <img src={imgCaminhao} alt="Pesados" className="w-auto h-40 object-contain drop-shadow-2xl" />
                       </div>
                     )}
                     <h3 className="font-sora font-bold text-xl text-foreground mb-3 text-center">{p.title}</h3>
@@ -1012,7 +1012,7 @@ export default function Consorcio() {
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center mb-10">
               <span className="inline-flex items-center gap-2 bg-[#003087]/20 border border-[#003087]/40 rounded-full px-4 py-1.5 mb-4">
-                <img src={portoLogo} alt="Porto" className="h-7 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+                <img src={portoLogo} alt="Porto" className="h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
                 <span className="text-white text-xs font-semibold">Produto Complementar</span>
               </span>
               <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-3">
@@ -1326,7 +1326,7 @@ export default function Consorcio() {
             <img
               src={portoLogo}
               alt="Porto"
-              className="h-8 w-auto"
+              className="h-10 w-auto"
               style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
             />
           </div>
