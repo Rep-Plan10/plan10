@@ -225,7 +225,6 @@ export default function Consorcio() {
   const [timeLeft, setTimeLeft] = useState({ dias: 0, horas: 0, mins: 0, segs: 0 });
 
   /* ── Hero text reveal ── */
-  const heroRef = useRef<HTMLHeadingElement>(null);
   const { ref: heroRevealRef, visible: heroVisible } = useReveal(0.2);
 
   useEffect(() => {
