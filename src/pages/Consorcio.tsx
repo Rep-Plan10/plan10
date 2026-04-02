@@ -431,17 +431,6 @@ export default function Consorcio() {
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
             <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
           </button>
-          <div className="hidden md:flex flex-col items-center gap-0.5">
-            <img
-              src={portoLogo}
-              alt="Porto"
-               className="h-7 w-auto"
-              style={{ filter: 'brightness(0) invert(1)', opacity: 0.8 }}
-            />
-            <span className="text-[9px] text-gray-400 uppercase tracking-widest">
-              Parceiro Oficial
-            </span>
-          </div>
           <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold">
             Simular agora
           </button>
