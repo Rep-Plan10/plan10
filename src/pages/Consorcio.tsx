@@ -460,7 +460,7 @@ export default function Consorcio() {
 
           <div className="container mx-auto px-4 pt-12 pb-10 relative z-10">
             <Reveal delay={0} direction="up">
-              <div className="flex flex-col items-start gap-2 mb-8">
+              <div className="flex flex-col items-start gap-2 mb-6">
                 <img
                   src={portoLogo}
                   alt="Porto"
