@@ -1001,7 +1001,7 @@ export default function Consorcio() {
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center mb-10">
               <span className="inline-flex items-center gap-2 bg-[#003087]/20 border border-[#003087]/40 rounded-full px-4 py-1.5 mb-4">
-                <img src={portoLogo} alt="Porto" className="h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+                <img src={portoLogo} alt="Porto" className="h-3.5 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
                 <span className="text-white text-xs font-semibold">Produto Complementar</span>
               </span>
               <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-3">
