@@ -428,14 +428,9 @@ export default function Consorcio() {
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex flex-col items-start">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
-              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
-            </button>
-            <p className="text-[10px] text-gray-400 tracking-widest uppercase leading-none mt-0.5 hidden sm:block">
-              O seu futuro muito mais tranquilo
-            </p>
-          </div>
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
+          </button>
           <div className="hidden md:flex flex-col items-center gap-0.5">
             <img
               src={portoLogo}
