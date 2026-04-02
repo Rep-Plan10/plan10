@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Check, MessageCircle, ArrowDown, Star } from "lucide-react";
 
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
+const portoLogo = '/Logo-PORTO-BANK-Padrao-e1690162927905.webp';
 
 /* ───────────────────── WHATSAPP ───────────────────── */
 const WA_PHONE = "5511991051616";
@@ -24,35 +25,6 @@ function useReveal(threshold = 0.15) {
     return () => obs.disconnect();
   }, [threshold]);
   return { ref, visible };
-}
-
-/* ───────────────────── TEXT REVEAL ───────────────────── */
-function TextReveal({ text, as: Tag = "h2", className = "", baseDelay = 0 }: {
-  text: string; as?: "h1" | "h2" | "h3"; className?: string; baseDelay?: number;
-}) {
-  const { ref, visible } = useReveal(0.2);
-  const words = text.split(" ");
-  return (
-    <Tag ref={ref} className={className}>
-      {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden pb-2 mr-[0.3em] last:mr-0">
-          <span
-            className="inline-block transition-all"
-            style={{
-              transform: visible ? "translateY(0)" : "translateY(110%)",
-              opacity: visible ? 1 : 0,
-              transitionProperty: "transform, opacity",
-              transitionDuration: "0.7s",
-              transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-              transitionDelay: visible ? `${baseDelay + i * 80}ms` : "0ms",
-            }}
-          >
-            {w}
-          </span>
-        </span>
-      ))}
-    </Tag>
-  );
 }
 
 /* ───────────────────── SCROLL REVEAL WRAPPER ───────────────────── */
@@ -106,12 +78,12 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 
 /* ───────────────────── TESTIMONIALS DATA ───────────────────── */
 const testimonials = [
-  { name: "Fernanda R.", role: "Plano de Saúde Familiar", text: "A Plan10 me ajudou a encontrar um plano de saúde com rede excelente e um preço que eu não imaginava conseguir. Atendimento impecável do início ao fim." },
-  { name: "Marcos T.", role: "Consórcio Imobiliário", text: "Fiz meu consórcio de imóvel com a Plan10 e foi a melhor decisão. Eles explicaram tudo com clareza e me ajudaram a planejar minha contemplação." },
-  { name: "Juliana M.", role: "Seguro Auto", text: "Troquei de seguro auto e economizei mais de R$ 800 por ano com cobertura melhor. Recomendo sem hesitar." },
-  { name: "Roberto S.", role: "Serviços Residenciais", text: "Precisei de assistência 24h e o atendimento foi rápido e eficiente. Valeu cada centavo." },
-  { name: "Ana Paula C.", role: "Produtos Financeiros", text: "A consultoria financeira da Plan10 me ajudou a reorganizar meu crédito com taxas muito melhores do que eu tinha." },
-  { name: "Diego F.", role: "Seguros Empresariais", text: "Empresa séria, transparente e que realmente se preocupa com o cliente. Já indiquei para toda a família." },
+  { name: "Fernanda Oliveira", role: "Plano de Saúde Familiar", text: "A Plan10 me ajudou a encontrar um plano de saúde com rede excelente e um preço que eu não imaginava conseguir. Atendimento impecável do início ao fim." },
+  { name: "Marcos Teixeira", role: "Consórcio Imobiliário", text: "Fiz meu consórcio de imóvel com a Plan10 e foi a melhor decisão. Eles explicaram tudo com clareza e me ajudaram a planejar minha contemplação." },
+  { name: "Juliana Moraes", role: "Seguro Auto", text: "Troquei de seguro auto e economizei mais de R$ 800 por ano com cobertura melhor. Recomendo sem hesitar." },
+  { name: "Roberto Santana", role: "Serviços Residenciais", text: "Precisei de assistência 24h e o atendimento foi rápido e eficiente. Valeu cada centavo." },
+  { name: "Ana Paula Carvalho", role: "Produtos Financeiros", text: "A consultoria financeira da Plan10 me ajudou a reorganizar meu crédito com taxas muito melhores do que eu tinha." },
+  { name: "Diego Ferreira", role: "Seguros Empresariais", text: "Empresa séria, transparente e que realmente se preocupa com o cliente. Já indiquei para toda a família." },
 ];
 
 function TestimonialCard({ name, role, text }: typeof testimonials[0]) {
@@ -188,8 +160,57 @@ const faqItems = [
   {
     question: "Como a Plan10 me ajuda nesse processo?",
     answer: "Nossa equipe faz toda a consultoria gratuitamente: análise do seu perfil, escolha do grupo ideal, acompanhamento da contemplação e suporte no uso da carta de crédito. Você não fica sozinho em nenhum momento."
+  },
+  {
+    question: "Qual o tempo médio de fechamento dos grupos de consórcio?",
+    answer: "O prazo varia conforme o segmento e o grupo. Em imóveis, os grupos podem ter até 200 meses. Em veículos, até 100 meses. Em pesados, até 117 meses. Grupos em andamento já têm o prazo definido e você entra no tempo restante — o que pode significar mais chances de contemplação rápida."
+  },
+  {
+    question: "O que é o fundo de reserva no consórcio?",
+    answer: "É uma reserva financeira do grupo para cobrir inadimplências e garantir que todos os participantes sejam contemplados. Na Porto Bank, corresponde a 2% sobre o crédito e é cobrado junto com a parcela mensal."
+  },
+  {
+    question: "Como solicitar o resgate de valores de um grupo já encerrado?",
+    answer: "Após o encerramento do grupo, os valores são devolvidos conforme as condições do contrato. Para solicitações, entre em contato com sua administradora. Nossa equipe da Plan10 pode te orientar durante todo esse processo sem custo adicional."
   }
 ];
+
+/* ───────────────────── BENEFÍCIOS POR CATEGORIA ───────────────────── */
+const beneficiosPorCategoria = {
+  imovel: {
+    titulo: "Benefícios do Consórcio de Imóvel",
+    itens: [
+      "Créditos de R$ 70 mil a R$ 1 milhão",
+      "Lance embutido de até 30% do crédito",
+      "Use para imóvel residencial, comercial, terreno ou reforma",
+      "Aceita FGTS para composição de lance",
+      "3 a 5 cotas contempladas por mês",
+    ],
+    paraQuem: "Para quem quer sair do aluguel ou investir em patrimônio."
+  },
+  veiculo: {
+    titulo: "Benefícios do Consórcio de Veículo",
+    itens: [
+      "Créditos de R$ 25 mil a R$ 200 mil",
+      "Lance embutido de até 30% do crédito",
+      "Carro novo, usado, moto, náutico ou placas solares",
+      "Sem entrada obrigatória",
+      "4 a 6 cotas contempladas por mês",
+    ],
+    paraQuem: "Para quem quer trocar ou comprar seu veículo sem juros."
+  },
+  pesados: {
+    titulo: "Benefícios do Consórcio de Pesados",
+    itens: [
+      "Créditos de R$ 180 mil a R$ 360 mil",
+      "Lance fixo de 40% disponível",
+      "Caminhão, ônibus, máquinas agrícolas e industriais",
+      "Pessoa física ou jurídica",
+      "2 a 4 cotas contempladas por mês",
+    ],
+    paraQuem: "Para empresários e transportadores que querem crescer."
+  }
+};
 
 /* ═══════════════════════════════════════════════════════
    MAIN PAGE
@@ -200,9 +221,32 @@ export default function Consorcio() {
   const [leadNome, setLeadNome] = useState('');
   const [leadEmail, setLeadEmail] = useState('');
   const [leadTelefone, setLeadTelefone] = useState('');
+  const [leadMensagem, setLeadMensagem] = useState('');
+  const [timeLeft, setTimeLeft] = useState({ dias: 0, horas: 0, mins: 0, segs: 0 });
+
+  /* ── Hero text reveal ── */
+  const heroRef = useRef<HTMLHeadingElement>(null);
+  const { ref: heroRevealRef, visible: heroVisible } = useReveal(0.2);
 
   useEffect(() => {
     document.title = "Plan10 Consórcio — Imóvel, Veículo e Pesados sem juros";
+  }, []);
+
+  /* ── Countdown ── */
+  useEffect(() => {
+    const target = new Date('2026-04-30T23:59:59');
+    const timer = setInterval(() => {
+      const now = new Date();
+      const diff = target.getTime() - now.getTime();
+      if (diff <= 0) { clearInterval(timer); return; }
+      setTimeLeft({
+        dias: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        horas: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        mins: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+        segs: Math.floor((diff % (1000 * 60)) / 1000)
+      });
+    }, 1000);
+    return () => clearInterval(timer);
   }, []);
 
   const scrollToSim = () => document.getElementById("simulador-parcelas")?.scrollIntoView({ behavior: "smooth" });
@@ -391,14 +435,38 @@ export default function Consorcio() {
     setSimFaixa(0);
   };
 
+  /* ── Card colors for "Por que escolher" ── */
+  const cardColors = [
+    { hover: "hover:border-[#003087]/40", bg: "hover:bg-[#003087]/5" },
+    { hover: "hover:border-[#16a34a]/40", bg: "hover:bg-[#16a34a]/5" },
+    { hover: "hover:border-[#7c3aed]/40", bg: "hover:bg-[#7c3aed]/5" },
+    { hover: "hover:border-[#FF6B00]/40", bg: "hover:bg-[#FF6B00]/5" },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground font-inter">
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
-          </button>
+          <div className="flex flex-col items-start">
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
+              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
+            </button>
+            <p className="text-[10px] text-gray-400 tracking-widest uppercase leading-none mt-0.5 hidden sm:block">
+              O seu futuro muito mais tranquilo
+            </p>
+          </div>
+          <div className="hidden md:flex flex-col items-center gap-0.5">
+            <img
+              src={portoLogo}
+              alt="Porto Bank"
+              className="h-5 w-auto"
+              style={{ filter: 'brightness(0) invert(1)', opacity: 0.8 }}
+            />
+            <span className="text-[9px] text-gray-400 uppercase tracking-widest">
+              Parceiro Oficial
+            </span>
+          </div>
           <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold">
             Simular agora
           </button>
@@ -430,7 +498,7 @@ export default function Consorcio() {
             <Reveal delay={0} direction="up">
               <div className="flex flex-wrap items-center gap-3 mb-8">
                 <img
-                  src="/Logo-PORTO-BANK-Padrao-e1690162927905.webp"
+                  src={portoLogo}
                   alt="Porto Bank"
                   className="h-10 w-auto"
                   style={{ filter: 'brightness(0) invert(1)', opacity: 0.9 }}
@@ -442,11 +510,36 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            <TextReveal
-              as="h1"
-              text="Realize seus sonhos sem pagar juros."
-              className="font-sora font-black text-4xl sm:text-5xl md:text-7xl leading-[1.15] pb-3 mb-6 max-w-4xl"
-            />
+            {/* TAREFA 1 — H1 com palavras destacadas */}
+            <div ref={heroRevealRef}>
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-7xl leading-[1.15] pb-3 mb-6 max-w-4xl">
+                {[
+                  { text: "Os", accent: false },
+                  { text: "melhores", accent: false },
+                  { text: "DESCONTOS", accent: true },
+                  { text: "em", accent: false },
+                  { text: "CONSÓRCIO", accent: true },
+                  { text: "estão", accent: false },
+                  { text: "aqui.", accent: false },
+                ].map((w, i) => (
+                  <span key={i} className="inline-block overflow-hidden pb-2 mr-[0.3em] last:mr-0">
+                    <span
+                      className={`inline-block transition-all ${w.accent ? "text-[#FF6B00]" : ""}`}
+                      style={{
+                        transform: heroVisible ? "translateY(0)" : "translateY(110%)",
+                        opacity: heroVisible ? 1 : 0,
+                        transitionProperty: "transform, opacity",
+                        transitionDuration: "0.7s",
+                        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+                        transitionDelay: heroVisible ? `${i * 80}ms` : "0ms",
+                      }}
+                    >
+                      {w.text}
+                    </span>
+                  </span>
+                ))}
+              </h1>
+            </div>
 
             <Reveal delay={500} direction="up">
               <p className="text-base md:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
@@ -455,7 +548,65 @@ export default function Consorcio() {
             </Reveal>
 
             <Reveal delay={650} direction="up">
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
+                {["Cotas com desconto de 45%", "Contemplação antecipada possível", "Carta de crédito garantida"].map((t) => (
+                  <div
+                    key={t}
+                    className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2"
+                  >
+                    <span className="text-accent text-sm">✦</span>
+                    <span className="text-sm font-semibold text-foreground">{t}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            {/* ── BANNER DE OFERTA ── */}
+            <Reveal delay={700} direction="up">
+              <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
+                  <span className="text-lg">🔥</span>
+                  <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
+                  <span className="text-lg">💳</span>
+                  <span className="text-white font-semibold text-sm">10% OFF na taxa adm para clientes Porto</span>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* ── COUNTDOWN ── */}
+            <Reveal delay={750} direction="up">
+              <div className="flex items-center gap-2 flex-wrap justify-start py-3 px-4 rounded-xl bg-white/5 border border-white/10 w-fit mb-6">
+                <span className="text-gray-400 text-xs font-medium uppercase tracking-widest">
+                  Termina em:
+                </span>
+                {[
+                  { value: timeLeft.dias, label: 'dias' },
+                  { value: timeLeft.horas, label: 'horas' },
+                  { value: timeLeft.mins, label: 'mins' },
+                  { value: timeLeft.segs, label: 'seg' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <div className="bg-[#1a1f2e] border border-white/10 rounded-lg px-3 py-1.5 text-center min-w-[52px]">
+                      <div className="text-white font-bold text-lg font-mono leading-none">
+                        {String(item.value).padStart(2, '0')}
+                      </div>
+                      <div className="text-gray-500 text-[10px] uppercase tracking-wider mt-0.5">
+                        {item.label}
+                      </div>
+                    </div>
+                    {i < 3 && (
+                      <span className="text-[#FF6B00] font-bold text-lg">:</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            {/* ── CTAs ── */}
+            <Reveal delay={800} direction="up">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold">
                   Garantir minha cota agora
                 </button>
@@ -473,34 +624,6 @@ export default function Consorcio() {
                 </a>
               </div>
             </Reveal>
-
-            <Reveal delay={700} direction="up">
-              <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
-                {["Cotas com desconto de 45%", "Contemplação antecipada possível", "Carta de crédito garantida"].map((t) => (
-                  <div
-                    key={t}
-                    className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2"
-                  >
-                    <span className="text-accent text-sm">✦</span>
-                    <span className="text-sm font-semibold text-foreground">{t}</span>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-
-            {/* ── BANNER DE OFERTA ── */}
-            <Reveal delay={800} direction="up">
-              <div className="flex flex-wrap gap-3 md:gap-4 mt-2">
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
-                  <span className="text-lg">🔥</span>
-                  <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
-                  <span className="text-lg">💳</span>
-                  <span className="text-white font-semibold text-sm">10% OFF na taxa adm para clientes Porto</span>
-                </div>
-              </div>
-            </Reveal>
           </div>
 
           {/* Scroll arrow */}
@@ -513,7 +636,9 @@ export default function Consorcio() {
         <section id="simulador-parcelas" className="py-14 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <TextReveal as="h2" text="Simule sua parcela agora" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-3" />
+              <Reveal direction="up">
+                <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-3">Simule sua parcela agora</h2>
+              </Reveal>
               <Reveal direction="up" delay={200}>
                 <p className="text-center text-muted-foreground text-sm md:text-base mb-10 px-2 break-words">
                   Valores reais Porto Bank • Oferta válida até 30/04/2026
@@ -555,6 +680,24 @@ export default function Consorcio() {
                         <option key={i} value={i}>{f.faixa}</option>
                       ))}
                     </select>
+                  </div>
+
+                  {/* Benefícios por categoria */}
+                  <div className="p-4 rounded-xl bg-white/5 border border-white/[0.08] mb-4 transition-all duration-300" key={simCategoria}>
+                    <p className="text-white font-semibold text-sm mb-3">
+                      {beneficiosPorCategoria[simCategoria].titulo}
+                    </p>
+                    <ul className="space-y-1.5 mb-3">
+                      {beneficiosPorCategoria[simCategoria].itens.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-gray-300 text-xs">
+                          <span className="text-[#FF6B00] mt-0.5 shrink-0">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-gray-500 text-xs italic">
+                      {beneficiosPorCategoria[simCategoria].paraQuem}
+                    </p>
                   </div>
 
                   {/* Badges oferta */}
@@ -657,12 +800,19 @@ export default function Consorcio() {
                         className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
                       />
                     </div>
+                    <textarea
+                      placeholder="Mensagem (opcional) — ex: quero informações sobre imóvel"
+                      value={leadMensagem}
+                      onChange={(e) => setLeadMensagem(e.target.value)}
+                      rows={2}
+                      className="w-full max-w-xl mx-auto block mt-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none"
+                    />
                     <button
                       onClick={() => {
                         const cat = categoriaLabels[simCategoria];
                         const faixa = faixaAtual?.faixa || '';
                         const msg = encodeURIComponent(
-                          `Olá! Tenho interesse no Consórcio de ${cat} na faixa ${faixa}. Meu nome é ${leadNome || '(não informado)'}. E-mail: ${leadEmail || 'não informado'}.`
+                          `Olá! Tenho interesse no Consórcio de ${cat} na faixa ${faixa}. Meu nome é ${leadNome || '(não informado)'}. E-mail: ${leadEmail || 'não informado'}.${leadMensagem ? ` Mensagem: ${leadMensagem}` : ''}`
                         );
                         window.open(`${WA_BASE}&text=${msg}`, '_blank');
                       }}
@@ -685,11 +835,9 @@ export default function Consorcio() {
         {/* ═══════ CREDIBILIDADE ═══════ */}
         <section className="py-14 md:py-28">
           <div className="container mx-auto px-4">
-            <TextReveal
-              as="h2"
-              text="Por que escolher o Consórcio Plan10?"
-              className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14"
-            />
+            <Reveal direction="up">
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">Por que escolher o Consórcio Plan10?</h2>
+            </Reveal>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { emoji: "🏆", title: "Porto Bank Oficial", desc: "Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil." },
@@ -698,7 +846,7 @@ export default function Consorcio() {
                 { emoji: "🤝", title: "Consultoria Gratuita", desc: "Nossa equipe te orienta do início ao fim sem custo adicional. Atendimento humano, não robótico." },
               ].map((c, i) => (
                 <Reveal key={i} delay={i * 100} direction="up">
-                  <div className="glass rounded-2xl p-6 h-full border border-white/8 hover:border-accent/40 hover:shadow-[0_0_20px_rgba(242,140,40,0.08)] transition-all duration-300">
+                  <div className={`glass rounded-2xl p-6 h-full border border-white/8 hover:shadow-[0_0_20px_rgba(242,140,40,0.08)] transition-all duration-300 ${cardColors[i].hover} ${cardColors[i].bg}`}>
                     <span className="text-3xl mb-4 block">{c.emoji}</span>
                     <h3 className="font-sora font-bold text-lg text-foreground mb-2">{c.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
@@ -712,7 +860,9 @@ export default function Consorcio() {
         {/* ═══════ MODALIDADES ═══════ */}
         <section className="py-14 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
-            <TextReveal as="h2" text="Escolha seu consórcio" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
+            <Reveal direction="up">
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Escolha seu consórcio</h2>
+            </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
                 Cada sonho tem o plano certo. Conheça as modalidades:
@@ -783,7 +933,9 @@ export default function Consorcio() {
         {/* ═══════ CONFIANÇA E SEGURANÇA ═══════ */}
         <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
-            <TextReveal as="h2" text="Do sonho ao patrimônio, a Plan10 está com você." className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
+            <Reveal direction="up">
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Do sonho ao patrimônio, a Plan10 está com você.</h2>
+            </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
                 Cuidamos de cada detalhe para que você conquiste o que realmente importa.
@@ -811,7 +963,9 @@ export default function Consorcio() {
         {/* ═══════ COMO FUNCIONA ═══════ */}
         <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
-            <TextReveal as="h2" text="Como funciona o consórcio?" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14" />
+            <Reveal direction="up">
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">Como funciona o consórcio?</h2>
+            </Reveal>
 
             <div className="relative grid md:grid-cols-4 gap-6 md:gap-8">
               {/* Desktop connector */}
@@ -834,6 +988,19 @@ export default function Consorcio() {
                 </Reveal>
               ))}
             </div>
+
+            {/* CTA Como Funciona */}
+            <div className="flex justify-center mt-10">
+              <a
+                href="https://api.whatsapp.com/send/?phone=5511991051616&text=Ol%C3%A1!%20Quero%20escolher%20meu%20cons%C3%B3rcio%20agora."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-btn inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold px-10 py-4 rounded-full transition-colors duration-200 text-base"
+              >
+                Escolher o meu patrimônio agora
+                <span>→</span>
+              </a>
+            </div>
           </div>
         </section>
 
@@ -841,7 +1008,9 @@ export default function Consorcio() {
         {/* ═══════ DEPOIMENTOS ═══════ */}
         <section className="py-14 md:py-28 overflow-hidden">
           <div className="container mx-auto px-4 mb-14">
-            <TextReveal as="h2" text="O que nossos clientes dizem" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4" />
+            <Reveal direction="up">
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">O que nossos clientes dizem</h2>
+            </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto">
                 A maioria dos nossos clientes chega por indicação — e isso diz tudo.
@@ -860,7 +1029,9 @@ export default function Consorcio() {
         {/* ═══════ FAQ ═══════ */}
         <section className="py-14 md:py-28">
           <div className="container mx-auto px-4 max-w-3xl">
-            <TextReveal as="h2" text="Dúvidas frequentes" className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14" />
+            <Reveal direction="up">
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">Dúvidas frequentes</h2>
+            </Reveal>
 
             <Reveal direction="up">
               <div>
@@ -920,7 +1091,9 @@ export default function Consorcio() {
         {/* ═══════ CTA FINAL ═══════ */}
         <section className="py-14 md:py-28 bg-accent">
           <div className="container mx-auto px-4 text-center">
-            <TextReveal as="h2" text="Pronto para conquistar seu sonho?" className="font-sora font-black text-3xl md:text-4xl lg:text-5xl text-accent-foreground mb-4" />
+            <Reveal direction="up">
+              <h2 className="font-sora font-black text-3xl md:text-4xl lg:text-5xl text-accent-foreground mb-4">Pronto para conquistar seu sonho?</h2>
+            </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-accent-foreground/80 text-lg mb-8 max-w-xl mx-auto">
                 Fale com um consultor Plan10 agora mesmo. Atendimento rápido, sem enrolação.
