@@ -195,6 +195,18 @@ export default function Consorcio() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [tipoDropdownAberto]);
 
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest('[data-faixa-dropdown]')) {
+        setFaixaDropdownAberto(false);
+      }
+    };
+    if (faixaDropdownAberto) {
+      document.addEventListener('mousedown', handler);
+    }
+    return () => document.removeEventListener('mousedown', handler);
+  }, [faixaDropdownAberto]);
+
   /* ── Hero text reveal ── */
   const { ref: heroRevealRef, visible: heroVisible } = useReveal(0.2);
 
