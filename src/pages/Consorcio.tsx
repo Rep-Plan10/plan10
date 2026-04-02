@@ -1327,7 +1327,6 @@ export default function Consorcio() {
               src={portoLogo}
               alt="Porto"
               className="h-8 w-auto"
-              style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
             />
           </div>
           <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto S.A.</p>
