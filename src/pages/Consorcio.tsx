@@ -523,7 +523,7 @@ export default function Consorcio() {
 
             {/* ── BANNER DE OFERTA ── */}
             <Reveal delay={700} direction="up">
-              <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
+              <div className="flex flex-wrap gap-3 md:gap-4 mb-3">
                 <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
                   <span className="text-lg">🔥</span>
                   <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
