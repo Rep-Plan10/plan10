@@ -439,7 +439,7 @@ export default function Consorcio() {
 
       <main>
         {/* ═══════ HERO ═══════ */}
-        <section className="relative min-h-screen flex items-center overflow-hidden">
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
           {/* BG effects */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px]" />
@@ -458,7 +458,7 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 py-20 relative z-10">
+          <div className="container mx-auto px-4 pt-12 pb-10 relative z-10">
             <Reveal delay={0} direction="up">
               <div className="flex flex-col items-start gap-2 mb-8">
                 <img
@@ -475,7 +475,7 @@ export default function Consorcio() {
             </Reveal>
 
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-7xl leading-[1.15] pb-3 mb-6 max-w-4xl">
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-4xl">
                 {[
                   { text: "Os", accent: false },
                   { text: "melhores", accent: false },
@@ -505,13 +505,13 @@ export default function Consorcio() {
             </div>
 
             <Reveal delay={500} direction="up">
-              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
+              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mb-4 leading-relaxed">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
 
             <Reveal delay={650} direction="up">
-              <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
+               <div className="flex flex-wrap gap-3 md:gap-4 mb-3">
                 {["Cotas com desconto de 45%", "Contemplação antecipada possível", "Carta de crédito garantida"].map((t) => (
                   <div key={t} className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2">
                     <span className="text-accent text-sm">✦</span>
@@ -523,7 +523,7 @@ export default function Consorcio() {
 
             {/* ── BANNER DE OFERTA ── */}
             <Reveal delay={700} direction="up">
-              <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
+              <div className="flex flex-wrap gap-3 md:gap-4 mb-3">
                 <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
                   <span className="text-lg">🔥</span>
                   <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
@@ -537,7 +537,7 @@ export default function Consorcio() {
 
             {/* ── COUNTDOWN ── */}
             <Reveal delay={750} direction="up">
-              <div className="flex items-center gap-2 flex-wrap justify-start py-3 px-4 rounded-xl bg-white/5 border border-white/10 w-fit mb-6">
+              <div className="flex items-center gap-2 flex-wrap justify-start py-3 px-4 rounded-xl bg-white/5 border border-white/10 w-fit mb-3">
                 <span className="text-gray-400 text-xs font-medium uppercase tracking-widest">
                   Termina em:
                 </span>
@@ -1001,7 +1001,7 @@ export default function Consorcio() {
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center mb-10">
               <span className="inline-flex items-center gap-2 bg-[#003087]/20 border border-[#003087]/40 rounded-full px-4 py-1.5 mb-4">
-                <img src={portoLogo} alt="Porto" className="h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+                <img src={portoLogo} alt="Porto" className="h-3.5 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
                 <span className="text-white text-xs font-semibold">Produto Complementar</span>
               </span>
               <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-3">
