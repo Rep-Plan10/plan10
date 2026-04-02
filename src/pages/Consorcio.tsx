@@ -902,11 +902,11 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Do sonho ao patrimônio, a Plan10 está com você.</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">O seu futuro muito mais tranquilo.</h2>
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
-                Cuidamos de cada detalhe para que você conquiste o que realmente importa.
+                Do sonho ao patrimônio, a Plan10 está com você em cada etapa.
               </p>
             </Reveal>
 
