@@ -179,6 +179,7 @@ export default function Consorcio() {
   const [formEmail, setFormEmail] = useState('');
   const [formMensagem, setFormMensagem] = useState('');
   const [tipoDropdownAberto, setTipoDropdownAberto] = useState(false);
+  const [faixaDropdownAberto, setFaixaDropdownAberto] = useState(false);
 
   /* ── Close dropdown on outside click ── */
   useEffect(() => {
