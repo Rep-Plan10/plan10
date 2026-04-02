@@ -1188,18 +1188,57 @@ export default function Consorcio() {
               </p>
             </div>
             <div className="glass rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
-              <select
-                value={formTipo}
-                onChange={(e) => setFormTipo(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-accent focus:outline-none"
-              >
-                <option value="" className="bg-[#0d1117]">Selecione o tipo de consórcio</option>
-                <option value="Imóvel" className="bg-[#0d1117]">Consórcio de Imóvel</option>
-                <option value="Veículo" className="bg-[#0d1117]">Consórcio de Veículo</option>
-                <option value="Pesados" className="bg-[#0d1117]">Consórcio de Pesados</option>
-                <option value="Seguro de Vida" className="bg-[#0d1117]">Seguro de Vida Porto</option>
-                <option value="Outros" className="bg-[#0d1117]">Outros consórcios</option>
-              </select>
+              {/* Dropdown customizado — tipo de consórcio */}
+              <div className="relative w-full" data-tipo-dropdown>
+                <button
+                  type="button"
+                  onClick={() => setTipoDropdownAberto(!tipoDropdownAberto)}
+                  className="w-full flex items-center justify-between bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm hover:border-white/20 transition-colors duration-200 focus:outline-none focus:border-accent"
+                >
+                  <span className={formTipo ? 'text-white' : 'text-gray-500'}>
+                    {formTipo || 'Selecione o tipo de consórcio'}
+                  </span>
+                  <svg
+                    className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${tipoDropdownAberto ? 'rotate-180' : ''}`}
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {tipoDropdownAberto && (
+                  <div className="absolute z-50 w-full mt-1 bg-[#0d1117] border border-white/15 rounded-lg shadow-2xl overflow-hidden">
+                    {[
+                      { value: '', label: 'Selecione o tipo de consórcio', disabled: true },
+                      { value: 'Imóvel', label: '🏠  Consórcio de Imóvel' },
+                      { value: 'Veículo', label: '🚗  Consórcio de Veículo' },
+                      { value: 'Pesados', label: '🚛  Consórcio de Pesados' },
+                      { value: 'Seguro de Vida', label: '🛡️  Seguro de Vida Porto' },
+                      { value: 'Outros', label: '✨  Outros consórcios' },
+                    ].map((option) => (
+                      <button
+                        key={option.value || 'placeholder'}
+                        type="button"
+                        disabled={option.disabled}
+                        onClick={() => {
+                          if (!option.disabled) {
+                            setFormTipo(option.value);
+                            setTipoDropdownAberto(false);
+                          }
+                        }}
+                        className={`w-full text-left px-4 py-3 text-sm transition-colors duration-150 border-b border-white/5 last:border-0 ${
+                          option.disabled
+                            ? 'text-gray-600 cursor-default'
+                            : formTipo === option.value
+                              ? 'bg-[#FF6B00]/20 text-[#FF6B00] font-medium'
+                              : 'text-gray-200 hover:bg-white/[0.08] hover:text-white'
+                        }`}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <input
                 type="text"
