@@ -3,6 +3,9 @@ import { ChevronDown, Check, MessageCircle, ArrowDown, Star } from "lucide-react
 
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
 const portoLogo = '/Nova-Logo_PortoHolding.png';
+const imgCasa = '/casa.jpeg';
+const imgCarro = '/carro-moderno-isolado_23-2151504562.png';
+const imgCaminhao = '/caminhao-de-entrega-de-caixa-preta-em-fundo-branco_84443-13396.png';
 
 /* ───────────────────── WHATSAPP ───────────────────── */
 const WA_PHONE = "5511991051616";
@@ -425,19 +428,14 @@ export default function Consorcio() {
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex flex-col items-start">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
-              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
-            </button>
-            <p className="text-[10px] text-gray-400 tracking-widest uppercase leading-none mt-0.5 hidden sm:block">
-              O seu futuro muito mais tranquilo
-            </p>
-          </div>
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
+          </button>
           <div className="hidden md:flex flex-col items-center gap-0.5">
             <img
               src={portoLogo}
               alt="Porto"
-              className="h-5 w-auto"
+              className="h-8 w-auto"
               style={{ filter: 'brightness(0) invert(1)', opacity: 0.8 }}
             />
             <span className="text-[9px] text-gray-400 uppercase tracking-widest">
@@ -477,7 +475,7 @@ export default function Consorcio() {
                 <img
                   src={portoLogo}
                   alt="Porto"
-                  className="h-10 w-auto"
+                  className="h-8 w-auto"
                   style={{ filter: 'brightness(0) invert(1)', opacity: 0.9 }}
                 />
                 <div className="inline-flex items-center gap-1.5 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-4 py-1.5">
@@ -651,7 +649,21 @@ export default function Consorcio() {
                         Mais popular
                       </span>
                     )}
-                    <span className="text-4xl mb-4">{p.emoji}</span>
+                    {p.cat === 'imovel' && (
+                      <div className="w-full h-40 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
+                        <img src={imgCasa} alt="Imóvel" className="w-full h-full object-cover rounded-xl" />
+                      </div>
+                    )}
+                    {p.cat === 'veiculo' && (
+                      <div className="w-full h-40 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-white/5">
+                        <img src={imgCarro} alt="Veículo" className="w-auto h-36 object-contain drop-shadow-lg" />
+                      </div>
+                    )}
+                    {p.cat === 'pesados' && (
+                      <div className="w-full h-40 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-white/5">
+                        <img src={imgCaminhao} alt="Pesados" className="w-auto h-36 object-contain drop-shadow-lg" />
+                      </div>
+                    )}
                     <h3 className="font-sora font-bold text-xl text-foreground mb-3 text-center">{p.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-5 text-center">{p.desc}</p>
                     <ul className="space-y-2 mb-6 flex-1 text-left max-w-xs">
@@ -904,11 +916,11 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Do sonho ao patrimônio, a Plan10 está com você.</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">O seu futuro muito mais tranquilo.</h2>
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
-                Cuidamos de cada detalhe para que você conquiste o que realmente importa.
+                Do sonho ao patrimônio, a Plan10 está com você em cada etapa.
               </p>
             </Reveal>
 
@@ -1000,7 +1012,7 @@ export default function Consorcio() {
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center mb-10">
               <span className="inline-flex items-center gap-2 bg-[#003087]/20 border border-[#003087]/40 rounded-full px-4 py-1.5 mb-4">
-                <img src={portoLogo} alt="Porto" className="h-4 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+                <img src={portoLogo} alt="Porto" className="h-7 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
                 <span className="text-white text-xs font-semibold">Produto Complementar</span>
               </span>
               <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-3">
@@ -1263,14 +1275,11 @@ export default function Consorcio() {
                     href={`https://api.whatsapp.com/send/?phone=5511991051616&text=${encodeURIComponent(`Olá! Tenho interesse no ${item.label}. Pode me ajudar?`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 w-full max-w-sm px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-medium text-sm hover:border-accent/40 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer group"
+                    className="flex items-center justify-center gap-3 w-full max-w-sm px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-medium text-sm hover:border-accent/40 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer group"
                   >
                     <span className="text-xl">{item.icon}</span>
                     <span className="text-white/80 group-hover:text-white transition-colors">
                       {item.label}
-                    </span>
-                    <span className="ml-auto text-accent opacity-0 group-hover:opacity-100 transition-opacity text-xs">
-                      Consultar →
                     </span>
                   </a>
                 ))}
@@ -1317,11 +1326,11 @@ export default function Consorcio() {
             <img
               src={portoLogo}
               alt="Porto"
-              className="h-6 w-auto"
+              className="h-8 w-auto"
               style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
             />
           </div>
-          <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto Bank S.A.</p>
+          <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto S.A.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
             <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Política de Privacidade</a>
             <span>|</span>
