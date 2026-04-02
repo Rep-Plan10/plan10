@@ -617,7 +617,7 @@ export default function Consorcio() {
           </div>
 
           {/* Scroll arrow */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce z-10 hidden sm:block">
             <ArrowDown size={24} className="text-white/40" />
           </div>
         </section>
