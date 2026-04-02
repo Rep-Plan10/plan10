@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Check, MessageCircle, ArrowDown, Star } from "lucide-react";
 
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
-const portoLogo = '/Logo-PORTO-BANK-Padrao-e1690162927905.webp';
+const portoLogo = '/Nova-Logo_PortoHolding.png';
 
 /* ───────────────────── WHATSAPP ───────────────────── */
 const WA_PHONE = "5511991051616";
@@ -121,93 +121,36 @@ function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; re
 
 /* ───────────────────── FAQ DATA ───────────────────── */
 const faqItems = [
-  {
-    question: "O consórcio tem juros?",
-    answer: "Não. O consórcio não cobra juros. Você paga apenas a taxa de administração e o fundo de reserva. Comparado ao financiamento tradicional, é muito mais econômico no longo prazo."
-  },
-  {
-    question: "O consórcio é um bom investimento?",
-    answer: "Sim. Além de ser uma forma disciplinada de poupar, o consórcio permite adquirir bens com poder de compra à vista — o que gera desconto real na negociação. É uma alternativa inteligente para quem não precisa do bem imediatamente."
-  },
-  {
-    question: "O que vale mais a pena: consórcio ou financiamento?",
-    answer: "Depende do seu momento. Se você precisa do bem agora, o financiamento pode ser necessário. Se tem planejamento, o consórcio sai muito mais barato — sem juros, apenas taxa administrativa."
-  },
-  {
-    question: "Como ser contemplado no consórcio?",
-    answer: "Existem duas formas: por sorteio mensal (qualquer cota pode ser contemplada) ou por lance — onde você oferta um valor antecipado para aumentar suas chances. Nos grupos em andamento da Porto Bank, as chances são maiores pois há menos cotas disponíveis."
-  },
-  {
-    question: "Como funciona o lance no consórcio?",
-    answer: "O lance é um valor que você oferta para antecipar sua contemplação. Pode ser com recurso próprio, FGTS (para imóveis) ou lance embutido (parte do próprio crédito). Quem oferta o maior percentual do crédito é contemplado."
-  },
-  {
-    question: "Como funcionam os sorteios no consórcio?",
-    answer: "Todo mês acontece uma assembleia onde cotas são contempladas por sorteio. Nos grupos Porto Bank em andamento, a entrega mensal de cotas varia por segmento: 3 a 5 por mês em imóveis, 4 a 6 em veículos e 2 a 4 em pesados."
-  },
-  {
-    question: "Posso usar a carta de crédito para qualquer finalidade?",
-    answer: "Dentro da categoria contratada, sim. Em imóveis: compra residencial, comercial, rural, terreno, construção, reforma e quitação de financiamento. Em veículos: automóveis, motos, náuticos e placas solares. Em pesados: caminhões, ônibus, máquinas agrícolas e industriais."
-  },
-  {
-    question: "Todos são contemplados até o final do grupo?",
-    answer: "Sim. Todos os participantes que mantiverem suas parcelas em dia serão contemplados até o encerramento do grupo — seja por sorteio ou lance."
-  },
-  {
-    question: "O que é a taxa de administração do consórcio?",
-    answer: "É a remuneração da administradora pelo gerenciamento do grupo. Na Porto Bank, varia conforme o tipo e prazo do consórcio. Para clientes Porto, há 10% de desconto sobre essa taxa."
-  },
-  {
-    question: "Como a Plan10 me ajuda nesse processo?",
-    answer: "Nossa equipe faz toda a consultoria gratuitamente: análise do seu perfil, escolha do grupo ideal, acompanhamento da contemplação e suporte no uso da carta de crédito. Você não fica sozinho em nenhum momento."
-  },
-  {
-    question: "Qual o tempo médio de fechamento dos grupos de consórcio?",
-    answer: "O prazo varia conforme o segmento e o grupo. Em imóveis, os grupos podem ter até 200 meses. Em veículos, até 100 meses. Em pesados, até 117 meses. Grupos em andamento já têm o prazo definido e você entra no tempo restante — o que pode significar mais chances de contemplação rápida."
-  },
-  {
-    question: "O que é o fundo de reserva no consórcio?",
-    answer: "É uma reserva financeira do grupo para cobrir inadimplências e garantir que todos os participantes sejam contemplados. Na Porto Bank, corresponde a 2% sobre o crédito e é cobrado junto com a parcela mensal."
-  },
-  {
-    question: "Como solicitar o resgate de valores de um grupo já encerrado?",
-    answer: "Após o encerramento do grupo, os valores são devolvidos conforme as condições do contrato. Para solicitações, entre em contato com sua administradora. Nossa equipe da Plan10 pode te orientar durante todo esse processo sem custo adicional."
-  }
+  { question: "O consórcio tem juros?", answer: "Não. O consórcio não cobra juros. Você paga apenas a taxa de administração e o fundo de reserva. Comparado ao financiamento tradicional, é muito mais econômico no longo prazo." },
+  { question: "O consórcio é um bom investimento?", answer: "Sim. Além de ser uma forma disciplinada de poupar, o consórcio permite adquirir bens com poder de compra à vista — o que gera desconto real na negociação. É uma alternativa inteligente para quem não precisa do bem imediatamente." },
+  { question: "O que vale mais a pena: consórcio ou financiamento?", answer: "Depende do seu momento. Se você precisa do bem agora, o financiamento pode ser necessário. Se tem planejamento, o consórcio sai muito mais barato — sem juros, apenas taxa administrativa." },
+  { question: "Como ser contemplado no consórcio?", answer: "Existem duas formas: por sorteio mensal (qualquer cota pode ser contemplada) ou por lance — onde você oferta um valor antecipado para aumentar suas chances. Nos grupos em andamento da Porto Bank, as chances são maiores pois há menos cotas disponíveis." },
+  { question: "Como funciona o lance no consórcio?", answer: "O lance é um valor que você oferta para antecipar sua contemplação. Pode ser com recurso próprio, FGTS (para imóveis) ou lance embutido (parte do próprio crédito). Quem oferta o maior percentual do crédito é contemplado." },
+  { question: "Como funcionam os sorteios no consórcio?", answer: "Todo mês acontece uma assembleia onde cotas são contempladas por sorteio. Nos grupos Porto Bank em andamento, a entrega mensal de cotas varia por segmento: 3 a 5 por mês em imóveis, 4 a 6 em veículos e 2 a 4 em pesados." },
+  { question: "Posso usar a carta de crédito para qualquer finalidade?", answer: "Dentro da categoria contratada, sim. Em imóveis: compra residencial, comercial, rural, terreno, construção, reforma e quitação de financiamento. Em veículos: automóveis, motos, náuticos e placas solares. Em pesados: caminhões, ônibus, máquinas agrícolas e industriais." },
+  { question: "Todos são contemplados até o final do grupo?", answer: "Sim. Todos os participantes que mantiverem suas parcelas em dia serão contemplados até o encerramento do grupo — seja por sorteio ou lance." },
+  { question: "O que é a taxa de administração do consórcio?", answer: "É a remuneração da administradora pelo gerenciamento do grupo. Na Porto Bank, varia conforme o tipo e prazo do consórcio. Para clientes Porto, há 10% de desconto sobre essa taxa." },
+  { question: "Como a Plan10 me ajuda nesse processo?", answer: "Nossa equipe faz toda a consultoria gratuitamente: análise do seu perfil, escolha do grupo ideal, acompanhamento da contemplação e suporte no uso da carta de crédito. Você não fica sozinho em nenhum momento." },
+  { question: "Qual o tempo médio de fechamento dos grupos de consórcio?", answer: "O prazo varia conforme o segmento e o grupo. Em imóveis, os grupos podem ter até 200 meses. Em veículos, até 100 meses. Em pesados, até 117 meses. Grupos em andamento já têm o prazo definido e você entra no tempo restante — o que pode significar mais chances de contemplação rápida." },
+  { question: "O que é o fundo de reserva no consórcio?", answer: "É uma reserva financeira do grupo para cobrir inadimplências e garantir que todos os participantes sejam contemplados. Na Porto Bank, corresponde a 2% sobre o crédito e é cobrado junto com a parcela mensal." },
+  { question: "Como solicitar o resgate de valores de um grupo já encerrado?", answer: "Após o encerramento do grupo, os valores são devolvidos conforme as condições do contrato. Para solicitações, entre em contato com sua administradora. Nossa equipe da Plan10 pode te orientar durante todo esse processo sem custo adicional." },
 ];
 
 /* ───────────────────── BENEFÍCIOS POR CATEGORIA ───────────────────── */
 const beneficiosPorCategoria = {
   imovel: {
     titulo: "Benefícios do Consórcio de Imóvel",
-    itens: [
-      "Créditos de R$ 70 mil a R$ 1 milhão",
-      "Lance embutido de até 30% do crédito",
-      "Use para imóvel residencial, comercial, terreno ou reforma",
-      "Aceita FGTS para composição de lance",
-      "3 a 5 cotas contempladas por mês",
-    ],
+    itens: ["Créditos de R$ 70 mil a R$ 1 milhão", "Lance embutido de até 30% do crédito", "Use para imóvel residencial, comercial, terreno ou reforma", "Aceita FGTS para composição de lance", "3 a 5 cotas contempladas por mês"],
     paraQuem: "Para quem quer sair do aluguel ou investir em patrimônio."
   },
   veiculo: {
     titulo: "Benefícios do Consórcio de Veículo",
-    itens: [
-      "Créditos de R$ 25 mil a R$ 200 mil",
-      "Lance embutido de até 30% do crédito",
-      "Carro novo, usado, moto, náutico ou placas solares",
-      "Sem entrada obrigatória",
-      "4 a 6 cotas contempladas por mês",
-    ],
+    itens: ["Créditos de R$ 25 mil a R$ 200 mil", "Lance embutido de até 30% do crédito", "Carro novo, usado, moto, náutico ou placas solares", "Sem entrada obrigatória", "4 a 6 cotas contempladas por mês"],
     paraQuem: "Para quem quer trocar ou comprar seu veículo sem juros."
   },
   pesados: {
     titulo: "Benefícios do Consórcio de Pesados",
-    itens: [
-      "Créditos de R$ 180 mil a R$ 360 mil",
-      "Lance fixo de 40% disponível",
-      "Caminhão, ônibus, máquinas agrícolas e industriais",
-      "Pessoa física ou jurídica",
-      "2 a 4 cotas contempladas por mês",
-    ],
+    itens: ["Créditos de R$ 180 mil a R$ 360 mil", "Lance fixo de 40% disponível", "Caminhão, ônibus, máquinas agrícolas e industriais", "Pessoa física ou jurídica", "2 a 4 cotas contempladas por mês"],
     paraQuem: "Para empresários e transportadores que querem crescer."
   }
 };
@@ -218,11 +161,20 @@ const beneficiosPorCategoria = {
 export default function Consorcio() {
   const [simCategoria, setSimCategoria] = useState<'imovel' | 'veiculo' | 'pesados'>('imovel');
   const [simFaixa, setSimFaixa] = useState(0);
+  const [simAberto, setSimAberto] = useState(false);
   const [leadNome, setLeadNome] = useState('');
   const [leadEmail, setLeadEmail] = useState('');
   const [leadTelefone, setLeadTelefone] = useState('');
   const [leadMensagem, setLeadMensagem] = useState('');
   const [timeLeft, setTimeLeft] = useState({ dias: 0, horas: 0, mins: 0, segs: 0 });
+
+  /* Form states */
+  const [formTipo, setFormTipo] = useState('');
+  const [formCredito, setFormCredito] = useState('');
+  const [formNome, setFormNome] = useState('');
+  const [formWhatsApp, setFormWhatsApp] = useState('');
+  const [formEmail, setFormEmail] = useState('');
+  const [formMensagem, setFormMensagem] = useState('');
 
   /* ── Hero text reveal ── */
   const { ref: heroRevealRef, visible: heroVisible } = useReveal(0.2);
@@ -248,7 +200,33 @@ export default function Consorcio() {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToSim = () => document.getElementById("simulador-parcelas")?.scrollIntoView({ behavior: "smooth" });
+  const openSim = (cat: 'imovel' | 'veiculo' | 'pesados') => {
+    setSimCategoria(cat);
+    setSimFaixa(0);
+    setSimAberto(true);
+    setTimeout(() => {
+      document.getElementById('simulador-parcelas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  const formatarCredito = (val: string) => {
+    const digits = val.replace(/\D/g, '');
+    if (!digits) return '';
+    return parseInt(digits).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 });
+  };
+
+  const enviarFormulario = () => {
+    if (!formNome || !formWhatsApp) return;
+    const msg = encodeURIComponent(
+      `Olá! Meu nome é ${formNome}.\n` +
+      `Tipo de consórcio: ${formTipo || 'não informado'}.\n` +
+      `Valor do crédito: ${formCredito || 'não informado'}.\n` +
+      `WhatsApp: ${formWhatsApp}.\n` +
+      `E-mail: ${formEmail || 'não informado'}.\n` +
+      `${formMensagem ? 'Mensagem: ' + formMensagem : ''}`
+    );
+    window.open(`https://api.whatsapp.com/send/?phone=5511991051616&text=${msg}`, '_blank');
+  };
 
   /* ───────────────────── SIMULADOR DATA ───────────────────── */
   const simuladorData = {
@@ -458,7 +436,7 @@ export default function Consorcio() {
           <div className="hidden md:flex flex-col items-center gap-0.5">
             <img
               src={portoLogo}
-              alt="Porto Bank"
+              alt="Porto"
               className="h-5 w-auto"
               style={{ filter: 'brightness(0) invert(1)', opacity: 0.8 }}
             />
@@ -466,7 +444,7 @@ export default function Consorcio() {
               Parceiro Oficial
             </span>
           </div>
-          <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold">
+          <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold">
             Simular agora
           </button>
         </div>
@@ -498,7 +476,7 @@ export default function Consorcio() {
               <div className="flex flex-wrap items-center gap-3 mb-8">
                 <img
                   src={portoLogo}
-                  alt="Porto Bank"
+                  alt="Porto"
                   className="h-10 w-auto"
                   style={{ filter: 'brightness(0) invert(1)', opacity: 0.9 }}
                 />
@@ -509,7 +487,6 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            {/* TAREFA 1 — H1 com palavras destacadas */}
             <div ref={heroRevealRef}>
               <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-7xl leading-[1.15] pb-3 mb-6 max-w-4xl">
                 {[
@@ -549,10 +526,7 @@ export default function Consorcio() {
             <Reveal delay={650} direction="up">
               <div className="flex flex-wrap gap-3 md:gap-4 mb-6">
                 {["Cotas com desconto de 45%", "Contemplação antecipada possível", "Carta de crédito garantida"].map((t) => (
-                  <div
-                    key={t}
-                    className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2"
-                  >
+                  <div key={t} className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2">
                     <span className="text-accent text-sm">✦</span>
                     <span className="text-sm font-semibold text-foreground">{t}</span>
                   </div>
@@ -606,7 +580,7 @@ export default function Consorcio() {
             {/* ── CTAs ── */}
             <Reveal delay={800} direction="up">
               <div className="flex flex-col sm:flex-row gap-4">
-                <button onClick={scrollToSim} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold">
+                <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold">
                   Garantir minha cota agora
                 </button>
                 <a
@@ -631,205 +605,275 @@ export default function Consorcio() {
           </div>
         </section>
 
-        {/* ═══════ SIMULADOR DE PARCELAS ═══════ */}
-        <section id="simulador-parcelas" className="py-14 md:py-28 bg-muted/30">
+        {/* ═══════ MODALIDADES (ESCOLHA SEU CONSÓRCIO) ═══════ */}
+        <section className="py-14 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <Reveal direction="up">
-                <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-3">Simule sua parcela agora</h2>
-              </Reveal>
-              <Reveal direction="up" delay={200}>
-                <p className="text-center text-muted-foreground text-sm md:text-base mb-10 px-2 break-words">
-                  Valores reais Porto Bank • Oferta válida até 30/04/2026
-                </p>
-              </Reveal>
+            <Reveal direction="up">
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Escolha seu consórcio</h2>
+            </Reveal>
+            <Reveal direction="up" delay={200}>
+              <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
+                Cada sonho tem o plano certo. Conheça as modalidades:
+              </p>
+            </Reveal>
 
-              <Reveal direction="up" delay={300}>
-                <div className="glass rounded-2xl p-6 md:p-8 border border-white/10">
-                  {/* Tabs de categoria */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {([
-                      { key: 'imovel' as const, emoji: '🏠', label: 'Imóvel' },
-                      { key: 'veiculo' as const, emoji: '🚗', label: 'Veículo' },
-                      { key: 'pesados' as const, emoji: '🚛', label: 'Pesados' },
-                    ]).map((tab) => (
-                      <button
-                        key={tab.key}
-                        onClick={() => handleCategoria(tab.key)}
-                        className={`flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all ${
-                          simCategoria === tab.key
-                            ? "bg-accent text-accent-foreground"
-                            : "bg-white/5 border border-white/10 text-foreground hover:bg-white/10"
-                        }`}
-                      >
-                        <span>{tab.emoji}</span> {tab.label}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Select de faixa */}
-                  <div className="mb-6">
-                    <label className="block text-xs text-muted-foreground mb-2 font-semibold">Escolha a faixa de crédito</label>
-                    <select
-                      value={simFaixa}
-                      onChange={(e) => setSimFaixa(Number(e.target.value))}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
-                    >
-                      {faixas.map((f, i) => (
-                        <option key={i} value={i}>{f.faixa}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Benefícios por categoria */}
-                  <div className="p-4 rounded-xl bg-white/5 border border-white/[0.08] mb-4 transition-all duration-300" key={simCategoria}>
-                    <p className="text-white font-semibold text-sm mb-3">
-                      {beneficiosPorCategoria[simCategoria].titulo}
-                    </p>
-                    <ul className="space-y-1.5 mb-3">
-                      {beneficiosPorCategoria[simCategoria].itens.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-gray-300 text-xs">
-                          <span className="text-[#FF6B00] mt-0.5 shrink-0">✓</span>
-                          {item}
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              {[
+                {
+                  emoji: "🏠", title: "Consórcio de Imóvel", popular: true, cat: 'imovel' as const,
+                  desc: "Sua casa, apartamento, terreno ou reforma. Planejamento inteligente para você conquistar o imóvel certo no seu tempo, sem pagar juros de financiamento.",
+                  items: ["Créditos de R$ 80 mil a R$ 500 mil", "Parcelas a partir de R$ 650/mês", "Prazo de até 200 meses", "Uso em imóvel comercial ou residencial"],
+                  cta: "Simular Imóvel", solid: true,
+                },
+                {
+                  emoji: "🚗", title: "Consórcio de Veículo", popular: false, cat: 'veiculo' as const,
+                  desc: "Do primeiro veículo à sua próxima troca. Você escolhe o modelo, a marca e recebe a carta de crédito para comprar à vista e negociar melhor.",
+                  items: ["Créditos de R$ 30 mil a R$ 200 mil", "Parcelas a partir de R$ 380/mês", "Prazo de até 100 meses", "Veículo novo, usado ou importado"],
+                  cta: "Simular Veículo", solid: false,
+                },
+                {
+                  emoji: "🚛", title: "Consórcio de Pesados", popular: false, cat: 'pesados' as const,
+                  desc: "Caminhão, ônibus, trator ou máquina agrícola. Expanda sua frota com planejamento e sem comprometer o capital de giro da sua empresa.",
+                  items: ["Créditos de R$ 100 mil a R$ 500 mil", "Parcelas a partir de R$ 900/mês", "Prazo de até 100 meses", "Pessoa física ou jurídica"],
+                  cta: "Simular Pesados", solid: false,
+                },
+              ].map((p, i) => (
+                <Reveal key={i} delay={i * 150} direction="up">
+                  <div
+                    className={`glass rounded-2xl p-6 md:p-8 flex flex-col items-center text-center h-full relative transition-all duration-300 hover:shadow-[0_0_30px_rgba(242,140,40,0.1)] ${
+                      p.popular
+                        ? "border-2 border-accent scale-[1.02] shadow-[0_0_30px_rgba(242,140,40,0.1)]"
+                        : "border border-white/8 hover:border-accent/40"
+                    }`}
+                  >
+                    {p.popular && (
+                      <span className="absolute -top-3 right-6 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full">
+                        Mais popular
+                      </span>
+                    )}
+                    <span className="text-4xl mb-4">{p.emoji}</span>
+                    <h3 className="font-sora font-bold text-xl text-foreground mb-3 text-center">{p.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-5 text-center">{p.desc}</p>
+                    <ul className="space-y-2 mb-6 flex-1 text-left max-w-xs">
+                      {p.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
+                          <Check size={14} className="text-accent shrink-0 mt-0.5" /> {item}
                         </li>
                       ))}
                     </ul>
-                    <p className="text-gray-500 text-xs italic">
-                      {beneficiosPorCategoria[simCategoria].paraQuem}
-                    </p>
-                  </div>
-
-                  {/* Badges oferta */}
-                  <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
-                    <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FF6B00]/20 border border-[#FF6B00]/50">
-                      <span className="text-lg">🔥</span>
-                      <span className="text-white font-bold text-sm">45% de desconto na parcela até a contemplação</span>
-                    </div>
-                    <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15">
-                      <span className="text-lg">💳</span>
-                      <span className="text-white font-semibold text-sm">10% OFF na taxa adm para clientes Porto</span>
-                    </div>
-                  </div>
-
-                  {/* Descrição da taxa */}
-                  <p className="text-xs text-muted-foreground mb-4">{faixaAtual.descricao}</p>
-
-                  {/* Tabela de parcelas */}
-                  <div
-                    key={`${simCategoria}-${simFaixa}`}
-                    className="animate-fade-in border border-white/10 rounded-xl overflow-hidden mb-6"
-                  >
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-sm" style={{ minWidth: "500px" }}>
-                        <thead>
-                          <tr>
-                            {faixaAtual.colunas.map((col, ci) => {
-                              const isStrike = col.toLowerCase().includes("sem oferta");
-                              const isLast = ci === faixaAtual.colunas.length - 1 && ci > 0;
-                              return (
-                                <th
-                                  key={ci}
-                                  className={`px-4 py-3 text-left text-xs font-bold whitespace-nowrap ${
-                                    isStrike
-                                      ? "bg-accent text-accent-foreground"
-                                      : isLast
-                                      ? "bg-[#003087] text-white"
-                                      : "bg-white/5 text-foreground"
-                                  }`}
-                                >
-                                  {col}
-                                </th>
-                              );
-                            })}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {faixaAtual.linhas.map((row, ri) => (
-                            <tr key={ri} className={ri % 2 === 0 ? "bg-white/[0.03]" : "bg-transparent"}>
-                              {row.map((cell, ci) => {
-                                const isStrike = faixaAtual.colunas[ci]?.toLowerCase().includes("sem oferta");
-                                const isLast = ci === row.length - 1 && ci > 0;
-                                return (
-                                  <td
-                                    key={ci}
-                                    className={`px-4 py-3 whitespace-nowrap ${
-                                      isStrike
-                                        ? "line-through text-muted-foreground"
-                                        : isLast
-                                        ? "text-[#4ade80] font-bold"
-                                        : "text-foreground/80"
-                                    }`}
-                                  >
-                                    {cell}
-                                  </td>
-                                );
-                              })}
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  {/* Lead capture */}
-                  <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <p className="text-white font-semibold text-center mb-4">
-                      Gostou? Fale com um consultor e garanta essa condição
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
-                      <input
-                        type="text"
-                        placeholder="Seu nome"
-                        value={leadNome}
-                        onChange={(e) => setLeadNome(e.target.value)}
-                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
-                      />
-                      <input
-                        type="email"
-                        placeholder="Seu e-mail"
-                        value={leadEmail}
-                        onChange={(e) => setLeadEmail(e.target.value)}
-                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
-                      />
-                      <input
-                        type="tel"
-                        placeholder="Seu WhatsApp"
-                        value={leadTelefone}
-                        onChange={(e) => setLeadTelefone(e.target.value)}
-                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
-                      />
-                    </div>
-                    <textarea
-                      placeholder="Mensagem (opcional) — ex: quero informações sobre imóvel"
-                      value={leadMensagem}
-                      onChange={(e) => setLeadMensagem(e.target.value)}
-                      rows={2}
-                      className="w-full max-w-xl mx-auto block mt-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none"
-                    />
                     <button
-                      onClick={() => {
-                        const cat = categoriaLabels[simCategoria];
-                        const faixa = faixaAtual?.faixa || '';
-                        const msg = encodeURIComponent(
-                          `Olá! Tenho interesse no Consórcio de ${cat} na faixa ${faixa}. Meu nome é ${leadNome || '(não informado)'}. E-mail: ${leadEmail || 'não informado'}.${leadMensagem ? ` Mensagem: ${leadMensagem}` : ''}`
-                        );
-                        window.open(`${WA_BASE}&text=${msg}`, '_blank');
-                      }}
-                      className="mt-3 w-full max-w-xl mx-auto block bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 px-6 rounded-xl transition-colors duration-200"
+                      onClick={() => openSim(p.cat)}
+                      className={`cta-btn w-full py-3 rounded-lg font-bold text-sm ${
+                        p.solid
+                          ? "bg-accent text-accent-foreground"
+                          : "border border-accent text-accent hover:bg-accent/10"
+                      }`}
                     >
-                      Quero essa condição no WhatsApp
+                      {p.cta}
                     </button>
                   </div>
-
-                  {/* Nota legal */}
-                  <p className="text-[11px] text-muted-foreground text-center mt-4 leading-relaxed">
-                    Valores para Pessoa Física. Parcelas reajustadas no aniversário do grupo. Para demais condições, consulte o Regulamento. Oferta válida até 30/04/2026.
-                  </p>
-                </div>
-              </Reveal>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
+
+        {/* ═══════ SIMULADOR DE PARCELAS (condicional) ═══════ */}
+        {simAberto && (
+          <section id="simulador-parcelas" className="py-14 md:py-28 bg-muted/30 relative">
+            <div className="container mx-auto px-4">
+              <div className="max-w-5xl mx-auto">
+                <button
+                  onClick={() => setSimAberto(false)}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1"
+                >
+                  ✕ Fechar simulação
+                </button>
+
+                <Reveal direction="up">
+                  <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-3">Simule sua parcela agora</h2>
+                </Reveal>
+                <Reveal direction="up" delay={200}>
+                  <p className="text-center text-muted-foreground text-sm md:text-base mb-10 px-2 break-words">
+                    Valores reais Porto Bank • Oferta válida até 30/04/2026
+                  </p>
+                </Reveal>
+
+                <Reveal direction="up" delay={300}>
+                  <div className="glass rounded-2xl p-6 md:p-8 border border-white/10">
+                    {/* Tabs de categoria */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {([
+                        { key: 'imovel' as const, emoji: '🏠', label: 'Imóvel' },
+                        { key: 'veiculo' as const, emoji: '🚗', label: 'Veículo' },
+                        { key: 'pesados' as const, emoji: '🚛', label: 'Pesados' },
+                      ]).map((tab) => (
+                        <button
+                          key={tab.key}
+                          onClick={() => handleCategoria(tab.key)}
+                          className={`flex-1 sm:flex-none justify-center flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all ${
+                            simCategoria === tab.key
+                              ? "bg-accent text-accent-foreground"
+                              : "bg-white/5 border border-white/10 text-foreground hover:bg-white/10"
+                          }`}
+                        >
+                          <span>{tab.emoji}</span> {tab.label}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Select de faixa */}
+                    <div className="mb-6">
+                      <label className="block text-xs text-muted-foreground mb-2 font-semibold">Escolha a faixa de crédito</label>
+                      <select
+                        value={simFaixa}
+                        onChange={(e) => setSimFaixa(Number(e.target.value))}
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent/50 transition-all"
+                      >
+                        {faixas.map((f, i) => (
+                          <option key={i} value={i}>{f.faixa}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Benefícios por categoria */}
+                    <div className="p-4 rounded-xl bg-white/5 border border-white/[0.08] mb-4 transition-all duration-300" key={simCategoria}>
+                      <p className="text-white font-semibold text-sm mb-3">
+                        {beneficiosPorCategoria[simCategoria].titulo}
+                      </p>
+                      <ul className="space-y-1.5 mb-3">
+                        {beneficiosPorCategoria[simCategoria].itens.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-gray-300 text-xs">
+                            <span className="text-[#FF6B00] mt-0.5 shrink-0">✓</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-gray-500 text-xs italic">
+                        {beneficiosPorCategoria[simCategoria].paraQuem}
+                      </p>
+                    </div>
+
+                    {/* Descrição da taxa */}
+                    <p className="text-xs text-muted-foreground mb-4">{faixaAtual.descricao}</p>
+
+                    {/* Tabela de parcelas */}
+                    <div
+                      key={`${simCategoria}-${simFaixa}`}
+                      className="animate-fade-in border border-white/10 rounded-xl overflow-hidden mb-6"
+                    >
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm" style={{ minWidth: "500px" }}>
+                          <thead>
+                            <tr>
+                              {faixaAtual.colunas.map((col, ci) => {
+                                const isStrike = col.toLowerCase().includes("sem oferta");
+                                const isLast = ci === faixaAtual.colunas.length - 1 && ci > 0;
+                                return (
+                                  <th
+                                    key={ci}
+                                    className={`px-4 py-3 text-left text-xs font-bold whitespace-nowrap ${
+                                      isStrike
+                                        ? "bg-accent text-accent-foreground"
+                                        : isLast
+                                        ? "bg-[#003087] text-white"
+                                        : "bg-white/5 text-foreground"
+                                    }`}
+                                  >
+                                    {col}
+                                  </th>
+                                );
+                              })}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {faixaAtual.linhas.map((row, ri) => (
+                              <tr key={ri} className={ri % 2 === 0 ? "bg-white/[0.03]" : "bg-transparent"}>
+                                {row.map((cell, ci) => {
+                                  const isStrike = faixaAtual.colunas[ci]?.toLowerCase().includes("sem oferta");
+                                  const isLast = ci === row.length - 1 && ci > 0;
+                                  return (
+                                    <td
+                                      key={ci}
+                                      className={`px-4 py-3 whitespace-nowrap ${
+                                        isStrike
+                                          ? "line-through text-muted-foreground"
+                                          : isLast
+                                          ? "text-[#4ade80] font-bold"
+                                          : "text-foreground/80"
+                                      }`}
+                                    >
+                                      {cell}
+                                    </td>
+                                  );
+                                })}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    {/* Lead capture */}
+                    <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10">
+                      <p className="text-white font-semibold text-center mb-4">
+                        Gostou? Fale com um consultor e garanta essa condição
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                        <input
+                          type="text"
+                          placeholder="Seu nome"
+                          value={leadNome}
+                          onChange={(e) => setLeadNome(e.target.value)}
+                          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
+                        />
+                        <input
+                          type="email"
+                          placeholder="Seu e-mail"
+                          value={leadEmail}
+                          onChange={(e) => setLeadEmail(e.target.value)}
+                          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
+                        />
+                        <input
+                          type="tel"
+                          placeholder="Seu WhatsApp"
+                          value={leadTelefone}
+                          onChange={(e) => setLeadTelefone(e.target.value)}
+                          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
+                        />
+                      </div>
+                      <textarea
+                        placeholder="Mensagem (opcional) — ex: quero informações sobre imóvel"
+                        value={leadMensagem}
+                        onChange={(e) => setLeadMensagem(e.target.value)}
+                        rows={2}
+                        className="w-full max-w-xl mx-auto block mt-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none"
+                      />
+                      <button
+                        onClick={() => {
+                          const cat = categoriaLabels[simCategoria];
+                          const faixa = faixaAtual?.faixa || '';
+                          const msg = encodeURIComponent(
+                            `Olá! Tenho interesse no Consórcio de ${cat} na faixa ${faixa}. Meu nome é ${leadNome || '(não informado)'}. E-mail: ${leadEmail || 'não informado'}.${leadMensagem ? ` Mensagem: ${leadMensagem}` : ''}`
+                          );
+                          window.open(`${WA_BASE}&text=${msg}`, '_blank');
+                        }}
+                        className="mt-3 w-full max-w-xl mx-auto block bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 px-6 rounded-xl transition-colors duration-200"
+                      >
+                        Quero essa condição no WhatsApp
+                      </button>
+                    </div>
+
+                    {/* Nota legal */}
+                    <p className="text-[11px] text-muted-foreground text-center mt-4 leading-relaxed">
+                      Valores para Pessoa Física. Parcelas reajustadas no aniversário do grupo. Para demais condições, consulte o Regulamento. Oferta válida até 30/04/2026.
+                    </p>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ═══════ CREDIBILIDADE ═══════ */}
         <section className="py-14 md:py-28">
@@ -849,79 +893,6 @@ export default function Consorcio() {
                     <span className="text-3xl mb-4 block">{c.emoji}</span>
                     <h3 className="font-sora font-bold text-lg text-foreground mb-2">{c.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ═══════ MODALIDADES ═══════ */}
-        <section className="py-14 md:py-28 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Escolha seu consórcio</h2>
-            </Reveal>
-            <Reveal direction="up" delay={200}>
-              <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
-                Cada sonho tem o plano certo. Conheça as modalidades:
-              </p>
-            </Reveal>
-
-            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-              {[
-                {
-                  emoji: "🏠", title: "Consórcio de Imóvel", popular: true,
-                  desc: "Sua casa, apartamento, terreno ou reforma. Planejamento inteligente para você conquistar o imóvel certo no seu tempo, sem pagar juros de financiamento.",
-                  items: ["Créditos de R$ 80 mil a R$ 500 mil", "Parcelas a partir de R$ 650/mês", "Prazo de até 200 meses", "Uso em imóvel comercial ou residencial"],
-                  cta: "Simular Imóvel", solid: true,
-                },
-                {
-                  emoji: "🚗", title: "Consórcio de Veículo", popular: false,
-                  desc: "Do primeiro veículo à sua próxima troca. Você escolhe o modelo, a marca e recebe a carta de crédito para comprar à vista e negociar melhor.",
-                  items: ["Créditos de R$ 30 mil a R$ 200 mil", "Parcelas a partir de R$ 380/mês", "Prazo de até 100 meses", "Veículo novo, usado ou importado"],
-                  cta: "Simular Veículo", solid: false,
-                },
-                {
-                  emoji: "🚛", title: "Consórcio de Pesados", popular: false,
-                  desc: "Caminhão, ônibus, trator ou máquina agrícola. Expanda sua frota com planejamento e sem comprometer o capital de giro da sua empresa.",
-                  items: ["Créditos de R$ 100 mil a R$ 500 mil", "Parcelas a partir de R$ 900/mês", "Prazo de até 100 meses", "Pessoa física ou jurídica"],
-                  cta: "Simular Pesados", solid: false,
-                },
-              ].map((p, i) => (
-                <Reveal key={i} delay={i * 150} direction="up">
-                  <div
-                    className={`glass rounded-2xl p-6 md:p-8 flex flex-col h-full relative transition-all duration-300 hover:shadow-[0_0_30px_rgba(242,140,40,0.1)] ${
-                      p.popular
-                        ? "border-2 border-accent scale-[1.02] shadow-[0_0_30px_rgba(242,140,40,0.1)]"
-                        : "border border-white/8 hover:border-accent/40"
-                    }`}
-                  >
-                    {p.popular && (
-                      <span className="absolute -top-3 right-6 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full">
-                        Mais popular
-                      </span>
-                    )}
-                    <span className="text-4xl mb-4">{p.emoji}</span>
-                    <h3 className="font-sora font-bold text-xl text-foreground mb-3">{p.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-5">{p.desc}</p>
-                    <ul className="space-y-2 mb-6 flex-1">
-                      {p.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
-                          <Check size={14} className="text-accent shrink-0 mt-0.5" /> {item}
-                        </li>
-                      ))}
-                    </ul>
-                    <button
-                      onClick={scrollToSim}
-                      className={`cta-btn w-full py-3 rounded-lg font-bold text-sm ${
-                        p.solid
-                          ? "bg-accent text-accent-foreground"
-                          : "border border-accent text-accent hover:bg-accent/10"
-                      }`}
-                    >
-                      {p.cta}
-                    </button>
                   </div>
                 </Reveal>
               ))}
@@ -1003,7 +974,6 @@ export default function Consorcio() {
           </div>
         </section>
 
-
         {/* ═══════ DEPOIMENTOS ═══════ */}
         <section className="py-14 md:py-28 overflow-hidden">
           <div className="container mx-auto px-4 mb-14">
@@ -1023,6 +993,232 @@ export default function Consorcio() {
               <MarqueeRow items={testimonials.slice(3)} reverse />
             </div>
           </Reveal>
+        </section>
+
+        {/* ═══════ SEGURO DE VIDA PORTO ═══════ */}
+        <section className="py-14 md:py-20">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-10">
+              <span className="inline-flex items-center gap-2 bg-[#003087]/20 border border-[#003087]/40 rounded-full px-4 py-1.5 mb-4">
+                <img src={portoLogo} alt="Porto" className="h-4 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+                <span className="text-white text-xs font-semibold">Produto Complementar</span>
+              </span>
+              <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-3">
+                Proteja sua família enquanto conquista seu patrimônio
+              </h2>
+              <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto">
+                Combine seu consórcio com o Seguro de Vida Porto e garanta tranquilidade em cada etapa da sua jornada.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              {/* Plano R$50 mil */}
+              <div className="glass rounded-2xl p-6 border border-white/10 flex flex-col transition-all duration-300 hover:border-white/20">
+                <div className="text-center mb-6">
+                  <p className="text-gray-400 text-xs uppercase tracking-widest mb-2">Plano</p>
+                  <p className="text-white font-bold text-2xl">R$ 50 mil</p>
+                </div>
+                <div className="space-y-3 flex-1">
+                  {[
+                    ['Morte (qualquer causa)', 'R$ 50.000'],
+                    ['Invalidez por acidente', 'Até R$ 50.000'],
+                    ['Assistência funeral', 'R$ 5.000'],
+                    ['Porto Plus', 'Incluso'],
+                  ].map(([label, value]) => (
+                    <div key={label} className="flex justify-between items-center border-b border-white/5 pb-2">
+                      <span className="text-gray-400 text-sm">{label}</span>
+                      <span className="text-white text-sm font-medium">{value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 text-center">
+                  <p className="text-gray-400 text-xs mb-1">A partir de</p>
+                  <p className="text-[#FF6B00] font-bold text-xl mb-4">R$ 14,52/mês</p>
+                  <a
+                    href="https://api.whatsapp.com/send/?phone=5511991051616&text=Ol%C3%A1!%20Tenho%20interesse%20no%20Seguro%20de%20Vida%20Porto%20-%20Plano%20R%24%2050%20mil."
+                    target="_blank" rel="noopener noreferrer"
+                    className="block w-full bg-white/10 hover:bg-[#FF6B00] text-white font-bold py-3 rounded-xl transition-colors duration-200 text-sm text-center"
+                  >
+                    Quero este plano
+                  </a>
+                </div>
+              </div>
+
+              {/* Plano R$100 mil — destaque */}
+              <div className="glass rounded-2xl p-6 border border-[#FF6B00]/50 flex flex-col relative transition-all duration-300 hover:border-[#FF6B00]/80">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-[#FF6B00] text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                    Melhor Custo-benefício
+                  </span>
+                </div>
+                <div className="text-center mb-6 mt-2">
+                  <p className="text-gray-400 text-xs uppercase tracking-widest mb-2">Plano</p>
+                  <p className="text-white font-bold text-2xl">R$ 100 mil</p>
+                </div>
+                <div className="space-y-3 flex-1">
+                  {[
+                    ['Morte (qualquer causa)', 'R$ 100.000'],
+                    ['Invalidez por acidente', 'Até R$ 100.000'],
+                    ['Assistência funeral', 'R$ 5.000'],
+                    ['Porto Plus', 'Incluso'],
+                  ].map(([label, value]) => (
+                    <div key={label} className="flex justify-between items-center border-b border-white/5 pb-2">
+                      <span className="text-gray-400 text-sm">{label}</span>
+                      <span className="text-white text-sm font-medium">{value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 text-center">
+                  <p className="text-gray-400 text-xs mb-1">A partir de</p>
+                  <p className="text-[#FF6B00] font-bold text-xl mb-4">R$ 21,20/mês</p>
+                  <a
+                    href="https://api.whatsapp.com/send/?phone=5511991051616&text=Ol%C3%A1!%20Tenho%20interesse%20no%20Seguro%20de%20Vida%20Porto%20-%20Plano%20R%24%20100%20mil."
+                    target="_blank" rel="noopener noreferrer"
+                    className="block w-full bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-3 rounded-xl transition-colors duration-200 text-sm text-center"
+                  >
+                    Quero este plano
+                  </a>
+                </div>
+              </div>
+
+              {/* Plano R$150 mil */}
+              <div className="glass rounded-2xl p-6 border border-white/10 flex flex-col relative transition-all duration-300 hover:border-white/20">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-white/10 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap border border-white/20">
+                    O Mais Escolhido
+                  </span>
+                </div>
+                <div className="text-center mb-6 mt-2">
+                  <p className="text-gray-400 text-xs uppercase tracking-widest mb-2">Plano</p>
+                  <p className="text-white font-bold text-2xl">R$ 150 mil</p>
+                </div>
+                <div className="space-y-3 flex-1">
+                  {[
+                    ['Morte (qualquer causa)', 'R$ 150.000'],
+                    ['Invalidez por acidente', 'Até R$ 150.000'],
+                    ['Assistência funeral', 'R$ 5.000'],
+                    ['Porto Plus', 'Incluso'],
+                  ].map(([label, value]) => (
+                    <div key={label} className="flex justify-between items-center border-b border-white/5 pb-2">
+                      <span className="text-gray-400 text-sm">{label}</span>
+                      <span className="text-white text-sm font-medium">{value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 text-center">
+                  <p className="text-gray-400 text-xs mb-1">A partir de</p>
+                  <p className="text-[#FF6B00] font-bold text-xl mb-4">R$ 27,77/mês</p>
+                  <a
+                    href="https://api.whatsapp.com/send/?phone=5511991051616&text=Ol%C3%A1!%20Tenho%20interesse%20no%20Seguro%20de%20Vida%20Porto%20-%20Plano%20R%24%20150%20mil."
+                    target="_blank" rel="noopener noreferrer"
+                    className="block w-full bg-white/10 hover:bg-[#FF6B00] text-white font-bold py-3 rounded-xl transition-colors duration-200 text-sm text-center"
+                  >
+                    Quero este plano
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-gray-500 text-xs text-center mt-6">
+              * Valores para Pessoa Física. Sujeito a análise de perfil. Fale com nosso consultor para mais detalhes.
+            </p>
+          </div>
+        </section>
+
+        {/* ═══════ FORMULÁRIO DE LEAD COMPLETO ═══════ */}
+        <section className="py-14 md:py-20 bg-white/[0.02]">
+          <div className="container mx-auto px-4 max-w-xl">
+            <div className="text-center mb-8">
+              <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-3">
+                Receba uma proposta personalizada
+              </h2>
+              <p className="text-gray-400 text-sm">
+                Preencha abaixo e nosso consultor entra em contato em até 1 hora útil.
+              </p>
+            </div>
+            <div className="glass rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+              <select
+                value={formTipo}
+                onChange={(e) => setFormTipo(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-accent focus:outline-none"
+              >
+                <option value="" className="bg-[#0d1117]">Selecione o tipo de consórcio</option>
+                <option value="Imóvel" className="bg-[#0d1117]">Consórcio de Imóvel</option>
+                <option value="Veículo" className="bg-[#0d1117]">Consórcio de Veículo</option>
+                <option value="Pesados" className="bg-[#0d1117]">Consórcio de Pesados</option>
+                <option value="Seguro de Vida" className="bg-[#0d1117]">Seguro de Vida Porto</option>
+                <option value="Outros" className="bg-[#0d1117]">Outros consórcios</option>
+              </select>
+
+              <input
+                type="text"
+                inputMode="numeric"
+                placeholder="Valor da carta de crédito (R$)"
+                value={formCredito}
+                onChange={(e) => setFormCredito(formatarCredito(e.target.value))}
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none"
+              />
+
+              <input
+                type="text"
+                placeholder="Nome completo"
+                value={formNome}
+                onChange={(e) => setFormNome(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none"
+              />
+
+              <input
+                type="tel"
+                placeholder="WhatsApp (com DDD)"
+                value={formWhatsApp}
+                onChange={(e) => setFormWhatsApp(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none"
+              />
+
+              <input
+                type="email"
+                placeholder="E-mail"
+                value={formEmail}
+                onChange={(e) => setFormEmail(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none"
+              />
+
+              <textarea
+                placeholder="Mensagem (opcional) — ex: tenho interesse em imóvel para reforma"
+                value={formMensagem}
+                onChange={(e) => setFormMensagem(e.target.value)}
+                rows={3}
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none focus:border-accent focus:outline-none"
+              />
+
+              <div className="bg-white/5 rounded-xl p-4 space-y-1.5">
+                <p className="text-[#FF6B00] text-xs font-semibold uppercase tracking-widest mb-2">
+                  Informações importantes
+                </p>
+                {[
+                  'A carta de crédito pode ser usada para diversas finalidades (reforma, terreno, etc.)',
+                  'Condição por tempo limitado: válida até 30 de abril de 2026.',
+                  'Taxa de administração a partir de 25%.',
+                ].map((info, i) => (
+                  <p key={i} className="text-gray-400 text-xs flex items-start gap-2">
+                    <span className="text-[#FF6B00] shrink-0 mt-0.5">*</span>
+                    {info}
+                  </p>
+                ))}
+              </div>
+
+              <button
+                onClick={enviarFormulario}
+                className="w-full bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base"
+              >
+                Enviar e falar com consultor
+              </button>
+
+              <p className="text-gray-500 text-xs text-center">
+                🔒 Seus dados são usados apenas para contato. Não compartilhamos com terceiros.
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* ═══════ FAQ ═══════ */}
@@ -1115,7 +1311,16 @@ export default function Consorcio() {
       {/* ───── MINI FOOTER ───── */}
       <footer className="bg-background py-10 border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
-          <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 mx-auto mb-4" />
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 w-auto" />
+            <span className="text-gray-400 text-xl font-light">+</span>
+            <img
+              src={portoLogo}
+              alt="Porto"
+              className="h-6 w-auto"
+              style={{ filter: 'brightness(0) invert(1)', opacity: 0.85 }}
+            />
+          </div>
           <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto Bank S.A.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
             <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Política de Privacidade</a>
