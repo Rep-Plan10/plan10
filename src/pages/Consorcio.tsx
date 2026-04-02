@@ -640,17 +640,17 @@ export default function Consorcio() {
                     )}
                     {p.cat === 'imovel' && (
                       <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
-                        <img src={imgCasa} alt="Imóvel" className="w-full h-full object-contain" style={{ mixBlendMode: 'screen' }} />
+                        <img src={imgCasa} alt="Imóvel" className="w-auto h-44 object-contain" style={{ mixBlendMode: 'screen' }} />
                       </div>
                     )}
                     {p.cat === 'veiculo' && (
-                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl bg-transparent">
-                        <img src={imgCarro} alt="Veículo" className="w-auto h-40 object-contain drop-shadow-2xl" style={{ mixBlendMode: 'multiply' }} />
+                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
+                        <img src={imgCarro} alt="Veículo" className="w-auto h-40 object-contain" style={{ mixBlendMode: 'screen' }} />
                       </div>
                     )}
                     {p.cat === 'pesados' && (
                       <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
-                        <img src={imgCaminhao} alt="Pesados" className="w-auto h-40 object-contain drop-shadow-2xl" />
+                        <img src={imgCaminhao} alt="Pesados" className="w-auto h-40 object-contain" style={{ mixBlendMode: 'screen' }} />
                       </div>
                     )}
                     <h3 className="font-sora font-bold text-xl text-foreground mb-3 text-center">{p.title}</h3>
