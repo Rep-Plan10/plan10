@@ -537,7 +537,7 @@ export default function Consorcio() {
 
             {/* ── COUNTDOWN ── */}
             <Reveal delay={750} direction="up">
-              <div className="flex items-center gap-2 flex-wrap justify-start py-3 px-4 rounded-xl bg-white/5 border border-white/10 w-fit mb-6">
+              <div className="flex items-center gap-2 flex-wrap justify-start py-3 px-4 rounded-xl bg-white/5 border border-white/10 w-fit mb-3">
                 <span className="text-gray-400 text-xs font-medium uppercase tracking-widest">
                   Termina em:
                 </span>
