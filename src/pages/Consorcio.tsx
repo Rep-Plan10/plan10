@@ -612,6 +612,11 @@ export default function Consorcio() {
               </div>
             </div>
           </div>
+
+          {/* Scroll arrow */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce z-10 block">
+            <ChevronDown size={28} className="text-white/40" />
+          </div>
         </section>
 
         {/* ═══════ MODALIDADES (ESCOLHA SEU CONSÓRCIO) ═══════ */}
