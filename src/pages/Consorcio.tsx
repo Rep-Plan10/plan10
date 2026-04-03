@@ -541,11 +541,11 @@ export default function Consorcio() {
 
             {/* [1] Pill badge */}
             <Reveal delay={100} direction="up">
-              <div className="flex flex-col items-center gap-1 mb-1">
+              <div className="flex flex-col items-center gap-1 mb-2 md:mb-1">
                 <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2">
                   <span className="text-white text-xs font-semibold tracking-wide">O seu futuro muito mais tranquilo!</span>
                 </div>
-                <span className="text-muted-foreground text-[11px] font-medium tracking-wide">Credenciado Porto Seguro</span>
+                <span className="text-muted-foreground text-[11px] font-medium tracking-wide mb-0 md:mb-1">Credenciado Porto Seguro</span>
               </div>
             </Reveal>
 
