@@ -600,7 +600,7 @@ export default function Consorcio() {
                 </button>
                 <button
                   onClick={() => openSim('veiculo')}
-                  className="flex-1 bg-[#7C3AED] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                  className="flex-1 bg-[#7C3AED] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200"
                 >
                   Simular Veículo
                 </button>
