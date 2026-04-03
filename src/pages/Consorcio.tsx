@@ -648,10 +648,15 @@ export default function Consorcio() {
                 </svg>
               </div>
             </div>
+
+            <p className="text-center text-sm text-white/50 mt-6 max-w-2xl mx-auto italic">
+              * Consórcios com reduções exclusivas — garanta a sua cota antes que acabe.
+              Grupos em andamento com vagas limitadas.
+            </p>
           </div>
         </section>
 
-        {/* ═══════ MODALIDADES (ESCOLHA SEU CONSÓRCIO) ═══════ */}
+        {/* ═══════ MODALIDADES (ESCOLHA SEU CONSÓRCIO) — FIM ═══════ */}
         <section className="py-14 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
