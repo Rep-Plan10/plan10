@@ -456,22 +456,23 @@ export default function Consorcio() {
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Espaço para balancear */}
-          <div className="w-[120px] hidden sm:block" />
+          {/* Espaçador esquerdo — só visível no desktop para balancear */}
+          <div className="hidden sm:block sm:w-28 lg:w-36" />
 
-          {/* Centro: logos Plan10 + Porto */}
+          {/* Logo Plan10 — centralizado no mobile via margin auto */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-3 focus:outline-none absolute left-1/2 -translate-x-1/2"
+            className="focus:outline-none cursor-pointer mx-auto sm:mx-0"
             aria-label="Ir para o início"
           >
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto" />
-            <span className="text-white/30 text-xs font-light">+</span>
-            <img src={portoLogo} alt="Porto" className="h-5 w-auto" />
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
           </button>
 
-          {/* Direita: botão Simular */}
-          <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold ml-auto">
+          {/* Botão Simular — oculto no mobile, visível no desktop */}
+          <button
+            onClick={() => openSim('imovel')}
+            className="hidden sm:block cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold"
+          >
             Simular agora
           </button>
         </div>
@@ -479,7 +480,7 @@ export default function Consorcio() {
 
       <main>
         {/* ═══════ HERO ═══════ */}
-        <section className="relative min-h-[100svh] lg:min-h-screen flex items-start md:items-center overflow-hidden">
+        <section className="relative h-screen flex flex-col overflow-hidden">
           {/* BG effects */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px]" />
@@ -498,7 +499,8 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 pt-20 pb-8 lg:pt-12 lg:pb-10 relative z-10 flex flex-col items-center text-center">
+          <div className="container mx-auto px-4 pt-20 pb-6 relative z-10 flex flex-col flex-1 justify-between">
+            <div className="flex flex-col items-center text-center flex-1 justify-center gap-3">
             {/* [0] Pill Parceiro Oficial */}
             <Reveal delay={0} direction="up">
               <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2 mb-6">
@@ -509,7 +511,7 @@ export default function Consorcio() {
 
             {/* [1] H1 centralizado */}
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-2xl mx-auto text-center">
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.35] pb-3 mb-6 max-w-2xl mx-auto text-center">
                 Os melhores{" "}
                 <span className="text-[#FF6B00]">DESCONTOS em CONSÓRCIO</span>
                 <br />
@@ -588,11 +590,12 @@ export default function Consorcio() {
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na taxa de administração</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">PORTO</span>
             </div>
-          </div>
+            </div>
 
-          {/* Scroll arrow */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce z-10 hidden sm:block">
-            <ArrowDown size={24} className="text-white/40" />
+            {/* Scroll arrow — in flow, always visible */}
+            <div className="flex justify-center pb-2">
+              <ArrowDown size={24} className="animate-bounce opacity-60 text-white/40" />
+            </div>
           </div>
         </section>
 
