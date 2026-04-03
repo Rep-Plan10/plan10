@@ -488,7 +488,7 @@ export default function Consorcio() {
 
       <main>
         {/* ═══════ HERO ═══════ */}
-        <section className="relative h-[88vh] flex items-center overflow-x-hidden">
+        <section className="relative min-h-[100dvh] md:h-[88vh] flex items-center overflow-x-hidden">
           {/* BG effects */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px]" />
@@ -507,7 +507,7 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 pt-28 sm:pt-24 pb-4 relative z-10 flex flex-col items-center text-center">
+          <div className="container mx-auto px-4 pt-20 md:pt-24 pb-4 relative z-10 flex flex-col items-center text-center justify-between md:justify-center flex-1 md:flex-initial gap-2 md:gap-0">
             {/* [0] Pill Parceiro Oficial */}
             <Reveal delay={0} direction="up">
               <div className="flex flex-col items-center gap-1 mb-3">
@@ -520,9 +520,11 @@ export default function Consorcio() {
 
             {/* [1] H1 centralizado */}
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.35] pb-3 mb-4 max-w-2xl mx-auto text-center">
+              <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] pb-3 mb-2 md:mb-4 max-w-2xl mx-auto text-center">
                 Os melhores{" "}
-                <span className="text-[#FF6B00]">DESCONTOS em CONSÓRCIO</span>
+                <span className="text-[#FF6B00]">DESCONTOS</span>{" "}
+                <span className="text-white">em</span>{" "}
+                <span className="text-[#FF6B00]">CONSÓRCIO</span>
                 <br />
                 estão aqui.
               </h1>
@@ -530,7 +532,7 @@ export default function Consorcio() {
 
             {/* [2] Subtítulo centralizado */}
             <Reveal delay={500} direction="up">
-              <p className="text-base md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-3 leading-relaxed px-4">
+              <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-2 md:mb-3 leading-relaxed px-4 line-clamp-2 md:line-clamp-none">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
@@ -587,7 +589,31 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            {/* [5] Splash circles — absolute nas laterais (lg+) */}
+            {/* [5] Simulation shortcut buttons */}
+            <Reveal delay={650} direction="up">
+              <div className="flex gap-2 w-full max-w-md mx-auto mt-3">
+                <button
+                  onClick={() => openSim('imovel')}
+                  className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                >
+                  🏠 Simular Imóvel
+                </button>
+                <button
+                  onClick={() => openSim('veiculo')}
+                  className="flex-1 bg-[#7C3AED] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                >
+                  🚗 Simular Veículo
+                </button>
+                <button
+                  onClick={() => openSim('pesados')}
+                  className="flex-1 bg-[#1D6FCC] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                >
+                  🚛 Simular Pesados
+                </button>
+              </div>
+            </Reveal>
+
+            {/* [6] Splash circles — absolute nas laterais (lg+) */}
             <div className="hidden lg:flex absolute left-0 top-[38%] -translate-y-1/2 -translate-x-1/3 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
               <span className="text-white font-black text-3xl leading-none">45%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
@@ -601,7 +627,7 @@ export default function Consorcio() {
             </div>
 
             {/* Mini circles — mobile only */}
-            <div className="flex lg:hidden justify-center items-center gap-8 mt-2 mb-1 w-full">
+            <div className="hidden md:flex lg:hidden justify-center items-center gap-8 mt-2 mb-1 w-full">
               <div className="relative flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] border-[3px] border-[#FF6B00]/70 shadow-lg shadow-[#FF6B00]/30 animate-pulse">
                 <span className="text-white font-black text-xl leading-none">45%</span>
                 <span className="text-white/90 text-[9px] font-bold uppercase tracking-wide text-center leading-tight px-1.5 mt-0.5">OFF parcela</span>
@@ -622,10 +648,15 @@ export default function Consorcio() {
                 </svg>
               </div>
             </div>
+
+            <p className="text-center text-sm text-white/50 mt-6 max-w-2xl mx-auto italic">
+              * Consórcios com reduções exclusivas — garanta a sua cota antes que acabe.
+              Grupos em andamento com vagas limitadas.
+            </p>
           </div>
         </section>
 
-        {/* ═══════ MODALIDADES (ESCOLHA SEU CONSÓRCIO) ═══════ */}
+        {/* ═══════ MODALIDADES (ESCOLHA SEU CONSÓRCIO) — FIM ═══════ */}
         <section className="py-14 md:py-28 bg-muted/30">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
@@ -1033,7 +1064,7 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">Como funciona o consórcio?</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">São poucos passos até a conquista do seu sonho</h2>
             </Reveal>
 
             <div className="relative grid md:grid-cols-4 gap-6 md:gap-8">
