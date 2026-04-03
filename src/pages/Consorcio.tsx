@@ -589,7 +589,31 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            {/* [5] Splash circles — absolute nas laterais (lg+) */}
+            {/* [5] Simulation shortcut buttons */}
+            <Reveal delay={650} direction="up">
+              <div className="flex gap-2 w-full max-w-md mx-auto mt-3">
+                <button
+                  onClick={() => openSim('imovel')}
+                  className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                >
+                  🏠 Simular Imóvel
+                </button>
+                <button
+                  onClick={() => openSim('veiculo')}
+                  className="flex-1 bg-[#7C3AED] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                >
+                  🚗 Simular Veículo
+                </button>
+                <button
+                  onClick={() => openSim('pesados')}
+                  className="flex-1 bg-[#1D6FCC] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                >
+                  🚛 Simular Pesados
+                </button>
+              </div>
+            </Reveal>
+
+            {/* [6] Splash circles — absolute nas laterais (lg+) */}
             <div className="hidden lg:flex absolute left-0 top-[38%] -translate-y-1/2 -translate-x-1/3 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
               <span className="text-white font-black text-3xl leading-none">45%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
