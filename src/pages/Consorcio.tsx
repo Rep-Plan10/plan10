@@ -589,11 +589,12 @@ export default function Consorcio() {
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na taxa de administração</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">PORTO</span>
             </div>
-          </div>
+            </div>
 
-          {/* Scroll arrow */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce z-10 hidden sm:block">
-            <ArrowDown size={24} className="text-white/40" />
+            {/* Scroll arrow — in flow, always visible */}
+            <div className="flex justify-center pb-2">
+              <ArrowDown size={24} className="animate-bounce opacity-60 text-white/40" />
+            </div>
           </div>
         </section>
 
