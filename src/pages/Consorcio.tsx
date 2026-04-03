@@ -509,7 +509,7 @@ export default function Consorcio() {
 
             {/* [1] H1 centralizado */}
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-3xl mx-auto text-center">
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-lg mx-auto text-center">
                 {[
                   { text: "Os", accent: false },
                   { text: "melhores", accent: false },
