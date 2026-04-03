@@ -488,7 +488,7 @@ export default function Consorcio() {
 
       <main>
         {/* ═══════ HERO ═══════ */}
-        <section className="relative min-h-[92dvh] md:min-h-[92vh] flex items-start overflow-x-hidden">
+        <section className="relative w-full flex flex-col items-center py-8 md:py-12 overflow-x-hidden">
           {/* BG effects */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px]" />
@@ -507,10 +507,10 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 pt-4 md:pt-6 pb-0 relative z-10 flex flex-col items-center text-center justify-start flex-1 gap-1 md:gap-0">
+          <div className="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
             {/* [0] Countdown — topo do hero */}
             <Reveal delay={0} direction="up">
-              <div className="flex justify-center mb-1 w-full">
+              <div className="flex justify-center mb-2 md:mb-3 w-full">
                 <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
                   <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">
                     Termina em:
@@ -541,17 +541,17 @@ export default function Consorcio() {
 
             {/* [1] Pill badge */}
             <Reveal delay={100} direction="up">
-              <div className="flex flex-col items-center gap-1 mb-1">
+              <div className="flex flex-col items-center gap-1 mb-2 md:mb-1">
                 <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2">
                   <span className="text-white text-xs font-semibold tracking-wide">O seu futuro muito mais tranquilo!</span>
                 </div>
-                <span className="text-muted-foreground text-[11px] font-medium tracking-wide">Credenciado Porto Seguro</span>
+                <span className="text-muted-foreground text-[11px] font-medium tracking-wide mb-0 md:mb-1">Credenciado Porto Seguro</span>
               </div>
             </Reveal>
 
             {/* [2] H1 centralizado */}
-            <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] pb-2 mb-1 md:mb-2 max-w-2xl mx-auto text-center">
+            <div ref={heroRevealRef} className="mb-2 md:mb-4">
+              <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] max-w-2xl mx-auto text-center">
                 Os melhores{" "}
                 <span className="text-[#FF6B00]">DESCONTOS</span>{" "}
                 <span className="text-white">em</span>{" "}
@@ -563,14 +563,14 @@ export default function Consorcio() {
 
             {/* [3] Subtítulo centralizado */}
             <Reveal delay={500} direction="up">
-              <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-1 md:mb-2 leading-relaxed px-4 line-clamp-3 md:line-clamp-none">
+              <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-3 md:mb-5 leading-relaxed px-4 line-clamp-3 md:line-clamp-none">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
 
             {/* [4] CTAs centralizados */}
             <Reveal delay={600} direction="up">
-              <div className="flex flex-col sm:flex-row gap-3 mb-2 justify-center w-full">
+              <div className="flex flex-col sm:flex-row gap-3 mb-3 md:mb-4 justify-center w-full">
                 <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold w-full sm:w-auto">
                   Garantir minha cota agora
                 </button>
@@ -591,22 +591,22 @@ export default function Consorcio() {
 
             {/* [5] Simulation shortcut buttons */}
             <Reveal delay={650} direction="up">
-              <div className="flex gap-2 w-full max-w-md mx-auto mt-1 mb-0">
+              <div className="flex gap-2 w-full max-w-md mx-auto mb-3 md:mb-4">
                 <button
                   onClick={() => openSim('imovel')}
-                  className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                  className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200"
                 >
                   Simular Imóvel
                 </button>
                 <button
                   onClick={() => openSim('veiculo')}
-                  className="flex-1 bg-[#7C3AED] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                  className="flex-1 bg-[#7C3AED] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200"
                 >
                   Simular Veículo
                 </button>
                 <button
                   onClick={() => openSim('pesados')}
-                  className="flex-1 bg-[#1D6FCC] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                  className="flex-1 bg-[#1D6FCC] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200"
                 >
                   Simular Pesados
                 </button>
@@ -626,8 +626,8 @@ export default function Consorcio() {
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">PORTO</span>
             </div>
 
-            {/* Mini circles — mobile only */}
-            <div className="hidden md:flex lg:hidden justify-center items-center gap-8 mt-2 mb-1 w-full">
+            {/* Mini circles — tablet (md to lg) */}
+            <div className="hidden md:flex lg:hidden justify-center items-center gap-8 mb-3 w-full">
               <div className="relative flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] border-[3px] border-[#FF6B00]/70 shadow-lg shadow-[#FF6B00]/30 animate-pulse">
                 <span className="text-white font-black text-xl leading-none">45%</span>
                 <span className="text-white/90 text-[9px] font-bold uppercase tracking-wide text-center leading-tight px-1.5 mt-0.5">OFF parcela</span>
@@ -640,8 +640,22 @@ export default function Consorcio() {
               </div>
             </div>
 
-            {/* Scroll arrow — in flow */}
-            <div className="flex justify-center w-full mt-2">
+            {/* Mobile badges — inline horizontal */}
+            <div className="flex md:hidden justify-center gap-4 mb-3">
+              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-[#F97316] text-white text-center shadow-lg">
+                <span className="text-[10px] font-semibold uppercase tracking-wide">Oferta</span>
+                <span className="text-2xl font-black leading-none">45%</span>
+                <span className="text-[9px] leading-tight">OFF NA PARCELA</span>
+              </div>
+              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-[#1D6FCC] text-white text-center shadow-lg relative">
+                <span className="absolute -top-2 bg-green-500 text-white text-[8px] font-bold px-2 py-0.5 rounded-full">PORTO</span>
+                <span className="text-2xl font-black leading-none">10%</span>
+                <span className="text-[9px] leading-tight text-center px-1">OFF NA TAXA DE ADMINISTRAÇÃO</span>
+              </div>
+            </div>
+
+            {/* Scroll arrow */}
+            <div className="flex justify-center w-full mt-2 md:mt-4">
               <div className="animate-bounce text-gray-400 opacity-70">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
