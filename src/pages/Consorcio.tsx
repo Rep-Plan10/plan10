@@ -510,7 +510,7 @@ export default function Consorcio() {
           <div className="container mx-auto px-4 pt-16 pb-4 relative z-10 flex flex-col items-center text-center">
             {/* [0] Pill Parceiro Oficial */}
             <Reveal delay={0} direction="up">
-              <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2 mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2 mb-3">
                 <span className="text-[#4ade80] text-xs font-bold">✓</span>
                 <span className="text-white text-xs font-semibold tracking-wide">Parceiro Oficial Porto Bank</span>
               </div>
