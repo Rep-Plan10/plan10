@@ -736,6 +736,10 @@ export default function Consorcio() {
                 </Reveal>
               ))}
             </div>
+            <p className="text-center text-sm text-white/50 mt-6 max-w-2xl mx-auto italic">
+              * Consórcios com reduções exclusivas — garanta a sua cota antes que acabe.
+              Grupos em andamento com vagas limitadas.
+            </p>
           </div>
         </section>
 
