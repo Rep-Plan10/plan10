@@ -509,32 +509,11 @@ export default function Consorcio() {
 
             {/* [1] H1 centralizado */}
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-lg mx-auto text-center">
-                {[
-                  { text: "Os", accent: false },
-                  { text: "melhores", accent: false },
-                  { text: "DESCONTOS", accent: true },
-                  { text: "em", accent: false },
-                  { text: "CONSÓRCIO", accent: true },
-                  { text: "estão", accent: false },
-                  { text: "aqui.", accent: false },
-                ].map((w, i) => (
-                  <span key={i} className="inline-block overflow-hidden pb-2 mr-[0.3em] last:mr-0">
-                    <span
-                      className={`inline-block transition-all ${w.accent ? "text-[#FF6B00]" : ""}`}
-                      style={{
-                        transform: heroVisible ? "translateY(0)" : "translateY(110%)",
-                        opacity: heroVisible ? 1 : 0,
-                        transitionProperty: "transform, opacity",
-                        transitionDuration: "0.7s",
-                        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-                        transitionDelay: heroVisible ? `${i * 80}ms` : "0ms",
-                      }}
-                    >
-                      {w.text}
-                    </span>
-                  </span>
-                ))}
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-2xl mx-auto text-center">
+                Os melhores{" "}
+                <span className="text-[#FF6B00]">DESCONTOS em CONSÓRCIO</span>
+                <br />
+                estão aqui.
               </h1>
             </div>
 
