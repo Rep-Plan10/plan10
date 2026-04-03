@@ -507,7 +507,7 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 pt-28 sm:pt-24 pb-4 relative z-10 flex flex-col items-center text-center">
+          <div className="container mx-auto px-4 pt-20 md:pt-24 pb-4 relative z-10 flex flex-col items-center text-center justify-between md:justify-center flex-1 md:flex-initial gap-2 md:gap-0">
             {/* [0] Pill Parceiro Oficial */}
             <Reveal delay={0} direction="up">
               <div className="flex flex-col items-center gap-1 mb-3">
