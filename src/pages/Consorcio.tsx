@@ -591,10 +591,10 @@ export default function Consorcio() {
 
             {/* [5] Simulation shortcut buttons */}
             <Reveal delay={650} direction="up">
-              <div className="flex gap-2 w-full max-w-md mx-auto mt-1 mb-0">
+              <div className="flex gap-2 w-full max-w-md mx-auto mb-3 md:mb-4">
                 <button
                   onClick={() => openSim('imovel')}
-                  className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
+                  className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200"
                 >
                   Simular Imóvel
                 </button>
