@@ -488,7 +488,7 @@ export default function Consorcio() {
 
       <main>
         {/* ═══════ HERO ═══════ */}
-        <section className="relative min-h-[100dvh] md:h-[88vh] flex items-center overflow-x-hidden">
+        <section className="relative min-h-[92dvh] md:min-h-[92vh] flex items-start overflow-x-hidden">
           {/* BG effects */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px]" />
@@ -507,10 +507,10 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 pt-20 md:pt-24 pb-4 relative z-10 flex flex-col items-center text-center justify-between md:justify-center flex-1 md:flex-initial gap-2 md:gap-0">
+          <div className="container mx-auto px-4 pt-4 md:pt-6 pb-0 relative z-10 flex flex-col items-center text-center justify-start flex-1 gap-1 md:gap-0">
             {/* [0] Countdown — topo do hero */}
             <Reveal delay={0} direction="up">
-              <div className="flex justify-center mb-2 w-full">
+              <div className="flex justify-center mb-1 w-full">
                 <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
                   <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">
                     Termina em:
@@ -541,7 +541,7 @@ export default function Consorcio() {
 
             {/* [1] Pill badge */}
             <Reveal delay={100} direction="up">
-              <div className="flex flex-col items-center gap-1 mb-3">
+              <div className="flex flex-col items-center gap-1 mb-1">
                 <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2">
                   <span className="text-white text-xs font-semibold tracking-wide">O seu futuro muito mais tranquilo!</span>
                 </div>
@@ -551,7 +551,7 @@ export default function Consorcio() {
 
             {/* [2] H1 centralizado */}
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] pb-3 mb-2 md:mb-4 max-w-2xl mx-auto text-center">
+              <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] pb-2 mb-1 md:mb-2 max-w-2xl mx-auto text-center">
                 Os melhores{" "}
                 <span className="text-[#FF6B00]">DESCONTOS</span>{" "}
                 <span className="text-white">em</span>{" "}
@@ -563,22 +563,22 @@ export default function Consorcio() {
 
             {/* [3] Subtítulo centralizado */}
             <Reveal delay={500} direction="up">
-              <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-2 md:mb-3 leading-relaxed px-4 line-clamp-2 md:line-clamp-none">
+              <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-1 md:mb-2 leading-relaxed px-4 line-clamp-3 md:line-clamp-none">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
 
             {/* [4] CTAs centralizados */}
             <Reveal delay={600} direction="up">
-              <div className="flex flex-col sm:flex-row gap-4 mb-3 justify-center w-full">
-                <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row gap-3 mb-2 justify-center w-full">
+                <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold w-full sm:w-auto">
                   Garantir minha cota agora
                 </button>
                 <a
                   href={WA_BASE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cta-btn bg-[#25D366] border border-[#25D366] text-white hover:bg-[#1ebe57] px-8 py-4 rounded-xl text-base font-bold transition-colors inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                  className="cta-btn bg-[#25D366] border border-[#25D366] text-white hover:bg-[#1ebe57] px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold transition-colors inline-flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -591,7 +591,7 @@ export default function Consorcio() {
 
             {/* [5] Simulation shortcut buttons */}
             <Reveal delay={650} direction="up">
-              <div className="flex gap-2 w-full max-w-md mx-auto mt-3">
+              <div className="flex gap-2 w-full max-w-md mx-auto mt-1 mb-0">
                 <button
                   onClick={() => openSim('imovel')}
                   className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
