@@ -782,7 +782,7 @@ export default function Consorcio() {
                               : "bg-white/5 border border-white/10 text-foreground hover:bg-white/10"
                           }`}
                         >
-                          <span>{tab.emoji}</span> {tab.label}
+                          {tab.label}
                         </button>
                       ))}
                     </div>
