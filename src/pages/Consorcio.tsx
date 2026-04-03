@@ -599,9 +599,18 @@ export default function Consorcio() {
             </div>
             </div>
 
-            {/* Scroll arrow — in flow, always visible */}
-            <div className="flex justify-center pb-2">
-              <ArrowDown size={24} className="animate-bounce opacity-60 text-white/40" />
+            {/* Mini circles — mobile only */}
+            <div className="flex lg:hidden justify-center gap-6 mt-1">
+              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] border-2 border-[#FF6B00]/60 shadow-lg shadow-[#FF6B00]/30 animate-pulse relative">
+                <span className="text-white font-black text-lg leading-none">45%</span>
+                <span className="text-white/90 text-[8px] font-bold uppercase tracking-wide text-center leading-tight px-1">OFF parcela</span>
+                <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[7px] font-black px-2 py-0.5 rounded-full uppercase whitespace-nowrap">OFERTA</span>
+              </div>
+              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] border-2 border-[#1a56db]/60 shadow-lg shadow-[#003087]/30 relative">
+                <span className="text-white font-black text-lg leading-none">10%</span>
+                <span className="text-white/90 text-[8px] font-bold uppercase tracking-wide text-center leading-tight px-1">OFF taxa adm</span>
+                <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[7px] font-black px-2 py-0.5 rounded-full uppercase whitespace-nowrap">PORTO</span>
+              </div>
             </div>
           </div>
         </section>
