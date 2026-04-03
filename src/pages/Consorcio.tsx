@@ -597,7 +597,6 @@ export default function Consorcio() {
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na taxa de administração</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">PORTO</span>
             </div>
-            </div>
 
             {/* Mini circles — mobile only */}
             <div className="flex lg:hidden justify-center gap-6 mt-1">
