@@ -208,7 +208,7 @@ export default function Consorcio() {
   }, [faixaDropdownAberto]);
 
   /* ── Hero text reveal ── */
-  const { ref: heroRevealRef, visible: heroVisible } = useReveal(0.2);
+  const { ref: heroRevealRef } = useReveal(0.2);
 
   useEffect(() => {
     document.title = "Plan10 Consórcio — Imóvel, Veículo e Pesados sem juros";
