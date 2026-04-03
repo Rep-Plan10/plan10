@@ -509,7 +509,7 @@ export default function Consorcio() {
 
             {/* [1] H1 centralizado */}
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-3xl mx-auto text-center">
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-lg mx-auto text-center">
                 {[
                   { text: "Os", accent: false },
                   { text: "melhores", accent: false },
@@ -597,29 +597,18 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            {/* [5] Splash badges — círculos visuais */}
-            <Reveal delay={700} direction="up">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-6">
-                {/* Splash 45% */}
-                <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#ff9a44] flex flex-col items-center justify-center shadow-[0_0_40px_rgba(255,107,0,0.3)] animate-pulse" style={{ animationDuration: '2.5s' }}>
-                  <span className="text-white font-black text-4xl sm:text-5xl font-sora leading-none">45%</span>
-                  <span className="text-white/90 text-xs font-semibold mt-1">OFF na parcela</span>
-                  <span className="absolute -top-2 -right-1 bg-white text-[#FF6B00] text-[10px] font-black px-2 py-0.5 rounded-full shadow-lg uppercase tracking-wider">OFERTA</span>
-                </div>
+            {/* [5] Splash circles — absolute nas laterais (lg+) */}
+            <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/4 flex-col items-center justify-center w-36 h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
+              <span className="text-white font-black text-3xl leading-none">45%</span>
+              <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">OFERTA</span>
+            </div>
 
-                {/* Separador */}
-                <div className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/20">
-                  <span className="text-white/60 font-bold text-lg">+</span>
-                </div>
-
-                {/* Splash 10% */}
-                <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-[#003087] to-[#0050d4] flex flex-col items-center justify-center shadow-[0_0_40px_rgba(0,48,135,0.3)]">
-                  <span className="text-white font-black text-4xl sm:text-5xl font-sora leading-none">10%</span>
-                  <span className="text-white/90 text-xs font-semibold mt-1">OFF taxa adm</span>
-                  <span className="absolute -top-2 -right-1 bg-white text-[#003087] text-[10px] font-black px-2 py-0.5 rounded-full shadow-lg uppercase tracking-wider">PORTO</span>
-                </div>
-              </div>
-            </Reveal>
+            <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 flex-col items-center justify-center w-36 h-36 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#1a56db]/60">
+              <span className="text-white font-black text-3xl leading-none">10%</span>
+              <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na taxa de administração</span>
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">PORTO</span>
+            </div>
           </div>
 
           {/* Scroll arrow */}
