@@ -586,7 +586,7 @@ export default function Consorcio() {
             </Reveal>
 
             {/* [5] Splash circles — absolute nas laterais (lg+) */}
-            <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/4 flex-col items-center justify-center w-36 h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
+            <div className="hidden lg:flex absolute left-0 top-[35%] -translate-y-1/2 -translate-x-1/4 flex-col items-center justify-center w-36 h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
               <span className="text-white font-black text-3xl leading-none">45%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">OFERTA</span>
