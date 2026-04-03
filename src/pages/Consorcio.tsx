@@ -1064,7 +1064,7 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">Como funciona o consórcio?</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">São poucos passos até a conquista do seu sonho</h2>
             </Reveal>
 
             <div className="relative grid md:grid-cols-4 gap-6 md:gap-8">
