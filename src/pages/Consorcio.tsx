@@ -510,7 +510,7 @@ export default function Consorcio() {
 
             {/* [1] H1 centralizado */}
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-2xl mx-auto text-center">
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.35] pb-3 mb-6 max-w-2xl mx-auto text-center">
                 Os melhores{" "}
                 <span className="text-[#FF6B00]">DESCONTOS em CONSÓRCIO</span>
                 <br />
