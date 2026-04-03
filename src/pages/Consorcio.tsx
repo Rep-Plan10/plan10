@@ -456,25 +456,33 @@ export default function Consorcio() {
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Espaçador esquerdo — só visível no desktop para balancear */}
-          <div className="hidden sm:block sm:w-28 lg:w-36" />
+          {/* Espaçador invisível — balanceia o botão no desktop */}
+          <div className="w-0 sm:w-28" aria-hidden="true" />
 
-          {/* Logo Plan10 — centralizado no mobile via margin auto */}
+          {/* Logos — centralizados via flex-1 + justify-center */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="focus:outline-none cursor-pointer mx-auto sm:mx-0"
+            className="flex items-center gap-2 sm:gap-3 focus:outline-none cursor-pointer flex-1 justify-center"
             aria-label="Ir para o início"
           >
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-7 sm:h-9 w-auto" />
+            {portoLogo && (
+              <>
+                <span className="text-gray-500 text-base sm:text-xl font-light select-none">+</span>
+                <img src={portoLogo} alt="Porto" className="h-5 sm:h-7 w-auto" />
+              </>
+            )}
           </button>
 
-          {/* Botão Simular — oculto no mobile, visível no desktop */}
-          <button
-            onClick={() => openSim('imovel')}
-            className="hidden sm:block cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold"
-          >
-            Simular agora
-          </button>
+          {/* Botão Simular — oculto no mobile */}
+          <div className="w-0 sm:w-28 flex justify-end">
+            <button
+              onClick={() => openSim('imovel')}
+              className="hidden sm:block cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold whitespace-nowrap"
+            >
+              Simular agora
+            </button>
+          </div>
         </div>
       </header>
 
