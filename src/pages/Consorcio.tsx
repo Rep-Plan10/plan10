@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Check, MessageCircle, ArrowDown, Star } from "lucide-react";
+import { ChevronDown, Check, MessageCircle, Star } from "lucide-react";
 
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
 const portoLogo = '/Logo_porto_att.png';
@@ -456,31 +456,39 @@ export default function Consorcio() {
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Espaçador esquerdo — só visível no desktop para balancear */}
-          <div className="hidden sm:block sm:w-28 lg:w-36" />
+          {/* Espaçador invisível — balanceia o botão no desktop */}
+          <div className="w-0 sm:w-28" aria-hidden="true" />
 
-          {/* Logo Plan10 — centralizado no mobile via margin auto */}
+          {/* Logos — centralizados via flex-1 + justify-center */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="focus:outline-none cursor-pointer mx-auto sm:mx-0"
+            className="flex items-center gap-2 sm:gap-3 focus:outline-none cursor-pointer flex-1 justify-center"
             aria-label="Ir para o início"
           >
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-7 sm:h-9 w-auto" />
+            {portoLogo && (
+              <>
+                <span className="text-gray-500 text-base sm:text-xl font-light select-none">+</span>
+                <img src={portoLogo} alt="Porto" className="h-5 sm:h-7 w-auto" />
+              </>
+            )}
           </button>
 
-          {/* Botão Simular — oculto no mobile, visível no desktop */}
-          <button
-            onClick={() => openSim('imovel')}
-            className="hidden sm:block cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold"
-          >
-            Simular agora
-          </button>
+          {/* Botão Simular — oculto no mobile */}
+          <div className="w-0 sm:w-28 flex justify-end">
+            <button
+              onClick={() => openSim('imovel')}
+              className="hidden sm:block cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold whitespace-nowrap"
+            >
+              Simular agora
+            </button>
+          </div>
         </div>
       </header>
 
       <main>
         {/* ═══════ HERO ═══════ */}
-        <section className="relative h-screen flex flex-col overflow-hidden">
+        <section className="relative h-[88vh] flex items-center overflow-hidden">
           {/* BG effects */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px]" />
@@ -499,11 +507,10 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 pt-20 pb-6 relative z-10 flex flex-col flex-1 justify-between">
-            <div className="flex flex-col items-center text-center flex-1 justify-center gap-3">
+          <div className="container mx-auto px-4 pt-16 pb-4 relative z-10 flex flex-col items-center text-center">
             {/* [0] Pill Parceiro Oficial */}
             <Reveal delay={0} direction="up">
-              <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2 mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2 mb-3">
                 <span className="text-[#4ade80] text-xs font-bold">✓</span>
                 <span className="text-white text-xs font-semibold tracking-wide">Parceiro Oficial Porto Bank</span>
               </div>
@@ -511,7 +518,7 @@ export default function Consorcio() {
 
             {/* [1] H1 centralizado */}
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.35] pb-3 mb-6 max-w-2xl mx-auto text-center">
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.35] pb-3 mb-4 max-w-2xl mx-auto text-center">
                 Os melhores{" "}
                 <span className="text-[#FF6B00]">DESCONTOS em CONSÓRCIO</span>
                 <br />
@@ -521,14 +528,14 @@ export default function Consorcio() {
 
             {/* [2] Subtítulo centralizado */}
             <Reveal delay={500} direction="up">
-              <p className="text-base md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-6 leading-relaxed px-4">
+              <p className="text-base md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-3 leading-relaxed px-4">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
 
             {/* [3] Countdown centralizado */}
             <Reveal delay={550} direction="up">
-              <div className="flex justify-center mb-6 w-full">
+              <div className="flex justify-center mb-3 w-full">
                 <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
                   <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">
                     Termina em:
@@ -559,7 +566,7 @@ export default function Consorcio() {
 
             {/* [4] CTAs centralizados */}
             <Reveal delay={600} direction="up">
-              <div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center w-full">
+              <div className="flex flex-col sm:flex-row gap-4 mb-3 justify-center w-full">
                 <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold w-full sm:w-auto">
                   Garantir minha cota agora
                 </button>
@@ -579,22 +586,30 @@ export default function Consorcio() {
             </Reveal>
 
             {/* [5] Splash circles — absolute nas laterais (lg+) */}
-            <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/4 flex-col items-center justify-center w-36 h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
+            <div className="hidden lg:flex absolute left-0 top-[35%] -translate-y-1/2 -translate-x-1/4 flex-col items-center justify-center w-36 h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
               <span className="text-white font-black text-3xl leading-none">45%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">OFERTA</span>
             </div>
 
-            <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 flex-col items-center justify-center w-36 h-36 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#1a56db]/60">
+            <div className="hidden lg:flex absolute right-0 top-[35%] -translate-y-1/2 translate-x-1/4 flex-col items-center justify-center w-36 h-36 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#1a56db]/60">
               <span className="text-white font-black text-3xl leading-none">10%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na taxa de administração</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">PORTO</span>
             </div>
-            </div>
 
-            {/* Scroll arrow — in flow, always visible */}
-            <div className="flex justify-center pb-2">
-              <ArrowDown size={24} className="animate-bounce opacity-60 text-white/40" />
+            {/* Mini circles — mobile only */}
+            <div className="flex lg:hidden justify-center gap-6 mt-1">
+              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] border-2 border-[#FF6B00]/60 shadow-lg shadow-[#FF6B00]/30 animate-pulse relative">
+                <span className="text-white font-black text-lg leading-none">45%</span>
+                <span className="text-white/90 text-[8px] font-bold uppercase tracking-wide text-center leading-tight px-1">OFF parcela</span>
+                <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[7px] font-black px-2 py-0.5 rounded-full uppercase whitespace-nowrap">OFERTA</span>
+              </div>
+              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] border-2 border-[#1a56db]/60 shadow-lg shadow-[#003087]/30 relative">
+                <span className="text-white font-black text-lg leading-none">10%</span>
+                <span className="text-white/90 text-[8px] font-bold uppercase tracking-wide text-center leading-tight px-1">OFF taxa adm</span>
+                <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[7px] font-black px-2 py-0.5 rounded-full uppercase whitespace-nowrap">PORTO</span>
+              </div>
             </div>
           </div>
         </section>
