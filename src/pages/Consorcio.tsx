@@ -508,38 +508,9 @@ export default function Consorcio() {
           </div>
 
           <div className="container mx-auto px-4 pt-20 md:pt-24 pb-4 relative z-10 flex flex-col items-center text-center justify-between md:justify-center flex-1 md:flex-initial gap-2 md:gap-0">
-            {/* [0] Pill Parceiro Oficial */}
+            {/* [0] Countdown — topo do hero */}
             <Reveal delay={0} direction="up">
-              <div className="flex flex-col items-center gap-1 mb-3">
-                <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2">
-                  <span className="text-white text-xs font-semibold tracking-wide">O seu futuro muito mais tranquilo!</span>
-                </div>
-                <span className="text-muted-foreground text-[11px] font-medium tracking-wide">Credenciado Porto Seguro</span>
-              </div>
-            </Reveal>
-
-            {/* [1] H1 centralizado */}
-            <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] pb-3 mb-2 md:mb-4 max-w-2xl mx-auto text-center">
-                Os melhores{" "}
-                <span className="text-[#FF6B00]">DESCONTOS</span>{" "}
-                <span className="text-white">em</span>{" "}
-                <span className="text-[#FF6B00]">CONSÓRCIO</span>
-                <br />
-                estão aqui.
-              </h1>
-            </div>
-
-            {/* [2] Subtítulo centralizado */}
-            <Reveal delay={500} direction="up">
-              <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-2 md:mb-3 leading-relaxed px-4 line-clamp-2 md:line-clamp-none">
-                Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
-              </p>
-            </Reveal>
-
-            {/* [3] Countdown centralizado */}
-            <Reveal delay={550} direction="up">
-              <div className="flex justify-center mb-3 w-full">
+              <div className="flex justify-center mb-2 w-full">
                 <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
                   <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">
                     Termina em:
@@ -566,6 +537,35 @@ export default function Consorcio() {
                   ))}
                 </div>
               </div>
+            </Reveal>
+
+            {/* [1] Pill badge */}
+            <Reveal delay={100} direction="up">
+              <div className="flex flex-col items-center gap-1 mb-3">
+                <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2">
+                  <span className="text-white text-xs font-semibold tracking-wide">O seu futuro muito mais tranquilo!</span>
+                </div>
+                <span className="text-muted-foreground text-[11px] font-medium tracking-wide">Credenciado Porto Seguro</span>
+              </div>
+            </Reveal>
+
+            {/* [2] H1 centralizado */}
+            <div ref={heroRevealRef}>
+              <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] pb-3 mb-2 md:mb-4 max-w-2xl mx-auto text-center">
+                Os melhores{" "}
+                <span className="text-[#FF6B00]">DESCONTOS</span>{" "}
+                <span className="text-white">em</span>{" "}
+                <span className="text-[#FF6B00]">CONSÓRCIO</span>
+                <br />
+                estão aqui.
+              </h1>
+            </div>
+
+            {/* [3] Subtítulo centralizado */}
+            <Reveal delay={500} direction="up">
+              <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-2 md:mb-3 leading-relaxed px-4 line-clamp-2 md:line-clamp-none">
+                Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
+              </p>
             </Reveal>
 
             {/* [4] CTAs centralizados */}
