@@ -571,7 +571,7 @@ export default function Consorcio() {
             {/* [4] CTAs centralizados */}
             <Reveal delay={600} direction="up">
               <div className="flex flex-col sm:flex-row gap-3 mb-2 justify-center w-full">
-                <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold w-full sm:w-auto">
+                <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold w-full sm:w-auto">
                   Garantir minha cota agora
                 </button>
                 <a
