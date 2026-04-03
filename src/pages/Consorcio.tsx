@@ -1046,6 +1046,58 @@ export default function Consorcio() {
           </div>
         </section>
 
+        {/* ═══════ COMO FUNCIONA ═══════ */}
+        <section className="py-14 md:py-28 bg-white/[0.02]">
+          <div className="container mx-auto px-4">
+            <Reveal direction="up">
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">São poucos passos até a conquista do seu sonho</h2>
+            </Reveal>
+
+            {/* Desktop: linha + círculos isolados */}
+            <div className="hidden md:flex relative justify-between items-center mx-auto mb-6" style={{ paddingLeft: '12.5%', paddingRight: '12.5%' }}>
+              <div className="absolute left-[12.5%] right-[12.5%] top-1/2 -translate-y-1/2 border-t-2 border-dashed border-accent z-0" />
+              {["01", "02", "03", "04"].map((n) => (
+                <div key={n} className="relative z-10 w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-sm flex-shrink-0">
+                  {n}
+                </div>
+              ))}
+            </div>
+
+            {/* Cards: imagem + título + desc */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+              {[
+                { n: "01", title: "Escolha seu sonho", desc: "Simule o valor do imóvel ou veículo desejado e encontre o plano ideal para o seu momento de vida.", img: "/images/familia-olhando-carro.png", alt: "Família escolhendo o sonho" },
+                { n: "02", title: "Entre no grupo", desc: "Você passa a fazer parte de um grupo com pessoas de objetivos similares e começa a pagar as parcelas mensais.", img: "/images/familia-assinando-contrato.png", alt: "Família assinando contrato" },
+                { n: "03", title: "Seja contemplado", desc: "Todo mês acontecem sorteios. Você também pode dar lances para antecipar sua contemplação.", img: "/images/familia-comemorando.png", alt: "Família comemorando a contemplação" },
+                { n: "04", title: "Use sua carta de crédito", desc: "Com a carta em mãos, você compra à vista e ainda tem poder de negociação para conseguir desconto.", img: "/images/familia-comprando-carro.png", alt: "Família comprando o carro" },
+              ].map((s, i) => (
+                <Reveal key={i} delay={i * 200} direction="up">
+                  <div className="flex flex-col items-center text-center">
+                    <img src={s.img} alt={s.alt} className="w-full h-40 object-cover rounded-xl mb-4" loading="lazy" />
+                    <div className="md:hidden w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-sm mb-3">
+                      {s.n}
+                    </div>
+                    <h3 className="font-sora font-semibold text-base text-foreground mb-2">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <div className="flex justify-center mt-10">
+              <a
+                href="https://api.whatsapp.com/send/?phone=5511991051616&text=Ol%C3%A1!%20Quero%20escolher%20meu%20cons%C3%B3rcio%20agora."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-btn inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold px-10 py-4 rounded-full transition-colors duration-200 text-base"
+              >
+                Escolher o meu patrimônio agora
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* ═══════ CONFIANÇA E SEGURANÇA ═══════ */}
         <section className="py-14 md:py-28 bg-white/[0.02]">
           <div className="container mx-auto px-4">
@@ -1072,51 +1124,6 @@ export default function Consorcio() {
                   </div>
                 </Reveal>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ═══════ COMO FUNCIONA ═══════ */}
-        <section className="py-14 md:py-28 bg-white/[0.02]">
-          <div className="container mx-auto px-4">
-            <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">São poucos passos até a conquista do seu sonho</h2>
-            </Reveal>
-
-            <div className="relative grid md:grid-cols-4 gap-6 md:gap-8">
-              {/* Desktop connector */}
-              <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px border-t-2 border-dashed border-accent/30" />
-
-              {[
-                { n: "01", title: "Escolha seu sonho", desc: "Simule o valor do imóvel ou veículo desejado e encontre o plano ideal para o seu momento de vida.", img: "/images/familia-olhando-carro.png", alt: "Família escolhendo o sonho" },
-                { n: "02", title: "Entre no grupo", desc: "Você passa a fazer parte de um grupo com pessoas de objetivos similares e começa a pagar as parcelas mensais.", img: "/images/familia-assinando-contrato.png", alt: "Família assinando contrato" },
-                { n: "03", title: "Seja contemplado", desc: "Todo mês acontecem sorteios. Você também pode dar lances para antecipar sua contemplação.", img: "/images/familia-comemorando.png", alt: "Família comemorando a contemplação" },
-                { n: "04", title: "Use sua carta de crédito", desc: "Com a carta em mãos, você compra à vista e ainda tem poder de negociação para conseguir desconto.", img: "/images/familia-comprando-carro.png", alt: "Família comprando o carro" },
-              ].map((s, i) => (
-                <Reveal key={i} delay={i * 200} direction="up">
-                  <div className="flex flex-col items-center text-center">
-                    <img src={s.img} alt={s.alt} className="w-full h-40 object-cover rounded-xl mb-4" />
-                    <div className="w-14 h-14 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-lg mb-4 relative z-10">
-                      {s.n}
-                    </div>
-                    <h3 className="font-sora font-semibold text-base text-foreground mb-2">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            {/* CTA Como Funciona */}
-            <div className="flex justify-center mt-10">
-              <a
-                href="https://api.whatsapp.com/send/?phone=5511991051616&text=Ol%C3%A1!%20Quero%20escolher%20meu%20cons%C3%B3rcio%20agora."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-btn inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold px-10 py-4 rounded-full transition-colors duration-200 text-base"
-              >
-                Escolher o meu patrimônio agora
-                <span>→</span>
-              </a>
             </div>
           </div>
         </section>
