@@ -641,16 +641,18 @@ export default function Consorcio() {
             </div>
 
             {/* Mobile badges — inline horizontal */}
-            <div className="flex md:hidden justify-center gap-4 mb-3">
-              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-[#F97316] text-white text-center shadow-lg">
-                <span className="text-[10px] font-semibold uppercase tracking-wide">Oferta</span>
-                <span className="text-2xl font-black leading-none">45%</span>
-                <span className="text-[9px] leading-tight">OFF NA PARCELA</span>
+            <div className="flex md:hidden justify-center gap-6 mt-3 mb-2">
+              {/* Bolinha laranja — OFERTA */}
+              <div className="flex flex-col items-center justify-center w-24 h-24 rounded-full bg-[#F97316] text-white text-center flex-shrink-0">
+                <span className="text-[9px] font-bold uppercase tracking-widest leading-none mb-0.5">OFERTA</span>
+                <span className="text-3xl font-black leading-none">45%</span>
+                <span className="text-[8px] font-medium leading-tight mt-0.5 px-1">OFF NA PARCELA</span>
               </div>
-              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-[#1D6FCC] text-white text-center shadow-lg relative">
-                <span className="absolute -top-2 bg-green-500 text-white text-[8px] font-bold px-2 py-0.5 rounded-full">PORTO</span>
-                <span className="text-2xl font-black leading-none">10%</span>
-                <span className="text-[9px] leading-tight text-center px-1">OFF NA TAXA DE ADMINISTRAÇÃO</span>
+              {/* Bolinha azul — PORTO */}
+              <div className="flex flex-col items-center justify-center w-24 h-24 rounded-full bg-[#1D6FCC] text-white text-center flex-shrink-0 relative">
+                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[8px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">PORTO</span>
+                <span className="text-3xl font-black leading-none">10%</span>
+                <span className="text-[8px] font-medium leading-tight mt-0.5 px-2 text-center">{"OFF NA TAXA DE\nADMINISTRAÇÃO"}</span>
               </div>
             </div>
 
