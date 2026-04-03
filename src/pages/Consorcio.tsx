@@ -627,7 +627,7 @@ export default function Consorcio() {
             </div>
 
             {/* Mini circles — mobile only */}
-            <div className="flex lg:hidden justify-center items-center gap-8 mt-2 mb-1 w-full">
+            <div className="hidden md:flex lg:hidden justify-center items-center gap-8 mt-2 mb-1 w-full">
               <div className="relative flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] border-[3px] border-[#FF6B00]/70 shadow-lg shadow-[#FF6B00]/30 animate-pulse">
                 <span className="text-white font-black text-xl leading-none">45%</span>
                 <span className="text-white/90 text-[9px] font-bold uppercase tracking-wide text-center leading-tight px-1.5 mt-0.5">OFF parcela</span>
