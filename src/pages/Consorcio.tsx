@@ -456,10 +456,22 @@ export default function Consorcio() {
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none cursor-pointer" aria-label="Ir para o início">
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 w-auto" />
+          {/* Espaço para balancear */}
+          <div className="w-[120px] hidden sm:block" />
+
+          {/* Centro: logos Plan10 + Porto */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-3 focus:outline-none absolute left-1/2 -translate-x-1/2"
+            aria-label="Ir para o início"
+          >
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto" />
+            <span className="text-white/30 text-xs font-light">+</span>
+            <img src={portoLogo} alt="Porto" className="h-5 w-auto" />
           </button>
-          <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold">
+
+          {/* Direita: botão Simular */}
+          <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold ml-auto">
             Simular agora
           </button>
         </div>
