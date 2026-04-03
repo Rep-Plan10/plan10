@@ -626,8 +626,8 @@ export default function Consorcio() {
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">PORTO</span>
             </div>
 
-            {/* Mini circles — mobile only */}
-            <div className="hidden md:flex lg:hidden justify-center items-center gap-8 mt-2 mb-1 w-full">
+            {/* Mini circles — tablet (md to lg) */}
+            <div className="hidden md:flex lg:hidden justify-center items-center gap-8 mb-3 w-full">
               <div className="relative flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] border-[3px] border-[#FF6B00]/70 shadow-lg shadow-[#FF6B00]/30 animate-pulse">
                 <span className="text-white font-black text-xl leading-none">45%</span>
                 <span className="text-white/90 text-[9px] font-bold uppercase tracking-wide text-center leading-tight px-1.5 mt-0.5">OFF parcela</span>
@@ -640,8 +640,22 @@ export default function Consorcio() {
               </div>
             </div>
 
-            {/* Scroll arrow — in flow */}
-            <div className="flex justify-center w-full mt-2">
+            {/* Mobile badges — inline horizontal */}
+            <div className="flex md:hidden justify-center gap-4 mb-3">
+              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-[#F97316] text-white text-center shadow-lg">
+                <span className="text-[10px] font-semibold uppercase tracking-wide">Oferta</span>
+                <span className="text-2xl font-black leading-none">45%</span>
+                <span className="text-[9px] leading-tight">OFF NA PARCELA</span>
+              </div>
+              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-[#1D6FCC] text-white text-center shadow-lg relative">
+                <span className="absolute -top-2 bg-green-500 text-white text-[8px] font-bold px-2 py-0.5 rounded-full">PORTO</span>
+                <span className="text-2xl font-black leading-none">10%</span>
+                <span className="text-[9px] leading-tight text-center px-1">OFF NA TAXA DE ADMINISTRAÇÃO</span>
+              </div>
+            </div>
+
+            {/* Scroll arrow */}
+            <div className="flex justify-center w-full mt-2 md:mt-4">
               <div className="animate-bounce text-gray-400 opacity-70">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
