@@ -599,23 +599,27 @@ export default function Consorcio() {
             </div>
 
             {/* Mini circles — mobile only */}
-            <div className="flex lg:hidden justify-center gap-6 mt-1">
-              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] border-2 border-[#FF6B00]/60 shadow-lg shadow-[#FF6B00]/30 animate-pulse relative">
-                <span className="text-white font-black text-lg leading-none">45%</span>
-                <span className="text-white/90 text-[8px] font-bold uppercase tracking-wide text-center leading-tight px-1">OFF parcela</span>
-                <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[7px] font-black px-2 py-0.5 rounded-full uppercase whitespace-nowrap">OFERTA</span>
+            <div className="flex lg:hidden justify-center items-center gap-8 mt-2 mb-1 w-full">
+              <div className="relative flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] border-[3px] border-[#FF6B00]/70 shadow-lg shadow-[#FF6B00]/30 animate-pulse">
+                <span className="text-white font-black text-xl leading-none">45%</span>
+                <span className="text-white/90 text-[9px] font-bold uppercase tracking-wide text-center leading-tight px-1.5 mt-0.5">OFF parcela</span>
+                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap shadow">OFERTA</span>
               </div>
-              <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] border-2 border-[#1a56db]/60 shadow-lg shadow-[#003087]/30 relative">
-                <span className="text-white font-black text-lg leading-none">10%</span>
-                <span className="text-white/90 text-[8px] font-bold uppercase tracking-wide text-center leading-tight px-1">OFF taxa adm</span>
-                <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[7px] font-black px-2 py-0.5 rounded-full uppercase whitespace-nowrap">PORTO</span>
+              <div className="relative flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] border-[3px] border-[#1a56db]/70 shadow-lg shadow-[#003087]/30">
+                <span className="text-white font-black text-xl leading-none">10%</span>
+                <span className="text-white/90 text-[9px] font-bold uppercase tracking-wide text-center leading-tight px-1.5 mt-0.5">OFF taxa adm</span>
+                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap shadow">PORTO</span>
               </div>
             </div>
-          </div>
 
-          {/* Scroll arrow */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce z-10 block">
-            <ChevronDown size={28} className="text-white/40" />
+            {/* Scroll arrow — in flow */}
+            <div className="flex justify-center w-full mt-2">
+              <div className="animate-bounce text-gray-400 opacity-70">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
           </div>
         </section>
 
