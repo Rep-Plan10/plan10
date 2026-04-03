@@ -208,7 +208,7 @@ export default function Consorcio() {
   }, [faixaDropdownAberto]);
 
   /* ── Hero text reveal ── */
-  const { ref: heroRevealRef, visible: heroVisible } = useReveal(0.2);
+  const { ref: heroRevealRef } = useReveal(0.2);
 
   useEffect(() => {
     document.title = "Plan10 Consórcio — Imóvel, Veículo e Pesados sem juros";
@@ -479,7 +479,7 @@ export default function Consorcio() {
 
       <main>
         {/* ═══════ HERO ═══════ */}
-        <section className="relative min-h-screen flex items-start md:items-center overflow-hidden">
+        <section className="relative min-h-[100svh] lg:min-h-screen flex items-start md:items-center overflow-hidden">
           {/* BG effects */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px]" />
@@ -498,7 +498,7 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 pt-10 pb-10 relative z-10 flex flex-col items-center text-center">
+          <div className="container mx-auto px-4 pt-20 pb-8 lg:pt-12 lg:pb-10 relative z-10 flex flex-col items-center text-center">
             {/* [0] Pill Parceiro Oficial */}
             <Reveal delay={0} direction="up">
               <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2 mb-6">
@@ -509,38 +509,17 @@ export default function Consorcio() {
 
             {/* [1] H1 centralizado */}
             <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-lg mx-auto text-center">
-                {[
-                  { text: "Os", accent: false },
-                  { text: "melhores", accent: false },
-                  { text: "DESCONTOS", accent: true },
-                  { text: "em", accent: false },
-                  { text: "CONSÓRCIO", accent: true },
-                  { text: "estão", accent: false },
-                  { text: "aqui.", accent: false },
-                ].map((w, i) => (
-                  <span key={i} className="inline-block overflow-hidden pb-2 mr-[0.3em] last:mr-0">
-                    <span
-                      className={`inline-block transition-all ${w.accent ? "text-[#FF6B00]" : ""}`}
-                      style={{
-                        transform: heroVisible ? "translateY(0)" : "translateY(110%)",
-                        opacity: heroVisible ? 1 : 0,
-                        transitionProperty: "transform, opacity",
-                        transitionDuration: "0.7s",
-                        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-                        transitionDelay: heroVisible ? `${i * 80}ms` : "0ms",
-                      }}
-                    >
-                      {w.text}
-                    </span>
-                  </span>
-                ))}
+              <h1 className="font-sora font-black text-4xl sm:text-5xl md:text-6xl leading-[1.15] pb-3 mb-6 max-w-2xl mx-auto text-center">
+                Os melhores{" "}
+                <span className="text-[#FF6B00]">DESCONTOS em CONSÓRCIO</span>
+                <br />
+                estão aqui.
               </h1>
             </div>
 
             {/* [2] Subtítulo centralizado */}
             <Reveal delay={500} direction="up">
-              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto text-center mb-6 leading-relaxed">
+              <p className="text-base md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-6 leading-relaxed px-4">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
@@ -578,15 +557,15 @@ export default function Consorcio() {
 
             {/* [4] CTAs centralizados */}
             <Reveal delay={600} direction="up">
-              <div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center">
-                <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold">
+              <div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center w-full">
+                <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-8 py-4 rounded-xl text-base font-bold w-full sm:w-auto">
                   Garantir minha cota agora
                 </button>
                 <a
                   href={WA_BASE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cta-btn bg-[#25D366] border border-[#25D366] text-white hover:bg-[#1ebe57] px-8 py-4 rounded-xl text-base font-bold transition-colors inline-flex items-center justify-center gap-2"
+                  className="cta-btn bg-[#25D366] border border-[#25D366] text-white hover:bg-[#1ebe57] px-8 py-4 rounded-xl text-base font-bold transition-colors inline-flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
