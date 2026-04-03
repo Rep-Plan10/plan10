@@ -507,7 +507,7 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 pt-20 md:pt-24 pb-4 relative z-10 flex flex-col items-center text-center justify-between md:justify-center flex-1 md:flex-initial gap-2 md:gap-0">
+          <div className="container mx-auto px-4 pt-4 md:pt-6 pb-0 relative z-10 flex flex-col items-center text-center justify-start flex-1 gap-1 md:gap-0">
             {/* [0] Countdown — topo do hero */}
             <Reveal delay={0} direction="up">
               <div className="flex justify-center mb-2 w-full">
