@@ -563,7 +563,7 @@ export default function Consorcio() {
 
             {/* [3] Subtítulo centralizado */}
             <Reveal delay={500} direction="up">
-              <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-1 md:mb-2 leading-relaxed px-4 line-clamp-3 md:line-clamp-none">
+              <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-3 md:mb-5 leading-relaxed px-4 line-clamp-3 md:line-clamp-none">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
