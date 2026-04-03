@@ -550,8 +550,8 @@ export default function Consorcio() {
             </Reveal>
 
             {/* [2] H1 centralizado */}
-            <div ref={heroRevealRef}>
-              <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] pb-2 mb-1 md:mb-2 max-w-2xl mx-auto text-center">
+            <div ref={heroRevealRef} className="mb-2 md:mb-4">
+              <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] max-w-2xl mx-auto text-center">
                 Os melhores{" "}
                 <span className="text-[#FF6B00]">DESCONTOS</span>{" "}
                 <span className="text-white">em</span>{" "}
