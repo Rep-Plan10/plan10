@@ -596,19 +596,19 @@ export default function Consorcio() {
                   onClick={() => openSim('imovel')}
                   className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
                 >
-                  🏠 Simular Imóvel
+                  Simular Imóvel
                 </button>
                 <button
                   onClick={() => openSim('veiculo')}
                   className="flex-1 bg-[#7C3AED] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
                 >
-                  🚗 Simular Veículo
+                  Simular Veículo
                 </button>
                 <button
                   onClick={() => openSim('pesados')}
                   className="flex-1 bg-[#1D6FCC] hover:brightness-110 text-white font-semibold text-sm md:text-sm text-xs px-3 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200"
                 >
-                  🚛 Simular Pesados
+                  Simular Pesados
                 </button>
               </div>
             </Reveal>
