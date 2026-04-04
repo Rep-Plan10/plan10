@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Check, MessageCircle, Star, TrendingDown, Trophy } from "lucide-react";
+import { ChevronDown, MessageCircle, Star, TrendingDown, Trophy } from "lucide-react";
 
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
 const portoLogo = '/Logo_porto_att.png';
