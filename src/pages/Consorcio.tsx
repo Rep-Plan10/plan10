@@ -170,6 +170,7 @@ export default function Consorcio() {
   const [simCategoria, setSimCategoria] = useState<'imovel' | 'veiculo' | 'pesados'>('imovel');
   const [simFaixa, setSimFaixa] = useState(0);
   const [simAberto, setSimAberto] = useState(false);
+  const [activeSimCategory, setActiveSimCategory] = useState<'imovel' | 'veiculo' | 'pesados' | null>(null);
   const [leadNome, setLeadNome] = useState('');
   const [leadEmail, setLeadEmail] = useState('');
   const [leadTelefone, setLeadTelefone] = useState('');
