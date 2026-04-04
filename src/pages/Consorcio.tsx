@@ -763,7 +763,7 @@ export default function Consorcio() {
                         { key: 'imovel' as const, label: 'Imóvel' },
                         { key: 'veiculo' as const, label: 'Veículo' },
                         { key: 'pesados' as const, label: 'Pesados' },
-                      ]).map((tab) => (
+                      ]).filter((tab) => activeSimCategory === null || activeSimCategory === tab.key).map((tab) => (
                         <button
                           key={tab.key}
                           onClick={() => handleCategoria(tab.key)}
