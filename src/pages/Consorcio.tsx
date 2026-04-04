@@ -1127,7 +1127,7 @@ export default function Consorcio() {
                 <Reveal key={i} delay={i * 150} direction="up" className="h-full">
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-accent/40 transition-all duration-300 h-full flex flex-col">
                     <img src={c.img} alt={c.imgAlt} className="w-full h-44 object-cover rounded-xl mb-4" loading="lazy" />
-                    <span className="text-5xl mb-5 block">{c.emoji}</span>
+                    
                     <h3 className="font-sora font-bold text-lg text-foreground mb-2">{c.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed flex-1">{c.desc}</p>
                   </div>
