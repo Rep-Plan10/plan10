@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Check, MessageCircle, Star } from "lucide-react";
+import { ChevronDown, Check, MessageCircle, Star, TrendingDown, Trophy } from "lucide-react";
 
 const plan10Logo = '/Plan10_-_Logo_Consorcio_01.png';
 const portoLogo = '/Logo_porto_att.png';
@@ -71,7 +71,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
       </button>
       <div
         className="overflow-hidden transition-all duration-400 ease-in-out"
-        style={{ maxHeight: open ? "300px" : "0", opacity: open ? 1 : 0 }}
+        style={{ maxHeight: open ? "500px" : "0", opacity: open ? 1 : 0 }}
       >
         <p className="pb-5 text-sm md:text-base text-muted-foreground font-inter leading-relaxed">{a}</p>
       </div>
@@ -122,21 +122,26 @@ function MarqueeRow({ items, reverse = false }: { items: typeof testimonials; re
   );
 }
 
-/* ───────────────────── FAQ DATA ───────────────────── */
+/* ───────────────────── FAQ DATA (18 perguntas) ───────────────────── */
 const faqItems = [
-  { question: "O consórcio tem juros?", answer: "Não. O consórcio não cobra juros. Você paga apenas a taxa de administração e o fundo de reserva. Comparado ao financiamento tradicional, é muito mais econômico no longo prazo." },
-  { question: "O consórcio é um bom investimento?", answer: "Sim. Além de ser uma forma disciplinada de poupar, o consórcio permite adquirir bens com poder de compra à vista — o que gera desconto real na negociação. É uma alternativa inteligente para quem não precisa do bem imediatamente." },
-  { question: "O que vale mais a pena: consórcio ou financiamento?", answer: "Depende do seu momento. Se você precisa do bem agora, o financiamento pode ser necessário. Se tem planejamento, o consórcio sai muito mais barato — sem juros, apenas taxa administrativa." },
-  { question: "Como ser contemplado no consórcio?", answer: "Existem duas formas: por sorteio mensal (qualquer cota pode ser contemplada) ou por lance — onde você oferta um valor antecipado para aumentar suas chances. Nos grupos em andamento da Porto Bank, as chances são maiores pois há menos cotas disponíveis." },
-  { question: "Como funciona o lance no consórcio?", answer: "O lance é um valor que você oferta para antecipar sua contemplação. Pode ser com recurso próprio, FGTS (para imóveis) ou lance embutido (parte do próprio crédito). Quem oferta o maior percentual do crédito é contemplado." },
-  { question: "Como funcionam os sorteios no consórcio?", answer: "Todo mês acontece uma assembleia onde cotas são contempladas por sorteio. Nos grupos Porto Bank em andamento, a entrega mensal de cotas varia por segmento: 3 a 5 por mês em imóveis, 4 a 6 em veículos e 2 a 4 em pesados." },
-  { question: "Posso usar a carta de crédito para qualquer finalidade?", answer: "Dentro da categoria contratada, sim. Em imóveis: compra residencial, comercial, rural, terreno, construção, reforma e quitação de financiamento. Em veículos: automóveis, motos, náuticos e placas solares. Em pesados: caminhões, ônibus, máquinas agrícolas e industriais." },
-  { question: "Todos são contemplados até o final do grupo?", answer: "Sim. Todos os participantes que mantiverem suas parcelas em dia serão contemplados até o encerramento do grupo — seja por sorteio ou lance." },
-  { question: "O que é a taxa de administração do consórcio?", answer: "É a remuneração da administradora pelo gerenciamento do grupo. Na Porto Bank, varia conforme o tipo e prazo do consórcio. Para clientes Porto, há 10% de desconto sobre essa taxa." },
-  { question: "Como a Plan10 me ajuda nesse processo?", answer: "Nossa equipe faz toda a consultoria gratuitamente: análise do seu perfil, escolha do grupo ideal, acompanhamento da contemplação e suporte no uso da carta de crédito. Você não fica sozinho em nenhum momento." },
-  { question: "Qual o tempo médio de fechamento dos grupos de consórcio?", answer: "O prazo varia conforme o segmento e o grupo. Em imóveis, os grupos podem ter até 200 meses. Em veículos, até 100 meses. Em pesados, até 117 meses. Grupos em andamento já têm o prazo definido e você entra no tempo restante — o que pode significar mais chances de contemplação rápida." },
-  { question: "O que é o fundo de reserva no consórcio?", answer: "É uma reserva financeira do grupo para cobrir inadimplências e garantir que todos os participantes sejam contemplados. Na Porto Bank, corresponde a 2% sobre o crédito e é cobrado junto com a parcela mensal." },
-  { question: "Como solicitar o resgate de valores de um grupo já encerrado?", answer: "Após o encerramento do grupo, os valores são devolvidos conforme as condições do contrato. Para solicitações, entre em contato com sua administradora. Nossa equipe da Plan10 pode te orientar durante todo esse processo sem custo adicional." },
+  { question: "Consórcio tem juros?", answer: "Não. O consórcio não cobra juros. Você paga apenas a taxa de administração, o fundo de reserva e, quando aplicável, o seguro prestamista. Isso torna o consórcio uma das formas mais econômicas de conquistar um bem." },
+  { question: "Quanto tempo levo para ser contemplado?", answer: "A contemplação pode ocorrer a qualquer momento, do primeiro ao último mês do grupo. Ela acontece por sorteio mensal ou por lance. Quem oferta o maior lance tem prioridade e pode antecipar a conquista do bem." },
+  { question: "Posso usar a carta de crédito para qualquer imóvel ou veículo?", answer: "Sim. A carta de crédito funciona como pagamento à vista, o que aumenta seu poder de negociação e pode garantir descontos. Você escolhe o imóvel ou veículo que quiser, dentro das condições estabelecidas pelo grupo." },
+  { question: "E se eu precisar cancelar?", answer: "Caso precise encerrar sua participação, você tem direito à restituição dos valores pagos, corrigidos conforme as regras do contrato. O reembolso é feito por sorteio entre os desistentes ou ao final do grupo." },
+  { question: "Como a Plan10 me ajuda nesse processo?", answer: "A Plan10 acompanha você em cada etapa: da escolha do plano à assinatura do contrato. Nossa equipe está disponível para tirar dúvidas, montar simulações personalizadas e orientar sobre as melhores estratégias de lance para agilizar sua contemplação." },
+  { question: "Como fazer um consórcio?", answer: "É simples. Você escolhe a modalidade (imóvel, veículo ou pesados), define o valor da carta de crédito e o prazo, assina o contrato e começa a pagar as parcelas mensais. A partir daí, participa dos sorteios e pode dar lances para ser contemplado antes do prazo." },
+  { question: "O consórcio é um bom investimento?", answer: "Sim, especialmente para quem quer adquirir um bem sem pagar juros. O consórcio funciona como uma poupança disciplinada: ao final do prazo, o crédito contratado está garantido para você usar com poder de compra equivalente ao valor contratado." },
+  { question: "O que vale mais a pena, consórcio ou financiamento?", answer: "Depende da sua situação. O financiamento entrega o bem imediatamente, mas cobra juros que podem dobrar o custo total ao longo do contrato. O consórcio não tem juros e custa bem menos no total, mas exige planejamento. Para quem tem tempo para esperar, o consórcio é a escolha mais vantajosa financeiramente." },
+  { question: "Qual o tempo médio de fechamento dos grupos de consórcio?", answer: "Os prazos variam conforme a modalidade. Consórcios de imóveis podem ter grupos de até 200 meses, veículos de até 100 meses e pesados de até 100 meses. Quanto menor o prazo, maiores as parcelas, e vice-versa." },
+  { question: "Como acessar as informações da minha cota?", answer: "Todas as informações da sua cota ficam disponíveis no portal ou aplicativo da Porto. Você pode consultar extratos, datas de assembleia, histórico de pagamentos e sua posição dentro do grupo a qualquer momento." },
+  { question: "Como acessar os resultados das assembleias?", answer: "Os resultados são publicados no portal da Porto logo após cada assembleia mensal. Você também recebe notificações por e-mail ou SMS, conforme os dados cadastrados no seu contrato." },
+  { question: "Como ser contemplado no consórcio?", answer: "Existem duas formas: sorteio e lance. Nos sorteios mensais, todos os participantes em dia têm chance igual. No lance, você oferta um percentual do crédito e, se for o maior valor daquele mês, é contemplado na assembleia." },
+  { question: "Como funciona o lance no consórcio?", answer: "O lance é uma oferta feita antes da assembleia, indicando quanto você quer antecipar do saldo devedor. Quem oferta o maior percentual leva a contemplação. Uma das vantagens da Porto é que você pode usar parte do próprio crédito para compor o lance, sem precisar ter todo o valor em mãos." },
+  { question: "Como funcionam os sorteios no consórcio?", answer: "Os sorteios acontecem mensalmente em assembleia e são baseados nos resultados da Loteria Federal. Todos os participantes com pagamentos em dia concorrem automaticamente, sem necessidade de nenhuma ação adicional." },
+  { question: "O que é a taxa de administração do consórcio?", answer: "É a remuneração da administradora pelo serviço de organizar e gerir o grupo. Essa taxa é diluída nas parcelas mensais e representa o único custo real do consórcio. Não há juros sobre o crédito contratado." },
+  { question: "O que é o fundo de reserva no consórcio?", answer: "O fundo de reserva é uma porcentagem cobrada para cobrir eventuais inadimplências no grupo, garantindo que as contemplações aconteçam normalmente. Ao encerramento do grupo, o saldo remanescente do fundo é devolvido proporcionalmente a todos os consorciados." },
+  { question: "Todos são contemplados até o final do grupo de consórcio?", answer: "Sim. Todo participante que mantiver os pagamentos em dia será contemplado até o encerramento do grupo. O prazo final garante que nenhum consorciado ativo fique sem receber a carta de crédito." },
+  { question: "Como solicitar o resgate de valores de um grupo de consórcio já encerrado?", answer: "Após o encerramento do grupo, os valores disponíveis podem ser solicitados pelo portal da Porto ou com o apoio da equipe Plan10. É necessário apresentar documentação conforme orientado pela administradora no momento do pedido." },
 ];
 
 /* ───────────────────── BENEFÍCIOS POR CATEGORIA ───────────────────── */
@@ -443,23 +448,13 @@ export default function Consorcio() {
     setSimFaixa(0);
   };
 
-  /* ── Card colors for "Por que escolher" ── */
-  const cardColors = [
-    { hover: "hover:border-[#003087]/40", bg: "hover:bg-[#003087]/5" },
-    { hover: "hover:border-[#16a34a]/40", bg: "hover:bg-[#16a34a]/5" },
-    { hover: "hover:border-[#7c3aed]/40", bg: "hover:bg-[#7c3aed]/5" },
-    { hover: "hover:border-[#FF6B00]/40", bg: "hover:bg-[#FF6B00]/5" },
-  ];
-
   return (
-    <div className="min-h-screen bg-background text-foreground font-inter">
+    <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter">
       {/* ───── MINI HEADER ───── */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/5">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#06006B]/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Espaçador invisível — balanceia o botão no desktop */}
           <div className="w-0 sm:w-28" aria-hidden="true" />
 
-          {/* Logos — centralizados via flex-1 + justify-center */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-2 sm:gap-3 focus:outline-none cursor-pointer flex-1 justify-center"
@@ -469,12 +464,14 @@ export default function Consorcio() {
             {portoLogo && (
               <>
                 <span className="text-gray-500 text-base sm:text-xl font-light select-none">+</span>
-                <img src={portoLogo} alt="Porto" className="h-5 sm:h-7 w-auto" />
+                <div className="flex flex-col items-center">
+                  <img src={portoLogo} alt="Porto" className="h-5 sm:h-7 w-auto" />
+                  <span className="text-[10px] text-white/70 tracking-wide block text-center">Credenciado oficial</span>
+                </div>
               </>
             )}
           </button>
 
-          {/* Botão Simular — oculto no mobile */}
           <div className="w-0 sm:w-28 flex justify-end">
             <button
               onClick={() => openSim('imovel')}
@@ -488,8 +485,7 @@ export default function Consorcio() {
 
       <main>
         {/* ═══════ HERO ═══════ */}
-        <section className="relative w-full flex flex-col items-center py-8 md:py-12 overflow-x-hidden">
-          {/* BG effects */}
+        <section className="relative w-full flex flex-col items-center py-8 md:py-12 overflow-x-hidden bg-black/30">
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px]" />
             <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full bg-accent/5 blur-[100px]" />
@@ -508,7 +504,7 @@ export default function Consorcio() {
           </div>
 
           <div className="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
-            {/* [0] Countdown — topo do hero */}
+            {/* Countdown */}
             <Reveal delay={0} direction="up">
               <div className="flex justify-center mb-2 md:mb-3 w-full">
                 <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
@@ -523,10 +519,10 @@ export default function Consorcio() {
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-1.5">
                       <div className="bg-[#1a1f2e] border border-white/10 rounded-md px-2 py-1 text-center min-w-[42px]">
-                        <div className="text-white font-bold text-base font-mono leading-none">
+                        <div className="text-[#F97316] font-black text-base font-mono leading-none">
                           {String(item.value).padStart(2, '0')}
                         </div>
-                        <div className="text-gray-500 text-[9px] uppercase tracking-wider">
+                        <div className="text-white/50 text-[9px] uppercase tracking-wider">
                           {item.label}
                         </div>
                       </div>
@@ -539,7 +535,7 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            {/* [1] Pill badge */}
+            {/* Pill badge */}
             <Reveal delay={100} direction="up">
               <div className="flex flex-col items-center gap-1 mb-2 md:mb-1">
                 <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2">
@@ -549,7 +545,7 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            {/* [2] H1 centralizado */}
+            {/* H1 */}
             <div ref={heroRevealRef} className="mb-2 md:mb-4">
               <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] max-w-2xl mx-auto text-center">
                 Os melhores{" "}
@@ -561,14 +557,14 @@ export default function Consorcio() {
               </h1>
             </div>
 
-            {/* [3] Subtítulo centralizado */}
+            {/* Subtítulo */}
             <Reveal delay={500} direction="up">
               <p className="text-sm md:text-xl text-muted-foreground max-w-sm sm:max-w-2xl mx-auto text-center mb-3 md:mb-5 leading-relaxed px-4 line-clamp-3 md:line-clamp-none">
                 Consórcios de Imóveis, veículos e pesados com reduções exclusivas nos grupos em andamento. Parcelas 45% menores até a contemplação.
               </p>
             </Reveal>
 
-            {/* [4] CTAs centralizados */}
+            {/* CTAs */}
             <Reveal delay={600} direction="up">
               <div className="flex flex-col sm:flex-row gap-3 mb-3 md:mb-4 justify-center w-full">
                 <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold w-full sm:w-auto">
@@ -589,31 +585,22 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            {/* [5] Simulation shortcut buttons */}
+            {/* Simulation shortcut buttons */}
             <Reveal delay={650} direction="up">
               <div className="flex gap-2 w-full max-w-md mx-auto mb-3 md:mb-4">
-                <button
-                  onClick={() => openSim('imovel')}
-                  className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200"
-                >
+                <button onClick={() => openSim('imovel')} className="flex-1 bg-[#F97316] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200">
                   Simular Imóvel
                 </button>
-                <button
-                  onClick={() => openSim('veiculo')}
-                  className="flex-1 bg-[#7C3AED] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200"
-                >
+                <button onClick={() => openSim('veiculo')} className="flex-1 bg-[#7C3AED] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200">
                   Simular Veículo
                 </button>
-                <button
-                  onClick={() => openSim('pesados')}
-                  className="flex-1 bg-[#1D6FCC] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200"
-                >
+                <button onClick={() => openSim('pesados')} className="flex-1 bg-[#1D6FCC] hover:brightness-110 text-white font-semibold text-xs px-3 py-2 md:text-sm md:px-5 md:py-2.5 rounded-full transition-all duration-200">
                   Simular Pesados
                 </button>
               </div>
             </Reveal>
 
-            {/* [6] Splash circles — absolute nas laterais (lg+) */}
+            {/* Splash circles — absolute nas laterais (lg+) */}
             <div className="hidden lg:flex absolute left-0 top-[38%] -translate-y-1/2 -translate-x-1/3 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
               <span className="text-white font-black text-3xl leading-none">45%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
@@ -640,65 +627,60 @@ export default function Consorcio() {
               </div>
             </div>
 
-            {/* Mobile badges — inline horizontal */}
+            {/* Mobile badges */}
             <div className="flex md:hidden justify-center gap-6 mt-3 mb-2">
-              {/* Bolinha laranja — OFERTA */}
               <div className="flex flex-col items-center justify-center w-24 h-24 rounded-full bg-[#F97316] text-white text-center flex-shrink-0">
                 <span className="text-[9px] font-bold uppercase tracking-widest leading-none mb-0.5">OFERTA</span>
                 <span className="text-3xl font-black leading-none">45%</span>
                 <span className="text-[8px] font-medium leading-tight mt-0.5 px-1">OFF NA PARCELA</span>
               </div>
-              {/* Bolinha azul — PORTO */}
               <div className="flex flex-col items-center justify-center w-24 h-24 rounded-full bg-[#1D6FCC] text-white text-center flex-shrink-0 relative">
                 <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[8px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">PORTO</span>
                 <span className="text-3xl font-black leading-none">10%</span>
-                <span className="text-[8px] font-medium leading-tight mt-0.5 px-2 text-center">{"OFF NA TAXA DE\nADMINISTRAÇÃO"}</span>
+                <span className="text-[8px] font-medium leading-tight mt-0.5 px-2 text-center">OFF NA TAXA DE{"\n"}ADMINISTRAÇÃO</span>
               </div>
             </div>
 
             {/* Scroll arrow */}
-            <div className="flex justify-center w-full mt-2 md:mt-4">
-              <div className="animate-bounce text-gray-400 opacity-70">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
-
+            <ChevronDown size={28} className="text-accent mx-auto mt-4 animate-bounce" />
           </div>
         </section>
 
-        {/* ═══════ MODALIDADES (ESCOLHA SEU CONSÓRCIO) — FIM ═══════ */}
-        <section className="py-14 md:py-28 bg-muted/30">
+        {/* ═══════ ESCOLHA SEU CONSÓRCIO ═══════ */}
+        <section className="py-14 md:py-28 bg-[#06006B]/60">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
               <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Escolha seu consórcio</h2>
             </Reveal>
             <Reveal direction="up" delay={200}>
-              <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
-                Cada sonho tem o plano certo. Conheça as modalidades:
+              <p className="text-center text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
+                Encontre o plano ideal para realizar o seu sonho.
               </p>
             </Reveal>
 
-            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            <p className="text-center text-sm text-white/60 italic mb-6">
+              Parcelas mínimas para grupos em andamento e condicionadas à existência de cotas livres.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
               {[
                 {
-                  emoji: "🏠", title: "Consórcio de Imóvel", popular: true, cat: 'imovel' as const,
-                  desc: "Sua casa, apartamento, terreno ou reforma. Planejamento inteligente para você conquistar o imóvel certo no seu tempo, sem pagar juros de financiamento.",
-                  items: ["Créditos de R$ 80 mil a R$ 500 mil", "Parcelas a partir de R$ 650/mês", "Prazo de até 200 meses", "Uso em imóvel comercial ou residencial"],
-                  cta: "Simular Imóvel", solid: true,
+                  cat: 'imovel' as const, title: "Imóvel", img: imgCasa,
+                  desc: "Casa, apartamento, terreno ou até reforma. Realize o sonho do imóvel próprio com parcelas que cabem no seu bolso.",
+                  popular: true, parcela: "R$ 567,00", parcelaColor: "text-[#F97316]",
+                  btnColor: "bg-[#F97316] text-white", cta: "Simular Imóvel",
                 },
                 {
-                  emoji: "🚗", title: "Consórcio de Veículo", popular: false, cat: 'veiculo' as const,
-                  desc: "Do primeiro veículo à sua próxima troca. Você escolhe o modelo, a marca e recebe a carta de crédito para comprar à vista e negociar melhor.",
-                  items: ["Créditos de R$ 30 mil a R$ 200 mil", "Parcelas a partir de R$ 380/mês", "Prazo de até 100 meses", "Veículo novo, usado ou importado"],
-                  cta: "Simular Veículo", solid: false,
+                  cat: 'veiculo' as const, title: "Veículo", img: imgCarro,
+                  desc: "Carro novo, seminovo, moto ou até náutico e placas solares. Troque ou compre sem juros.",
+                  popular: false, parcela: "R$ 371,00", parcelaColor: "text-[#7C3AED]",
+                  btnColor: "bg-[#7C3AED] text-white", cta: "Simular Veículo",
                 },
                 {
-                  emoji: "🚛", title: "Consórcio de Pesados", popular: false, cat: 'pesados' as const,
-                  desc: "Caminhão, ônibus, trator ou máquina agrícola. Expanda sua frota com planejamento e sem comprometer o capital de giro da sua empresa.",
-                  items: ["Créditos de R$ 100 mil a R$ 500 mil", "Parcelas a partir de R$ 900/mês", "Prazo de até 100 meses", "Pessoa física ou jurídica"],
-                  cta: "Simular Pesados", solid: false,
+                  cat: 'pesados' as const, title: "Pesados", img: imgCaminhao,
+                  desc: "Caminhão, ônibus, máquinas agrícolas e industriais. Ideal para empresários e transportadores.",
+                  popular: false, parcela: "R$ 1.060,00", parcelaColor: "text-[#1D6FCC]",
+                  btnColor: "bg-[#1D6FCC] text-white", cta: "Simular Pesados",
                 },
               ].map((p, i) => (
                 <Reveal key={i} delay={i * 150} direction="up">
@@ -714,37 +696,20 @@ export default function Consorcio() {
                         Mais popular
                       </span>
                     )}
-                    {p.cat === 'imovel' && (
-                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
-                        <img src={imgCasa} alt="Imóvel" className="w-auto h-44 object-contain" style={{ mixBlendMode: 'screen' }} />
-                      </div>
-                    )}
-                    {p.cat === 'veiculo' && (
-                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
-                        <img src={imgCarro} alt="Veículo" className="w-auto h-40 object-contain" style={{ mixBlendMode: 'screen' }} />
-                      </div>
-                    )}
-                    {p.cat === 'pesados' && (
-                      <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
-                        <img src={imgCaminhao} alt="Pesados" className="w-auto h-40 object-contain" style={{ mixBlendMode: 'screen' }} />
-                      </div>
-                    )}
+                    <div className="w-full h-44 mb-4 flex items-center justify-center overflow-hidden rounded-xl">
+                      <img src={p.img} alt={p.title} className="w-auto h-40 object-contain" style={{ mixBlendMode: 'screen' }} />
+                    </div>
                     <h3 className="font-sora font-bold text-xl text-foreground mb-3 text-center">{p.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-5 text-center">{p.desc}</p>
-                    <ul className="space-y-2 mb-6 flex-1 text-left max-w-xs">
-                      {p.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
-                          <Check size={14} className="text-accent shrink-0 mt-0.5" /> {item}
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-5 text-center flex-1">{p.desc}</p>
+
+                    <div className="text-center mb-3">
+                      <p className="text-white/60 text-xs uppercase tracking-wider">Parcelas reduzidas a partir de</p>
+                      <p className={`${p.parcelaColor} font-black text-2xl`}>{p.parcela}</p>
+                    </div>
+
                     <button
                       onClick={() => openSim(p.cat)}
-                      className={`cta-btn w-full py-3 rounded-lg font-bold text-sm ${
-                        p.solid
-                          ? "bg-accent text-accent-foreground"
-                          : "border border-accent text-accent hover:bg-accent/10"
-                      }`}
+                      className={`cta-btn w-full py-3 rounded-lg font-bold text-sm ${p.btnColor} hover:brightness-110 transition-all`}
                     >
                       {p.cta}
                     </button>
@@ -761,7 +726,7 @@ export default function Consorcio() {
 
         {/* ═══════ SIMULADOR DE PARCELAS (condicional) ═══════ */}
         {simAberto && (
-          <section id="simulador-parcelas" className="py-14 md:py-28 bg-muted/30 relative">
+          <section id="simulador-parcelas" className="py-14 md:py-28 bg-black/30 relative">
             <div className="container mx-auto px-4">
               <div className="max-w-5xl mx-auto">
                 <button
@@ -785,9 +750,9 @@ export default function Consorcio() {
                     {/* Tabs de categoria */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {([
-                        { key: 'imovel' as const, emoji: '🏠', label: 'Imóvel' },
-                        { key: 'veiculo' as const, emoji: '🚗', label: 'Veículo' },
-                        { key: 'pesados' as const, emoji: '🚛', label: 'Pesados' },
+                        { key: 'imovel' as const, label: 'Imóvel' },
+                        { key: 'veiculo' as const, label: 'Veículo' },
+                        { key: 'pesados' as const, label: 'Pesados' },
                       ]).map((tab) => (
                         <button
                           key={tab.key}
@@ -803,7 +768,7 @@ export default function Consorcio() {
                       ))}
                     </div>
 
-                    {/* Select de faixa — dropdown customizado */}
+                    {/* Select de faixa */}
                     <div className="mb-6 relative w-full" data-faixa-dropdown>
                       <p className="text-gray-400 text-xs mb-1.5 uppercase tracking-widest">
                         Escolha a faixa de crédito
@@ -871,10 +836,7 @@ export default function Consorcio() {
                     <p className="text-xs text-muted-foreground mb-4">{faixaAtual.descricao}</p>
 
                     {/* Tabela de parcelas */}
-                    <div
-                      key={`${simCategoria}-${simFaixa}`}
-                      className="animate-fade-in mb-6"
-                    >
+                    <div key={`${simCategoria}-${simFaixa}`} className="animate-fade-in mb-6">
                       {/* MOBILE: cards empilhados */}
                       <div className="md:hidden space-y-2">
                         {faixaAtual.linhas.map((linha, i) => (
@@ -905,7 +867,7 @@ export default function Consorcio() {
                         ))}
                       </div>
 
-                      {/* DESKTOP: tabela original */}
+                      {/* DESKTOP: tabela */}
                       <div className="hidden md:block border border-white/10 rounded-xl overflow-hidden">
                         <div className="overflow-x-auto">
                           <table className="w-full text-sm" style={{ minWidth: "500px" }}>
@@ -966,35 +928,11 @@ export default function Consorcio() {
                         Gostou? Fale com um consultor e garanta essa condição
                       </p>
                       <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
-                        <input
-                          type="text"
-                          placeholder="Seu nome"
-                          value={leadNome}
-                          onChange={(e) => setLeadNome(e.target.value)}
-                          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
-                        />
-                        <input
-                          type="email"
-                          placeholder="Seu e-mail"
-                          value={leadEmail}
-                          onChange={(e) => setLeadEmail(e.target.value)}
-                          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
-                        />
-                        <input
-                          type="tel"
-                          placeholder="Seu WhatsApp"
-                          value={leadTelefone}
-                          onChange={(e) => setLeadTelefone(e.target.value)}
-                          className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm"
-                        />
+                        <input type="text" placeholder="Seu nome" value={leadNome} onChange={(e) => setLeadNome(e.target.value)} className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm" />
+                        <input type="email" placeholder="Seu e-mail" value={leadEmail} onChange={(e) => setLeadEmail(e.target.value)} className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm" />
+                        <input type="tel" placeholder="Seu WhatsApp" value={leadTelefone} onChange={(e) => setLeadTelefone(e.target.value)} className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm" />
                       </div>
-                      <textarea
-                        placeholder="Mensagem (opcional) — ex: quero informações sobre imóvel"
-                        value={leadMensagem}
-                        onChange={(e) => setLeadMensagem(e.target.value)}
-                        rows={2}
-                        className="w-full max-w-xl mx-auto block mt-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none"
-                      />
+                      <textarea placeholder="Mensagem (opcional)" value={leadMensagem} onChange={(e) => setLeadMensagem(e.target.value)} rows={2} className="w-full max-w-xl mx-auto block mt-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none" />
                       <button
                         onClick={() => {
                           const cat = categoriaLabels[simCategoria];
@@ -1010,7 +948,6 @@ export default function Consorcio() {
                       </button>
                     </div>
 
-                    {/* Nota legal */}
                     <p className="text-[11px] text-muted-foreground text-center mt-4 leading-relaxed">
                       Valores para Pessoa Física. Parcelas reajustadas no aniversário do grupo. Para demais condições, consulte o Regulamento. Oferta válida até 30/04/2026.
                     </p>
@@ -1021,33 +958,104 @@ export default function Consorcio() {
           </section>
         )}
 
-        {/* ═══════ CREDIBILIDADE ═══════ */}
-        <section className="py-14 md:py-28">
+        {/* ═══════ POR QUE PLAN10 (CREDIBILIDADE) ═══════ */}
+        <section className="py-14 md:py-28 bg-[#06006B]/60">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">Por que escolher o Consórcio Plan10?</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Por que escolher o Consórcio Plan10?</h2>
             </Reveal>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            {/* Logos + subtítulo */}
+            <div className="flex flex-col items-center gap-2 mb-8">
+              <div className="flex items-center gap-3">
+                <img src={plan10Logo} alt="Plan10" className="h-8 object-contain" />
+                <span className="text-white/60 text-lg font-light">+</span>
+                <img src={portoLogo} alt="Porto" className="h-7 object-contain" />
+              </div>
+              <p className="text-white font-semibold text-base tracking-wide">
+                Diferenciais que só a Porto tem
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {[
-                { emoji: "🏆", title: "Porto Bank Oficial", desc: "Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil." },
-                { emoji: "💰", title: "Zero Juros", desc: "Você não paga juros. Apenas taxa de administração competitiva e correção de índice padrão de mercado." },
-                { emoji: "📋", title: "Flexibilidade Total", desc: "Planos de 60 a 200 meses. Créditos de R$ 50 mil até R$ 500 mil. Você escolhe o que cabe no seu bolso." },
-                { emoji: "🤝", title: "Consultoria Gratuita", desc: "Nossa equipe te orienta do início ao fim sem custo adicional. Atendimento humano, não robótico." },
+                { emoji: "🏆", title: "Porto Bank Oficial", desc: "Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil.", bg: "bg-[#1D6FCC]/20", border: "border-[#1D6FCC]/40" },
+                { emoji: "💰", title: "Zero Juros", desc: "Você não paga juros. Apenas taxa de administração competitiva.", bg: "bg-[#16A34A]/20", border: "border-[#16A34A]/40" },
+                { emoji: "📋", title: "Flexibilidade Total", desc: "Planos de 60 a 200 meses. Créditos de R$ 25 mil a R$ 1 milhão. Você escolhe o que cabe no seu bolso.", bg: "bg-[#7C3AED]/20", border: "border-[#7C3AED]/40" },
+                { icon: TrendingDown, title: "Parcelas Menores", desc: "Nos grupos em andamento, as parcelas já estão reduzidas em até 45%. Você paga menos e ainda conquista o mesmo crédito.", bg: "bg-[#F97316]/20", border: "border-[#F97316]/40" },
+                { icon: Trophy, title: "Carta de Crédito Garantida", desc: "Todo participante ativo recebe a carta até o final do grupo. Você pode potencializar o lance usando parte do seu crédito.", bg: "bg-[#F59E0B]/20", border: "border-[#F59E0B]/40" },
               ].map((c, i) => (
                 <Reveal key={i} delay={i * 100} direction="up">
-                  <div className={`glass rounded-2xl p-6 h-full border border-white/8 hover:shadow-[0_0_20px_rgba(242,140,40,0.08)] transition-all duration-300 ${cardColors[i].hover} ${cardColors[i].bg}`}>
-                    <span className="text-3xl mb-4 block">{c.emoji}</span>
+                  <div className={`rounded-2xl p-6 h-full border ${c.border} ${c.bg} hover:shadow-[0_0_20px_rgba(242,140,40,0.08)] transition-all duration-300`}>
+                    {'emoji' in c && c.emoji ? (
+                      <span className="text-3xl mb-4 block">{c.emoji}</span>
+                    ) : (
+                      'icon' in c && c.icon ? (
+                        <c.icon size={32} className="mb-4 text-white" />
+                      ) : null
+                    )}
                     <h3 className="font-sora font-bold text-lg text-foreground mb-2">{c.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
                   </div>
                 </Reveal>
               ))}
             </div>
+
+            {/* Bloco stats Porto */}
+            <div className="mt-12 rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col gap-4">
+              <p className="text-white font-bold text-lg text-center">
+                Melhor e mais rápido sistema de contemplação para consórcio!
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
+                <div className="flex flex-col items-center text-center gap-1">
+                  <span className="text-3xl">🤝</span>
+                  <p className="text-white text-sm font-bold leading-tight">
+                    + de <span className="text-[#F97316]">1.700</span> bens<br/>entregues por mês
+                  </p>
+                </div>
+                <div className="flex flex-col items-center text-center gap-1">
+                  <span className="text-3xl">👥</span>
+                  <p className="text-white text-sm font-bold leading-tight">
+                    + de <span className="text-[#F97316]">165 Mil</span><br/>clientes ativos
+                  </p>
+                </div>
+                <div className="flex flex-col items-center text-center gap-1">
+                  <span className="text-3xl">🏛️</span>
+                  <p className="text-white text-sm font-bold leading-tight">
+                    <span className="text-[#F97316]">47 anos</span><br/>de atuação
+                  </p>
+                </div>
+                <div className="flex flex-col items-center text-center gap-1">
+                  <span className="text-3xl">🏆</span>
+                  <p className="text-white text-sm font-bold leading-tight">
+                    Maior <span className="text-[#F97316]">seguradora</span><br/>do Brasil
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bloco certificações */}
+            <div className="mt-6 rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col md:flex-row items-center gap-6">
+              <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#1D6FCC] flex items-center justify-center text-[#1D6FCC] text-3xl">
+                ★
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <p className="text-white font-bold text-base">
+                  Solidez e segurança com a grife Porto Bank
+                </p>
+                <ul className="text-white/70 text-sm flex flex-col gap-1">
+                  <li>• Certificada MESC — Instituto Melhores Empresas em Satisfação do Cliente</li>
+                  <li>• Reconhecimento da Revista Seleções — Marcas de confiança 2020</li>
+                  <li>• Reconhecimento entre as marcas mais amadas do Brasil 2020</li>
+                  <li>• Reconhecimento Marca Brasil 2019</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* ═══════ COMO FUNCIONA ═══════ */}
-        <section className="py-14 md:py-28 bg-white/[0.02]">
+        <section className="py-14 md:py-28 bg-black/20">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
               <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">São poucos passos até a conquista do seu sonho</h2>
@@ -1063,7 +1071,7 @@ export default function Consorcio() {
               ))}
             </div>
 
-            {/* Cards: imagem + título + desc */}
+            {/* Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
               {[
                 { n: "01", title: "Escolha seu sonho", desc: "Simule o valor do imóvel ou veículo desejado e encontre o plano ideal para o seu momento de vida.", img: "/images/familia-olhando-carro.png", alt: "Família escolhendo o sonho" },
@@ -1098,8 +1106,8 @@ export default function Consorcio() {
           </div>
         </section>
 
-        {/* ═══════ CONFIANÇA E SEGURANÇA ═══════ */}
-        <section className="py-14 md:py-28 bg-white/[0.02]">
+        {/* ═══════ O SEU FUTURO MUITO MAIS TRANQUILO ═══════ */}
+        <section className="py-14 md:py-28 bg-[#06006B]/60">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
               <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">O seu futuro muito mais tranquilo.</h2>
@@ -1112,12 +1120,13 @@ export default function Consorcio() {
 
             <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
               {[
-                { emoji: "🤝", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você — sem pressão, sem enrolação." },
-                { emoji: "⚡", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
-                { emoji: "🔒", title: "Segurança garantida", desc: "Todo o processo é regulamentado pelo Banco Central. Você investe com a segurança da Porto Bank por trás." },
+                { img: "/images/seguranca-garantida.png", imgAlt: "Segurança garantida", emoji: "🔒", title: "Segurança garantida", desc: "Todo o processo é regulamentado pelo Banco Central. Você investe com a segurança da Porto Bank por trás." },
+                { img: "/images/consultoria-personalizada.png", imgAlt: "Consultoria personalizada", emoji: "🤝", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você — sem pressão, sem enrolação." },
+                { img: "/images/contratacao-simples-rapida.png", imgAlt: "Contratação simples e rápida", emoji: "⚡", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
               ].map((c, i) => (
                 <Reveal key={i} delay={i * 150} direction="up" className="h-full">
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-accent/40 transition-all duration-300 h-full flex flex-col">
+                    <img src={c.img} alt={c.imgAlt} className="w-full h-44 object-cover rounded-xl mb-4" loading="lazy" />
                     <span className="text-5xl mb-5 block">{c.emoji}</span>
                     <h3 className="font-sora font-bold text-lg text-foreground mb-2">{c.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed flex-1">{c.desc}</p>
@@ -1125,11 +1134,64 @@ export default function Consorcio() {
                 </Reveal>
               ))}
             </div>
+
+            {/* Bloco consultoria */}
+            <div className="mt-10 rounded-2xl bg-[#1D4ED8]/30 border border-[#1D6FCC]/40 p-8 text-center">
+              <h3 className="text-white font-bold text-xl md:text-2xl mb-2">
+                Conte com consultoria especializada e exclusiva em cada etapa
+              </h3>
+              <p className="text-white/70 text-base mb-6">
+                Da cotação à contratação, um especialista Plan10 cuida de tudo por você.
+              </p>
+              {/* Prova social */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5 mb-5">
+                <div className="flex flex-col items-center sm:pr-6 sm:border-r sm:border-white/20">
+                  <span className="text-white font-black text-3xl">
+                    5.000<span className="text-[#F97316]">+</span>
+                  </span>
+                  <span className="text-white/60 text-sm">clientes atendidos</span>
+                </div>
+                <div className="flex flex-col items-center sm:pl-6">
+                  <div className="flex gap-1 text-[#F97316] text-2xl mb-1">
+                    ★★★★★
+                  </div>
+                  <span className="text-white/60 text-sm">avaliação média</span>
+                </div>
+              </div>
+              {/* Card credencial */}
+              <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
+                <div className="w-10 h-10 rounded-full bg-[#F97316]/20 flex items-center justify-center text-[#F97316] text-xl mb-1">
+                  🛡️
+                </div>
+                <p className="text-white font-bold text-base">
+                  Plan10 Corretora de Seguros
+                </p>
+                <p className="text-white/60 text-sm">
+                  Credenciada <span className="text-white font-semibold">Porto Seguro</span>
+                </p>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-white/60 text-sm">Autorizada pela</span>
+                  <img src="/images/logo-susep.png" alt="SUSEP" className="h-6 object-contain" />
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="flex justify-center mt-8">
+              <a
+                href="https://wa.me/5511991051616?text=Quero%20meu%20cons%C3%B3rcio%20agora"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#F97316] hover:brightness-110 text-white font-bold text-lg px-10 py-4 rounded-full transition-all duration-200 shadow-lg shadow-[#F97316]/30"
+              >
+                Quero meu consórcio agora
+              </a>
+            </div>
           </div>
         </section>
 
         {/* ═══════ DEPOIMENTOS ═══════ */}
-        <section className="py-14 md:py-28 overflow-hidden">
+        <section className="py-14 md:py-28 overflow-hidden bg-black/20">
           <div className="container mx-auto px-4 mb-14">
             <Reveal direction="up">
               <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">O que nossos clientes dizem</h2>
@@ -1149,10 +1211,8 @@ export default function Consorcio() {
           </Reveal>
         </section>
 
-
-
         {/* ═══════ FORMULÁRIO DE LEAD COMPLETO ═══════ */}
-        <section className="py-14 md:py-20 bg-white/[0.02]">
+        <section className="py-14 md:py-20 bg-[#06006B]/60">
           <div className="container mx-auto px-4 max-w-xl">
             <div className="text-center mb-8">
               <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-3">
@@ -1163,7 +1223,6 @@ export default function Consorcio() {
               </p>
             </div>
             <div className="glass rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
-              {/* Dropdown customizado — tipo de consórcio */}
               <div className="relative w-full" data-tipo-dropdown>
                 <button
                   type="button"
@@ -1173,10 +1232,7 @@ export default function Consorcio() {
                   <span className={formTipo ? 'text-white' : 'text-gray-500'}>
                     {formTipo || 'Selecione o tipo de consórcio'}
                   </span>
-                  <svg
-                    className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${tipoDropdownAberto ? 'rotate-180' : ''}`}
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                  >
+                  <svg className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${tipoDropdownAberto ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
@@ -1215,51 +1271,14 @@ export default function Consorcio() {
                 )}
               </div>
 
-              <input
-                type="text"
-                inputMode="numeric"
-                placeholder="Valor da carta de crédito (R$)"
-                value={formCredito}
-                onChange={(e) => setFormCredito(formatarCredito(e.target.value))}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none"
-              />
-
-              <input
-                type="text"
-                placeholder="Nome completo"
-                value={formNome}
-                onChange={(e) => setFormNome(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none"
-              />
-
-              <input
-                type="tel"
-                placeholder="WhatsApp (com DDD)"
-                value={formWhatsApp}
-                onChange={(e) => setFormWhatsApp(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none"
-              />
-
-              <input
-                type="email"
-                placeholder="E-mail"
-                value={formEmail}
-                onChange={(e) => setFormEmail(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none"
-              />
-
-              <textarea
-                placeholder="Mensagem (opcional) — ex: tenho interesse em imóvel para reforma"
-                value={formMensagem}
-                onChange={(e) => setFormMensagem(e.target.value)}
-                rows={3}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none focus:border-accent focus:outline-none"
-              />
+              <input type="text" inputMode="numeric" placeholder="Valor da carta de crédito (R$)" value={formCredito} onChange={(e) => setFormCredito(formatarCredito(e.target.value))} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none" />
+              <input type="text" placeholder="Nome completo" value={formNome} onChange={(e) => setFormNome(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none" />
+              <input type="tel" placeholder="WhatsApp (com DDD)" value={formWhatsApp} onChange={(e) => setFormWhatsApp(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none" />
+              <input type="email" placeholder="E-mail" value={formEmail} onChange={(e) => setFormEmail(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:border-accent focus:outline-none" />
+              <textarea placeholder="Mensagem (opcional)" value={formMensagem} onChange={(e) => setFormMensagem(e.target.value)} rows={3} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none focus:border-accent focus:outline-none" />
 
               <div className="bg-white/5 rounded-xl p-4 space-y-1.5">
-                <p className="text-[#FF6B00] text-xs font-semibold uppercase tracking-widest mb-2">
-                  Informações importantes
-                </p>
+                <p className="text-[#FF6B00] text-xs font-semibold uppercase tracking-widest mb-2">Informações importantes</p>
                 {[
                   'A carta de crédito pode ser usada para diversas finalidades (reforma, terreno, etc.)',
                   'Condição por tempo limitado: válida até 30 de abril de 2026.',
@@ -1272,22 +1291,16 @@ export default function Consorcio() {
                 ))}
               </div>
 
-              <button
-                onClick={enviarFormulario}
-                className="w-full bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base"
-              >
+              <button onClick={enviarFormulario} className="w-full bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base">
                 Enviar e falar com consultor
               </button>
-
-              <p className="text-gray-500 text-xs text-center">
-                🔒 Seus dados são usados apenas para contato. Não compartilhamos com terceiros.
-              </p>
+              <p className="text-gray-500 text-xs text-center">🔒 Seus dados são usados apenas para contato. Não compartilhamos com terceiros.</p>
             </div>
           </div>
         </section>
 
         {/* ═══════ FAQ ═══════ */}
-        <section className="py-14 md:py-28">
+        <section className="py-14 md:py-28 bg-black/20">
           <div className="container mx-auto px-4 max-w-3xl">
             <Reveal direction="up">
               <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">Dúvidas frequentes</h2>
@@ -1305,7 +1318,7 @@ export default function Consorcio() {
 
         {/* ═══════ ATUAMOS TAMBÉM EM ═══════ */}
         <Reveal direction="up">
-          <section className="py-14 md:py-20 bg-white/[0.02]">
+          <section className="py-14 md:py-20 bg-[#06006B]/60">
             <div className="container mx-auto px-4 max-w-3xl text-center">
               <h2 className="font-sora font-bold text-2xl md:text-3xl text-white mb-3">
                 Atuamos Também em
@@ -1331,9 +1344,7 @@ export default function Consorcio() {
                     className="flex items-center justify-center gap-3 w-full max-w-sm px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-medium text-sm hover:border-accent/40 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer group"
                   >
                     <span className="text-xl">{item.icon}</span>
-                    <span className="text-white/80 group-hover:text-white transition-colors">
-                      {item.label}
-                    </span>
+                    <span className="text-white/80 group-hover:text-white transition-colors">{item.label}</span>
                   </a>
                 ))}
               </div>
@@ -1371,16 +1382,12 @@ export default function Consorcio() {
       </main>
 
       {/* ───── MINI FOOTER ───── */}
-      <footer className="bg-background py-10 border-t border-white/5">
+      <footer className="bg-[#06006B] py-10 border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 w-auto" />
             <span className="text-gray-400 text-xl font-light">+</span>
-            <img
-              src={portoLogo}
-              alt="Porto"
-              className="h-8 w-auto"
-            />
+            <img src={portoLogo} alt="Porto" className="h-8 w-auto" />
           </div>
           <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto S.A.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
@@ -1389,7 +1396,6 @@ export default function Consorcio() {
             <a href="/" className="hover:text-accent transition-colors">plan10.com.br</a>
           </div>
 
-          {/* Notas legais */}
           <div className="border-t border-white/5 pt-4 mt-4 text-xs text-gray-500 text-center space-y-1 max-w-3xl mx-auto">
             <p>* Valores da simulação são exclusivos para Pessoa Física.</p>
             <p>* Desconto de 45% incide sobre o valor da parcela até a contemplação. Após a contemplação, o valor será compensado nas parcelas restantes.</p>
@@ -1401,12 +1407,7 @@ export default function Consorcio() {
 
           <p className="text-xs text-muted-foreground mt-3">
             Desenvolvido por{" "}
-            <a
-              href="https://nextcorporation.com.br/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-accent transition-colors underline underline-offset-2"
-            >
+            <a href="https://nextcorporation.com.br/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors underline underline-offset-2">
               Next Corporation
             </a>
           </p>
