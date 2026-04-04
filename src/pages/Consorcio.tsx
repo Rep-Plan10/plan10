@@ -462,13 +462,13 @@ export default function Consorcio() {
             className="flex items-center gap-2 sm:gap-3 focus:outline-none cursor-pointer flex-1 justify-center"
             aria-label="Ir para o início"
           >
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-7 sm:h-9 w-auto" />
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto object-contain" />
             {portoLogo && (
               <>
                 <span className="text-gray-500 text-base sm:text-xl font-light select-none">+</span>
-                <div className="flex flex-col items-center">
-                  <img src={portoLogo} alt="Porto" className="h-5 sm:h-7 w-auto" />
-                  <span className="text-[10px] text-white/70 tracking-wide block text-center">Credenciado oficial</span>
+                <div className="flex flex-col items-start">
+                  <img src={portoLogo} alt="Porto" className="h-9 w-auto object-contain" />
+                  <span className="text-[10px] text-white/60 tracking-wide leading-none mt-0.5">Credenciado oficial</span>
                 </div>
               </>
             )}
