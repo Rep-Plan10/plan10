@@ -170,6 +170,7 @@ export default function Consorcio() {
   const [simCategoria, setSimCategoria] = useState<'imovel' | 'veiculo' | 'pesados'>('imovel');
   const [simFaixa, setSimFaixa] = useState(0);
   const [simAberto, setSimAberto] = useState(false);
+  const [activeSimCategory, setActiveSimCategory] = useState<'imovel' | 'veiculo' | 'pesados' | null>(null);
   const [leadNome, setLeadNome] = useState('');
   const [leadEmail, setLeadEmail] = useState('');
   const [leadTelefone, setLeadTelefone] = useState('');
@@ -240,6 +241,7 @@ export default function Consorcio() {
     setSimCategoria(cat);
     setSimFaixa(0);
     setSimAberto(true);
+    setActiveSimCategory(cat);
     setTimeout(() => {
       document.getElementById('simulador-parcelas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
@@ -460,13 +462,13 @@ export default function Consorcio() {
             className="flex items-center gap-2 sm:gap-3 focus:outline-none cursor-pointer flex-1 justify-center"
             aria-label="Ir para o início"
           >
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-7 sm:h-9 w-auto" />
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto object-contain" />
             {portoLogo && (
               <>
                 <span className="text-gray-500 text-base sm:text-xl font-light select-none">+</span>
-                <div className="flex flex-col items-center">
-                  <img src={portoLogo} alt="Porto" className="h-5 sm:h-7 w-auto" />
-                  <span className="text-[10px] text-white/70 tracking-wide block text-center">Credenciado oficial</span>
+                <div className="flex flex-col items-start">
+                  <img src={portoLogo} alt="Porto" className="h-9 w-auto object-contain" />
+                  <span className="text-[10px] text-white/60 tracking-wide leading-none mt-0.5">Credenciado oficial</span>
                 </div>
               </>
             )}
@@ -474,7 +476,15 @@ export default function Consorcio() {
 
           <div className="w-0 sm:w-28 flex justify-end">
             <button
-              onClick={() => openSim('imovel')}
+              onClick={() => {
+                setActiveSimCategory(null);
+                setSimCategoria('imovel');
+                setSimFaixa(0);
+                setSimAberto(true);
+                setTimeout(() => {
+                  document.getElementById('simulador-parcelas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+              }}
               className="hidden sm:block cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold whitespace-nowrap"
             >
               Simular agora
@@ -507,8 +517,8 @@ export default function Consorcio() {
             {/* Countdown */}
             <Reveal delay={0} direction="up">
               <div className="flex justify-center mb-2 md:mb-3 w-full">
-                <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
-                  <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">
+                <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-4 rounded-xl bg-black/40 border border-[#F97316]/30 w-fit">
+                  <span className="text-[#F97316]/70 text-[10px] font-medium uppercase tracking-widest">
                     Termina em:
                   </span>
                   {[
@@ -518,16 +528,16 @@ export default function Consorcio() {
                     { value: timeLeft.segs, label: 'seg' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-1.5">
-                      <div className="bg-[#1a1f2e] border border-white/10 rounded-md px-2 py-1 text-center min-w-[42px]">
+                      <div className="bg-[#1a1a2e] rounded-md px-2 py-1 text-center min-w-[42px]">
                         <div className="text-[#F97316] font-black text-base font-mono leading-none">
                           {String(item.value).padStart(2, '0')}
                         </div>
-                        <div className="text-white/50 text-[9px] uppercase tracking-wider">
+                        <div className="text-[#F97316]/70 text-[9px] uppercase tracking-wider">
                           {item.label}
                         </div>
                       </div>
                       {i < 3 && (
-                        <span className="text-[#FF6B00] font-bold text-sm">:</span>
+                        <span className="text-[#F97316] font-black text-sm">:</span>
                       )}
                     </div>
                   ))}
@@ -601,13 +611,13 @@ export default function Consorcio() {
             </Reveal>
 
             {/* Splash circles — absolute nas laterais (lg+) */}
-            <div className="hidden lg:flex absolute left-0 top-[38%] -translate-y-1/2 -translate-x-1/3 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
+            <div className="hidden lg:flex absolute left-[5%] top-1/2 -translate-y-1/2 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
               <span className="text-white font-black text-3xl leading-none">45%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">OFERTA</span>
             </div>
 
-            <div className="hidden lg:flex absolute right-0 top-[38%] -translate-y-1/2 translate-x-1/3 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#1a56db]/60">
+            <div className="hidden lg:flex absolute right-[5%] top-1/2 -translate-y-1/2 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#1a56db]/60">
               <span className="text-white font-black text-3xl leading-none">10%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na taxa de administração</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">PORTO</span>
@@ -753,7 +763,7 @@ export default function Consorcio() {
                         { key: 'imovel' as const, label: 'Imóvel' },
                         { key: 'veiculo' as const, label: 'Veículo' },
                         { key: 'pesados' as const, label: 'Pesados' },
-                      ]).map((tab) => (
+                      ]).filter((tab) => activeSimCategory === null || activeSimCategory === tab.key).map((tab) => (
                         <button
                           key={tab.key}
                           onClick={() => handleCategoria(tab.key)}
