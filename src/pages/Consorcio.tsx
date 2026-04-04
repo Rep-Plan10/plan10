@@ -509,8 +509,8 @@ export default function Consorcio() {
             {/* Countdown */}
             <Reveal delay={0} direction="up">
               <div className="flex justify-center mb-2 md:mb-3 w-full">
-                <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 rounded-lg bg-white/5 border border-white/10 w-fit">
-                  <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">
+                <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-4 rounded-xl bg-black/40 border border-[#F97316]/30 w-fit">
+                  <span className="text-[#F97316]/70 text-[10px] font-medium uppercase tracking-widest">
                     Termina em:
                   </span>
                   {[
@@ -520,16 +520,16 @@ export default function Consorcio() {
                     { value: timeLeft.segs, label: 'seg' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-1.5">
-                      <div className="bg-[#1a1f2e] border border-white/10 rounded-md px-2 py-1 text-center min-w-[42px]">
+                      <div className="bg-[#1a1a2e] rounded-md px-2 py-1 text-center min-w-[42px]">
                         <div className="text-[#F97316] font-black text-base font-mono leading-none">
                           {String(item.value).padStart(2, '0')}
                         </div>
-                        <div className="text-white/50 text-[9px] uppercase tracking-wider">
+                        <div className="text-[#F97316]/70 text-[9px] uppercase tracking-wider">
                           {item.label}
                         </div>
                       </div>
                       {i < 3 && (
-                        <span className="text-[#FF6B00] font-bold text-sm">:</span>
+                        <span className="text-[#F97316] font-black text-sm">:</span>
                       )}
                     </div>
                   ))}
