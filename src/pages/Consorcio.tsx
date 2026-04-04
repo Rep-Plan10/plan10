@@ -1060,6 +1060,37 @@ export default function Consorcio() {
                 </ul>
               </div>
             </div>
+
+            {/* Bloco descontos exclusivos */}
+            <div className="mt-12 flex flex-col items-center gap-6">
+              <div className="text-center">
+                <p className="text-white/60 text-xs uppercase tracking-widest mb-1">
+                  Oferta por tempo limitado
+                </p>
+                <h3 className="text-white font-bold text-xl md:text-2xl">
+                  Descontos exclusivos até{" "}
+                  <span className="text-[#F97316]">30/06/2026</span>
+                </h3>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+                <div className="flex-1 flex flex-col items-center justify-center bg-[#F97316] rounded-2xl px-6 py-6 text-center shadow-lg shadow-[#F97316]/30">
+                  <span className="text-white font-black text-5xl leading-none">20%</span>
+                  <span className="text-white/90 font-medium text-sm mt-1">de desconto</span>
+                </div>
+                <div className="flex-1 flex flex-col items-center justify-center bg-[#1D6FCC] rounded-2xl px-6 py-6 text-center shadow-lg shadow-[#1D6FCC]/30">
+                  <span className="text-white font-black text-5xl leading-none">10%</span>
+                  <span className="text-white/90 font-medium text-sm mt-1">no cartão Porto</span>
+                </div>
+              </div>
+              <a
+                href="https://api.whatsapp.com/send/?phone=5511991051616&text=Quero%20garantir%20o%20meu%20desconto"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#F97316] hover:brightness-110 text-white font-bold text-base px-10 py-4 rounded-full transition-all duration-200 shadow-lg shadow-[#F97316]/30 text-center"
+              >
+                Quero garantir o meu desconto
+              </a>
+            </div>
           </div>
         </section>
 
