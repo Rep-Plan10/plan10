@@ -467,7 +467,7 @@ export default function Consorcio() {
               <>
                 <span className="text-gray-500 text-base sm:text-xl font-light select-none">+</span>
                 <div className="flex flex-col items-start">
-                  <img src={portoLogo} alt="Porto" className="h-9 w-auto object-contain" />
+                  <img src={portoLogo} alt="Porto" className="h-7 w-auto object-contain" />
                   <span className="text-[10px] text-white/60 tracking-wide leading-none mt-0.5">Credenciado oficial</span>
                 </div>
               </>
@@ -551,7 +551,6 @@ export default function Consorcio() {
                 <div className="inline-flex items-center gap-2 bg-[#003087]/30 border border-[#003087]/60 rounded-full px-5 py-2">
                   <span className="text-white text-xs font-semibold tracking-wide">O seu futuro muito mais tranquilo!</span>
                 </div>
-                <span className="text-muted-foreground text-[11px] font-medium tracking-wide mb-0 md:mb-1">Credenciado Porto Seguro</span>
               </div>
             </Reveal>
 
