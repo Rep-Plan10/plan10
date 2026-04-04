@@ -476,7 +476,15 @@ export default function Consorcio() {
 
           <div className="w-0 sm:w-28 flex justify-end">
             <button
-              onClick={() => openSim('imovel')}
+              onClick={() => {
+                setActiveSimCategory(null);
+                setSimCategoria('imovel');
+                setSimFaixa(0);
+                setSimAberto(true);
+                setTimeout(() => {
+                  document.getElementById('simulador-parcelas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+              }}
               className="hidden sm:block cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold whitespace-nowrap"
             >
               Simular agora
