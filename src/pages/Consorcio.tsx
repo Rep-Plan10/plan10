@@ -241,6 +241,7 @@ export default function Consorcio() {
     setSimCategoria(cat);
     setSimFaixa(0);
     setSimAberto(true);
+    setActiveSimCategory(cat);
     setTimeout(() => {
       document.getElementById('simulador-parcelas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
