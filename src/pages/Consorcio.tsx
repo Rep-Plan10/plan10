@@ -603,13 +603,13 @@ export default function Consorcio() {
             </Reveal>
 
             {/* Splash circles — absolute nas laterais (lg+) */}
-            <div className="hidden lg:flex absolute left-0 top-[38%] -translate-y-1/2 -translate-x-1/3 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
+            <div className="hidden lg:flex absolute left-[5%] top-1/2 -translate-y-1/2 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
               <span className="text-white font-black text-3xl leading-none">45%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">OFERTA</span>
             </div>
 
-            <div className="hidden lg:flex absolute right-0 top-[38%] -translate-y-1/2 translate-x-1/3 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#1a56db]/60">
+            <div className="hidden lg:flex absolute right-[5%] top-1/2 -translate-y-1/2 flex-col items-center justify-center w-36 h-36 rounded-full pointer-events-none z-0 bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#1a56db]/60">
               <span className="text-white font-black text-3xl leading-none">10%</span>
               <span className="text-white/90 text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na taxa de administração</span>
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">PORTO</span>
