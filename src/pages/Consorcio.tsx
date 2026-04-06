@@ -715,7 +715,7 @@ export default function Consorcio() {
                   cat: 'veiculo' as const, title: "Veículo", img: imgCarro,
                   desc: "Carro novo, seminovo, moto ou até náutico e placas solares. Conquiste seu veículo sem juros.",
                   popular: false, parcela: "R$ 371,00", parcelaColor: "text-[#7C3AED]",
-                  btnColor: "bg-[#7C3AED] text-white", cta: "Dar o primeiro passo",
+                  btnColor: "bg-[#7C3AED] text-white", cta: "Simular Veículo",
                 },
                 {
                   cat: 'pesados' as const, title: "Pesados", img: imgCaminhao,
