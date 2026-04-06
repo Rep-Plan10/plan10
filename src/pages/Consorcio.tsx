@@ -1520,8 +1520,6 @@ export default function Consorcio() {
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
             <a href="/politica-de-privacidade" className="hover:text-accent transition-colors">Política de Privacidade</a>
             <span>|</span>
-            <a href="/privacidade" className="hover:text-accent transition-colors">Privacidade (legado)</a>
-            <span>|</span>
             <a href="/" className="hover:text-accent transition-colors">plan10.com.br</a>
           </div>
 
