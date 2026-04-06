@@ -1069,16 +1069,16 @@ export default function Consorcio() {
               </div>
             </div>
 
-            {/* Bloco certificações */}
-            <div className="mt-6 rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col md:flex-row items-center gap-6">
-              <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#1D6FCC] flex items-center justify-center text-[#1D6FCC] text-3xl">
-                ★
+            {/* Bloco certificações — redesenhado */}
+            <div className="mt-6 rounded-2xl bg-[#1D6FCC]/15 border-2 border-[#1D6FCC]/50 p-5 md:p-6 flex flex-col md:flex-row items-center gap-5 max-w-3xl mx-auto">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#1D6FCC]/30 border-2 border-[#1D6FCC] flex items-center justify-center">
+                <Star size={28} className="text-[#F97316] fill-[#F97316]" />
               </div>
-              <div className="flex flex-col gap-1.5">
-                <p className="text-white font-bold text-base">
+              <div className="flex flex-col gap-1.5 text-center md:text-left">
+                <p className="text-white font-bold text-base md:text-lg">
                   Solidez e segurança com a grife Porto Bank
                 </p>
-                <ul className="text-white/70 text-sm flex flex-col gap-1">
+                <ul className="text-white/80 text-sm flex flex-col gap-1">
                   <li>• Certificada MESC — Instituto Melhores Empresas em Satisfação do Cliente</li>
                   <li>• Reconhecimento da Revista Seleções — Marcas de confiança 2020</li>
                   <li>• Reconhecimento entre as marcas mais amadas do Brasil 2020</li>
