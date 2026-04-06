@@ -700,9 +700,8 @@ export default function Consorcio() {
               </p>
             </Reveal>
 
-            <p className="text-center text-sm text-white/60 italic mb-6">
-              Parcelas mínimas para grupos em andamento e condicionadas à existência de cotas livres.
-            </p>
+
+
 
             <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
               {[
