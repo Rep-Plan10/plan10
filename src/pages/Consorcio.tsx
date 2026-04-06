@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Star, TrendingDown, Trophy } from "lucide-react";
 import plan10LogoNew from "@/assets/plan10-logo-consorcio.png";
+import portoLogo from "@/assets/porto-logo.png";
+import logoSusep from "@/assets/logo-susep.png";
 import familiaHero from "@/assets/familia-hero.png";
 
 const plan10Logo = plan10LogoNew;
@@ -525,15 +527,24 @@ export default function Consorcio() {
     <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter">
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#06006B]/80 border-b border-white/5">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex flex-col items-start focus:outline-none cursor-pointer"
-            aria-label="Ir para o início"
-          >
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 sm:h-9 w-auto object-contain" />
-            <span className="text-[9px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5">O seu futuro muito mais tranquilo!</span>
-          </button>
+        <div className="container mx-auto px-4 h-auto py-2 sm:py-0 sm:h-16 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 sm:gap-0">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+            {/* Plan10 logo + tagline */}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex flex-col items-center sm:items-start focus:outline-none cursor-pointer"
+              aria-label="Ir para o início"
+            >
+              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 sm:h-9 w-auto object-contain" />
+              <span className="text-[9px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5">O seu futuro muito mais tranquilo!</span>
+            </button>
+
+            {/* Porto logo + credenciada */}
+            <div className="flex flex-col items-center sm:items-start">
+              <img src={portoLogo} alt="Porto" className="h-5 sm:h-6 w-auto object-contain" />
+              <span className="text-[8px] sm:text-[9px] text-white/40 tracking-wide leading-none mt-0.5">Credenciada oficial</span>
+            </div>
+          </div>
 
           <button
             onClick={() => {
@@ -689,9 +700,8 @@ export default function Consorcio() {
               </p>
             </Reveal>
 
-            <p className="text-center text-sm text-white/60 italic mb-6">
-              Parcelas mínimas para grupos em andamento e condicionadas à existência de cotas livres.
-            </p>
+
+
 
             <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
               {[
@@ -699,19 +709,19 @@ export default function Consorcio() {
                   cat: 'imovel' as const, title: "Imóvel", img: imgCasa,
                   desc: "Casa, apartamento, terreno ou até reforma. Conquiste o sonho do imóvel próprio com parcelas que cabem no seu bolso.",
                   popular: true, parcela: "R$ 567,00", parcelaColor: "text-[#F97316]",
-                  btnColor: "bg-[#F97316] text-white", cta: "Dar o primeiro passo",
+                  btnColor: "bg-[#F97316] text-white", cta: "Simular Imóvel",
                 },
                 {
                   cat: 'veiculo' as const, title: "Veículo", img: imgCarro,
                   desc: "Carro novo, seminovo, moto ou até náutico e placas solares. Conquiste seu veículo sem juros.",
                   popular: false, parcela: "R$ 371,00", parcelaColor: "text-[#7C3AED]",
-                  btnColor: "bg-[#7C3AED] text-white", cta: "Dar o primeiro passo",
+                  btnColor: "bg-[#7C3AED] text-white", cta: "Simular Veículo",
                 },
                 {
                   cat: 'pesados' as const, title: "Pesados", img: imgCaminhao,
                   desc: "Caminhão, ônibus, máquinas agrícolas e industriais. Ideal para empresários e transportadores.",
                   popular: false, parcela: "R$ 1.060,00", parcelaColor: "text-[#1D6FCC]",
-                  btnColor: "bg-[#1D6FCC] text-white", cta: "Dar o primeiro passo",
+                  btnColor: "bg-[#1D6FCC] text-white", cta: "Simular Pesados",
                 },
               ].map((p, i) => (
                 <Reveal key={i} delay={i * 150} direction="up">
@@ -998,14 +1008,13 @@ export default function Consorcio() {
 
             {/* Subtítulo destacado */}
             <Reveal direction="up" delay={200}>
-              <p className="text-center text-white font-bold text-xl md:text-2xl tracking-wide mb-10">
+              <p className="text-center text-white font-bold text-2xl md:text-3xl tracking-wide mb-14">
                 Diferenciais que só a Porto tem
               </p>
             </Reveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { emoji: "🏆", title: "Porto Bank Oficial", desc: "Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil.", bg: "bg-[#1D6FCC]/20", border: "border-[#1D6FCC]/40" },
                 { emoji: "💰", title: "Zero Juros", desc: "Você não paga juros. Apenas taxa de administração competitiva.", bg: "bg-[#16A34A]/20", border: "border-[#16A34A]/40" },
                 { emoji: "📋", title: "Flexibilidade Total", desc: "Planos de 60 a 200 meses. Créditos de R$ 25 mil a R$ 1 milhão. Você escolhe o que cabe no seu bolso.", bg: "bg-[#7C3AED]/20", border: "border-[#7C3AED]/40" },
                 { icon: TrendingDown, title: "Parcelas Menores", desc: "Nos grupos em andamento, as parcelas já estão reduzidas em até 45%. Você paga menos e ainda conquista o mesmo crédito.", bg: "bg-[#F97316]/20", border: "border-[#F97316]/40" },
@@ -1060,16 +1069,16 @@ export default function Consorcio() {
               </div>
             </div>
 
-            {/* Bloco certificações */}
-            <div className="mt-6 rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col md:flex-row items-center gap-6">
-              <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-[#1D6FCC] flex items-center justify-center text-[#1D6FCC] text-3xl">
-                ★
+            {/* Bloco certificações — redesenhado */}
+            <div className="mt-6 rounded-2xl bg-[#1D6FCC]/15 border-2 border-[#1D6FCC]/50 p-5 md:p-6 flex flex-col md:flex-row items-center gap-5 max-w-3xl mx-auto">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#1D6FCC]/30 border-2 border-[#1D6FCC] flex items-center justify-center">
+                <Star size={28} className="text-[#F97316] fill-[#F97316]" />
               </div>
-              <div className="flex flex-col gap-1.5">
-                <p className="text-white font-bold text-base">
+              <div className="flex flex-col gap-1.5 text-center md:text-left">
+                <p className="text-white font-bold text-base md:text-lg">
                   Solidez e segurança com a grife Porto Bank
                 </p>
-                <ul className="text-white/70 text-sm flex flex-col gap-1">
+                <ul className="text-white/80 text-sm flex flex-col gap-1">
                   <li>• Certificada MESC — Instituto Melhores Empresas em Satisfação do Cliente</li>
                   <li>• Reconhecimento da Revista Seleções — Marcas de confiança 2020</li>
                   <li>• Reconhecimento entre as marcas mais amadas do Brasil 2020</li>
@@ -1128,17 +1137,20 @@ export default function Consorcio() {
               ].map((s, i) => (
                 <Reveal key={i} delay={i * 200} direction="up">
                   <div className="flex flex-col items-center text-center">
-                    {/* Timeline number */}
-                    <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-sm mb-3">
-                      {s.n}
-                    </div>
-                    {/* Dashed connector for desktop */}
-                    {i < 3 && (
-                      <div className="hidden md:block w-full border-t border-dashed border-accent/40 mb-3" />
-                    )}
                     {/* Image title above image */}
-                    <p className="text-[#F97316] font-sora font-bold text-sm mb-2">{s.imgTitle}</p>
+                    <p className="text-[#F97316] font-sora font-bold text-sm mb-3 mt-2">{s.imgTitle}</p>
+                    {/* Image */}
                     <img src={s.img} alt={s.alt} className="w-full h-40 object-cover rounded-xl mb-4" loading="lazy" />
+                    {/* Timeline number + connector */}
+                    <div className="flex flex-col items-center mb-3">
+                      <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-sm">
+                        {s.n}
+                      </div>
+                      {i < 3 && (
+                        <div className="hidden md:block w-full border-t border-dashed border-accent/40 mt-2" />
+                      )}
+                    </div>
+                    {/* Description */}
                     <p className="text-sm text-muted-foreground leading-relaxed mb-2">{s.desc}</p>
                     {/* Step title below description */}
                     <h3 className="font-sora font-semibold text-base text-foreground">{s.title}</h3>
@@ -1212,20 +1224,36 @@ export default function Consorcio() {
                   <span className="text-white/60 text-sm">avaliação média</span>
                 </div>
               </div>
-              {/* Card credencial */}
-              <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
-                <div className="w-10 h-10 rounded-full bg-[#F97316]/20 flex items-center justify-center text-[#F97316] text-xl mb-1">
-                  🛡️
+              {/* Cards credenciais — grid 2 colunas */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Card Plan10 Corretora */}
+                <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
+                  <div className="w-10 h-10 rounded-full bg-[#F97316]/20 flex items-center justify-center mb-1">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-[#F97316]" aria-label="Ícone de segurança">
+                      <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white font-bold text-base">
+                    Plan10 Corretora de Seguros
+                  </p>
+                  <p className="text-white/60 text-sm">
+                    Credenciada <span className="text-white font-semibold">Porto Seguro</span>
+                  </p>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-white/60 text-sm">Autorizada pela</span>
+                    <img src={logoSusep} alt="SUSEP" className="h-8 w-auto min-w-[90px] object-contain" />
+                  </div>
                 </div>
-                <p className="text-white font-bold text-base">
-                  Plan10 Corretora de Seguros
-                </p>
-                <p className="text-white/60 text-sm">
-                  Credenciada <span className="text-white font-semibold">Porto Seguro</span>
-                </p>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="text-white/60 text-sm">Autorizada pela</span>
-                  <img src="/images/logo-susep.png" alt="SUSEP" className="h-6 object-contain" />
+
+                {/* Card Porto Bank Oficial */}
+                <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
+                  <span className="text-3xl mb-1">🏆</span>
+                  <p className="text-white font-bold text-base">
+                    Porto Bank Oficial
+                  </p>
+                  <p className="text-white/60 text-sm text-center leading-relaxed">
+                    Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil.
+                  </p>
                 </div>
               </div>
             </div>
@@ -1491,8 +1519,6 @@ export default function Consorcio() {
           <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto S.A.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
             <a href="/politica-de-privacidade" className="hover:text-accent transition-colors">Política de Privacidade</a>
-            <span>|</span>
-            <a href="/privacidade" className="hover:text-accent transition-colors">Privacidade (legado)</a>
             <span>|</span>
             <a href="/" className="hover:text-accent transition-colors">plan10.com.br</a>
           </div>
