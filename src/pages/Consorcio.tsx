@@ -1008,7 +1008,7 @@ export default function Consorcio() {
 
             {/* Subtítulo destacado */}
             <Reveal direction="up" delay={200}>
-              <p className="text-center text-white font-bold text-xl md:text-2xl tracking-wide mb-10">
+              <p className="text-center text-white font-bold text-2xl md:text-3xl tracking-wide mb-14">
                 Diferenciais que só a Porto tem
               </p>
             </Reveal>
