@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Star, TrendingDown, Trophy } from "lucide-react";
 import plan10LogoNew from "@/assets/plan10-logo-consorcio.png";
+import portoLogo from "@/assets/porto-logo.png";
+import logoSusep from "@/assets/logo-susep.png";
 import familiaHero from "@/assets/familia-hero.png";
 
 const plan10Logo = plan10LogoNew;
