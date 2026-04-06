@@ -1137,17 +1137,20 @@ export default function Consorcio() {
               ].map((s, i) => (
                 <Reveal key={i} delay={i * 200} direction="up">
                   <div className="flex flex-col items-center text-center">
-                    {/* Timeline number */}
-                    <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-sm mb-3">
-                      {s.n}
-                    </div>
-                    {/* Dashed connector for desktop */}
-                    {i < 3 && (
-                      <div className="hidden md:block w-full border-t border-dashed border-accent/40 mb-3" />
-                    )}
                     {/* Image title above image */}
-                    <p className="text-[#F97316] font-sora font-bold text-sm mb-2">{s.imgTitle}</p>
+                    <p className="text-[#F97316] font-sora font-bold text-sm mb-3 mt-2">{s.imgTitle}</p>
+                    {/* Image */}
                     <img src={s.img} alt={s.alt} className="w-full h-40 object-cover rounded-xl mb-4" loading="lazy" />
+                    {/* Timeline number + connector */}
+                    <div className="flex flex-col items-center mb-3">
+                      <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-sm">
+                        {s.n}
+                      </div>
+                      {i < 3 && (
+                        <div className="hidden md:block w-full border-t border-dashed border-accent/40 mt-2" />
+                      )}
+                    </div>
+                    {/* Description */}
                     <p className="text-sm text-muted-foreground leading-relaxed mb-2">{s.desc}</p>
                     {/* Step title below description */}
                     <h3 className="font-sora font-semibold text-base text-foreground">{s.title}</h3>
