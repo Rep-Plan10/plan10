@@ -709,7 +709,7 @@ export default function Consorcio() {
                   cat: 'imovel' as const, title: "Imóvel", img: imgCasa,
                   desc: "Casa, apartamento, terreno ou até reforma. Conquiste o sonho do imóvel próprio com parcelas que cabem no seu bolso.",
                   popular: true, parcela: "R$ 567,00", parcelaColor: "text-[#F97316]",
-                  btnColor: "bg-[#F97316] text-white", cta: "Dar o primeiro passo",
+                  btnColor: "bg-[#F97316] text-white", cta: "Simular Imóvel",
                 },
                 {
                   cat: 'veiculo' as const, title: "Veículo", img: imgCarro,
