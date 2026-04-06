@@ -1224,20 +1224,36 @@ export default function Consorcio() {
                   <span className="text-white/60 text-sm">avaliação média</span>
                 </div>
               </div>
-              {/* Card credencial */}
-              <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
-                <div className="w-10 h-10 rounded-full bg-[#F97316]/20 flex items-center justify-center text-[#F97316] text-xl mb-1">
-                  🛡️
+              {/* Cards credenciais — grid 2 colunas */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Card Plan10 Corretora */}
+                <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
+                  <div className="w-10 h-10 rounded-full bg-[#F97316]/20 flex items-center justify-center mb-1">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-[#F97316]" aria-label="Ícone de segurança">
+                      <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white font-bold text-base">
+                    Plan10 Corretora de Seguros
+                  </p>
+                  <p className="text-white/60 text-sm">
+                    Credenciada <span className="text-white font-semibold">Porto Seguro</span>
+                  </p>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-white/60 text-sm">Autorizada pela</span>
+                    <img src={logoSusep} alt="SUSEP" className="h-8 w-auto min-w-[90px] object-contain" />
+                  </div>
                 </div>
-                <p className="text-white font-bold text-base">
-                  Plan10 Corretora de Seguros
-                </p>
-                <p className="text-white/60 text-sm">
-                  Credenciada <span className="text-white font-semibold">Porto Seguro</span>
-                </p>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="text-white/60 text-sm">Autorizada pela</span>
-                  <img src="/images/logo-susep.png" alt="SUSEP" className="h-6 object-contain" />
+
+                {/* Card Porto Bank Oficial */}
+                <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
+                  <span className="text-3xl mb-1">🏆</span>
+                  <p className="text-white font-bold text-base">
+                    Porto Bank Oficial
+                  </p>
+                  <p className="text-white/60 text-sm text-center leading-relaxed">
+                    Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil.
+                  </p>
                 </div>
               </div>
             </div>
