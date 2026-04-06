@@ -721,7 +721,7 @@ export default function Consorcio() {
                   cat: 'pesados' as const, title: "Pesados", img: imgCaminhao,
                   desc: "Caminhão, ônibus, máquinas agrícolas e industriais. Ideal para empresários e transportadores.",
                   popular: false, parcela: "R$ 1.060,00", parcelaColor: "text-[#1D6FCC]",
-                  btnColor: "bg-[#1D6FCC] text-white", cta: "Dar o primeiro passo",
+                  btnColor: "bg-[#1D6FCC] text-white", cta: "Simular Pesados",
                 },
               ].map((p, i) => (
                 <Reveal key={i} delay={i * 150} direction="up">
