@@ -527,15 +527,24 @@ export default function Consorcio() {
     <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter">
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#06006B]/80 border-b border-white/5">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex flex-col items-start focus:outline-none cursor-pointer"
-            aria-label="Ir para o início"
-          >
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 sm:h-9 w-auto object-contain" />
-            <span className="text-[9px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5">O seu futuro muito mais tranquilo!</span>
-          </button>
+        <div className="container mx-auto px-4 h-auto py-2 sm:py-0 sm:h-16 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 sm:gap-0">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+            {/* Plan10 logo + tagline */}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex flex-col items-center sm:items-start focus:outline-none cursor-pointer"
+              aria-label="Ir para o início"
+            >
+              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 sm:h-9 w-auto object-contain" />
+              <span className="text-[9px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5">O seu futuro muito mais tranquilo!</span>
+            </button>
+
+            {/* Porto logo + credenciada */}
+            <div className="flex flex-col items-center sm:items-start">
+              <img src={portoLogo} alt="Porto" className="h-5 sm:h-6 w-auto object-contain" />
+              <span className="text-[8px] sm:text-[9px] text-white/40 tracking-wide leading-none mt-0.5">Credenciada oficial</span>
+            </div>
+          </div>
 
           <button
             onClick={() => {
