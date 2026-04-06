@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, MessageCircle, Star, TrendingDown, Trophy } from "lucide-react";
+import { ChevronDown, Star, TrendingDown, Trophy } from "lucide-react";
 import plan10LogoNew from "@/assets/plan10-logo-consorcio.png";
 import familiaHero from "@/assets/familia-hero.png";
 
 const plan10Logo = plan10LogoNew;
-const portoLogo = '/Logo_porto_att.png';
 const imgCasa = '/pngtree-new-house-png-image_12378684.png';
 const imgCarro = '/f1d28ec7cf200232f761fc7820381a1b.png';
 const imgCaminhao = '/caminhao-de-entrega-de-caixa-preta-em-fundo-branco_84443-13396.png';
