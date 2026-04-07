@@ -708,7 +708,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-[#06006B]/60">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Escolha seu consórcio</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">Escolha seu consórcio</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
@@ -1103,10 +1104,10 @@ export default function Consorcio() {
                   Solidez e segurança com a grife Porto Bank
                 </p>
                 <ul className="text-white/80 text-sm flex flex-col gap-1">
-                  <li>• Certificada MESC — Instituto Melhores Empresas em Satisfação do Cliente</li>
-                  <li>• Reconhecimento da Revista Seleções — Marcas de confiança 2020</li>
-                  <li>• Reconhecimento entre as marcas mais amadas do Brasil 2020</li>
-                  <li>• Reconhecimento Marca Brasil 2019</li>
+                  <li><span className="text-[#9B59D0]">•</span> Certificada MESC — Instituto Melhores Empresas em Satisfação do Cliente</li>
+                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento da Revista Seleções — Marcas de confiança 2020</li>
+                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento entre as marcas mais amadas do Brasil 2020</li>
+                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento Marca Brasil 2019</li>
                 </ul>
               </div>
             </div>
