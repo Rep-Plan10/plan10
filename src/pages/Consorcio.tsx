@@ -531,21 +531,21 @@ export default function Consorcio() {
           {/* Spacer for desktop symmetry */}
           <div className="hidden md:block w-[140px]" />
 
-          {/* Centered logos */}
+          {/* Centered logos — 60/40 ratio */}
           <div className="flex items-center justify-center gap-4 sm:gap-8 flex-1 md:flex-none">
-            {/* Plan10 logo + tagline */}
+            {/* Plan10 logo + tagline (60%) */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex flex-col items-center focus:outline-none cursor-pointer max-w-[45%] sm:max-w-none"
               aria-label="Ir para o início"
             >
-              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-7 sm:h-9 w-auto object-contain" />
+              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 sm:h-12 w-auto object-contain" />
               <span className="text-[8px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5 whitespace-nowrap">O seu futuro muito mais tranquilo!</span>
             </button>
 
-            {/* Porto logo + credenciada */}
+            {/* Porto logo + credenciada (40%) */}
             <div className="flex flex-col items-center max-w-[45%] sm:max-w-none">
-              <img src={portoLogo} alt="Porto" className="h-5 sm:h-6 w-auto object-contain" />
+              <img src={portoLogo} alt="Porto" className="h-7 sm:h-8 w-auto object-contain" />
               <span className="text-[7px] sm:text-[9px] text-white/40 tracking-wide leading-none mt-0.5">Credenciada oficial</span>
             </div>
           </div>
@@ -1011,10 +1011,14 @@ export default function Consorcio() {
               <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Por que escolher o Consórcio Porto com a Plan10?</h2>
             </Reveal>
 
-            {/* Porto logo + subtítulo destacado */}
+            {/* Porto logo card + subtítulo */}
             <Reveal direction="up" delay={200}>
-              <div className="flex flex-col items-center gap-4 mb-14">
-                <img src={portoLogo} alt="Porto" className="h-10 md:h-12 w-auto object-contain" />
+              <div className="flex flex-col items-center gap-6 mb-14">
+                <div className="bg-white/[0.08] border border-white/15 rounded-2xl px-7 py-6 max-w-[320px] mx-auto text-center">
+                  <img src={portoLogo} alt="Porto" className="h-10 w-auto object-contain mx-auto mb-3" />
+                  <p className="text-white font-bold text-sm mb-1">Parceiro oficial Porto</p>
+                  <p className="text-white/60 text-xs leading-relaxed">Administradora de consórcios com mais de 50 anos de tradição no Brasil.</p>
+                </div>
                 <p className="text-center text-white font-bold text-2xl md:text-3xl tracking-wide">
                   Diferenciais que só a Porto tem
                 </p>
@@ -1135,47 +1139,45 @@ export default function Consorcio() {
               <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">São poucos passos até a conquista do seu sonho</h2>
             </Reveal>
 
-            {/* Cards */}
-            <div className="relative grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-6">
-              {[
-                { n: "01", title: "Escolha seu sonho", imgTitle: "Comece pelo seu sonho", desc: "Simule o valor do imóvel ou veículo desejado e encontre o plano ideal para o seu momento de vida.", img: "/images/familia-olhando-carro.png", alt: "Família escolhendo o sonho" },
-                { n: "02", title: "Entre no grupo", imgTitle: "Sonhe junto com mais pessoas", desc: "Você passa a fazer parte de um grupo com pessoas de objetivos similares e começa a pagar as parcelas mensais.", img: "/images/familia-assinando-contrato.png", alt: "Família assinando contrato" },
-                { n: "03", title: "Seja contemplado", imgTitle: "Contemplação: a virada", desc: "Todo mês acontecem sorteios. Você também pode dar lances para antecipar sua contemplação.", img: "/images/familia-comemorando.png", alt: "Família comemorando a contemplação" },
-                { n: "04", title: "Use sua carta de crédito", imgTitle: "Conquiste com poder de compra", desc: "Com a carta em mãos, você compra à vista e ainda tem poder de negociação para conseguir desconto.", img: "/images/familia-comprando-carro.png", alt: "Família comprando o carro" },
-              ].map((s, i) => (
-                <Reveal key={i} delay={i * 200} direction="up">
-                  <div className="relative z-10 flex flex-col items-center text-center">
-                    {/* Image title above image */}
-                    <p className="text-[#F97316] font-sora font-semibold text-lg md:text-xl mb-3">{s.imgTitle}</p>
-                    {/* Image */}
-                    <img src={s.img} alt={s.alt} className="w-full h-[200px] object-cover rounded-xl mb-4" loading="lazy" />
-                    {/* Timeline number + line */}
-                    <div className="relative w-full flex justify-center mb-4">
-                      {/* Horizontal line — desktop */}
-                      {i === 0 && (
-                        <div className="hidden md:block absolute top-1/2 -translate-y-1/2 left-1/2 right-[-100%] h-0.5 bg-[#F97316]/40 z-0" />
-                      )}
-                      {i > 0 && i < 3 && (
-                        <div className="hidden md:block absolute top-1/2 -translate-y-1/2 left-[-100%] right-[-100%] h-0.5 bg-[#F97316]/40 z-0" />
-                      )}
-                      {i === 3 && (
-                        <div className="hidden md:block absolute top-1/2 -translate-y-1/2 left-[-100%] right-1/2 h-0.5 bg-[#F97316]/40 z-0" />
-                      )}
-                      {/* Vertical line — mobile */}
-                      {i < 3 && (
-                        <div className="md:hidden absolute top-full left-1/2 -translate-x-1/2 w-0.5 h-8 bg-[#F97316]/30 z-0" />
-                      )}
-                      <div className="relative z-10 w-12 h-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-sm shadow-lg shadow-accent/30 border-2 border-accent/60">
-                        {s.n}
+            {/* Steps grid with timeline */}
+            <div className="relative">
+              {/* Horizontal timeline line — desktop only, positioned at center of circles */}
+              {/* Title (64px) + gap (12px) + Image (220px) + gap (16px) + half circle (24px) = 336px from top */}
+              <div className="hidden md:block absolute z-0" style={{ top: '336px', left: '12.5%', right: '12.5%', height: '2px', background: '#F97316' }} />
+
+              <div className="relative grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-6 items-start">
+                {[
+                  { n: "01", title: "Escolha seu sonho", imgTitle: "Comece pelo seu sonho", desc: "Simule o valor do imóvel ou veículo desejado e encontre o plano ideal para o seu momento de vida.", img: "/images/familia-olhando-carro.png", alt: "Família escolhendo o sonho" },
+                  { n: "02", title: "Entre no grupo", imgTitle: "Sonhe junto com mais pessoas", desc: "Você passa a fazer parte de um grupo com pessoas de objetivos similares e começa a pagar as parcelas mensais.", img: "/images/familia-assinando-contrato.png", alt: "Família assinando contrato" },
+                  { n: "03", title: "Seja contemplado", imgTitle: "Contemplação: a virada", desc: "Todo mês acontecem sorteios. Você também pode dar lances para antecipar sua contemplação.", img: "/images/familia-comemorando.png", alt: "Família comemorando a contemplação" },
+                  { n: "04", title: "Use sua carta de crédito", imgTitle: "Conquiste com poder de compra", desc: "Com a carta em mãos, você compra à vista e ainda tem poder de negociação para conseguir desconto.", img: "/images/familia-comprando-carro.png", alt: "Família comprando o carro" },
+                ].map((s, i) => (
+                  <Reveal key={i} delay={i * 200} direction="up">
+                    <div className="relative z-10 flex flex-col items-center text-center">
+                      {/* [A] Fixed-height title block */}
+                      <div className="h-auto md:h-16 flex items-end justify-center mb-3">
+                        <p className="text-[#F97316] font-sora font-bold text-[1.1rem] md:text-[1.15rem] text-center leading-snug">{s.imgTitle}</p>
                       </div>
+                      {/* [B] Image */}
+                      <img src={s.img} alt={s.alt} className="w-full h-[220px] object-cover rounded-xl mb-4" loading="lazy" />
+                      {/* [C] Timeline circle */}
+                      <div className="relative flex justify-center mb-4">
+                        {/* Vertical connector — mobile only */}
+                        {i < 3 && (
+                          <div className="md:hidden absolute top-full left-1/2 -translate-x-1/2 w-0.5 h-8 bg-[#F97316]/40 z-0" />
+                        )}
+                        <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center font-sora font-bold text-[0.9rem] text-white shadow-lg border-2 border-[#F97316]/60" style={{ background: '#F97316' }}>
+                          {s.n}
+                        </div>
+                      </div>
+                      {/* [D] Description */}
+                      <p className="text-sm text-white/85 leading-relaxed mb-2 px-1 mt-4">{s.desc}</p>
+                      {/* [E] Bold title */}
+                      <h3 className="font-sora font-bold text-base text-white mt-2">{s.title}</h3>
                     </div>
-                    {/* Description */}
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-2 px-1">{s.desc}</p>
-                    {/* Step title below description */}
-                    <h3 className="font-sora font-semibold text-base text-foreground">{s.title}</h3>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                ))}
+              </div>
             </div>
 
             <div className="flex justify-center mt-10">
@@ -1237,8 +1239,22 @@ export default function Consorcio() {
                   <span className="text-white/60 text-sm">clientes atendidos</span>
                 </div>
                 <div className="flex flex-col items-center sm:pl-6">
-                  <div className="flex gap-1 text-[#F97316] text-2xl mb-1">
-                    ★★★★★
+                  {/* 4.5 stars — partial 5th star */}
+                  <div className="flex gap-0.5 mb-1">
+                    {[0, 1, 2, 3].map((i) => (
+                      <svg key={i} viewBox="0 0 24 24" width="24" height="24" fill="#F97316">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    ))}
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                      <defs>
+                        <linearGradient id="partial-star-60">
+                          <stop offset="60%" stopColor="#F97316"/>
+                          <stop offset="60%" stopColor="#D1D5DB"/>
+                        </linearGradient>
+                      </defs>
+                      <path fill="url(#partial-star-60)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
                   </div>
                   <span className="text-white/60 text-sm">avaliação média</span>
                 </div>
@@ -1247,15 +1263,10 @@ export default function Consorcio() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Card Plan10 Corretora */}
                 <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
-                  {/* Logos Plan10 + Porto */}
+                  {/* Logos Plan10 (60%) + Porto (40%) */}
                   <div className="flex items-center justify-center gap-4 mb-2">
-                    <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 sm:h-10 w-auto object-contain" />
-                    <img src={portoLogo} alt="Porto" className="h-7 sm:h-9 w-auto object-contain" />
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-[#F97316]/20 flex items-center justify-center mb-1">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-[#F97316]" aria-label="Ícone de segurança">
-                      <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
-                    </svg>
+                    <img src={plan10Logo} alt="Plan10 Consórcio" className="h-11 w-auto object-contain" />
+                    <img src={portoLogo} alt="Porto" className="h-[30px] w-auto object-contain" />
                   </div>
                   <p className="text-white font-bold text-base">
                     Plan10 Corretora de Seguros
@@ -1264,19 +1275,26 @@ export default function Consorcio() {
                     Credenciada <span className="text-white font-semibold">Porto Seguro</span>
                   </p>
                   <div className="flex items-center gap-2 mt-1">
+                    <div className="w-8 h-8 rounded-full bg-[#F97316]/20 flex items-center justify-center shrink-0">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-[#F97316]" aria-label="Ícone de segurança">
+                        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
+                      </svg>
+                    </div>
                     <span className="text-white/60 text-sm">Autorizada pela</span>
                     <img src={logoSusep} alt="SUSEP" className="h-8 w-auto min-w-[90px] object-contain" />
                   </div>
                 </div>
 
                 {/* Card Porto Bank Oficial */}
-                <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
-                  <span className="text-3xl mb-1">🏆</span>
+                <div className="flex flex-col items-center gap-3 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
+                  <svg viewBox="0 0 24 24" fill="#F97316" width="32" height="32" aria-label="Ícone troféu">
+                    <path d="M5 3h14v2h-1v2a5 5 0 01-2.05 4.04A3.99 3.99 0 0116 12h2a2 2 0 002-2V7h1V5h-1V3h1V1H4v2h1v2H4v2h1v3a2 2 0 002 2h2a3.99 3.99 0 01.05-.96A5 5 0 017 7V5H6V3zm3 2v2a3 3 0 003 3h2a3 3 0 003-3V5H8zm1 12h6v2H9v-2zm-1 4h8v2H8v-2z"/>
+                  </svg>
                   <p className="text-white font-bold text-base">
                     Porto Bank Oficial
                   </p>
-                  <p className="text-white/60 text-sm text-center leading-relaxed">
-                    Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil.
+                  <p className="text-white/60 text-sm text-center leading-relaxed" style={{ lineHeight: '1.6' }}>
+                    Somos parceiros credenciados da Porto Bank — uma das maiores administradoras de consórcio do Brasil, com décadas de tradição e solidez no mercado.
                   </p>
                 </div>
               </div>
@@ -1537,8 +1555,9 @@ export default function Consorcio() {
       {/* ───── MINI FOOTER ───── */}
       <footer className="bg-[#06006B] py-10 border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 w-auto" />
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto" />
+            <img src={portoLogo} alt="Porto" className="h-6 w-auto" />
           </div>
           <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto S.A.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
