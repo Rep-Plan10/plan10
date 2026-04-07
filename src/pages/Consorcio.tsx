@@ -539,13 +539,13 @@ export default function Consorcio() {
               className="flex flex-col items-center focus:outline-none cursor-pointer max-w-[45%] sm:max-w-none"
               aria-label="Ir para o início"
             >
-              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-10 sm:h-12 w-auto object-contain" />
+              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-[26px] md:h-9 w-auto object-contain" />
               <span className="text-[8px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5 whitespace-nowrap">O seu futuro muito mais tranquilo!</span>
             </button>
 
             {/* Porto logo + credenciada (40%) */}
             <div className="flex flex-col items-center max-w-[45%] sm:max-w-none">
-              <img src={portoLogo} alt="Porto" className="h-7 sm:h-8 w-auto object-contain" />
+              <img src={portoLogo} alt="Porto" className="h-[17px] md:h-6 w-auto object-contain" />
               <span className="text-[7px] sm:text-[9px] text-white/40 tracking-wide leading-none mt-0.5">Credenciada oficial</span>
             </div>
           </div>
@@ -1263,20 +1263,27 @@ export default function Consorcio() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Card Plan10 Corretora */}
                 <div className="flex flex-col items-center gap-2 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
-                  {/* Logos Plan10 (60%) + Porto (40%) */}
-                  <div className="flex items-center justify-center gap-4 mb-2">
-                    <img src={plan10Logo} alt="Plan10 Consórcio" className="h-11 w-auto object-contain" />
-                    <img src={portoLogo} alt="Porto" className="h-[30px] w-auto object-contain" />
-                  </div>
+                  {/* 1. Shield icon */}
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7 text-[#F97316]" aria-label="Ícone de segurança">
+                    <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
+                  </svg>
+                  {/* 2. Title */}
                   <p className="text-white font-bold text-base">
                     Plan10 Corretora de Seguros
                   </p>
+                  {/* 3. Subtitle */}
                   <p className="text-white/60 text-sm">
                     Credenciada <span className="text-white font-semibold">Porto Seguro</span>
                   </p>
+                  {/* 4. Logos Plan10 (60%) + Porto (40%) */}
+                  <div className="flex items-center justify-center gap-3 mt-1">
+                    <img src={plan10Logo} alt="Plan10 Consórcio" className="h-[22px] md:h-7 w-auto object-contain" />
+                    <img src={portoLogo} alt="Porto" className="h-[15px] md:h-[19px] w-auto object-contain" />
+                  </div>
+                  {/* 5. SUSEP line */}
                   <div className="flex items-center gap-2 mt-1">
-                    <div className="w-8 h-8 rounded-full bg-[#F97316]/20 flex items-center justify-center shrink-0">
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-[#F97316]" aria-label="Ícone de segurança">
+                    <div className="w-6 h-6 rounded-full bg-[#F97316]/20 flex items-center justify-center shrink-0">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#F97316]" aria-label="Escudo">
                         <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
                       </svg>
                     </div>
@@ -1287,8 +1294,8 @@ export default function Consorcio() {
 
                 {/* Card Porto Bank Oficial */}
                 <div className="flex flex-col items-center gap-3 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
-                  <svg viewBox="0 0 24 24" fill="#F97316" width="32" height="32" aria-label="Ícone troféu">
-                    <path d="M5 3h14v2h-1v2a5 5 0 01-2.05 4.04A3.99 3.99 0 0116 12h2a2 2 0 002-2V7h1V5h-1V3h1V1H4v2h1v2H4v2h1v3a2 2 0 002 2h2a3.99 3.99 0 01.05-.96A5 5 0 017 7V5H6V3zm3 2v2a3 3 0 003 3h2a3 3 0 003-3V5H8zm1 12h6v2H9v-2zm-1 4h8v2H8v-2z"/>
+                  <svg viewBox="0 0 24 24" fill="#EAB308" width="32" height="32" aria-label="Ícone troféu">
+                    <path d="M19 5h-2V3H7v2H5C3.9 5 3 5.9 3 7v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V18H9v2h6v-2h-2v-2.1a5.01 5.01 0 0 0 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zm-2 2v1.65A3.003 3.003 0 0 1 15 11V7h2zm-8 4A3.003 3.003 0 0 1 7 8.65V7h2v4zm4 3c-1.65 0-3-1.35-3-3V5h6v6c0 1.65-1.35 3-3 3z"/>
                   </svg>
                   <p className="text-white font-bold text-base">
                     Porto Bank Oficial
@@ -1555,9 +1562,9 @@ export default function Consorcio() {
       {/* ───── MINI FOOTER ───── */}
       <footer className="bg-[#06006B] py-10 border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto" />
-            <img src={portoLogo} alt="Porto" className="h-6 w-auto" />
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-[26px] md:h-8 w-auto" />
+            <img src={portoLogo} alt="Porto" className="h-[17px] md:h-[22px] w-auto" />
           </div>
           <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto S.A.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
