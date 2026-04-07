@@ -524,7 +524,7 @@ export default function Consorcio() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter overflow-x-hidden" style={{ colorScheme: 'light only' }}>
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#06006B]/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-auto py-2 flex items-center justify-between">
@@ -532,19 +532,26 @@ export default function Consorcio() {
           <div className="hidden md:block w-[140px]" />
 
           {/* Centered logos — 60/40 ratio */}
-          <div className="flex items-center justify-center gap-4 sm:gap-8 flex-1 md:flex-none">
-            {/* Plan10 logo + tagline (60%) */}
+          <div className="flex items-center justify-between gap-2 sm:gap-8 flex-1 md:flex-none">
+            {/* Plan10 logo (60%) */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex flex-col items-center focus:outline-none cursor-pointer max-w-[45%] sm:max-w-none"
+              className="flex flex-col items-center focus:outline-none cursor-pointer shrink-0"
               aria-label="Ir para o início"
             >
               <img src={plan10Logo} alt="Plan10 Consórcio" className="h-[26px] md:h-9 w-auto object-contain" />
-              <span className="text-[8px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5 whitespace-nowrap">O seu futuro muito mais tranquilo!</span>
             </button>
 
+            {/* Tagline — center on mobile */}
+            <span className="text-[8px] sm:text-[10px] md:text-xs text-white/60 tracking-wide leading-tight text-center flex-1 px-1 md:hidden">
+              O seu futuro muito mais tranquilo!
+            </span>
+            <span className="hidden md:block text-[10px] text-white/60 tracking-wide leading-none whitespace-nowrap">
+              O seu futuro muito mais tranquilo!
+            </span>
+
             {/* Porto logo + credenciada (40%) */}
-            <div className="flex flex-col items-center max-w-[45%] sm:max-w-none">
+            <div className="flex flex-col items-center shrink-0">
               <img src={portoLogo} alt="Porto" className="h-[17px] md:h-6 w-auto object-contain" />
               <span className="text-[7px] sm:text-[9px] text-white/40 tracking-wide leading-none mt-0.5">Credenciada oficial</span>
             </div>
@@ -598,39 +605,41 @@ export default function Consorcio() {
             {/* Countdown — CENTRALIZADO */}
             <Reveal delay={0} direction="up">
               <div className="flex justify-center mb-6 md:mb-8 w-full">
-                <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 sm:px-4 rounded-xl bg-black/40 border border-[#F97316]/30 w-fit">
-                  <span className="text-[#F97316]/70 text-[10px] font-medium uppercase tracking-widest">
-                    Termina em:
+                <div className="flex flex-col items-center py-2 px-3 sm:px-4 rounded-xl bg-black/40 border border-[#F97316]/30 w-fit">
+                  <span className="text-[#F97316]/70 text-[10px] font-semibold uppercase tracking-[0.1em] mb-2 block w-full text-center">
+                    TERMINA EM
                   </span>
-                  {[
-                    { value: timeLeft.dias, label: 'dias' },
-                    { value: timeLeft.horas, label: 'horas' },
-                    { value: timeLeft.mins, label: 'mins' },
-                    { value: timeLeft.segs, label: 'seg' },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-1.5">
-                      <div className="bg-[#1a1a2e] rounded-md px-2 py-1 text-center min-w-[42px]">
-                        <div className="text-[#F97316] font-black text-base font-mono leading-none">
-                          {String(item.value).padStart(2, '0')}
+                  <div className="flex items-center gap-1.5 flex-wrap justify-center">
+                    {[
+                      { value: timeLeft.dias, label: 'dias' },
+                      { value: timeLeft.horas, label: 'horas' },
+                      { value: timeLeft.mins, label: 'mins' },
+                      { value: timeLeft.segs, label: 'seg' },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-1.5">
+                        <div className="bg-[#1a1a2e] rounded-md px-2 py-1 text-center min-w-[42px]">
+                          <div className="text-[#F97316] font-black text-base font-mono leading-none">
+                            {String(item.value).padStart(2, '0')}
+                          </div>
+                          <div className="text-[#F97316]/70 text-[9px] uppercase tracking-wider">
+                            {item.label}
+                          </div>
                         </div>
-                        <div className="text-[#F97316]/70 text-[9px] uppercase tracking-wider">
-                          {item.label}
-                        </div>
+                        {i < 3 && (
+                          <span className="text-[#F97316] font-black text-sm">:</span>
+                        )}
                       </div>
-                      {i < 3 && (
-                        <span className="text-[#F97316] font-black text-sm">:</span>
-                      )}
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </Reveal>
 
-            {/* LEFT-ALIGNED content */}
-            <div className="max-w-2xl text-left">
+            {/* Content — left on desktop, center on mobile */}
+            <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
               {/* H1 */}
               <div ref={heroRevealRef} className="mb-4 md:mb-6">
-                <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] text-left">
+                <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] text-center md:text-left">
                   Os melhores{" "}
                   <span className="text-[#FF6B00]">DESCONTOS</span>{" "}
                   <span className="text-white">em</span>{" "}
@@ -642,22 +651,24 @@ export default function Consorcio() {
 
               {/* Subtítulo */}
               <Reveal delay={500} direction="up">
-                <p className="text-sm md:text-xl text-white/80 max-w-lg text-left mb-6 md:mb-8 leading-relaxed">
-                  Consórcios de Imóveis, veículos e pesados com reduções exclusivas.
+                <p className="text-sm md:text-xl text-white/80 max-w-lg text-center md:text-left mx-auto md:mx-0 mb-6 md:mb-8 leading-relaxed">
+                  <span className="font-bold text-white tracking-wide text-base md:text-2xl">IMÓVEIS · VEÍCULOS · PESADOS</span>
+                  <br />
+                  Com reduções exclusivas.
                 </p>
               </Reveal>
 
               {/* Splash circles — lado esquerdo */}
               <Reveal delay={550} direction="up">
-                <div className="flex gap-4 md:gap-6 mb-6 md:mb-8">
+                <div className="flex gap-4 md:gap-6 mb-6 md:mb-8 justify-center md:justify-start">
                   <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s' }}>
                     <span className="text-white font-black text-2xl md:text-3xl leading-none">45%</span>
                     <span className="text-white/90 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">OFERTA</span>
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap border-2 border-[#9B59D0]">OFERTA</span>
                   </div>
 
-                  <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#1a56db]/60">
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4ade80] text-[#003087] text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">OFF</span>
+                  <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#9B59D0]/60">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#9B59D0] text-white text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">OFF</span>
                     <span className="text-white font-black text-2xl md:text-3xl leading-none">10%</span>
                     <span className="text-white/90 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">Na taxa ADM para clientes Porto</span>
                   </div>
@@ -666,7 +677,7 @@ export default function Consorcio() {
 
               {/* CTAs */}
               <Reveal delay={600} direction="up">
-                <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                <div className="flex flex-col sm:flex-row gap-3 mb-4 items-center md:items-start">
                   <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold w-full sm:w-auto">
                     Quero começar agora
                   </button>
@@ -697,7 +708,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-[#06006B]/60">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Escolha seu consórcio</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">Escolha seu consórcio</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
@@ -1008,7 +1020,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-[#06006B]/60">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Por que escolher o Consórcio Porto com a Plan10?</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">Por que escolher o Consórcio Porto com a Plan10?</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
 
             {/* Porto logo card + subtítulo */}
@@ -1091,10 +1104,10 @@ export default function Consorcio() {
                   Solidez e segurança com a grife Porto Bank
                 </p>
                 <ul className="text-white/80 text-sm flex flex-col gap-1">
-                  <li>• Certificada MESC — Instituto Melhores Empresas em Satisfação do Cliente</li>
-                  <li>• Reconhecimento da Revista Seleções — Marcas de confiança 2020</li>
-                  <li>• Reconhecimento entre as marcas mais amadas do Brasil 2020</li>
-                  <li>• Reconhecimento Marca Brasil 2019</li>
+                  <li><span className="text-[#9B59D0]">•</span> Certificada MESC — Instituto Melhores Empresas em Satisfação do Cliente</li>
+                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento da Revista Seleções — Marcas de confiança 2020</li>
+                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento entre as marcas mais amadas do Brasil 2020</li>
+                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento Marca Brasil 2019</li>
                 </ul>
               </div>
             </div>
@@ -1136,7 +1149,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-black/20">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">São poucos passos até a conquista do seu sonho</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">São poucos passos até a conquista do seu sonho</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-14 rounded-full" />
             </Reveal>
 
             {/* Steps grid with timeline */}
@@ -1166,7 +1180,7 @@ export default function Consorcio() {
                         {i < 3 && (
                           <div className="md:hidden absolute top-full left-1/2 -translate-x-1/2 w-0.5 h-8 bg-[#F97316]/40 z-0" />
                         )}
-                        <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center font-sora font-bold text-[0.9rem] text-white shadow-lg border-2 border-[#F97316]/60" style={{ background: '#F97316' }}>
+                        <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center font-sora font-bold text-[0.9rem] text-white shadow-lg border-2 border-[#F97316]/60" style={{ background: '#F97316', boxShadow: '0 0 0 3px #9B59D0' }}>
                           {s.n}
                         </div>
                       </div>
@@ -1198,7 +1212,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-[#06006B]/60">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">O seu futuro muito mais tranquilo!</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">O seu futuro muito mais tranquilo!</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
@@ -1325,7 +1340,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 overflow-hidden bg-black/20">
           <div className="container mx-auto px-4 mb-14">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">O que nossos clientes dizem</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">O que nossos clientes dizem</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -1477,7 +1493,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-black/20">
           <div className="container mx-auto px-4 max-w-3xl">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">Dúvidas frequentes</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">Dúvidas frequentes</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-14 rounded-full" />
             </Reveal>
 
             <Reveal direction="up">
@@ -1568,9 +1585,9 @@ export default function Consorcio() {
           </div>
           <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto S.A.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
-            <a href="/politica-de-privacidade" className="hover:text-accent transition-colors">Política de Privacidade</a>
+            <a href="/politica-de-privacidade" className="text-[#9B59D0] hover:brightness-125 transition-colors">Política de Privacidade</a>
             <span>|</span>
-            <a href="/" className="hover:text-accent transition-colors">plan10.com.br</a>
+            <a href="/" className="text-[#9B59D0] hover:brightness-125 transition-colors">plan10.com.br</a>
           </div>
 
           <div className="border-t border-white/5 pt-4 mt-4 text-xs text-gray-500 text-center space-y-1 max-w-3xl mx-auto">
