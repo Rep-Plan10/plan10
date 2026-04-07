@@ -524,48 +524,31 @@ export default function Consorcio() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter">
+    <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter overflow-x-hidden">
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#06006B]/80 border-b border-white/5">
-        <div className="container mx-auto px-4 h-auto py-2 sm:py-0 sm:h-16 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 sm:gap-0">
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
-            {/* Plan10 logo + tagline */}
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex flex-col items-center sm:items-start focus:outline-none cursor-pointer"
-              aria-label="Ir para o início"
-            >
-              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 sm:h-9 w-auto object-contain" />
-              <span className="text-[9px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5">O seu futuro muito mais tranquilo!</span>
-            </button>
-
-            {/* Porto logo + credenciada */}
-            <div className="flex flex-col items-center sm:items-start">
-              <img src={portoLogo} alt="Porto" className="h-5 sm:h-6 w-auto object-contain" />
-              <span className="text-[8px] sm:text-[9px] text-white/40 tracking-wide leading-none mt-0.5">Credenciada oficial</span>
-            </div>
-          </div>
-
+        <div className="container mx-auto px-4 h-auto py-2 flex items-center justify-center gap-4 sm:gap-8">
+          {/* Plan10 logo + tagline */}
           <button
-            onClick={() => {
-              setActiveSimCategory(null);
-              setSimCategoria('imovel');
-              setSimFaixa(0);
-              setSimAberto(true);
-              setTimeout(() => {
-                document.getElementById('simulador-parcelas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }, 100);
-            }}
-            className="hidden sm:block cta-btn bg-accent text-accent-foreground text-sm px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold whitespace-nowrap"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex flex-col items-center focus:outline-none cursor-pointer max-w-[45%] sm:max-w-none"
+            aria-label="Ir para o início"
           >
-            Simular agora
+            <img src={plan10Logo} alt="Plan10 Consórcio" className="h-7 sm:h-9 w-auto object-contain" />
+            <span className="text-[8px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5 whitespace-nowrap">O seu futuro muito mais tranquilo!</span>
           </button>
+
+          {/* Porto logo + credenciada */}
+          <div className="flex flex-col items-center max-w-[45%] sm:max-w-none">
+            <img src={portoLogo} alt="Porto" className="h-5 sm:h-6 w-auto object-contain" />
+            <span className="text-[7px] sm:text-[9px] text-white/40 tracking-wide leading-none mt-0.5">Credenciada oficial</span>
+          </div>
         </div>
       </header>
 
       <main>
         {/* ═══════ HERO ═══════ */}
-        <section className="relative w-full flex flex-col justify-center overflow-x-hidden min-h-[85vh] md:min-h-[90vh]">
+        <section className="relative w-full flex flex-col justify-center overflow-x-hidden min-h-fit md:min-h-[75vh]">
           {/* Background image */}
           <div className="absolute inset-0">
             <img src={familiaHero} alt="Família feliz" className="w-full h-full object-cover" />
@@ -589,11 +572,11 @@ export default function Consorcio() {
             ))}
           </div>
 
-          <div className="container mx-auto px-4 relative z-10 pt-28 md:pt-24 pb-8">
+          <div className="container mx-auto px-4 relative z-10 pt-6 pb-6 md:pt-16 md:pb-8">
             {/* Countdown — CENTRALIZADO */}
             <Reveal delay={0} direction="up">
               <div className="flex justify-center mb-6 md:mb-8 w-full">
-                <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-4 rounded-xl bg-black/40 border border-[#F97316]/30 w-fit">
+                <div className="flex items-center gap-1.5 flex-wrap justify-center py-2 px-3 sm:px-4 rounded-xl bg-black/40 border border-[#F97316]/30 w-fit">
                   <span className="text-[#F97316]/70 text-[10px] font-medium uppercase tracking-widest">
                     Termina em:
                   </span>
@@ -1100,12 +1083,12 @@ export default function Consorcio() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
                 <div className="flex-1 flex flex-col items-center justify-center bg-[#F97316] rounded-2xl px-6 py-6 text-center shadow-lg shadow-[#F97316]/30">
-                  <span className="text-white font-black text-5xl leading-none">20%</span>
-                  <span className="text-white/90 font-medium text-sm mt-1">de desconto</span>
+                  <span className="text-white font-black text-5xl leading-none">45%</span>
+                  <span className="text-white/90 font-medium text-sm mt-1">Redução até a contemplação</span>
                 </div>
                 <div className="flex-1 flex flex-col items-center justify-center bg-[#1D6FCC] rounded-2xl px-6 py-6 text-center shadow-lg shadow-[#1D6FCC]/30">
                   <span className="text-white font-black text-5xl leading-none">10%</span>
-                  <span className="text-white/90 font-medium text-sm mt-1">no cartão Porto</span>
+                  <span className="text-white/90 font-medium text-sm mt-1">Para clientes Porto</span>
                 </div>
               </div>
               <a
@@ -1128,7 +1111,12 @@ export default function Consorcio() {
             </Reveal>
 
             {/* Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-8">
+              {/* Timeline connector line — desktop horizontal */}
+              <div className="hidden md:block absolute top-[calc(1.35rem+10rem+20px+20px)] left-[12.5%] right-[12.5%] h-0.5 border-t-2 border-dashed border-accent/40 z-0" />
+              {/* Timeline connector line — mobile vertical */}
+              <div className="md:hidden absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2 border-l-2 border-dashed border-accent/20 z-0" />
+
               {[
                 { n: "01", title: "Escolha seu sonho", imgTitle: "Comece pelo seu sonho", desc: "Simule o valor do imóvel ou veículo desejado e encontre o plano ideal para o seu momento de vida.", img: "/images/familia-olhando-carro.png", alt: "Família escolhendo o sonho" },
                 { n: "02", title: "Entre no grupo", imgTitle: "Sonhe junto com mais pessoas", desc: "Você passa a fazer parte de um grupo com pessoas de objetivos similares e começa a pagar as parcelas mensais.", img: "/images/familia-assinando-contrato.png", alt: "Família assinando contrato" },
@@ -1136,22 +1124,17 @@ export default function Consorcio() {
                 { n: "04", title: "Use sua carta de crédito", imgTitle: "Conquiste com poder de compra", desc: "Com a carta em mãos, você compra à vista e ainda tem poder de negociação para conseguir desconto.", img: "/images/familia-comprando-carro.png", alt: "Família comprando o carro" },
               ].map((s, i) => (
                 <Reveal key={i} delay={i * 200} direction="up">
-                  <div className="flex flex-col items-center text-center">
+                  <div className="relative z-10 flex flex-col items-center text-center bg-[#06006B]/80 md:bg-transparent py-4 md:py-0">
                     {/* Image title above image */}
-                    <p className="text-[#F97316] font-sora font-bold text-sm mb-3 mt-2">{s.imgTitle}</p>
+                    <p className="text-[#F97316] font-sora font-semibold text-lg md:text-xl mb-3 mt-2">{s.imgTitle}</p>
                     {/* Image */}
                     <img src={s.img} alt={s.alt} className="w-full h-40 object-cover rounded-xl mb-4" loading="lazy" />
-                    {/* Timeline number + connector */}
-                    <div className="flex flex-col items-center mb-3">
-                      <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-sm">
-                        {s.n}
-                      </div>
-                      {i < 3 && (
-                        <div className="hidden md:block w-full border-t border-dashed border-accent/40 mt-2" />
-                      )}
+                    {/* Timeline number */}
+                    <div className="w-11 h-11 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-sora font-bold text-sm mb-3 shadow-lg shadow-accent/30">
+                      {s.n}
                     </div>
                     {/* Description */}
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-2">{s.desc}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-2 px-2">{s.desc}</p>
                     {/* Step title below description */}
                     <h3 className="font-sora font-semibold text-base text-foreground">{s.title}</h3>
                   </div>
