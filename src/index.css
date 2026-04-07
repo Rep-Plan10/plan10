@@ -4,8 +4,10 @@
 
 @layer base {
   :root {
+    color-scheme: light only;
     --background: 222 54% 8%;
     --foreground: 210 20% 98%;
+    --color-lilas: 280 52% 58%;
 
     --card: 222 54% 8%;
     --card-foreground: 210 20% 98%;
@@ -61,10 +63,20 @@
 
   body {
     @apply bg-background text-foreground font-inter;
+    forced-color-adjust: none;
+    -webkit-forced-color-adjust: none;
   }
 
   html {
     scroll-behavior: smooth;
+    forced-color-adjust: none;
+    -webkit-forced-color-adjust: none;
+    color-scheme: light only;
+  }
+
+  img, .cta-btn, .cta-glow-pulse, [class*="bg-accent"], [class*="bg-[#F97316]"], [class*="bg-[#FF6B00]"] {
+    filter: none !important;
+    -webkit-filter: none !important;
   }
 
   /* Scrollbar styling */
