@@ -524,7 +524,7 @@ export default function Consorcio() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter">
+    <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter overflow-x-hidden">
       {/* ───── MINI HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#06006B]/80 border-b border-white/5">
         <div className="container mx-auto px-4 h-auto py-2 flex items-center justify-center gap-4 sm:gap-8">
