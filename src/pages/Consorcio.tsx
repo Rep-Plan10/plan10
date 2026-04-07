@@ -532,19 +532,26 @@ export default function Consorcio() {
           <div className="hidden md:block w-[140px]" />
 
           {/* Centered logos — 60/40 ratio */}
-          <div className="flex items-center justify-center gap-4 sm:gap-8 flex-1 md:flex-none">
-            {/* Plan10 logo + tagline (60%) */}
+          <div className="flex items-center justify-between gap-2 sm:gap-8 flex-1 md:flex-none">
+            {/* Plan10 logo (60%) */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex flex-col items-center focus:outline-none cursor-pointer max-w-[45%] sm:max-w-none"
+              className="flex flex-col items-center focus:outline-none cursor-pointer shrink-0"
               aria-label="Ir para o início"
             >
               <img src={plan10Logo} alt="Plan10 Consórcio" className="h-[26px] md:h-9 w-auto object-contain" />
-              <span className="text-[8px] sm:text-[10px] text-white/60 tracking-wide leading-none mt-0.5 whitespace-nowrap">O seu futuro muito mais tranquilo!</span>
             </button>
 
+            {/* Tagline — center on mobile */}
+            <span className="text-[8px] sm:text-[10px] md:text-xs text-white/60 tracking-wide leading-tight text-center flex-1 px-1 md:hidden">
+              O seu futuro muito mais tranquilo!
+            </span>
+            <span className="hidden md:block text-[10px] text-white/60 tracking-wide leading-none whitespace-nowrap">
+              O seu futuro muito mais tranquilo!
+            </span>
+
             {/* Porto logo + credenciada (40%) */}
-            <div className="flex flex-col items-center max-w-[45%] sm:max-w-none">
+            <div className="flex flex-col items-center shrink-0">
               <img src={portoLogo} alt="Porto" className="h-[17px] md:h-6 w-auto object-contain" />
               <span className="text-[7px] sm:text-[9px] text-white/40 tracking-wide leading-none mt-0.5">Credenciada oficial</span>
             </div>
@@ -1012,7 +1019,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-[#06006B]/60">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">Por que escolher o Consórcio Porto com a Plan10?</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">Por que escolher o Consórcio Porto com a Plan10?</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
 
             {/* Porto logo card + subtítulo */}
@@ -1140,7 +1148,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-black/20">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">São poucos passos até a conquista do seu sonho</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">São poucos passos até a conquista do seu sonho</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-14 rounded-full" />
             </Reveal>
 
             {/* Steps grid with timeline */}
@@ -1170,7 +1179,7 @@ export default function Consorcio() {
                         {i < 3 && (
                           <div className="md:hidden absolute top-full left-1/2 -translate-x-1/2 w-0.5 h-8 bg-[#F97316]/40 z-0" />
                         )}
-                        <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center font-sora font-bold text-[0.9rem] text-white shadow-lg border-2 border-[#F97316]/60" style={{ background: '#F97316' }}>
+                        <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center font-sora font-bold text-[0.9rem] text-white shadow-lg border-2 border-[#F97316]/60" style={{ background: '#F97316', boxShadow: '0 0 0 3px #9B59D0' }}>
                           {s.n}
                         </div>
                       </div>
@@ -1202,7 +1211,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-[#06006B]/60">
           <div className="container mx-auto px-4">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">O seu futuro muito mais tranquilo!</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">O seu futuro muito mais tranquilo!</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
@@ -1329,7 +1339,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 overflow-hidden bg-black/20">
           <div className="container mx-auto px-4 mb-14">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4">O que nossos clientes dizem</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">O que nossos clientes dizem</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -1481,7 +1492,8 @@ export default function Consorcio() {
         <section className="py-14 md:py-28 bg-black/20">
           <div className="container mx-auto px-4 max-w-3xl">
             <Reveal direction="up">
-              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-14">Dúvidas frequentes</h2>
+              <h2 className="font-sora font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-2">Dúvidas frequentes</h2>
+              <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-14 rounded-full" />
             </Reveal>
 
             <Reveal direction="up">
@@ -1572,9 +1584,9 @@ export default function Consorcio() {
           </div>
           <p className="text-sm text-muted-foreground mb-3">© 2026 Plan10 Consórcio — Plan10 Corretora de Seguros e Benefícios Ltda. | Parceiro Oficial Porto S.A.</p>
           <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
-            <a href="/politica-de-privacidade" className="hover:text-accent transition-colors">Política de Privacidade</a>
+            <a href="/politica-de-privacidade" className="text-[#9B59D0] hover:brightness-125 transition-colors">Política de Privacidade</a>
             <span>|</span>
-            <a href="/" className="hover:text-accent transition-colors">plan10.com.br</a>
+            <a href="/" className="text-[#9B59D0] hover:brightness-125 transition-colors">plan10.com.br</a>
           </div>
 
           <div className="border-t border-white/5 pt-4 mt-4 text-xs text-gray-500 text-center space-y-1 max-w-3xl mx-auto">
