@@ -1271,7 +1271,14 @@ export default function Consorcio() {
               ))}
             </div>
 
-            {/* Bloco consultoria — 7c shortened text */}
+            {/* Veleiro image */}
+            <Reveal direction="right" delay={300}>
+              <div className="mt-10 mx-auto max-w-[560px] relative rounded-2xl overflow-hidden h-[180px] md:h-[300px]">
+                <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover" style={{ filter: 'none' }} />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #1A1F8F 25%, transparent 70%)' }} />
+              </div>
+            </Reveal>
+
             <div className="mt-10 rounded-2xl bg-[#1D4ED8]/30 border border-[#1D6FCC]/40 p-8 text-center">
               <h3 className="text-white font-bold text-xl md:text-2xl mb-2">
                 Conte com consultoria exclusiva em cada etapa
@@ -1586,10 +1593,10 @@ export default function Consorcio() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-8">
             {/* Coluna 1 — Identidade */}
-            <div className="flex flex-col items-center md:items-start gap-3">
-              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto" style={{ filter: 'none' }} />
-              <p className="text-white/85 font-semibold text-sm">Plan10 Consórcio</p>
-              <p className="text-white/60 text-xs">Credenciada Porto Seguro · Autorizada SUSEP</p>
+            <div className="flex flex-col items-center md:items-start gap-1.5">
+              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 w-auto" style={{ filter: 'none' }} />
+              <p className="text-white/65 text-xs">Credenciada Porto Seguro · Autorizada SUSEP</p>
+            </div>
             </div>
 
             {/* Coluna 2 — Contato */}
