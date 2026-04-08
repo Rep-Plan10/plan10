@@ -1320,7 +1320,7 @@ export default function Consorcio() {
                   <Shield size={28} className="text-[#F97316]" />
                   <div className="flex items-center gap-2">
                     <span className="text-white font-bold text-lg">Autorizada</span>
-                    <img src={logoSusep} alt="SUSEP" className="w-auto object-contain" style={{ filter: 'none', minHeight: '48px' }} />
+                    <img src={logoSusep} alt="SUSEP" className="h-7 w-auto object-contain" style={{ filter: 'none' }} />
                   </div>
                 </div>
 
