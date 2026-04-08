@@ -1597,7 +1597,6 @@ export default function Consorcio() {
               <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 w-auto" style={{ filter: 'none' }} />
               <p className="text-white/65 text-xs">Credenciada Porto Seguro · Autorizada SUSEP</p>
             </div>
-            </div>
 
             {/* Coluna 2 — Contato */}
             <div className="flex flex-col items-center md:items-start gap-3">
