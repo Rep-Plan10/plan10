@@ -7,6 +7,7 @@ import familiaHero from "@/assets/familia-hero.png";
 import imgCasaFile from "@/assets/Casa.jpg";
 import imgVeiculosFile from "@/assets/Veiculos.jpg";
 import imgPesadosFile from "@/assets/Pesados.jpg";
+import veileiroImg from "@/assets/veleiro.jpg";
 
 const plan10Logo = plan10LogoNew;
 
@@ -289,7 +290,7 @@ export default function Consorcio() {
   const { ref: heroRevealRef } = useReveal(0.2);
 
   useEffect(() => {
-    document.title = "Plan10 Consórcio — Conquiste seu sonho sem juros";
+    document.title = "Plan10 Consórcio | Conquiste seu sonho sem juros";
   }, []);
 
   /* ── Countdown — target 30/04/2026 ── */
@@ -548,7 +549,7 @@ export default function Consorcio() {
               {/* Porto + credenciada */}
               <div className="flex flex-col items-center gap-0.5">
                 <img src={portoLogo} alt="Porto" className="h-[18px] w-auto object-contain" style={{ filter: 'none' }} />
-                <span className="text-[0.55rem] text-white/75 leading-none text-center" style={{ width: '100%' }}>Credenciada oficial</span>
+                <span className="text-[0.55rem] text-white/75 leading-none text-center tracking-[-0.01em]" style={{ width: '100%' }}>Credenciada oficial</span>
               </div>
             </div>
             <p className="text-xs text-white/90 whitespace-nowrap m-0">O seu futuro muito mais tranquilo!</p>
@@ -650,11 +651,8 @@ export default function Consorcio() {
                       </div>
                     ))}
                   </div>
-                  {/* 5. Discount date below countdown */}
                   <div className="mt-2 text-center">
-                    <span className="text-white/60 text-[10px]">Descontos exclusivos até</span>
-                    <br />
-                    <span className="text-[#F97316] font-bold text-xs">30/04/2026</span>
+                    <span className="text-white/60 text-xs whitespace-nowrap">Descontos exclusivos até <span className="text-[#F97316] font-bold">30/04/2026</span></span>
                   </div>
                 </div>
               </div>
@@ -803,7 +801,7 @@ export default function Consorcio() {
             {/* 3f. Footnote */}
             <div className="text-center mt-6 max-w-2xl mx-auto">
               <p className="text-sm text-white/50 italic">
-                * Consórcios com reduções exclusivas — garanta a sua cota antes que acabe.
+                * Consórcios com reduções exclusivas, garanta a sua cota antes que acabe.
               </p>
               <p className="text-sm text-white/70 font-bold mt-1">
                 Grupos em andamento com vagas limitadas.
@@ -1053,7 +1051,7 @@ export default function Consorcio() {
                   <img src={portoLogo} alt="Porto" className="h-10 w-auto object-contain mx-auto mb-3" style={{ filter: 'none' }} />
                   <p className="text-white font-bold text-sm mb-1">Parceiro oficial Porto</p>
                   {/* 4c. Shortened text */}
-                  <p className="text-white/60 text-xs leading-relaxed">Seguradora com mais de 50 anos</p>
+                  <p className="text-white/60 text-xs leading-relaxed">Seguradora com mais de 50 anos de tradição</p>
                 </div>
                 {/* 4c. Shortened text */}
                 <p className="text-center text-white font-bold text-2xl md:text-3xl tracking-wide">
@@ -1125,8 +1123,8 @@ export default function Consorcio() {
                   Solidez e segurança
                 </p>
                 <ul className="text-white/80 text-sm flex flex-col gap-1">
-                  <li><span className="text-[#9B59D0]">•</span> Certificada MESC — Instituto Melhores Empresas em Satisfação do Cliente</li>
-                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento da Revista Seleções — Marcas de confiança 2020</li>
+                  <li><span className="text-[#9B59D0]">•</span> Certificada MESC, Instituto Melhores Empresas em Satisfação do Cliente</li>
+                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento da Revista Seleções, Marcas de confiança 2020</li>
                   <li><span className="text-[#9B59D0]">•</span> Reconhecimento entre as marcas mais amadas do Brasil 2020</li>
                   <li><span className="text-[#9B59D0]">•</span> Reconhecimento Marca Brasil 2019</li>
                 </ul>
@@ -1239,15 +1237,28 @@ export default function Consorcio() {
               <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
             <Reveal direction="up" delay={200}>
-              <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
+              <p className="text-center text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
                 Do sonho ao patrimônio, a Plan10 está com você em cada etapa.
               </p>
+            </Reveal>
+
+            {/* Card de Parceria */}
+            <Reveal direction="up" delay={250}>
+              <div className="mx-auto max-w-sm mb-10 rounded-2xl p-6 text-center" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)' }}>
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
+                  <span className="text-white font-bold text-lg">+</span>
+                  <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
+                </div>
+                <p className="text-[#F97316] font-semibold text-xs uppercase tracking-[0.08em] mt-3">Parceria oficial</p>
+                <p className="text-white/80 text-sm mt-1">Plan10 é correspondente credenciada da Porto, uma das maiores seguradoras do Brasil.</p>
+              </div>
             </Reveal>
 
             <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
               {[
                 { img: "/images/seguranca-garantida.png", imgAlt: "Segurança garantida", title: "Segurança garantida", desc: "Todo o processo é regulamentado pelo Banco Central. Você investe com a segurança da Porto Bank por trás." },
-                { img: "/images/consultoria-personalizada.png", imgAlt: "Consultoria personalizada", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você — sem pressão, sem enrolação." },
+                { img: "/images/consultoria-personalizada.png", imgAlt: "Consultoria personalizada", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você, sem pressão, sem enrolação." },
                 { img: "/images/contratacao-simples-rapida.png", imgAlt: "Contratação simples e rápida", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
               ].map((c, i) => (
                 <Reveal key={i} delay={i * 150} direction="up" className="h-full">
@@ -1260,7 +1271,14 @@ export default function Consorcio() {
               ))}
             </div>
 
-            {/* Bloco consultoria — 7c shortened text */}
+            {/* Veleiro image */}
+            <Reveal direction="right" delay={300}>
+              <div className="mt-10 mx-auto max-w-[560px] relative rounded-2xl overflow-hidden h-[180px] md:h-[300px]">
+                <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover" style={{ filter: 'none' }} />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #1A1F8F 25%, transparent 70%)' }} />
+              </div>
+            </Reveal>
+
             <div className="mt-10 rounded-2xl bg-[#1D4ED8]/30 border border-[#1D6FCC]/40 p-8 text-center">
               <h3 className="text-white font-bold text-xl md:text-2xl mb-2">
                 Conte com consultoria exclusiva em cada etapa
@@ -1315,7 +1333,7 @@ export default function Consorcio() {
                     Porto Bank Oficial
                   </p>
                   <p className="text-white/60 text-sm text-center leading-relaxed" style={{ lineHeight: '1.6' }}>
-                    Somos parceiros credenciados da Porto Bank — uma das maiores administradoras de consórcio do Brasil, com décadas de tradição e solidez no mercado.
+                    Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil, com décadas de tradição e solidez no mercado.
                   </p>
                 </div>
               </div>
@@ -1344,7 +1362,7 @@ export default function Consorcio() {
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto">
-                A maioria dos nossos clientes chega por indicação — e isso diz tudo.
+                A maioria dos nossos clientes chega por indicação, e isso diz tudo.
               </p>
             </Reveal>
           </div>
@@ -1575,10 +1593,9 @@ export default function Consorcio() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-8">
             {/* Coluna 1 — Identidade */}
-            <div className="flex flex-col items-center md:items-start gap-3">
-              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto" style={{ filter: 'none' }} />
-              <p className="text-white/85 font-semibold text-sm">Plan10 Consórcio</p>
-              <p className="text-white/60 text-xs">Credenciada Porto Seguro · Autorizada SUSEP</p>
+            <div className="flex flex-col items-center md:items-start gap-1.5">
+              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-8 w-auto" style={{ filter: 'none' }} />
+              <p className="text-white/65 text-xs">Credenciada Porto Seguro · Autorizada SUSEP</p>
             </div>
 
             {/* Coluna 2 — Contato */}

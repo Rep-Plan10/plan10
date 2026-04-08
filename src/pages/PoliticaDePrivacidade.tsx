@@ -24,7 +24,7 @@ export default function PoliticaDePrivacidade() {
 
       <main className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="font-sora font-bold text-3xl text-foreground mb-2">
-          POLÍTICA DE PRIVACIDADE — PLAN10 CONSÓRCIO
+          POLÍTICA DE PRIVACIDADE | PLAN10 CONSÓRCIO
         </h1>
         <p className="text-muted-foreground mb-10">Última atualização: abril de 2025</p>
 
@@ -71,7 +71,7 @@ export default function PoliticaDePrivacidade() {
           </section>
 
           <section className="border-t border-white/10 pt-8 pb-8">
-            <h2 className="text-xl font-semibold text-accent mb-3 font-sora">4. Base Legal (LGPD — Lei nº 13.709/2018)</h2>
+            <h2 className="text-xl font-semibold text-accent mb-3 font-sora">4. Base Legal (LGPD, Lei nº 13.709/2018)</h2>
             <p className="text-gray-300 leading-relaxed mb-3">O tratamento dos dados se fundamenta nas seguintes hipóteses legais:</p>
             <ul className="list-disc list-inside space-y-1 text-gray-300">
               <li>Consentimento do titular (art. 7º, I);</li>
