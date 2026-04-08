@@ -1237,9 +1237,22 @@ export default function Consorcio() {
               <div className="w-[60px] h-[3px] bg-[#9B59D0] mx-auto mb-4 rounded-full" />
             </Reveal>
             <Reveal direction="up" delay={200}>
-              <p className="text-center text-muted-foreground text-lg mb-14 max-w-xl mx-auto">
+              <p className="text-center text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
                 Do sonho ao patrimônio, a Plan10 está com você em cada etapa.
               </p>
+            </Reveal>
+
+            {/* Card de Parceria */}
+            <Reveal direction="up" delay={250}>
+              <div className="mx-auto max-w-sm mb-10 rounded-2xl p-6 text-center" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)' }}>
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
+                  <span className="text-white font-bold text-lg">+</span>
+                  <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
+                </div>
+                <p className="text-[#F97316] font-semibold text-xs uppercase tracking-[0.08em] mt-3">Parceria oficial</p>
+                <p className="text-white/80 text-sm mt-1">Plan10 é correspondente credenciada da Porto, uma das maiores seguradoras do Brasil.</p>
+              </div>
             </Reveal>
 
             <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
