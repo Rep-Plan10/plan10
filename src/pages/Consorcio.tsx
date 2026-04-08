@@ -1345,7 +1345,7 @@ export default function Consorcio() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#F97316] hover:brightness-110 text-white font-bold text-lg px-10 py-4 rounded-full transition-all duration-200 shadow-lg shadow-[#F97316]/30"
-                style={{ filter: 'none' }}
+                style={{ filter: 'none', backgroundColor: '#F97316', color: '#FFFFFF', forcedColorAdjust: 'none' as any }}
               >
                 Quero começar agora
               </a>
