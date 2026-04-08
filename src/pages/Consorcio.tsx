@@ -1123,8 +1123,8 @@ export default function Consorcio() {
                   Solidez e segurança
                 </p>
                 <ul className="text-white/80 text-sm flex flex-col gap-1">
-                  <li><span className="text-[#9B59D0]">•</span> Certificada MESC — Instituto Melhores Empresas em Satisfação do Cliente</li>
-                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento da Revista Seleções — Marcas de confiança 2020</li>
+                  <li><span className="text-[#9B59D0]">•</span> Certificada MESC, Instituto Melhores Empresas em Satisfação do Cliente</li>
+                  <li><span className="text-[#9B59D0]">•</span> Reconhecimento da Revista Seleções, Marcas de confiança 2020</li>
                   <li><span className="text-[#9B59D0]">•</span> Reconhecimento entre as marcas mais amadas do Brasil 2020</li>
                   <li><span className="text-[#9B59D0]">•</span> Reconhecimento Marca Brasil 2019</li>
                 </ul>
@@ -1362,7 +1362,7 @@ export default function Consorcio() {
             </Reveal>
             <Reveal direction="up" delay={200}>
               <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto">
-                A maioria dos nossos clientes chega por indicação — e isso diz tudo.
+                A maioria dos nossos clientes chega por indicação, e isso diz tudo.
               </p>
             </Reveal>
           </div>
