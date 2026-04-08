@@ -1244,14 +1244,14 @@ export default function Consorcio() {
 
             {/* Card de Parceria */}
             <Reveal direction="up" delay={250}>
-              <div className="mx-auto max-w-sm mb-10 rounded-2xl p-6 text-center" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)' }}>
-                <div className="flex items-center justify-center gap-3 mb-3">
+              <div className="mx-auto max-w-sm mb-10 rounded-2xl p-6 flex flex-col items-center text-center" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)' }}>
+                <div className="flex items-center justify-center gap-4 w-full mb-3">
                   <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
                   <span className="text-white font-bold text-lg">+</span>
                   <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
                 </div>
-                <p className="text-[#F97316] font-semibold text-xs uppercase tracking-[0.08em] mt-3">Parceria oficial</p>
-                <p className="text-white/80 text-sm mt-1">Plan10 é correspondente credenciada da Porto, uma das maiores seguradoras do Brasil.</p>
+                <p className="text-[#F97316] font-semibold text-xs uppercase tracking-[0.08em] mt-3 text-center w-full">Parceria oficial</p>
+                <p className="text-white/80 text-sm mt-1 text-center w-full">Plan10 é correspondente credenciada da Porto, uma das maiores seguradoras do Brasil.</p>
               </div>
             </Reveal>
 
@@ -1271,11 +1271,14 @@ export default function Consorcio() {
               ))}
             </div>
 
-            {/* Veleiro image */}
-            <Reveal direction="right" delay={300}>
-              <div className="mt-10 mx-auto max-w-[560px] relative rounded-2xl overflow-hidden h-[180px] md:h-[300px]">
-                <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover" style={{ filter: 'none' }} />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #1A1F8F 25%, transparent 70%)' }} />
+            {/* Veleiro image — full width with bottom overlay */}
+            <Reveal direction="up" delay={300}>
+              <div className="relative w-full rounded-[20px] overflow-hidden mt-10 h-[260px] md:h-[420px]">
+                <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover object-center block" style={{ filter: 'none', forcedColorAdjust: 'none' as any }} />
+                <div className="absolute bottom-0 left-0 right-0 h-[55%] rounded-b-[20px]" style={{ background: 'linear-gradient(to top, rgba(10,14,100,0.85) 0%, transparent 100%)' }} />
+                <p className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center z-[2] text-white font-bold text-xl md:text-[1.75rem] px-6" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
+                  O seu futuro muito mais tranquilo!
+                </p>
               </div>
             </Reveal>
 
@@ -1320,7 +1323,7 @@ export default function Consorcio() {
                   <Shield size={28} className="text-[#F97316]" />
                   <div className="flex items-center gap-2">
                     <span className="text-white font-bold text-lg">Autorizada</span>
-                    <img src={logoSusep} alt="SUSEP" className="h-9 w-auto min-w-[100px] object-contain" style={{ filter: 'none' }} />
+                    <img src={logoSusep} alt="SUSEP" className="w-auto object-contain" style={{ filter: 'none', minHeight: '48px' }} />
                   </div>
                 </div>
 
