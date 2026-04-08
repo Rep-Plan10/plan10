@@ -544,12 +544,12 @@ export default function Consorcio() {
               </button>
 
               {/* Vertical separator */}
-              <div className="h-7 border-l border-white/20" />
+              <div className="h-5 border-l border-white/20" />
 
               {/* Porto + credenciada */}
               <div className="flex flex-col items-start gap-0.5">
-                <img src={portoLogo} alt="Porto" className="h-6 w-auto object-contain" />
-                <span className="text-[0.65rem] text-white/75 leading-none">Credenciada oficial</span>
+                <img src={portoLogo} alt="Porto" className="h-[18px] w-auto object-contain" />
+                <span className="text-[0.55rem] text-white/75 leading-none">Credenciada oficial</span>
               </div>
             </div>
             <p className="text-xs text-white/90 whitespace-nowrap m-0">O seu futuro muito mais tranquilo!</p>
@@ -587,8 +587,8 @@ export default function Consorcio() {
 
             {/* Porto + credenciada */}
             <div className="flex flex-col items-start gap-0.5 shrink-0">
-              <img src={portoLogo} alt="Porto" className="h-[19px] w-auto object-contain" />
-              <span className="text-[0.6rem] text-white/60 leading-none">Credenciada oficial</span>
+              <img src={portoLogo} alt="Porto" className="h-[15px] w-auto object-contain" />
+              <span className="text-[0.5rem] text-white/60 leading-none">Credenciada oficial</span>
             </div>
           </div>
           <p className="text-[0.7rem] text-white/90 text-center m-0">O seu futuro muito mais tranquilo!</p>
