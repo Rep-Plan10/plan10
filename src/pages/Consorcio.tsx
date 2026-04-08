@@ -683,15 +683,15 @@ export default function Consorcio() {
               {/* Splash circles */}
               <Reveal delay={550} direction="up">
                 <div className="flex gap-4 md:gap-6 mb-6 md:mb-8 justify-center md:justify-start">
-                  <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s', filter: 'none' }}>
-                    <span className="text-white font-black text-2xl md:text-3xl leading-none">45%</span>
+                  <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s', filter: 'none', backgroundColor: '#F97316', forcedColorAdjust: 'none' as any }}>
+                    <span className="text-white font-black text-2xl md:text-3xl leading-none" style={{ color: '#FFFFFF' }}>45%</span>
                     <span className="text-white/90 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap border-2 border-[#9B59D0]">OFERTA</span>
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap border-2 border-[#9B59D0]" style={{ borderColor: '#9B59D0', color: '#FF6B00', forcedColorAdjust: 'none' as any }}>OFERTA</span>
                   </div>
 
-                  <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#9B59D0]/60" style={{ filter: 'none' }}>
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#9B59D0] text-white text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">OFF</span>
-                    <span className="text-white font-black text-2xl md:text-3xl leading-none">10%</span>
+                  <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#9B59D0]/60" style={{ filter: 'none', backgroundColor: '#2563EB', forcedColorAdjust: 'none' as any }}>
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#9B59D0] text-white text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap" style={{ backgroundColor: '#9B59D0', color: '#FFFFFF', forcedColorAdjust: 'none' as any }}>OFF</span>
+                    <span className="text-white font-black text-2xl md:text-3xl leading-none" style={{ color: '#FFFFFF' }}>10%</span>
                     <span className="text-white/90 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">Na taxa ADM para clientes Porto</span>
                   </div>
                 </div>
@@ -700,7 +700,7 @@ export default function Consorcio() {
               {/* CTAs */}
               <Reveal delay={600} direction="up">
                 <div className="flex flex-col sm:flex-row gap-3 mb-4 items-center md:items-start">
-                  <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold w-full sm:w-auto" style={{ filter: 'none' }}>
+                  <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold w-full sm:w-auto" style={{ filter: 'none', backgroundColor: '#F97316', color: '#FFFFFF', forcedColorAdjust: 'none' as any }}>
                     Quero começar agora
                   </button>
                   <a

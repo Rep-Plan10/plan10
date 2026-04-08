@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === ANDROID FORCE DARK KILL SWITCH === */
 :root {
   color-scheme: light !important;
   supported-color-schemes: light !important;
 }
 
-html {
+html, html * {
   color-scheme: light !important;
   forced-color-adjust: none !important;
   -webkit-forced-color-adjust: none !important;
 }
 
-body {
-  color-scheme: light !important;
-  forced-color-adjust: none !important;
-  -webkit-forced-color-adjust: none !important;
-}
-
-* {
-  forced-color-adjust: none !important;
-  -webkit-forced-color-adjust: none !important;
+@media (prefers-color-scheme: dark) {
+  html, html * {
+    color-scheme: light !important;
+    forced-color-adjust: none !important;
+    -webkit-forced-color-adjust: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+  }
 }
 
 @layer base {
