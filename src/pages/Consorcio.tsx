@@ -528,12 +528,13 @@ export default function Consorcio() {
     <div className="min-h-screen bg-gradient-to-br from-[#06006B] via-[#08007A] to-[#1A4FD8] text-foreground font-inter overflow-x-hidden" style={{ colorScheme: 'light' as any }}>
       {/* ───── HEADER ───── */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#06006B]/80 border-b border-white/5" style={{ colorScheme: 'light' as any }}>
-        {/* ── Desktop header ── */}
-        <div className="hidden md:flex container mx-auto px-6 items-center justify-between min-h-[60px] py-2">
-          <div className="flex-1" />
+        {/* ── Desktop header (grid 1fr auto 1fr) ── */}
+        <div className="hidden md:grid container mx-auto px-6 min-h-[60px] py-2" style={{ gridTemplateColumns: '1fr auto 1fr', alignItems: 'center' }}>
+          {/* Col 1 — spacer */}
+          <div />
 
-          {/* Center block: logos + tagline */}
-          <div className="flex flex-col items-center gap-1 flex-[2]">
+          {/* Col 2 — center block */}
+          <div className="flex flex-col items-center gap-1">
             <div className="flex items-center gap-3">
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -542,21 +543,17 @@ export default function Consorcio() {
               >
                 <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto object-contain" style={{ filter: 'none' }} />
               </button>
-
-              {/* Plus sign */}
               <span className="text-white font-bold text-xl">+</span>
-
-              {/* Porto + credenciada */}
               <div className="flex flex-col items-center gap-0.5">
                 <img src={portoLogo} alt="Porto" className="h-[18px] w-auto object-contain" style={{ filter: 'none' }} />
                 <span className="text-[0.55rem] text-white/75 leading-none text-center tracking-[-0.01em]" style={{ width: '100%' }}>Credenciada oficial</span>
               </div>
             </div>
-            <p className="text-xs text-white/90 whitespace-nowrap m-0">O seu futuro muito mais tranquilo!</p>
+            <p className="text-xs text-white/90 whitespace-nowrap m-0 text-center w-full">O seu futuro muito mais tranquilo!</p>
           </div>
 
-          {/* CTA right */}
-          <div className="flex-1 flex justify-end">
+          {/* Col 3 — CTA right */}
+          <div className="flex justify-end">
             <button
               onClick={() => {
                 setActiveSimCategory(null);
