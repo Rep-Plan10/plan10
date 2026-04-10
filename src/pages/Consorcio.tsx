@@ -1279,51 +1279,18 @@ export default function Consorcio() {
             {/* Card de Parceria */}
             <Reveal direction="up" delay={250}>
               <div className="mx-auto max-w-sm mb-10 rounded-2xl p-6 flex flex-col items-center text-center" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)' }}>
-                <div className="flex items-center justify-center gap-4 w-full mb-3">
+                <div className="flex items-center justify-center w-full mb-3">
                   <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
-                  <span className="text-white font-bold text-lg">+</span>
+                  <span className="text-white/40 text-[1.4rem] mx-[10px] self-center select-none">|</span>
                   <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
                 </div>
-                <p className="text-[#F97316] font-semibold text-xs uppercase tracking-[0.08em] mt-3 text-center w-full">Parceria oficial</p>
                 <p className="text-white/80 text-sm mt-1 text-center w-full">Plan10 é correspondente credenciada da Porto, uma das maiores seguradoras do Brasil.</p>
               </div>
             </Reveal>
 
-            <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
-              {[
-                { img: "/images/seguranca-garantida.png", imgAlt: "Segurança garantida", title: "Segurança garantida", desc: "Todo o processo é regulamentado pelo Banco Central. Você investe com a segurança da Porto Bank por trás." },
-                { img: "/images/consultoria-personalizada.png", imgAlt: "Consultoria personalizada", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você, sem pressão, sem enrolação." },
-                { img: "/images/contratacao-simples-rapida.png", imgAlt: "Contratação simples e rápida", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
-              ].map((c, i) => (
-                <Reveal key={i} delay={i * 150} direction="up" className="h-full">
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-accent/40 transition-all duration-300 h-full flex flex-col">
-                    <img src={c.img} alt={c.imgAlt} className="w-full h-44 object-cover rounded-xl mb-4" loading="lazy" />
-                    <h3 className="font-sora font-bold text-lg text-foreground mb-2">{c.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{c.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            {/* Veleiro image — full width with bottom overlay + top logo bar */}
-            <Reveal direction="up" delay={300}>
-              <div className="relative w-full rounded-[20px] overflow-hidden mt-10 h-[260px] md:h-[420px]" style={{ background: 'transparent' }}>
-                {/* Top logo bar — dark gradient overlay */}
-                <div
-                  className="absolute top-0 left-0 right-0 z-[3] flex items-center justify-center gap-4"
-                  style={{
-                    background: 'linear-gradient(to bottom, rgba(15,20,102,0.75) 0%, transparent 100%)',
-                    borderRadius: '20px 20px 0 0',
-                    padding: '14px 20px 28px 20px',
-                  }}
-                >
-                  <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
-                  <span className="text-white font-bold text-base" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>+</span>
-                  <div className="flex flex-col items-start gap-0">
-                    <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
-                    <span className="text-white/80 text-[0.6rem] leading-none" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>Credenciada oficial</span>
-                  </div>
-                </div>
+            {/* Veleiro image — between partnership card and 3 cards below */}
+            <Reveal direction="up" delay={280}>
+              <div className="relative w-full rounded-[20px] overflow-hidden mb-10 h-[260px] md:h-[420px]" style={{ background: 'transparent' }}>
                 <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover object-center block" style={{ filter: 'none', forcedColorAdjust: 'none' as any }} />
                 <div className="absolute bottom-0 left-0 right-0 h-[55%] rounded-b-[20px]" style={{ background: 'linear-gradient(to top, rgba(10,14,100,0.85) 0%, transparent 100%)' }} />
                 <p className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center z-[2] text-white font-bold text-[1.1rem] md:text-[1.75rem] px-6 whitespace-nowrap overflow-hidden text-ellipsis" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
