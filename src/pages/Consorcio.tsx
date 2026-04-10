@@ -286,47 +286,6 @@ export default function Consorcio() {
     return () => document.removeEventListener('mousedown', handler);
   }, [faixaDropdownAberto]);
 
-  /* ── Refs for credenciada width sync ── */
-  const portoLogoDesktopRef = useRef<HTMLImageElement>(null);
-  const credenciadaDesktopRef = useRef<HTMLSpanElement>(null);
-  const portoLogoMobileRef = useRef<HTMLImageElement>(null);
-  const credenciadaMobileRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const syncWidths = () => {
-      const pairs = [
-        [portoLogoDesktopRef.current, credenciadaDesktopRef.current],
-        [portoLogoMobileRef.current, credenciadaMobileRef.current],
-      ] as const;
-      for (const [logo, label] of pairs) {
-        if (logo && label) {
-          const logoWidth = logo.getBoundingClientRect().width;
-          label.style.width = logoWidth + 'px';
-          label.style.minWidth = logoWidth + 'px';
-          label.style.maxWidth = logoWidth + 'px';
-        }
-      }
-    };
-
-    const logos = [portoLogoDesktopRef.current, portoLogoMobileRef.current];
-    const onLoad = () => syncWidths();
-    logos.forEach(logo => {
-      if (logo) {
-        if (logo.complete) syncWidths();
-        else logo.addEventListener('load', onLoad);
-      }
-    });
-
-    syncWidths();
-    window.addEventListener('resize', syncWidths);
-    const timer = setTimeout(syncWidths, 300);
-
-    return () => {
-      window.removeEventListener('resize', syncWidths);
-      clearTimeout(timer);
-      logos.forEach(logo => logo?.removeEventListener('load', onLoad));
-    };
-  }, []);
 
   /* ── Hero text reveal ── */
   const { ref: heroRevealRef } = useReveal(0.2);
@@ -587,9 +546,9 @@ export default function Consorcio() {
                 <img src={plan10Logo} alt="Plan10 Consórcios" style={{ height: '42px', width: 'auto', filter: 'none' }} className="object-contain" />
               </button>
               <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.5rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
-              <div className="inline-flex flex-col items-start" style={{ gap: '2px' }}>
-                <img ref={portoLogoDesktopRef} src={portoLogo} alt="Porto" style={{ height: '18px', width: 'auto', display: 'block', filter: 'none' }} className="object-contain" />
-                <span id="credenciada-header" ref={credenciadaDesktopRef} style={{ color: 'rgba(255,255,255,0.75)' }}>Credenciada oficial</span>
+              <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'stretch', gap: '2px' }}>
+                <img src={portoLogo} alt="Porto" style={{ height: '18px', width: 'auto', display: 'block', filter: 'none' }} className="object-contain" />
+                <span id="credenciada-header" style={{ display: 'block', width: '100%', textAlign: 'justify', textAlignLast: 'justify' as any, fontSize: '0.65rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', overflow: 'visible' }}>Credenciada oficial</span>
               </div>
             </div>
             {/* Linha 2: tagline */}
@@ -629,9 +588,9 @@ export default function Consorcio() {
               <img src={plan10Logo} alt="Plan10 Consórcios" style={{ height: '32px', width: 'auto', filter: 'none' }} className="object-contain" />
             </button>
             <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.3rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
-            <div className="inline-flex flex-col items-start" style={{ gap: '2px' }}>
-              <img ref={portoLogoMobileRef} src={portoLogo} alt="Porto" style={{ height: '15px', width: 'auto', display: 'block', filter: 'none' }} className="object-contain" />
-              <span id="credenciada-header-mobile" ref={credenciadaMobileRef} style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.75)' }}>Credenciada oficial</span>
+            <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'stretch', gap: '2px' }}>
+              <img src={portoLogo} alt="Porto" style={{ height: '15px', width: 'auto', display: 'block', filter: 'none' }} className="object-contain" />
+              <span style={{ display: 'block', width: '100%', textAlign: 'justify', textAlignLast: 'justify' as any, fontSize: '0.58rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', overflow: 'visible' }}>Credenciada oficial</span>
             </div>
           </div>
           <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.9)', textAlign: 'center', margin: 0, whiteSpace: 'nowrap' }}>
