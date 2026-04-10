@@ -583,8 +583,8 @@ export default function Consorcio() {
             </p>
           </div>
 
-          {/* Col 3 — CTA + phone right */}
-          <div className="flex flex-col items-end" style={{ gap: '6px' }}>
+          {/* Col 3 — CTA right */}
+          <div className="flex items-center justify-end">
             <button
               onClick={() => {
                 setActiveSimCategory(null);
@@ -600,10 +600,6 @@ export default function Consorcio() {
             >
               Simular agora
             </button>
-            <a href="tel:+5511938012222" className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
-              <Phone size={14} className="shrink-0" />
-              <span style={{ fontSize: '0.75rem' }}>(11) 93801-2222</span>
-            </a>
           </div>
         </div>
 
