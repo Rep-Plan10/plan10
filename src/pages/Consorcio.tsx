@@ -1315,6 +1315,7 @@ export default function Consorcio() {
               ))}
             </div>
 
+            <div className="mt-10 rounded-2xl bg-[#1D4ED8]/30 border border-[#1D6FCC]/40 p-8 text-center">
               <h3 className="text-white font-bold text-xl md:text-2xl mb-2">
                 Conte com consultoria exclusiva em cada etapa
               </h3>
