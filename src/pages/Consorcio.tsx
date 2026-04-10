@@ -1087,14 +1087,10 @@ export default function Consorcio() {
               <div className="flex flex-col items-center gap-6 mb-14">
                 <div className="bg-white/[0.08] border border-white/15 rounded-2xl px-7 py-6 max-w-[320px] mx-auto text-center">
                   <img src={portoLogo} alt="Porto" className="h-10 w-auto object-contain mx-auto mb-3" style={{ filter: 'none' }} />
-                  <p className="text-white font-bold text-sm mb-1">Parceiro oficial Porto</p>
+                  <p className="text-white font-bold text-sm mb-1">Credenciada Oficial</p>
                   {/* 4c. Shortened text */}
                   <p className="text-white/60 text-xs leading-relaxed">Seguradora com mais de 50 anos de tradição</p>
                 </div>
-                {/* 4c. Shortened text */}
-                <p className="text-center text-white font-bold text-2xl md:text-3xl tracking-wide">
-                  Diferenciais Porto
-                </p>
               </div>
             </Reveal>
 
@@ -1103,7 +1099,7 @@ export default function Consorcio() {
               {[
                 { Icon: DollarSign, title: "Zero Juros", desc: "Você não paga juros. Apenas taxa de administração competitiva.", bg: "bg-[#16A34A]/20", border: "border-[#16A34A]/40" },
                 { Icon: FileText, title: "Flexibilidade Total", desc: "Planos de 60 a 200 meses. Créditos de R$ 25 mil a R$ 1 milhão. Você escolhe o que cabe no seu bolso.", bg: "bg-[#7C3AED]/20", border: "border-[#7C3AED]/40" },
-                { Icon: TrendingDown, title: "Parcelas Menores", desc: "Nos grupos em andamento, as parcelas já estão reduzidas em até 45%. Você paga menos e ainda conquista o mesmo crédito.", bg: "bg-[#F97316]/20", border: "border-[#F97316]/40" },
+                { Icon: TrendingDown, title: "Parcelas Menores", desc: "Nos grupos em andamento, as parcelas já estão reduzidas em até 45% até a contemplação.", bg: "bg-[#F97316]/20", border: "border-[#F97316]/40" },
                 { Icon: Trophy, title: "Carta de Crédito Garantida", desc: "Todo participante ativo recebe a carta até o final do grupo. Você pode potencializar o lance usando parte do seu crédito.", bg: "bg-[#F59E0B]/20", border: "border-[#F59E0B]/40" },
               ].map((c, i) => (
                 <Reveal key={i} delay={i * 100} direction="up">
