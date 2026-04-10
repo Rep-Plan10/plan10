@@ -300,15 +300,28 @@ export default function Consorcio() {
       ] as const;
       for (const [logo, label] of pairs) {
         if (logo && label) {
-          const w = logo.getBoundingClientRect().width;
-          label.style.width = w + 'px';
-          label.style.minWidth = w + 'px';
-          label.style.maxWidth = w + 'px';
+          const logoWidth = logo.getBoundingClientRect().width;
+          label.style.width = logoWidth + 'px';
+          label.style.minWidth = logoWidth + 'px';
+          label.style.maxWidth = logoWidth + 'px';
           label.style.display = 'block';
-          label.style.textAlign = 'justify';
-          (label.style as any).textAlignLast = 'justify';
+          label.style.overflow = 'visible';
           label.style.whiteSpace = 'nowrap';
-          label.style.overflow = 'hidden';
+
+          let fontSize = 11;
+          label.style.letterSpacing = '0px';
+          label.style.fontSize = fontSize + 'px';
+
+          while (label.scrollWidth > logoWidth && fontSize > 7) {
+            fontSize -= 0.5;
+            label.style.fontSize = fontSize + 'px';
+          }
+
+          const remaining = logoWidth - label.scrollWidth;
+          const chars = (label.textContent?.length || 1) - 1;
+          if (chars > 0 && remaining > 0) {
+            label.style.letterSpacing = (remaining / chars) + 'px';
+          }
         }
       }
     };
