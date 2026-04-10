@@ -681,8 +681,9 @@ export default function Consorcio() {
               <Reveal delay={550} direction="up">
                 <div className="flex gap-4 md:gap-6 mb-6 md:mb-8 justify-center md:justify-start">
                   <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s', filter: 'none', backgroundColor: '#F97316', forcedColorAdjust: 'none' as any }}>
-                    <span className="text-white font-black text-2xl md:text-3xl leading-none" style={{ color: '#FFFFFF' }}>45%</span>
-                    <span className="text-white/90 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
+                    <span className="text-white font-black text-2xl md:text-[2rem] leading-none" style={{ color: '#FFFFFF' }}>45%</span>
+                    <span className="text-white text-[0.5rem] md:text-[0.6rem] font-bold uppercase tracking-[0.05em] text-center leading-tight mt-0.5" style={{ color: '#FFFFFF' }}>OFF NA PARCELA</span>
+                    <span className="text-white/90 text-[0.45rem] md:text-[0.55rem] text-center leading-tight mt-0.5" style={{ color: 'rgba(255,255,255,0.9)' }}>até a contemplação.</span>
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap border-2 border-[#9B59D0]" style={{ borderColor: '#9B59D0', color: '#FF6B00', forcedColorAdjust: 'none' as any }}>OFERTA</span>
                   </div>
 
@@ -1268,12 +1269,21 @@ export default function Consorcio() {
               ))}
             </div>
 
-            {/* Veleiro image — full width with bottom overlay */}
+            {/* Veleiro image — full width with bottom overlay + top logo bar */}
             <Reveal direction="up" delay={300}>
               <div className="relative w-full rounded-[20px] overflow-hidden mt-10 h-[260px] md:h-[420px]">
+                {/* Top logo bar */}
+                <div className="absolute top-0 left-0 right-0 z-[3] flex items-center justify-center gap-4 px-5 py-2.5" style={{ background: 'rgba(255,255,255,0.92)', borderRadius: '20px 20px 0 0' }}>
+                  <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
+                  <span className="text-[#1A1F8F] font-bold text-base">+</span>
+                  <div className="flex flex-col items-start gap-0">
+                    <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
+                    <span className="text-[#555] text-[0.6rem] leading-none">Credenciada oficial</span>
+                  </div>
+                </div>
                 <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover object-center block" style={{ filter: 'none', forcedColorAdjust: 'none' as any }} />
                 <div className="absolute bottom-0 left-0 right-0 h-[55%] rounded-b-[20px]" style={{ background: 'linear-gradient(to top, rgba(10,14,100,0.85) 0%, transparent 100%)' }} />
-                <p className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center z-[2] text-white font-bold text-xl md:text-[1.75rem] px-6" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
+                <p className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center z-[2] text-white font-bold text-[1.1rem] md:text-[1.75rem] px-6 whitespace-nowrap overflow-hidden text-ellipsis" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
                   O seu futuro muito mais tranquilo!
                 </p>
               </div>
