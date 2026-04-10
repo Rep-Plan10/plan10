@@ -592,9 +592,9 @@ export default function Consorcio() {
                 <img src={plan10Logo} alt="Plan10 Consórcios" style={{ height: '42px', width: 'auto', filter: 'none' }} className="object-contain" />
               </button>
               <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.5rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
-              <div className="flex flex-col items-center" style={{ gap: '1px' }}>
-                <img ref={portoLogoDesktopRef} src={portoLogo} alt="Porto" style={{ height: '18px', width: 'auto', filter: 'none' }} className="object-contain" />
-                <span ref={credenciadaDesktopRef} style={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', display: 'block', letterSpacing: '0.01em' }}>Credenciada oficial</span>
+              <div className="inline-flex flex-col items-start" style={{ gap: '2px' }}>
+                <img ref={portoLogoDesktopRef} src={portoLogo} alt="Porto" style={{ height: '18px', width: 'auto', display: 'block', filter: 'none' }} className="object-contain" />
+                <span ref={credenciadaDesktopRef} style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.75)', letterSpacing: '0.01em' }}>Credenciada oficial</span>
               </div>
             </div>
             {/* Linha 2: tagline */}
