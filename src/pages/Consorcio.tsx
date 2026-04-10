@@ -851,7 +851,7 @@ export default function Consorcio() {
                       ))}
                     </div>
 
-                    <div className="mb-6 relative w-full" data-faixa-dropdown>
+                    <div className="mb-6 relative z-50 w-full" data-faixa-dropdown>
                       <p className="text-gray-400 text-xs mb-1.5 uppercase tracking-widest">
                         Escolha a faixa de crédito
                       </p>
@@ -869,7 +869,20 @@ export default function Consorcio() {
                         </svg>
                       </button>
                       {faixaDropdownAberto && (
-                        <div className="absolute z-50 w-full mt-1 bg-[#0d1117] border border-white/15 rounded-xl shadow-2xl overflow-hidden" style={{ maxHeight: '240px', overflowY: 'auto' }}>
+                        <div
+                          className="absolute z-[100] w-full mt-0 rounded-b-xl overflow-hidden"
+                          style={{
+                            top: '100%',
+                            left: 0,
+                            right: 0,
+                            maxHeight: '260px',
+                            overflowY: 'auto',
+                            backgroundColor: '#1A1F8F',
+                            border: '1px solid rgba(255,255,255,0.15)',
+                            borderTop: 'none',
+                            boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                          }}
+                        >
                           {simuladorData[simCategoria].map((faixa, index) => (
                             <button
                               key={index}
@@ -878,19 +891,39 @@ export default function Consorcio() {
                                 setSimFaixa(index);
                                 setFaixaDropdownAberto(false);
                               }}
-                              className={`w-full text-left text-sm transition-colors duration-150 flex items-center whitespace-nowrap overflow-hidden text-ellipsis ${
-                                simFaixa === index
-                                  ? 'bg-[#FF6B00]/20 text-[#FF6B00] font-semibold'
-                                  : 'text-gray-200 hover:bg-white/[0.08] hover:text-white'
-                              }`}
-                              style={{ padding: '12px 16px', minHeight: '44px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}
+                              className="w-full text-left text-sm transition-colors duration-150 cursor-pointer"
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                padding: '14px 16px',
+                                minHeight: '48px',
+                                borderBottom: index < simuladorData[simCategoria].length - 1 ? '1px solid rgba(255,255,255,0.10)' : 'none',
+                                backgroundColor: simFaixa === index ? 'rgba(249,115,22,0.15)' : 'transparent',
+                                color: simFaixa === index ? '#F97316' : '#e5e7eb',
+                                fontWeight: simFaixa === index ? 600 : 400,
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                boxSizing: 'border-box',
+                                position: 'relative',
+                                zIndex: 1,
+                              }}
+                              onMouseEnter={(e) => {
+                                if (simFaixa !== index) {
+                                  (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.06)';
+                                }
+                              }}
+                              onMouseLeave={(e) => {
+                                if (simFaixa !== index) {
+                                  (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
+                                }
+                              }}
                             >
-                              <span className="flex items-center justify-between w-full">
-                                <span>{faixa.faixa}</span>
-                                {simFaixa === index && (
-                                  <span className="text-[#FF6B00] text-xs ml-2">✓</span>
-                                )}
-                              </span>
+                              <span>{faixa.faixa}</span>
+                              {simFaixa === index && (
+                                <span className="text-[#FF6B00] text-xs ml-2">✓</span>
+                              )}
                             </button>
                           ))}
                         </div>
@@ -1273,14 +1306,21 @@ export default function Consorcio() {
 
             {/* Veleiro image — full width with bottom overlay + top logo bar */}
             <Reveal direction="up" delay={300}>
-              <div className="relative w-full rounded-[20px] overflow-hidden mt-10 h-[260px] md:h-[420px]">
-                {/* Top logo bar */}
-                <div className="absolute top-0 left-0 right-0 z-[3] flex items-center justify-center gap-4 px-5 py-2.5" style={{ background: 'rgba(255,255,255,0.92)', borderRadius: '20px 20px 0 0' }}>
+              <div className="relative w-full rounded-[20px] overflow-hidden mt-10 h-[260px] md:h-[420px]" style={{ background: 'transparent' }}>
+                {/* Top logo bar — dark gradient overlay */}
+                <div
+                  className="absolute top-0 left-0 right-0 z-[3] flex items-center justify-center gap-4"
+                  style={{
+                    background: 'linear-gradient(to bottom, rgba(15,20,102,0.75) 0%, transparent 100%)',
+                    borderRadius: '20px 20px 0 0',
+                    padding: '14px 20px 28px 20px',
+                  }}
+                >
                   <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
-                  <span className="text-[#1A1F8F] font-bold text-base">+</span>
+                  <span className="text-white font-bold text-base" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>+</span>
                   <div className="flex flex-col items-start gap-0">
                     <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
-                    <span className="text-[#555] text-[0.6rem] leading-none">Credenciada oficial</span>
+                    <span className="text-white/80 text-[0.6rem] leading-none" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>Credenciada oficial</span>
                   </div>
                 </div>
                 <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover object-center block" style={{ filter: 'none', forcedColorAdjust: 'none' as any }} />
