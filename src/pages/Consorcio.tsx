@@ -286,6 +286,33 @@ export default function Consorcio() {
     return () => document.removeEventListener('mousedown', handler);
   }, [faixaDropdownAberto]);
 
+  /* ── Refs for credenciada width sync ── */
+  const portoLogoDesktopRef = useRef<HTMLImageElement>(null);
+  const credenciadaDesktopRef = useRef<HTMLSpanElement>(null);
+  const portoLogoMobileRef = useRef<HTMLImageElement>(null);
+  const credenciadaMobileRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const syncWidths = () => {
+      if (portoLogoDesktopRef.current && credenciadaDesktopRef.current) {
+        credenciadaDesktopRef.current.style.width = portoLogoDesktopRef.current.offsetWidth + 'px';
+        credenciadaDesktopRef.current.style.textAlign = 'center';
+      }
+      if (portoLogoMobileRef.current && credenciadaMobileRef.current) {
+        credenciadaMobileRef.current.style.width = portoLogoMobileRef.current.offsetWidth + 'px';
+        credenciadaMobileRef.current.style.textAlign = 'center';
+      }
+    };
+    syncWidths();
+    window.addEventListener('resize', syncWidths);
+    // Also sync after images load
+    const timer = setTimeout(syncWidths, 300);
+    return () => {
+      window.removeEventListener('resize', syncWidths);
+      clearTimeout(timer);
+    };
+  }, []);
+
   /* ── Hero text reveal ── */
   const { ref: heroRevealRef } = useReveal(0.2);
 
