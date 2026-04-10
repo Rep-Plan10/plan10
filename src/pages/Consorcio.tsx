@@ -220,17 +220,17 @@ const nichosPorTipo: Record<string, string[]> = {
 const beneficiosPorCategoria = {
   imovel: {
     titulo: "Benefícios do Consórcio de Imóvel",
-    itens: ["Créditos de R$ 70 mil a R$ 1 milhão", "Lance embutido de até 30% do crédito", "Use para imóvel residencial, comercial, terreno ou reforma", "Aceita FGTS para composição de lance", "3 a 5 cotas contempladas por mês"],
+    itens: ["Créditos de R$ 70 mil a R$ 1 milhão", "Lance Fixo/Embutido (Potencialize o Seu Lance) de até 30% do crédito", "Use para imóvel residencial, comercial, terreno ou reforma", "Aceita FGTS para composição de lance", "3 a 5 cotas contempladas por mês"],
     paraQuem: "Para quem quer sair do aluguel ou conquistar seu patrimônio."
   },
   veiculo: {
     titulo: "Benefícios do Consórcio de Veículo",
-    itens: ["Créditos de R$ 25 mil a R$ 200 mil", "Lance embutido de até 30% do crédito", "Carro novo, usado, moto, náutico ou placas solares", "Sem entrada obrigatória", "4 a 6 cotas contempladas por mês"],
+    itens: ["Créditos de R$ 25 mil a R$ 200 mil", "Lance Fixo/Embutido (Potencialize o Seu Lance) de até 30% do crédito", "Carro novo, usado, moto, náutico ou placas solares", "Sem entrada obrigatória", "4 a 6 cotas contempladas por mês"],
     paraQuem: "Para quem quer conquistar seu veículo sem juros."
   },
   pesados: {
     titulo: "Benefícios do Consórcio de Pesados",
-    itens: ["Créditos de R$ 180 mil a R$ 360 mil", "Lance fixo de 40% disponível", "Caminhão, ônibus, máquinas agrícolas e industriais", "Pessoa física ou jurídica", "2 a 4 cotas contempladas por mês"],
+    itens: ["Créditos de R$ 180 mil a R$ 360 mil", "Lance Fixo/Embutido (Potencialize o Seu Lance) de 40% disponível", "Caminhão, ônibus, máquinas agrícolas e industriais", "Pessoa física ou jurídica", "2 a 4 cotas contempladas por mês"],
     paraQuem: "Para empresários e transportadores que querem crescer."
   }
 };
@@ -1383,10 +1383,11 @@ export default function Consorcio() {
                     <path d="M19 5h-2V3H7v2H5C3.9 5 3 5.9 3 7v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V18H9v2h6v-2h-2v-2.1a5.01 5.01 0 0 0 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zm-2 2v1.65A3.003 3.003 0 0 1 15 11V7h2zm-8 4A3.003 3.003 0 0 1 7 8.65V7h2v4zm4 3c-1.65 0-3-1.35-3-3V5h6v6c0 1.65-1.35 3-3 3z"/>
                   </svg>
                   <p className="text-white font-bold text-base">
-                    Porto Bank Oficial
+                    Porto Oficial
+                  </p>
                   </p>
                   <p className="text-white/60 text-sm text-center leading-relaxed" style={{ lineHeight: '1.6' }}>
-                    Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil, com décadas de tradição e solidez no mercado.
+                    Somos parceiros credenciados da Porto, uma das maiores administradoras de consórcio do Brasil, com décadas de tradição e solidez no mercado.
                   </p>
                 </div>
               </div>
@@ -1542,7 +1543,7 @@ export default function Consorcio() {
               <button onClick={enviarFormulario} className="w-full bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base">
                 Dar o primeiro passo
               </button>
-              <p className="text-gray-500 text-xs text-center">Seus dados são usados apenas para contato. Não compartilhamos com terceiros.</p>
+              <p className="text-gray-500 text-xs text-center">Segurança garantida. Consulte a nossa <a href="/politica-de-privacidade" className="text-[#F97316] underline hover:brightness-125 transition-colors">Política de Privacidade</a>.</p>
             </div>
           </div>
         </section>
@@ -1601,7 +1602,7 @@ export default function Consorcio() {
               </div>
 
               <p className="text-gray-500 text-xs mt-8">
-                Em breve mais categorias. Fale com um consultor para verificar disponibilidade.
+                Fale com um consultor para verificar disponibilidade.
               </p>
             </div>
           </section>
@@ -1699,7 +1700,7 @@ export default function Consorcio() {
               <p>* Taxa de administração, fundo de reserva e seguro prestamista variam conforme o tipo e grupo do consórcio.</p>
             </div>
             <p className="text-center text-xs text-white/50">
-              © 2025 Plan10 Consórcio. Todos os direitos reservados.
+              © 2026 Plan10 Consórcios. Todos os direitos reservados.
             </p>
           </div>
         </div>
