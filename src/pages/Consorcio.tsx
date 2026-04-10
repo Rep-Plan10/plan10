@@ -576,9 +576,9 @@ export default function Consorcio() {
                 <img src={plan10Logo} alt="Plan10 Consórcios" style={{ height: '42px', width: 'auto', filter: 'none' }} className="object-contain" />
               </button>
               <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.5rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
-              <div className="flex flex-col items-stretch" style={{ gap: '2px' }}>
-                <img ref={portoLogoDesktopRef} src={portoLogo} alt="Porto" style={{ height: '28px', width: 'auto', filter: 'none' }} className="object-contain" />
-                <span ref={credenciadaDesktopRef} style={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', display: 'block', textAlign: 'justify', textAlignLast: 'justify' as any }}>Credenciada oficial</span>
+              <div className="flex flex-col items-center" style={{ gap: '1px' }}>
+                <img ref={portoLogoDesktopRef} src={portoLogo} alt="Porto" style={{ height: '18px', width: 'auto', filter: 'none' }} className="object-contain" />
+                <span ref={credenciadaDesktopRef} style={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', display: 'block', letterSpacing: '0.01em' }}>Credenciada oficial</span>
               </div>
             </div>
             {/* Linha 2: tagline */}
@@ -618,9 +618,9 @@ export default function Consorcio() {
               <img src={plan10Logo} alt="Plan10 Consórcios" style={{ height: '32px', width: 'auto', filter: 'none' }} className="object-contain" />
             </button>
             <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.3rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
-            <div className="flex flex-col items-stretch" style={{ gap: '2px' }}>
-              <img ref={portoLogoMobileRef} src={portoLogo} alt="Porto" style={{ height: '22px', width: 'auto', filter: 'none' }} className="object-contain" />
-              <span ref={credenciadaMobileRef} style={{ fontSize: '0.50rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', display: 'block', textAlign: 'justify', textAlignLast: 'justify' as any }}>Credenciada oficial</span>
+            <div className="flex flex-col items-center" style={{ gap: '1px' }}>
+              <img ref={portoLogoMobileRef} src={portoLogo} alt="Porto" style={{ height: '15px', width: 'auto', filter: 'none' }} className="object-contain" />
+              <span ref={credenciadaMobileRef} style={{ fontSize: '0.50rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', display: 'block', letterSpacing: '0.01em' }}>Credenciada oficial</span>
             </div>
           </div>
           <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.9)', textAlign: 'center', margin: 0, whiteSpace: 'nowrap' }}>
