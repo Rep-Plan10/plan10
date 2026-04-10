@@ -896,24 +896,7 @@ export default function Consorcio() {
                       )}
                     </div>
 
-                    <div className="p-4 rounded-xl bg-white/5 border border-white/[0.08] mb-4 transition-all duration-300" key={simCategoria}>
-                      <p className="text-white font-semibold text-sm mb-3">
-                        {beneficiosPorCategoria[simCategoria].titulo}
-                      </p>
-                      <ul className="space-y-1.5 mb-3">
-                        {beneficiosPorCategoria[simCategoria].itens.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-300 text-xs">
-                            <span className="text-[#FF6B00] mt-0.5 shrink-0">✓</span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                      <p className="text-gray-500 text-xs italic">
-                        {beneficiosPorCategoria[simCategoria].paraQuem}
-                      </p>
-                    </div>
-
-                    <p className="text-xs text-muted-foreground mb-4">{faixaAtual.descricao}</p>
+                    {/* Tax description removed — moved to footer */}
 
                     <div key={`${simCategoria}-${simFaixa}`} className="animate-fade-in mb-6">
                       <div className="md:hidden space-y-2">
