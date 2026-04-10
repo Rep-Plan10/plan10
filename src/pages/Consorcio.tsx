@@ -830,7 +830,7 @@ export default function Consorcio() {
                 </Reveal>
                 <Reveal direction="up" delay={200}>
                   <p className="text-center text-muted-foreground text-sm md:text-base mb-10 px-2 break-words">
-                    Valores reais Porto Bank • Oferta válida até 30/04/2026
+                    Valores reais Porto • Oferta válida até 30/04/2026
                   </p>
                 </Reveal>
 
@@ -1360,7 +1360,7 @@ export default function Consorcio() {
                   </div>
                 </div>
 
-                {/* Card Porto Bank Oficial */}
+                {/* Card Porto Oficial */}
                 <div className="flex flex-col items-center gap-3 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
                   <svg viewBox="0 0 24 24" fill="#EAB308" width="32" height="32" aria-label="Ícone troféu">
                     <path d="M19 5h-2V3H7v2H5C3.9 5 3 5.9 3 7v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V18H9v2h6v-2h-2v-2.1a5.01 5.01 0 0 0 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zm-2 2v1.65A3.003 3.003 0 0 1 15 11V7h2zm-8 4A3.003 3.003 0 0 1 7 8.65V7h2v4zm4 3c-1.65 0-3-1.35-3-3V5h6v6c0 1.65-1.35 3-3 3z"/>
