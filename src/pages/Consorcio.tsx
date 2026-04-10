@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Star, TrendingDown, Trophy, Shield, Award, CheckCircle, DollarSign, FileText, Bike, Plane, Sparkles, Heart, Smartphone, GraduationCap } from "lucide-react";
-import plan10LogoNew from "@/assets/plan10-logo-consorcio.png";
+import plan10LogoNew from "@/assets/plan10-logo-consorcios.png";
 import portoLogo from "@/assets/porto-logo.png";
 import logoSusep from "@/assets/logo-susep.png";
 import familiaHero from "@/assets/familia-hero.png";
@@ -220,17 +220,17 @@ const nichosPorTipo: Record<string, string[]> = {
 const beneficiosPorCategoria = {
   imovel: {
     titulo: "Benefícios do Consórcio de Imóvel",
-    itens: ["Créditos de R$ 70 mil a R$ 1 milhão", "Lance embutido de até 30% do crédito", "Use para imóvel residencial, comercial, terreno ou reforma", "Aceita FGTS para composição de lance", "3 a 5 cotas contempladas por mês"],
+    itens: ["Créditos de R$ 70 mil a R$ 1 milhão", "Lance Fixo/Embutido (Potencialize o Seu Lance) de até 30% do crédito", "Use para imóvel residencial, comercial, terreno ou reforma", "Aceita FGTS para composição de lance", "3 a 5 cotas contempladas por mês"],
     paraQuem: "Para quem quer sair do aluguel ou conquistar seu patrimônio."
   },
   veiculo: {
     titulo: "Benefícios do Consórcio de Veículo",
-    itens: ["Créditos de R$ 25 mil a R$ 200 mil", "Lance embutido de até 30% do crédito", "Carro novo, usado, moto, náutico ou placas solares", "Sem entrada obrigatória", "4 a 6 cotas contempladas por mês"],
+    itens: ["Créditos de R$ 25 mil a R$ 200 mil", "Lance Fixo/Embutido (Potencialize o Seu Lance) de até 30% do crédito", "Carro novo, usado, moto, náutico ou placas solares", "Sem entrada obrigatória", "4 a 6 cotas contempladas por mês"],
     paraQuem: "Para quem quer conquistar seu veículo sem juros."
   },
   pesados: {
     titulo: "Benefícios do Consórcio de Pesados",
-    itens: ["Créditos de R$ 180 mil a R$ 360 mil", "Lance fixo de 40% disponível", "Caminhão, ônibus, máquinas agrícolas e industriais", "Pessoa física ou jurídica", "2 a 4 cotas contempladas por mês"],
+    itens: ["Créditos de R$ 180 mil a R$ 360 mil", "Lance Fixo/Embutido (Potencialize o Seu Lance) de 40% disponível", "Caminhão, ônibus, máquinas agrícolas e industriais", "Pessoa física ou jurídica", "2 a 4 cotas contempladas por mês"],
     paraQuem: "Para empresários e transportadores que querem crescer."
   }
 };
@@ -535,25 +535,25 @@ export default function Consorcio() {
 
           {/* Col 2 — center block */}
           <div className="flex flex-col items-center gap-1">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="focus:outline-none cursor-pointer shrink-0"
                 aria-label="Ir para o início"
               >
-                <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto object-contain" style={{ filter: 'none' }} />
+                <img src={plan10Logo} alt="Plan10 Consórcios" className="h-9 w-auto object-contain" style={{ filter: 'none' }} />
               </button>
-              <span className="text-white font-bold text-xl">+</span>
-              <div className="flex flex-col items-center gap-0.5">
+              <span className="text-white/40 text-[1.4rem] mx-[10px] self-center select-none">|</span>
+              <div className="flex flex-col items-start gap-0.5">
                 <img src={portoLogo} alt="Porto" className="h-[18px] w-auto object-contain" style={{ filter: 'none' }} />
-                <span className="text-[0.55rem] text-white/75 leading-none text-center tracking-[-0.01em]" style={{ width: '100%' }}>Credenciada oficial</span>
+                <span className="text-[0.6rem] text-white/75 leading-none text-center whitespace-nowrap" style={{ width: '100%' }}>Credenciada oficial</span>
               </div>
             </div>
             <p className="text-xs text-white/90 whitespace-nowrap m-0 text-center w-full">O seu futuro muito mais tranquilo!</p>
           </div>
 
-          {/* Col 3 — CTA right */}
-          <div className="flex justify-end">
+          {/* Col 3 — CTA + phone right */}
+          <div className="flex flex-col items-end gap-1">
             <button
               onClick={() => {
                 setActiveSimCategory(null);
@@ -569,25 +569,29 @@ export default function Consorcio() {
             >
               Simular agora
             </button>
+            <a href="tel:+5511938012222" className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span className="text-[0.75rem]">(11) 93801-2222</span>
+            </a>
           </div>
         </div>
 
         {/* ── Mobile header ── */}
         <div className="flex md:hidden flex-col items-center gap-1 px-4 py-2.5 min-h-[56px]">
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="focus:outline-none cursor-pointer shrink-0"
               aria-label="Ir para o início"
             >
-              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-7 w-auto object-contain" style={{ filter: 'none' }} />
+              <img src={plan10Logo} alt="Plan10 Consórcios" className="h-7 w-auto object-contain" style={{ filter: 'none' }} />
             </button>
 
-            <span className="text-white font-bold text-lg">+</span>
+            <span className="text-white/40 text-[1.2rem] mx-[10px] self-center select-none">|</span>
 
-            <div className="flex flex-col items-center gap-0.5 shrink-0">
+            <div className="flex flex-col items-start gap-0.5 shrink-0">
               <img src={portoLogo} alt="Porto" className="h-[15px] w-auto object-contain" style={{ filter: 'none' }} />
-              <span className="text-[0.5rem] text-white/60 leading-none text-center">Credenciada oficial</span>
+              <span className="text-[0.5rem] text-white/60 leading-none text-center whitespace-nowrap" style={{ width: '100%', fontSize: '0.5rem' }}>Credenciada oficial</span>
             </div>
           </div>
           <p className="text-[0.7rem] text-white/90 text-center m-0">O seu futuro muito mais tranquilo!</p>
@@ -656,9 +660,9 @@ export default function Consorcio() {
             </Reveal>
 
             {/* Content */}
-            <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
+            <div className="max-w-2xl text-center mx-auto">
               <div ref={heroRevealRef} className="mb-4 md:mb-6">
-                <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] text-center md:text-left">
+                <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] text-center">
                   Os melhores{" "}
                   <span className="text-[#FF6B00]">DESCONTOS</span>{" "}
                   <span className="text-white">em</span>{" "}
@@ -670,7 +674,7 @@ export default function Consorcio() {
 
               {/* 5. Hero subtitle update */}
               <Reveal delay={500} direction="up">
-                <p className="text-sm md:text-xl text-white/80 max-w-lg text-center md:text-left mx-auto md:mx-0 mb-6 md:mb-8 leading-relaxed">
+                <p className="text-sm md:text-xl text-white/80 max-w-lg text-center mx-auto mb-6 md:mb-8 leading-relaxed">
                   <span className="font-bold text-white tracking-wide text-base md:text-2xl">IMÓVEIS · VEÍCULOS · PESADOS</span>
                   <br />
                   Com reduções exclusivas.
@@ -679,7 +683,7 @@ export default function Consorcio() {
 
               {/* Splash circles */}
               <Reveal delay={550} direction="up">
-                <div className="flex gap-4 md:gap-6 mb-6 md:mb-8 justify-center md:justify-start">
+                <div className="flex gap-4 md:gap-6 mb-6 md:mb-8 justify-center">
                   <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s', filter: 'none', backgroundColor: '#F97316', forcedColorAdjust: 'none' as any }}>
                     <span className="text-white font-black text-2xl md:text-[2rem] leading-none" style={{ color: '#FFFFFF' }}>45%</span>
                     <span className="text-white text-[0.5rem] md:text-[0.6rem] font-bold uppercase tracking-[0.05em] text-center leading-tight mt-0.5" style={{ color: '#FFFFFF' }}>OFF NA PARCELA</span>
@@ -689,15 +693,16 @@ export default function Consorcio() {
 
                   <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#9B59D0]/60" style={{ filter: 'none', backgroundColor: '#2563EB', forcedColorAdjust: 'none' as any }}>
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#9B59D0] text-white text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap" style={{ backgroundColor: '#9B59D0', color: '#FFFFFF', forcedColorAdjust: 'none' as any }}>OFF</span>
-                    <span className="text-white font-black text-2xl md:text-3xl leading-none" style={{ color: '#FFFFFF' }}>10%</span>
-                    <span className="text-white/90 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">Na taxa ADM para clientes Porto</span>
+                    <span className="text-white font-black text-2xl md:text-[2rem] leading-none" style={{ color: '#FFFFFF' }}>10%</span>
+                    <span className="text-white text-[0.5rem] md:text-[0.6rem] font-bold uppercase tracking-[0.05em] text-center leading-tight mt-0.5" style={{ color: '#FFFFFF' }}>Na taxa ADM</span>
+                    <span className="text-white/90 text-[0.45rem] md:text-[0.55rem] text-center leading-tight mt-0.5" style={{ color: 'rgba(255,255,255,0.9)' }}>Para clientes Porto.</span>
                   </div>
                 </div>
               </Reveal>
 
               {/* CTAs */}
               <Reveal delay={600} direction="up">
-                <div className="flex flex-col sm:flex-row gap-3 mb-4 items-center md:items-start">
+                <div className="flex flex-col sm:flex-row gap-3 mb-4 items-center">
                   <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold w-full sm:w-auto" style={{ filter: 'none', backgroundColor: '#F97316', color: '#FFFFFF', forcedColorAdjust: 'none' as any }}>
                     Quero começar agora
                   </button>
@@ -825,7 +830,7 @@ export default function Consorcio() {
                 </Reveal>
                 <Reveal direction="up" delay={200}>
                   <p className="text-center text-muted-foreground text-sm md:text-base mb-10 px-2 break-words">
-                    Valores reais Porto Bank • Oferta válida até 30/04/2026
+                    Valores reais Porto • Oferta válida até 30/04/2026
                   </p>
                 </Reveal>
 
@@ -1082,14 +1087,10 @@ export default function Consorcio() {
               <div className="flex flex-col items-center gap-6 mb-14">
                 <div className="bg-white/[0.08] border border-white/15 rounded-2xl px-7 py-6 max-w-[320px] mx-auto text-center">
                   <img src={portoLogo} alt="Porto" className="h-10 w-auto object-contain mx-auto mb-3" style={{ filter: 'none' }} />
-                  <p className="text-white font-bold text-sm mb-1">Parceiro oficial Porto</p>
+                  <p className="text-white font-bold text-sm mb-1">Credenciada Oficial</p>
                   {/* 4c. Shortened text */}
                   <p className="text-white/60 text-xs leading-relaxed">Seguradora com mais de 50 anos de tradição</p>
                 </div>
-                {/* 4c. Shortened text */}
-                <p className="text-center text-white font-bold text-2xl md:text-3xl tracking-wide">
-                  Diferenciais Porto
-                </p>
               </div>
             </Reveal>
 
@@ -1098,7 +1099,7 @@ export default function Consorcio() {
               {[
                 { Icon: DollarSign, title: "Zero Juros", desc: "Você não paga juros. Apenas taxa de administração competitiva.", bg: "bg-[#16A34A]/20", border: "border-[#16A34A]/40" },
                 { Icon: FileText, title: "Flexibilidade Total", desc: "Planos de 60 a 200 meses. Créditos de R$ 25 mil a R$ 1 milhão. Você escolhe o que cabe no seu bolso.", bg: "bg-[#7C3AED]/20", border: "border-[#7C3AED]/40" },
-                { Icon: TrendingDown, title: "Parcelas Menores", desc: "Nos grupos em andamento, as parcelas já estão reduzidas em até 45%. Você paga menos e ainda conquista o mesmo crédito.", bg: "bg-[#F97316]/20", border: "border-[#F97316]/40" },
+                { Icon: TrendingDown, title: "Parcelas Menores", desc: "Nos grupos em andamento, as parcelas já estão reduzidas em até 45% até a contemplação.", bg: "bg-[#F97316]/20", border: "border-[#F97316]/40" },
                 { Icon: Trophy, title: "Carta de Crédito Garantida", desc: "Todo participante ativo recebe a carta até o final do grupo. Você pode potencializar o lance usando parte do seu crédito.", bg: "bg-[#F59E0B]/20", border: "border-[#F59E0B]/40" },
               ].map((c, i) => (
                 <Reveal key={i} delay={i * 100} direction="up">
@@ -1278,19 +1279,29 @@ export default function Consorcio() {
             {/* Card de Parceria */}
             <Reveal direction="up" delay={250}>
               <div className="mx-auto max-w-sm mb-10 rounded-2xl p-6 flex flex-col items-center text-center" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)' }}>
-                <div className="flex items-center justify-center gap-4 w-full mb-3">
+                <div className="flex items-center justify-center w-full mb-3">
                   <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
-                  <span className="text-white font-bold text-lg">+</span>
+                  <span className="text-white/40 text-[1.4rem] mx-[10px] self-center select-none">|</span>
                   <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
                 </div>
-                <p className="text-[#F97316] font-semibold text-xs uppercase tracking-[0.08em] mt-3 text-center w-full">Parceria oficial</p>
                 <p className="text-white/80 text-sm mt-1 text-center w-full">Plan10 é correspondente credenciada da Porto, uma das maiores seguradoras do Brasil.</p>
+              </div>
+            </Reveal>
+
+            {/* Veleiro image — between partnership card and 3 cards below */}
+            <Reveal direction="up" delay={280}>
+              <div className="relative w-full rounded-[20px] overflow-hidden mb-10 h-[260px] md:h-[420px]" style={{ background: 'transparent' }}>
+                <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover object-center block" style={{ filter: 'none', forcedColorAdjust: 'none' as any }} />
+                <div className="absolute bottom-0 left-0 right-0 h-[55%] rounded-b-[20px]" style={{ background: 'linear-gradient(to top, rgba(10,14,100,0.85) 0%, transparent 100%)' }} />
+                <p className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center z-[2] text-white font-bold text-[1.1rem] md:text-[1.75rem] px-6 whitespace-nowrap overflow-hidden text-ellipsis" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
+                  O seu futuro muito mais tranquilo!
+                </p>
               </div>
             </Reveal>
 
             <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
               {[
-                { img: "/images/seguranca-garantida.png", imgAlt: "Segurança garantida", title: "Segurança garantida", desc: "Todo o processo é regulamentado pelo Banco Central. Você investe com a segurança da Porto Bank por trás." },
+                { img: "/images/seguranca-garantida.png", imgAlt: "Segurança garantida", title: "Segurança garantida", desc: "Todo o processo é regulamentado pelo Banco Central. Você investe com a segurança da Porto por trás." },
                 { img: "/images/consultoria-personalizada.png", imgAlt: "Consultoria personalizada", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você, sem pressão, sem enrolação." },
                 { img: "/images/contratacao-simples-rapida.png", imgAlt: "Contratação simples e rápida", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
               ].map((c, i) => (
@@ -1303,33 +1314,6 @@ export default function Consorcio() {
                 </Reveal>
               ))}
             </div>
-
-            {/* Veleiro image — full width with bottom overlay + top logo bar */}
-            <Reveal direction="up" delay={300}>
-              <div className="relative w-full rounded-[20px] overflow-hidden mt-10 h-[260px] md:h-[420px]" style={{ background: 'transparent' }}>
-                {/* Top logo bar — dark gradient overlay */}
-                <div
-                  className="absolute top-0 left-0 right-0 z-[3] flex items-center justify-center gap-4"
-                  style={{
-                    background: 'linear-gradient(to bottom, rgba(15,20,102,0.75) 0%, transparent 100%)',
-                    borderRadius: '20px 20px 0 0',
-                    padding: '14px 20px 28px 20px',
-                  }}
-                >
-                  <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
-                  <span className="text-white font-bold text-base" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>+</span>
-                  <div className="flex flex-col items-start gap-0">
-                    <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
-                    <span className="text-white/80 text-[0.6rem] leading-none" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>Credenciada oficial</span>
-                  </div>
-                </div>
-                <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover object-center block" style={{ filter: 'none', forcedColorAdjust: 'none' as any }} />
-                <div className="absolute bottom-0 left-0 right-0 h-[55%] rounded-b-[20px]" style={{ background: 'linear-gradient(to top, rgba(10,14,100,0.85) 0%, transparent 100%)' }} />
-                <p className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center z-[2] text-white font-bold text-[1.1rem] md:text-[1.75rem] px-6 whitespace-nowrap overflow-hidden text-ellipsis" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
-                  O seu futuro muito mais tranquilo!
-                </p>
-              </div>
-            </Reveal>
 
             <div className="mt-10 rounded-2xl bg-[#1D4ED8]/30 border border-[#1D6FCC]/40 p-8 text-center">
               <h3 className="text-white font-bold text-xl md:text-2xl mb-2">
@@ -1376,16 +1360,16 @@ export default function Consorcio() {
                   </div>
                 </div>
 
-                {/* Card Porto Bank Oficial */}
+                {/* Card Porto Oficial */}
                 <div className="flex flex-col items-center gap-3 bg-[#1D6FCC]/20 border border-[#1D6FCC]/30 rounded-xl p-5">
                   <svg viewBox="0 0 24 24" fill="#EAB308" width="32" height="32" aria-label="Ícone troféu">
                     <path d="M19 5h-2V3H7v2H5C3.9 5 3 5.9 3 7v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V18H9v2h6v-2h-2v-2.1a5.01 5.01 0 0 0 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zm-2 2v1.65A3.003 3.003 0 0 1 15 11V7h2zm-8 4A3.003 3.003 0 0 1 7 8.65V7h2v4zm4 3c-1.65 0-3-1.35-3-3V5h6v6c0 1.65-1.35 3-3 3z"/>
                   </svg>
                   <p className="text-white font-bold text-base">
-                    Porto Bank Oficial
+                    Porto Oficial
                   </p>
                   <p className="text-white/60 text-sm text-center leading-relaxed" style={{ lineHeight: '1.6' }}>
-                    Somos parceiros credenciados da Porto Bank, uma das maiores administradoras de consórcio do Brasil, com décadas de tradição e solidez no mercado.
+                    Somos parceiros credenciados da Porto, uma das maiores administradoras de consórcio do Brasil, com décadas de tradição e solidez no mercado.
                   </p>
                 </div>
               </div>
@@ -1541,7 +1525,7 @@ export default function Consorcio() {
               <button onClick={enviarFormulario} className="w-full bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base">
                 Dar o primeiro passo
               </button>
-              <p className="text-gray-500 text-xs text-center">Seus dados são usados apenas para contato. Não compartilhamos com terceiros.</p>
+              <p className="text-gray-500 text-xs text-center">Segurança garantida. Consulte a nossa <a href="/politica-de-privacidade" className="text-[#F97316] underline hover:brightness-125 transition-colors">Política de Privacidade</a>.</p>
             </div>
           </div>
         </section>
@@ -1600,7 +1584,7 @@ export default function Consorcio() {
               </div>
 
               <p className="text-gray-500 text-xs mt-8">
-                Em breve mais categorias. Fale com um consultor para verificar disponibilidade.
+                Fale com um consultor para verificar disponibilidade.
               </p>
             </div>
           </section>
@@ -1698,7 +1682,7 @@ export default function Consorcio() {
               <p>* Taxa de administração, fundo de reserva e seguro prestamista variam conforme o tipo e grupo do consórcio.</p>
             </div>
             <p className="text-center text-xs text-white/50">
-              © 2025 Plan10 Consórcio. Todos os direitos reservados.
+              © 2026 Plan10 Consórcios. Todos os direitos reservados.
             </p>
           </div>
         </div>

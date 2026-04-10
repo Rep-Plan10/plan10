@@ -1,4 +1,4 @@
-import logo from "@/assets/plan10-logo-consorcio.png";
+import logo from "@/assets/plan10-logo-consorcios.png";
 
 export default function LPFooter() {
   return (
@@ -17,7 +17,7 @@ export default function LPFooter() {
         </div>
         <p className="text-xs text-foreground/20 font-inter">Plan10 Corretora de Seguros · Credenciada Porto Seguro · SUSEP</p>
         <div className="border-t border-white/5 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground font-inter">
-          <p>© 2025 Plan10 Consórcio. Todos os direitos reservados.</p>
+          <p>© 2026 Plan10 Consórcios. Todos os direitos reservados.</p>
           <p>Desenvolvido por{" "}
             <a href="https://nextcorporation.com.br" target="_blank" rel="noopener noreferrer" className="text-accent hover:brightness-110 transition-all">Next Corporation</a>
           </p>
