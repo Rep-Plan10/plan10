@@ -1299,7 +1299,22 @@ export default function Consorcio() {
               </div>
             </Reveal>
 
-            <div className="mt-10 rounded-2xl bg-[#1D4ED8]/30 border border-[#1D6FCC]/40 p-8 text-center">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
+              {[
+                { img: "/images/seguranca-garantida.png", imgAlt: "Segurança garantida", title: "Segurança garantida", desc: "Todo o processo é regulamentado pelo Banco Central. Você investe com a segurança da Porto por trás." },
+                { img: "/images/consultoria-personalizada.png", imgAlt: "Consultoria personalizada", title: "Consultoria personalizada", desc: "Especialistas que entendem seu momento de vida e indicam o melhor plano para você, sem pressão, sem enrolação." },
+                { img: "/images/contratacao-simples-rapida.png", imgAlt: "Contratação simples e rápida", title: "Contratação simples e rápida", desc: "Simule, escolha e assine 100% online. Em minutos você já sabe qual plano cabe no seu bolso." },
+              ].map((c, i) => (
+                <Reveal key={i} delay={i * 150} direction="up" className="h-full">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:border-accent/40 transition-all duration-300 h-full flex flex-col">
+                    <img src={c.img} alt={c.imgAlt} className="w-full h-44 object-cover rounded-xl mb-4" loading="lazy" />
+                    <h3 className="font-sora font-bold text-lg text-foreground mb-2">{c.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{c.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
               <h3 className="text-white font-bold text-xl md:text-2xl mb-2">
                 Conte com consultoria exclusiva em cada etapa
               </h3>
