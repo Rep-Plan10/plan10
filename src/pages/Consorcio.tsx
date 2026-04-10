@@ -1385,7 +1385,6 @@ export default function Consorcio() {
                   <p className="text-white font-bold text-base">
                     Porto Oficial
                   </p>
-                  </p>
                   <p className="text-white/60 text-sm text-center leading-relaxed" style={{ lineHeight: '1.6' }}>
                     Somos parceiros credenciados da Porto, uma das maiores administradoras de consórcio do Brasil, com décadas de tradição e solidez no mercado.
                   </p>
