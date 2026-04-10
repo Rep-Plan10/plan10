@@ -337,7 +337,7 @@ export default function Consorcio() {
       `E-mail: ${formEmail || 'não informado'}.\n` +
       `${formMensagem ? 'Mensagem: ' + formMensagem : ''}`
     );
-    window.open(`https://api.whatsapp.com/send/?phone=5511991051616&text=${msg}`, '_blank');
+    window.open(`https://api.whatsapp.com/send/?phone=5511938012222&text=${msg}`, '_blank');
   };
 
   /* ───────────────────── SIMULADOR DATA ───────────────────── */
@@ -1152,7 +1152,7 @@ export default function Consorcio() {
                 </div>
               </div>
               <a
-                href="https://api.whatsapp.com/send/?phone=5511991051616&text=Quero%20garantir%20o%20meu%20desconto"
+                href="https://api.whatsapp.com/send/?phone=5511938012222&text=Quero%20garantir%20o%20meu%20desconto"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#F97316] hover:brightness-110 text-white font-bold text-base px-10 py-4 rounded-full transition-all duration-200 shadow-lg shadow-[#F97316]/30 text-center"
@@ -1213,7 +1213,7 @@ export default function Consorcio() {
             {/* 6f. CTA shortened */}
             <div className="flex justify-center mt-10">
               <a
-                href="https://api.whatsapp.com/send/?phone=5511991051616&text=Ol%C3%A1!%20Quero%20conquistar%20meu%20patrim%C3%B4nio%20agora."
+                href="https://api.whatsapp.com/send/?phone=5511938012222&text=Ol%C3%A1!%20Quero%20conquistar%20meu%20patrim%C3%B4nio%20agora."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-btn inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold px-10 py-4 rounded-full transition-colors duration-200 text-base"
@@ -1341,7 +1341,7 @@ export default function Consorcio() {
 
             <div className="flex justify-center mt-8">
               <a
-                href="https://wa.me/5511991051616?text=Quero%20conquistar%20meu%20sonho%20agora"
+                href="https://wa.me/5511938012222?text=Quero%20conquistar%20meu%20sonho%20agora"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#F97316] hover:brightness-110 text-white font-bold text-lg px-10 py-4 rounded-full transition-all duration-200 shadow-lg shadow-[#F97316]/30"
@@ -1536,7 +1536,7 @@ export default function Consorcio() {
                 ].map((item) => (
                   <a
                     key={item.label}
-                    href={`https://api.whatsapp.com/send/?phone=5511991051616&text=${encodeURIComponent(`Olá! Tenho interesse no ${item.label}. Pode me ajudar?`)}`}
+                    href={`https://api.whatsapp.com/send/?phone=5511938012222&text=${encodeURIComponent(`Olá! Tenho interesse no ${item.label}. Pode me ajudar?`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 w-full max-w-sm px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-medium text-sm hover:border-accent/40 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer group"
