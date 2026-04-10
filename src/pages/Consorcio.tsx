@@ -1000,6 +1000,7 @@ export default function Consorcio() {
                       </p>
                     </div>
 
+                    <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10">
                       <p className="text-white font-semibold text-center mb-4">
                         Gostou? Fale com um consultor e garanta essa condição
                       </p>
