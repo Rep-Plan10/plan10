@@ -590,7 +590,7 @@ export default function Consorcio() {
             <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.3rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
             <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'stretch', gap: '2px' }}>
               <img src={portoLogo} alt="Porto" style={{ height: '15px', width: 'auto', display: 'block', filter: 'none' }} className="object-contain" />
-              <span style={{ display: 'block', width: 0, minWidth: '100%', textAlign: 'justify', textAlignLast: 'justify' as any, fontSize: '0.48rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', overflow: 'visible' }}>Credenciada oficial</span>
+              <span style={{ display: 'block', width: 0, minWidth: '100%', textAlign: 'justify', textAlignLast: 'justify' as any, fontSize: '0.43rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', overflow: 'visible' }}>Credenciada oficial</span>
             </div>
           </div>
           <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.9)', textAlign: 'center', margin: 0, whiteSpace: 'nowrap' }}>
