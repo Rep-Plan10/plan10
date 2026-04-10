@@ -660,9 +660,9 @@ export default function Consorcio() {
             </Reveal>
 
             {/* Content */}
-            <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
+            <div className="max-w-2xl text-center mx-auto">
               <div ref={heroRevealRef} className="mb-4 md:mb-6">
-                <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] text-center md:text-left">
+                <h1 className="font-sora font-black text-3xl sm:text-5xl md:text-6xl leading-[1.35] text-center">
                   Os melhores{" "}
                   <span className="text-[#FF6B00]">DESCONTOS</span>{" "}
                   <span className="text-white">em</span>{" "}
@@ -674,7 +674,7 @@ export default function Consorcio() {
 
               {/* 5. Hero subtitle update */}
               <Reveal delay={500} direction="up">
-                <p className="text-sm md:text-xl text-white/80 max-w-lg text-center md:text-left mx-auto md:mx-0 mb-6 md:mb-8 leading-relaxed">
+                <p className="text-sm md:text-xl text-white/80 max-w-lg text-center mx-auto mb-6 md:mb-8 leading-relaxed">
                   <span className="font-bold text-white tracking-wide text-base md:text-2xl">IMÓVEIS · VEÍCULOS · PESADOS</span>
                   <br />
                   Com reduções exclusivas.
@@ -683,7 +683,7 @@ export default function Consorcio() {
 
               {/* Splash circles */}
               <Reveal delay={550} direction="up">
-                <div className="flex gap-4 md:gap-6 mb-6 md:mb-8 justify-center md:justify-start">
+                <div className="flex gap-4 md:gap-6 mb-6 md:mb-8 justify-center">
                   <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s', filter: 'none', backgroundColor: '#F97316', forcedColorAdjust: 'none' as any }}>
                     <span className="text-white font-black text-2xl md:text-[2rem] leading-none" style={{ color: '#FFFFFF' }}>45%</span>
                     <span className="text-white text-[0.5rem] md:text-[0.6rem] font-bold uppercase tracking-[0.05em] text-center leading-tight mt-0.5" style={{ color: '#FFFFFF' }}>OFF NA PARCELA</span>
@@ -693,15 +693,16 @@ export default function Consorcio() {
 
                   <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#1a56db] to-[#003087] shadow-2xl shadow-[#003087]/40 border-4 border-[#9B59D0]/60" style={{ filter: 'none', backgroundColor: '#2563EB', forcedColorAdjust: 'none' as any }}>
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#9B59D0] text-white text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap" style={{ backgroundColor: '#9B59D0', color: '#FFFFFF', forcedColorAdjust: 'none' as any }}>OFF</span>
-                    <span className="text-white font-black text-2xl md:text-3xl leading-none" style={{ color: '#FFFFFF' }}>10%</span>
-                    <span className="text-white/90 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">Na taxa ADM para clientes Porto</span>
+                    <span className="text-white font-black text-2xl md:text-[2rem] leading-none" style={{ color: '#FFFFFF' }}>10%</span>
+                    <span className="text-white text-[0.5rem] md:text-[0.6rem] font-bold uppercase tracking-[0.05em] text-center leading-tight mt-0.5" style={{ color: '#FFFFFF' }}>Na taxa ADM</span>
+                    <span className="text-white/90 text-[0.45rem] md:text-[0.55rem] text-center leading-tight mt-0.5" style={{ color: 'rgba(255,255,255,0.9)' }}>Para clientes Porto.</span>
                   </div>
                 </div>
               </Reveal>
 
               {/* CTAs */}
               <Reveal delay={600} direction="up">
-                <div className="flex flex-col sm:flex-row gap-3 mb-4 items-center md:items-start">
+                <div className="flex flex-col sm:flex-row gap-3 mb-4 items-center">
                   <button onClick={() => openSim('imovel')} className="cta-btn bg-accent text-accent-foreground px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base font-bold w-full sm:w-auto" style={{ filter: 'none', backgroundColor: '#F97316', color: '#FFFFFF', forcedColorAdjust: 'none' as any }}>
                     Quero começar agora
                   </button>
