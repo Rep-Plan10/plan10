@@ -869,7 +869,7 @@ export default function Consorcio() {
                         </svg>
                       </button>
                       {faixaDropdownAberto && (
-                        <div className="absolute z-50 w-full mt-1 bg-[#0d1117] border border-white/15 rounded-xl shadow-2xl overflow-hidden max-h-64 overflow-y-auto">
+                        <div className="absolute z-50 w-full mt-1 bg-[#0d1117] border border-white/15 rounded-xl shadow-2xl overflow-hidden" style={{ maxHeight: '240px', overflowY: 'auto' }}>
                           {simuladorData[simCategoria].map((faixa, index) => (
                             <button
                               key={index}
@@ -878,16 +878,17 @@ export default function Consorcio() {
                                 setSimFaixa(index);
                                 setFaixaDropdownAberto(false);
                               }}
-                              className={`w-full text-left px-4 py-3 text-sm transition-colors duration-150 border-b border-white/5 last:border-0 ${
+                              className={`w-full text-left text-sm transition-colors duration-150 flex items-center whitespace-nowrap overflow-hidden text-ellipsis ${
                                 simFaixa === index
                                   ? 'bg-[#FF6B00]/20 text-[#FF6B00] font-semibold'
                                   : 'text-gray-200 hover:bg-white/[0.08] hover:text-white'
                               }`}
+                              style={{ padding: '12px 16px', minHeight: '44px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}
                             >
-                              <span className="flex items-center justify-between">
+                              <span className="flex items-center justify-between w-full">
                                 <span>{faixa.faixa}</span>
                                 {simFaixa === index && (
-                                  <span className="text-[#FF6B00] text-xs">✓</span>
+                                  <span className="text-[#FF6B00] text-xs ml-2">✓</span>
                                 )}
                               </span>
                             </button>
@@ -1636,6 +1637,8 @@ export default function Consorcio() {
                 <p>* A carta de crédito pode ser usada para diversas finalidades.</p>
                 <p>* Condição válida até 30/04/2026.</p>
                 <p>* Taxa de administração a partir de 25%.</p>
+                <p>* Taxa de administração: 18%. Fundo de Reserva: 2%. Seguro prestamista: 0,038%.</p>
+                <p>* Desconto de 10% para clientes Porto a partir de 06/01/2026.</p>
               </div>
               <p className="text-white/50 text-xs mt-2">
                 Ao enviar seus dados, você concorda com nossa{' '}
