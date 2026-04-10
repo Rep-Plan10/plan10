@@ -1,4 +1,4 @@
-import logo from "@/assets/plan10-logo-consorcio.png";
+import logo from "@/assets/plan10-logo-consorcios.png";
 
 export default function LPFooter() {
   return (

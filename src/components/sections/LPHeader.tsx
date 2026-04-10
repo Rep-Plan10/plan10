@@ -1,4 +1,4 @@
-import logo from "@/assets/plan10-logo-consorcio.png";
+import logo from "@/assets/plan10-logo-consorcios.png";
 import { WHATSAPP_URL } from "./constants";
 
 export default function LPHeader() {

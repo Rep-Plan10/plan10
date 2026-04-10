@@ -1,4 +1,4 @@
-import plan10LogoNew from "@/assets/plan10-logo-consorcio.png";
+import plan10LogoNew from "@/assets/plan10-logo-consorcios.png";
 import portoLogo from "@/assets/porto-logo.png";
 
 export default function PoliticaDePrivacidade() {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/plan10-logo-consorcio.png";
+import logo from "@/assets/plan10-logo-consorcios.png";
 
 const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511938012222";
 

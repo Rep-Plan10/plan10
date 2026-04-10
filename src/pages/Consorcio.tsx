@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Star, TrendingDown, Trophy, Shield, Award, CheckCircle, DollarSign, FileText, Bike, Plane, Sparkles, Heart, Smartphone, GraduationCap } from "lucide-react";
-import plan10LogoNew from "@/assets/plan10-logo-consorcio.png";
+import plan10LogoNew from "@/assets/plan10-logo-consorcios.png";
 import portoLogo from "@/assets/porto-logo.png";
 import logoSusep from "@/assets/logo-susep.png";
 import familiaHero from "@/assets/familia-hero.png";
