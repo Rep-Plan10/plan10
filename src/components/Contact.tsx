@@ -3,7 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
 import { MessageCircle, Mail, Instagram, Facebook } from "lucide-react";
 
-const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511991051616";
+const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511938012222";
 
 const subjects = [
   "Planos de Saúde",

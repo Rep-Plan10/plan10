@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, ArrowUp } from "lucide-react";
 
-const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511991051616";
+const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511938012222";
 
 export default function FloatingElements() {
   const [showScrollTop, setShowScrollTop] = useState(false);

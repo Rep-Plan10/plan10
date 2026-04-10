@@ -12,7 +12,7 @@ import veileiroImg from "@/assets/veleiro.jpg";
 const plan10Logo = plan10LogoNew;
 
 /* ───────────────────── WHATSAPP ───────────────────── */
-const WA_PHONE = "5511991051616";
+const WA_PHONE = "5511938012222";
 const WA_BASE = `https://api.whatsapp.com/send/?phone=${WA_PHONE}`;
 
 /* ───────────────────── HOOKS ───────────────────── */
@@ -337,7 +337,7 @@ export default function Consorcio() {
       `E-mail: ${formEmail || 'não informado'}.\n` +
       `${formMensagem ? 'Mensagem: ' + formMensagem : ''}`
     );
-    window.open(`https://api.whatsapp.com/send/?phone=5511991051616&text=${msg}`, '_blank');
+    window.open(`https://api.whatsapp.com/send/?phone=5511938012222&text=${msg}`, '_blank');
   };
 
   /* ───────────────────── SIMULADOR DATA ───────────────────── */
@@ -681,8 +681,9 @@ export default function Consorcio() {
               <Reveal delay={550} direction="up">
                 <div className="flex gap-4 md:gap-6 mb-6 md:mb-8 justify-center md:justify-start">
                   <div className="relative flex flex-col items-center justify-center w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#e55e00] shadow-2xl shadow-[#FF6B00]/40 border-4 border-[#FF6B00]/60 animate-pulse" style={{ animationDuration: '2.5s', filter: 'none', backgroundColor: '#F97316', forcedColorAdjust: 'none' as any }}>
-                    <span className="text-white font-black text-2xl md:text-3xl leading-none" style={{ color: '#FFFFFF' }}>45%</span>
-                    <span className="text-white/90 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-center leading-tight px-2 mt-1">OFF na parcela</span>
+                    <span className="text-white font-black text-2xl md:text-[2rem] leading-none" style={{ color: '#FFFFFF' }}>45%</span>
+                    <span className="text-white text-[0.5rem] md:text-[0.6rem] font-bold uppercase tracking-[0.05em] text-center leading-tight mt-0.5" style={{ color: '#FFFFFF' }}>OFF NA PARCELA</span>
+                    <span className="text-white/90 text-[0.45rem] md:text-[0.55rem] text-center leading-tight mt-0.5" style={{ color: 'rgba(255,255,255,0.9)' }}>até a contemplação.</span>
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#FF6B00] text-[8px] md:text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap border-2 border-[#9B59D0]" style={{ borderColor: '#9B59D0', color: '#FF6B00', forcedColorAdjust: 'none' as any }}>OFERTA</span>
                   </div>
 
@@ -868,7 +869,7 @@ export default function Consorcio() {
                         </svg>
                       </button>
                       {faixaDropdownAberto && (
-                        <div className="absolute z-50 w-full mt-1 bg-[#0d1117] border border-white/15 rounded-xl shadow-2xl overflow-hidden max-h-64 overflow-y-auto">
+                        <div className="absolute z-50 w-full mt-1 bg-[#0d1117] border border-white/15 rounded-xl shadow-2xl overflow-hidden" style={{ maxHeight: '240px', overflowY: 'auto' }}>
                           {simuladorData[simCategoria].map((faixa, index) => (
                             <button
                               key={index}
@@ -877,16 +878,17 @@ export default function Consorcio() {
                                 setSimFaixa(index);
                                 setFaixaDropdownAberto(false);
                               }}
-                              className={`w-full text-left px-4 py-3 text-sm transition-colors duration-150 border-b border-white/5 last:border-0 ${
+                              className={`w-full text-left text-sm transition-colors duration-150 flex items-center whitespace-nowrap overflow-hidden text-ellipsis ${
                                 simFaixa === index
                                   ? 'bg-[#FF6B00]/20 text-[#FF6B00] font-semibold'
                                   : 'text-gray-200 hover:bg-white/[0.08] hover:text-white'
                               }`}
+                              style={{ padding: '12px 16px', minHeight: '44px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}
                             >
-                              <span className="flex items-center justify-between">
+                              <span className="flex items-center justify-between w-full">
                                 <span>{faixa.faixa}</span>
                                 {simFaixa === index && (
-                                  <span className="text-[#FF6B00] text-xs">✓</span>
+                                  <span className="text-[#FF6B00] text-xs ml-2">✓</span>
                                 )}
                               </span>
                             </button>
@@ -895,24 +897,7 @@ export default function Consorcio() {
                       )}
                     </div>
 
-                    <div className="p-4 rounded-xl bg-white/5 border border-white/[0.08] mb-4 transition-all duration-300" key={simCategoria}>
-                      <p className="text-white font-semibold text-sm mb-3">
-                        {beneficiosPorCategoria[simCategoria].titulo}
-                      </p>
-                      <ul className="space-y-1.5 mb-3">
-                        {beneficiosPorCategoria[simCategoria].itens.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-300 text-xs">
-                            <span className="text-[#FF6B00] mt-0.5 shrink-0">✓</span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                      <p className="text-gray-500 text-xs italic">
-                        {beneficiosPorCategoria[simCategoria].paraQuem}
-                      </p>
-                    </div>
-
-                    <p className="text-xs text-muted-foreground mb-4">{faixaAtual.descricao}</p>
+                    {/* Tax description removed — moved to footer */}
 
                     <div key={`${simCategoria}-${simFaixa}`} className="animate-fade-in mb-6">
                       <div className="md:hidden space-y-2">
@@ -996,6 +981,24 @@ export default function Consorcio() {
                           </table>
                         </div>
                       </div>
+                    </div>
+
+                    {/* Benefits below table */}
+                    <div className="mt-4 pt-3 border-t border-white/[0.15]">
+                      <p className="text-white/75 font-semibold text-[0.8rem] mb-2">
+                        {beneficiosPorCategoria[simCategoria].titulo}
+                      </p>
+                      <ul className="space-y-1">
+                        {beneficiosPorCategoria[simCategoria].itens.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-white/75 text-[0.8rem]">
+                            <span className="text-[#FF6B00] mt-0.5 shrink-0">✓</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-white/50 text-[0.8rem] italic mt-2">
+                        {beneficiosPorCategoria[simCategoria].paraQuem}
+                      </p>
                     </div>
 
                     <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10">
@@ -1152,7 +1155,7 @@ export default function Consorcio() {
                 </div>
               </div>
               <a
-                href="https://api.whatsapp.com/send/?phone=5511991051616&text=Quero%20garantir%20o%20meu%20desconto"
+                href="https://api.whatsapp.com/send/?phone=5511938012222&text=Quero%20garantir%20o%20meu%20desconto"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#F97316] hover:brightness-110 text-white font-bold text-base px-10 py-4 rounded-full transition-all duration-200 shadow-lg shadow-[#F97316]/30 text-center"
@@ -1213,7 +1216,7 @@ export default function Consorcio() {
             {/* 6f. CTA shortened */}
             <div className="flex justify-center mt-10">
               <a
-                href="https://api.whatsapp.com/send/?phone=5511991051616&text=Ol%C3%A1!%20Quero%20conquistar%20meu%20patrim%C3%B4nio%20agora."
+                href="https://api.whatsapp.com/send/?phone=5511938012222&text=Ol%C3%A1!%20Quero%20conquistar%20meu%20patrim%C3%B4nio%20agora."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-btn inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold px-10 py-4 rounded-full transition-colors duration-200 text-base"
@@ -1268,12 +1271,21 @@ export default function Consorcio() {
               ))}
             </div>
 
-            {/* Veleiro image — full width with bottom overlay */}
+            {/* Veleiro image — full width with bottom overlay + top logo bar */}
             <Reveal direction="up" delay={300}>
               <div className="relative w-full rounded-[20px] overflow-hidden mt-10 h-[260px] md:h-[420px]">
+                {/* Top logo bar */}
+                <div className="absolute top-0 left-0 right-0 z-[3] flex items-center justify-center gap-4 px-5 py-2.5" style={{ background: 'rgba(255,255,255,0.92)', borderRadius: '20px 20px 0 0' }}>
+                  <img src={plan10Logo} alt="Plan10" className="h-8 w-auto object-contain" style={{ filter: 'none' }} />
+                  <span className="text-[#1A1F8F] font-bold text-base">+</span>
+                  <div className="flex flex-col items-start gap-0">
+                    <img src={portoLogo} alt="Porto" className="h-[22px] w-auto object-contain" style={{ filter: 'none' }} />
+                    <span className="text-[#555] text-[0.6rem] leading-none">Credenciada oficial</span>
+                  </div>
+                </div>
                 <img src={veileiroImg} alt="Veleiro ao pôr do sol" className="w-full h-full object-cover object-center block" style={{ filter: 'none', forcedColorAdjust: 'none' as any }} />
                 <div className="absolute bottom-0 left-0 right-0 h-[55%] rounded-b-[20px]" style={{ background: 'linear-gradient(to top, rgba(10,14,100,0.85) 0%, transparent 100%)' }} />
-                <p className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center z-[2] text-white font-bold text-xl md:text-[1.75rem] px-6" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
+                <p className="absolute bottom-5 md:bottom-8 left-0 right-0 text-center z-[2] text-white font-bold text-[1.1rem] md:text-[1.75rem] px-6 whitespace-nowrap overflow-hidden text-ellipsis" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
                   O seu futuro muito mais tranquilo!
                 </p>
               </div>
@@ -1341,7 +1353,7 @@ export default function Consorcio() {
 
             <div className="flex justify-center mt-8">
               <a
-                href="https://wa.me/5511991051616?text=Quero%20conquistar%20meu%20sonho%20agora"
+                href="https://wa.me/5511938012222?text=Quero%20conquistar%20meu%20sonho%20agora"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#F97316] hover:brightness-110 text-white font-bold text-lg px-10 py-4 rounded-full transition-all duration-200 shadow-lg shadow-[#F97316]/30"
@@ -1536,7 +1548,7 @@ export default function Consorcio() {
                 ].map((item) => (
                   <a
                     key={item.label}
-                    href={`https://api.whatsapp.com/send/?phone=5511991051616&text=${encodeURIComponent(`Olá! Tenho interesse no ${item.label}. Pode me ajudar?`)}`}
+                    href={`https://api.whatsapp.com/send/?phone=5511938012222&text=${encodeURIComponent(`Olá! Tenho interesse no ${item.label}. Pode me ajudar?`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 w-full max-w-sm px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-medium text-sm hover:border-accent/40 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer group"
@@ -1625,6 +1637,8 @@ export default function Consorcio() {
                 <p>* A carta de crédito pode ser usada para diversas finalidades.</p>
                 <p>* Condição válida até 30/04/2026.</p>
                 <p>* Taxa de administração a partir de 25%.</p>
+                <p>* Taxa de administração: 18%. Fundo de Reserva: 2%. Seguro prestamista: 0,038%.</p>
+                <p>* Desconto de 10% para clientes Porto a partir de 06/01/2026.</p>
               </div>
               <p className="text-white/50 text-xs mt-2">
                 Ao enviar seus dados, você concorda com nossa{' '}

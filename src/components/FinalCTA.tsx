@@ -1,7 +1,7 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useParallax } from "@/hooks/useParallax";
 
-const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511991051616";
+const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511938012222";
 
 export default function FinalCTA() {
   const { ref, isVisible } = useScrollAnimation(0.2);
