@@ -982,7 +982,24 @@ export default function Consorcio() {
                       </div>
                     </div>
 
-                    <div className="mt-8 p-6 rounded-2xl bg-white/5 border border-white/10">
+                    {/* Benefits below table */}
+                    <div className="mt-4 pt-3 border-t border-white/[0.15]">
+                      <p className="text-white/75 font-semibold text-[0.8rem] mb-2">
+                        {beneficiosPorCategoria[simCategoria].titulo}
+                      </p>
+                      <ul className="space-y-1">
+                        {beneficiosPorCategoria[simCategoria].itens.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-white/75 text-[0.8rem]">
+                            <span className="text-[#FF6B00] mt-0.5 shrink-0">✓</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-white/50 text-[0.8rem] italic mt-2">
+                        {beneficiosPorCategoria[simCategoria].paraQuem}
+                      </p>
+                    </div>
+
                       <p className="text-white font-semibold text-center mb-4">
                         Gostou? Fale com um consultor e garanta essa condição
                       </p>
