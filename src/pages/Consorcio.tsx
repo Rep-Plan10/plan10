@@ -294,26 +294,42 @@ export default function Consorcio() {
 
   useEffect(() => {
     const syncWidths = () => {
-      if (portoLogoDesktopRef.current && credenciadaDesktopRef.current) {
-        const w = portoLogoDesktopRef.current.getBoundingClientRect().width;
-        credenciadaDesktopRef.current.style.width = w + 'px';
-        credenciadaDesktopRef.current.style.textAlign = 'justify';
-        (credenciadaDesktopRef.current.style as any).textAlignLast = 'justify';
-      }
-      if (portoLogoMobileRef.current && credenciadaMobileRef.current) {
-        const w = portoLogoMobileRef.current.getBoundingClientRect().width;
-        credenciadaMobileRef.current.style.width = w + 'px';
-        credenciadaMobileRef.current.style.textAlign = 'justify';
-        (credenciadaMobileRef.current.style as any).textAlignLast = 'justify';
+      const pairs = [
+        [portoLogoDesktopRef.current, credenciadaDesktopRef.current],
+        [portoLogoMobileRef.current, credenciadaMobileRef.current],
+      ] as const;
+      for (const [logo, label] of pairs) {
+        if (logo && label) {
+          const w = logo.getBoundingClientRect().width;
+          label.style.width = w + 'px';
+          label.style.minWidth = w + 'px';
+          label.style.maxWidth = w + 'px';
+          label.style.display = 'block';
+          label.style.textAlign = 'justify';
+          (label.style as any).textAlignLast = 'justify';
+          label.style.whiteSpace = 'nowrap';
+          label.style.overflow = 'hidden';
+        }
       }
     };
+
+    const logos = [portoLogoDesktopRef.current, portoLogoMobileRef.current];
+    const onLoad = () => syncWidths();
+    logos.forEach(logo => {
+      if (logo) {
+        if (logo.complete) syncWidths();
+        else logo.addEventListener('load', onLoad);
+      }
+    });
+
     syncWidths();
     window.addEventListener('resize', syncWidths);
-    // Also sync after images load
     const timer = setTimeout(syncWidths, 300);
+
     return () => {
       window.removeEventListener('resize', syncWidths);
       clearTimeout(timer);
+      logos.forEach(logo => logo?.removeEventListener('load', onLoad));
     };
   }, []);
 
