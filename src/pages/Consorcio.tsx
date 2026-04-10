@@ -295,12 +295,16 @@ export default function Consorcio() {
   useEffect(() => {
     const syncWidths = () => {
       if (portoLogoDesktopRef.current && credenciadaDesktopRef.current) {
-        credenciadaDesktopRef.current.style.width = portoLogoDesktopRef.current.offsetWidth + 'px';
-        credenciadaDesktopRef.current.style.textAlign = 'center';
+        const w = portoLogoDesktopRef.current.getBoundingClientRect().width;
+        credenciadaDesktopRef.current.style.width = w + 'px';
+        credenciadaDesktopRef.current.style.textAlign = 'justify';
+        (credenciadaDesktopRef.current.style as any).textAlignLast = 'justify';
       }
       if (portoLogoMobileRef.current && credenciadaMobileRef.current) {
-        credenciadaMobileRef.current.style.width = portoLogoMobileRef.current.offsetWidth + 'px';
-        credenciadaMobileRef.current.style.textAlign = 'center';
+        const w = portoLogoMobileRef.current.getBoundingClientRect().width;
+        credenciadaMobileRef.current.style.width = w + 'px';
+        credenciadaMobileRef.current.style.textAlign = 'justify';
+        (credenciadaMobileRef.current.style as any).textAlignLast = 'justify';
       }
     };
     syncWidths();
@@ -569,12 +573,12 @@ export default function Consorcio() {
                 className="focus:outline-none cursor-pointer shrink-0"
                 aria-label="Ir para o início"
               >
-                <img src={plan10Logo} alt="Plan10 Consórcios" style={{ height: '40px', width: 'auto', filter: 'none' }} className="object-contain" />
+                <img src={plan10Logo} alt="Plan10 Consórcios" style={{ height: '42px', width: 'auto', filter: 'none' }} className="object-contain" />
               </button>
               <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.5rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
-              <div className="flex flex-col items-start" style={{ gap: '2px' }}>
-                <img ref={portoLogoDesktopRef} src={portoLogo} alt="Porto" style={{ height: '26px', width: 'auto', filter: 'none' }} className="object-contain" />
-                <span ref={credenciadaDesktopRef} style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', display: 'block', textAlign: 'center' }}>Credenciada oficial</span>
+              <div className="flex flex-col items-stretch" style={{ gap: '2px' }}>
+                <img ref={portoLogoDesktopRef} src={portoLogo} alt="Porto" style={{ height: '28px', width: 'auto', filter: 'none' }} className="object-contain" />
+                <span ref={credenciadaDesktopRef} style={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', display: 'block', textAlign: 'justify', textAlignLast: 'justify' as any }}>Credenciada oficial</span>
               </div>
             </div>
             {/* Linha 2: tagline */}
@@ -614,9 +618,9 @@ export default function Consorcio() {
               <img src={plan10Logo} alt="Plan10 Consórcios" style={{ height: '32px', width: 'auto', filter: 'none' }} className="object-contain" />
             </button>
             <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.3rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
-            <div className="flex flex-col items-start" style={{ gap: '2px' }}>
-              <img ref={portoLogoMobileRef} src={portoLogo} alt="Porto" style={{ height: '20px', width: 'auto', filter: 'none' }} className="object-contain" />
-              <span ref={credenciadaMobileRef} style={{ fontSize: '0.52rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', display: 'block', textAlign: 'center' }}>Credenciada oficial</span>
+            <div className="flex flex-col items-stretch" style={{ gap: '2px' }}>
+              <img ref={portoLogoMobileRef} src={portoLogo} alt="Porto" style={{ height: '22px', width: 'auto', filter: 'none' }} className="object-contain" />
+              <span ref={credenciadaMobileRef} style={{ fontSize: '0.50rem', color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap', display: 'block', textAlign: 'justify', textAlignLast: 'justify' as any }}>Credenciada oficial</span>
             </div>
           </div>
           <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.9)', textAlign: 'center', margin: 0, whiteSpace: 'nowrap' }}>
