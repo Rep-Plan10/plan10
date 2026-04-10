@@ -247,6 +247,24 @@ html, html * {
   }
 }
 
+/* Credenciada oficial header text */
+#credenciada-header {
+  display: block;
+  white-space: nowrap;
+  overflow: visible;
+  text-align: justify;
+  text-align-last: justify;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 1024px) {
+  #credenciada-header { font-size: 0.65rem; }
+}
+
+@media (max-width: 767px) {
+  #credenciada-header { font-size: 0.58rem; }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

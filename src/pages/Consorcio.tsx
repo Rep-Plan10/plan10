@@ -304,24 +304,6 @@ export default function Consorcio() {
           label.style.width = logoWidth + 'px';
           label.style.minWidth = logoWidth + 'px';
           label.style.maxWidth = logoWidth + 'px';
-          label.style.display = 'block';
-          label.style.overflow = 'visible';
-          label.style.whiteSpace = 'nowrap';
-
-          let fontSize = 11;
-          label.style.letterSpacing = '0px';
-          label.style.fontSize = fontSize + 'px';
-
-          while (label.scrollWidth > logoWidth && fontSize > 7) {
-            fontSize -= 0.5;
-            label.style.fontSize = fontSize + 'px';
-          }
-
-          const remaining = logoWidth - label.scrollWidth;
-          const chars = (label.textContent?.length || 1) - 1;
-          if (chars > 0 && remaining > 0) {
-            label.style.letterSpacing = (remaining / chars) + 'px';
-          }
         }
       }
     };
@@ -607,7 +589,7 @@ export default function Consorcio() {
               <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.5rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
               <div className="inline-flex flex-col items-start" style={{ gap: '2px' }}>
                 <img ref={portoLogoDesktopRef} src={portoLogo} alt="Porto" style={{ height: '18px', width: 'auto', display: 'block', filter: 'none' }} className="object-contain" />
-                <span ref={credenciadaDesktopRef} style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.75)', letterSpacing: '0.01em' }}>Credenciada oficial</span>
+                <span id="credenciada-header" ref={credenciadaDesktopRef} style={{ color: 'rgba(255,255,255,0.75)' }}>Credenciada oficial</span>
               </div>
             </div>
             {/* Linha 2: tagline */}
@@ -649,7 +631,7 @@ export default function Consorcio() {
             <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1.3rem', lineHeight: 1, alignSelf: 'center' }} className="select-none">|</span>
             <div className="inline-flex flex-col items-start" style={{ gap: '2px' }}>
               <img ref={portoLogoMobileRef} src={portoLogo} alt="Porto" style={{ height: '15px', width: 'auto', display: 'block', filter: 'none' }} className="object-contain" />
-              <span ref={credenciadaMobileRef} style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.75)', letterSpacing: '0.01em' }}>Credenciada oficial</span>
+              <span id="credenciada-header-mobile" ref={credenciadaMobileRef} style={{ fontSize: '0.58rem', color: 'rgba(255,255,255,0.75)' }}>Credenciada oficial</span>
             </div>
           </div>
           <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.9)', textAlign: 'center', margin: 0, whiteSpace: 'nowrap' }}>
