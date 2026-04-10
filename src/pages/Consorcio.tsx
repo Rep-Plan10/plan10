@@ -535,25 +535,25 @@ export default function Consorcio() {
 
           {/* Col 2 — center block */}
           <div className="flex flex-col items-center gap-1">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="focus:outline-none cursor-pointer shrink-0"
                 aria-label="Ir para o início"
               >
-                <img src={plan10Logo} alt="Plan10 Consórcio" className="h-9 w-auto object-contain" style={{ filter: 'none' }} />
+                <img src={plan10Logo} alt="Plan10 Consórcios" className="h-9 w-auto object-contain" style={{ filter: 'none' }} />
               </button>
-              <span className="text-white font-bold text-xl">+</span>
-              <div className="flex flex-col items-center gap-0.5">
+              <span className="text-white/40 text-[1.4rem] mx-[10px] self-center select-none">|</span>
+              <div className="flex flex-col items-start gap-0.5">
                 <img src={portoLogo} alt="Porto" className="h-[18px] w-auto object-contain" style={{ filter: 'none' }} />
-                <span className="text-[0.55rem] text-white/75 leading-none text-center tracking-[-0.01em]" style={{ width: '100%' }}>Credenciada oficial</span>
+                <span className="text-[0.6rem] text-white/75 leading-none text-center whitespace-nowrap" style={{ width: '100%' }}>Credenciada oficial</span>
               </div>
             </div>
             <p className="text-xs text-white/90 whitespace-nowrap m-0 text-center w-full">O seu futuro muito mais tranquilo!</p>
           </div>
 
-          {/* Col 3 — CTA right */}
-          <div className="flex justify-end">
+          {/* Col 3 — CTA + phone right */}
+          <div className="flex flex-col items-end gap-1">
             <button
               onClick={() => {
                 setActiveSimCategory(null);
@@ -569,25 +569,29 @@ export default function Consorcio() {
             >
               Simular agora
             </button>
+            <a href="tel:+5511938012222" className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span className="text-[0.75rem]">(11) 93801-2222</span>
+            </a>
           </div>
         </div>
 
         {/* ── Mobile header ── */}
         <div className="flex md:hidden flex-col items-center gap-1 px-4 py-2.5 min-h-[56px]">
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="focus:outline-none cursor-pointer shrink-0"
               aria-label="Ir para o início"
             >
-              <img src={plan10Logo} alt="Plan10 Consórcio" className="h-7 w-auto object-contain" style={{ filter: 'none' }} />
+              <img src={plan10Logo} alt="Plan10 Consórcios" className="h-7 w-auto object-contain" style={{ filter: 'none' }} />
             </button>
 
-            <span className="text-white font-bold text-lg">+</span>
+            <span className="text-white/40 text-[1.2rem] mx-[10px] self-center select-none">|</span>
 
-            <div className="flex flex-col items-center gap-0.5 shrink-0">
+            <div className="flex flex-col items-start gap-0.5 shrink-0">
               <img src={portoLogo} alt="Porto" className="h-[15px] w-auto object-contain" style={{ filter: 'none' }} />
-              <span className="text-[0.5rem] text-white/60 leading-none text-center">Credenciada oficial</span>
+              <span className="text-[0.5rem] text-white/60 leading-none text-center whitespace-nowrap" style={{ width: '100%', fontSize: '0.5rem' }}>Credenciada oficial</span>
             </div>
           </div>
           <p className="text-[0.7rem] text-white/90 text-center m-0">O seu futuro muito mais tranquilo!</p>
