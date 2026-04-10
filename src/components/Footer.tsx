@@ -50,8 +50,8 @@ export default function Footer() {
             <h3 className="font-sora font-semibold text-sm text-foreground mb-4">Contato</h3>
             <ul className="space-y-2 text-sm text-muted-foreground font-inter">
               <li>
-                <a href="https://api.whatsapp.com/send/?phone=5511991051616" target="_blank" rel="noopener noreferrer" className="footer-link inline-block">
-                  WhatsApp: (11) 99105-1616
+                <a href="https://api.whatsapp.com/send/?phone=5511938012222" target="_blank" rel="noopener noreferrer" className="footer-link inline-block">
+                  WhatsApp: (11) 93801-2222
                 </a>
               </li>
               <li>

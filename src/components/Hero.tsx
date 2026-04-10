@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useParallax } from "@/hooks/useParallax";
 
-const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511991051616";
+const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511938012222";
 
 const hubs = [
   { emoji: "🔵", label: "Seguros", color: "border-hub-seguros text-hub-seguros" },

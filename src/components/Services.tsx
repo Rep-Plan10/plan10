@@ -1,7 +1,7 @@
 import { Shield, Heart, TrendingUp, Landmark, Wrench } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511991051616";
+const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5511938012222";
 
 const services = [
   {

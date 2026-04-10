@@ -12,7 +12,7 @@ import veileiroImg from "@/assets/veleiro.jpg";
 const plan10Logo = plan10LogoNew;
 
 /* ───────────────────── WHATSAPP ───────────────────── */
-const WA_PHONE = "5511991051616";
+const WA_PHONE = "5511938012222";
 const WA_BASE = `https://api.whatsapp.com/send/?phone=${WA_PHONE}`;
 
 /* ───────────────────── HOOKS ───────────────────── */
