@@ -97,10 +97,8 @@ Deno.serve(async (req) => {
 
     const subject = `🔔 Novo Lead: ${lead.nome}${lead.tipoConsorcio ? " — " + lead.tipoConsorcio : ""}`;
 
-    // IMPORTANTE: enquanto o domínio plan10.com.br não estiver verificado no Resend
-    // (resend.com/domains), o serviço só permite envios para o email da conta dona da
-    // chave. Após verificar o domínio, troque "to" para ["contato@plan10.com.br"].
-    const TO_EMAIL = Deno.env.get("LEAD_NOTIFICATION_EMAIL") || "contato@plan10.com.br";
+    // Destinatário fixo: notificação interna apenas para Plan10.
+    // Nunca envie email para o endereço informado pelo lead.
 
     const res = await fetch(`${GATEWAY_URL}/emails`, {
       method: "POST",
