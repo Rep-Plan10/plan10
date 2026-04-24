@@ -263,6 +263,7 @@ export default function Consorcio() {
   const [faixaDropdownAberto, setFaixaDropdownAberto] = useState(false);
   const [formEnviando, setFormEnviando] = useState(false);
   const [formSucesso, setFormSucesso] = useState(false);
+  const [simEnviando, setSimEnviando] = useState(false);
 
   /* ── Close dropdown on outside click ── */
   useEffect(() => {
@@ -1088,17 +1089,46 @@ export default function Consorcio() {
                       </div>
                       <textarea placeholder="Mensagem (opcional)" value={leadMensagem} onChange={(e) => setLeadMensagem(e.target.value)} rows={2} className="w-full max-w-xl mx-auto block mt-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none" />
                       <button
-                        onClick={() => {
+                        onClick={async () => {
+                          if (!leadNome || !leadTelefone) {
+                            alert('Por favor, preencha nome e WhatsApp.');
+                            return;
+                          }
+                          setSimEnviando(true);
                           const cat = categoriaLabels[simCategoria];
                           const faixa = faixaAtual?.faixa || '';
-                          const msg = encodeURIComponent(
-                            `Olá! Tenho interesse no Consórcio de ${cat} na faixa ${faixa}. Meu nome é ${leadNome || '(não informado)'}. E-mail: ${leadEmail || 'não informado'}.${leadMensagem ? ` Mensagem: ${leadMensagem}` : ''}`
+                          const mensagemWpp = encodeURIComponent(
+                            `Olá! Tenho interesse no Consórcio de ${cat}.\n\n` +
+                            `Nome: ${leadNome}\n` +
+                            `WhatsApp: ${leadTelefone}\n` +
+                            `E-mail: ${leadEmail || 'Não informado'}\n` +
+                            `Faixa de crédito: ${faixa}\n` +
+                            `Mensagem: ${leadMensagem || 'Sem mensagem adicional'}`
                           );
-                          window.open(`${WA_BASE}&text=${msg}`, '_blank');
+                          try {
+                            await supabase.functions.invoke('send-lead-email', {
+                              body: {
+                                nome: leadNome,
+                                telefone: leadTelefone,
+                                email: leadEmail || '',
+                                tipoConsorcio: cat,
+                                nicho: faixa,
+                                faixaCredito: faixa,
+                                origem: `Simulação ${cat}`,
+                                mensagem: leadMensagem || '',
+                              },
+                            });
+                          } catch (error) {
+                            console.error('Erro ao enviar email:', error);
+                          }
+                          window.open(`https://api.whatsapp.com/send/?phone=5511938012222&text=${mensagemWpp}`, '_blank');
+                          setSimEnviando(false);
                         }}
+                        disabled={simEnviando}
+                        style={{ opacity: simEnviando ? 0.7 : 1, cursor: simEnviando ? 'not-allowed' : 'pointer' }}
                         className="mt-3 w-full max-w-xl mx-auto block bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 px-6 rounded-xl transition-colors duration-200"
                       >
-                        Quero essa condição no WhatsApp
+                        {simEnviando ? 'Enviando...' : 'Quero essa condição no WhatsApp'}
                       </button>
                     </div>
 

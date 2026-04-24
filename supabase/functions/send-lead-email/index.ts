@@ -10,6 +10,7 @@ interface LeadData {
   nicho?: string;
   faixaCredito?: string;
   mensagem?: string;
+  origem?: string;
 }
 
 function escapeHtml(value: unknown): string {
@@ -70,7 +71,14 @@ Deno.serve(async (req) => {
           ${row("Tipo de Consórcio", lead.tipoConsorcio)}
           ${row("Nicho", lead.nicho)}
           ${row("Faixa de Crédito", lead.faixaCredito)}
-          ${lead.mensagem ? row("Mensagem", lead.mensagem) : ""}
+          <tr style="border-bottom: 1px solid #f3f4f6;">
+            <td style="padding: 12px 0; color: #6b7280; font-size: 14px;">Origem</td>
+            <td style="padding: 12px 0; color: #F97316; font-weight: 700; font-size: 14px;">${escapeHtml(lead.origem || "Formulário principal")}</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px 0; color: #6b7280; font-size: 14px;">Mensagem</td>
+            <td style="padding: 12px 0; color: #111827; font-weight: 600; font-size: 14px;">${escapeHtml(lead.mensagem || "Sem mensagem")}</td>
+          </tr>
         </table>
 
         <div style="margin-top:22px;background:#FFF4EC;border-left:4px solid #F97316;padding:14px 16px;border-radius:6px;">
