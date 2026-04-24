@@ -111,10 +111,9 @@ Deno.serve(async (req) => {
       },
       body: JSON.stringify({
         from: "Plan10 Consórcios <noreply@consorcios.plan10.com.br>",
-        to: [TO_EMAIL],
+        to: ["contato@plan10.com.br"],
         subject,
         html,
-        reply_to: lead.email || undefined,
       }),
     });
 
