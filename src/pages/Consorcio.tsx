@@ -1082,12 +1082,12 @@ export default function Consorcio() {
                       <p className="text-white font-semibold text-center mb-4">
                         Gostou? Fale com um consultor e garanta essa condição
                       </p>
-                      <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
-                        <input type="text" placeholder="Seu nome" value={leadNome} onChange={(e) => setLeadNome(e.target.value)} className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm" />
-                        <input type="email" placeholder="Seu e-mail" value={leadEmail} onChange={(e) => setLeadEmail(e.target.value)} className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm" />
-                        <input type="tel" placeholder="Seu WhatsApp" value={leadTelefone} onChange={(e) => setLeadTelefone(e.target.value)} className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm" />
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-xl mx-auto w-full">
+                        <input type="text" placeholder="Seu nome" value={leadNome} onChange={(e) => setLeadNome(e.target.value)} className="w-full max-w-full min-w-0 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm" />
+                        <input type="email" placeholder="Seu e-mail" value={leadEmail} onChange={(e) => setLeadEmail(e.target.value)} className="w-full max-w-full min-w-0 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm" />
+                        <input type="tel" placeholder="Seu WhatsApp" value={leadTelefone} onChange={(e) => setLeadTelefone(e.target.value)} className="w-full max-w-full min-w-0 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm" />
+                        <textarea placeholder="Mensagem (opcional)" value={leadMensagem} onChange={(e) => setLeadMensagem(e.target.value)} rows={2} className="md:col-span-3 w-full max-w-full min-w-0 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none" />
                       </div>
-                      <textarea placeholder="Mensagem (opcional)" value={leadMensagem} onChange={(e) => setLeadMensagem(e.target.value)} rows={2} className="w-full max-w-xl mx-auto block mt-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm resize-none" />
                       <button
                         onClick={async () => {
                           if (!leadNome || !leadTelefone) {
