@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Star, TrendingDown, Trophy, Shield, Award, CheckCircle, DollarSign, FileText, Bike, Plane, Sparkles, Heart, Smartphone, GraduationCap, Rocket, Phone } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import plan10LogoNew from "@/assets/plan10-logo-consorcios.png";
 import portoLogo from "@/assets/porto-logo.png";
 import logoSusep from "@/assets/logo-susep.png";
@@ -260,6 +261,8 @@ export default function Consorcio() {
   const [tipoDropdownAberto, setTipoDropdownAberto] = useState(false);
   const [nichoDropdownAberto, setNichoDropdownAberto] = useState(false);
   const [faixaDropdownAberto, setFaixaDropdownAberto] = useState(false);
+  const [formEnviando, setFormEnviando] = useState(false);
+  const [formSucesso, setFormSucesso] = useState(false);
 
   /* ── Close dropdown on outside click ── */
   useEffect(() => {
@@ -327,8 +330,29 @@ export default function Consorcio() {
     return parseInt(digits).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 });
   };
 
-  const enviarFormulario = () => {
+  const enviarFormulario = async () => {
     if (!formNome || !formWhatsApp) return;
+    setFormEnviando(true);
+
+    // Dispara o e-mail para contato@plan10.com.br via Edge Function (Resend)
+    try {
+      const { error } = await supabase.functions.invoke('send-lead-email', {
+        body: {
+          nome: formNome,
+          telefone: formWhatsApp,
+          email: formEmail || '',
+          tipoConsorcio: formTipo || '',
+          nicho: formNicho || '',
+          faixaCredito: formCredito || '',
+          mensagem: formMensagem || '',
+        },
+      });
+      if (error) console.error('Erro ao enviar email do lead:', error);
+    } catch (err) {
+      console.error('Falha ao invocar send-lead-email:', err);
+    }
+
+    // Mantém o fluxo original de abrir o WhatsApp
     const msg = encodeURIComponent(
       `Olá! Meu nome é ${formNome}.\n` +
       `Tipo de consórcio: ${formTipo || 'não informado'}.\n` +
@@ -339,6 +363,9 @@ export default function Consorcio() {
       `${formMensagem ? 'Mensagem: ' + formMensagem : ''}`
     );
     window.open(`https://api.whatsapp.com/send/?phone=5511938012222&text=${msg}`, '_blank');
+
+    setFormEnviando(false);
+    setFormSucesso(true);
   };
 
   /* ───────────────────── SIMULADOR DATA ───────────────────── */
