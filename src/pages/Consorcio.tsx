@@ -1463,6 +1463,16 @@ export default function Consorcio() {
               </p>
             </div>
             <div className="glass rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+              {formSucesso ? (
+                <div className="text-center py-10">
+                  <div className="w-16 h-16 rounded-full bg-[#25D366]/20 flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle size={36} className="text-[#25D366]" />
+                  </div>
+                  <h3 className="font-sora font-bold text-xl text-white mb-2">Proposta solicitada com sucesso!</h3>
+                  <p className="text-gray-300 text-sm">Nosso consultor entrará em contato em breve.</p>
+                </div>
+              ) : (
+              <>
               {/* 8b/8c. Tipo dropdown — removed "Seguro de Vida" and all emojis */}
               <div className="relative w-full" data-tipo-dropdown>
                 <button
@@ -1561,10 +1571,12 @@ export default function Consorcio() {
 
               {/* 8d. Removed info block from form — moved to footer */}
 
-              <button onClick={enviarFormulario} className="w-full bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base">
-                Dar o primeiro passo
+              <button onClick={enviarFormulario} disabled={formEnviando} className="w-full bg-[#FF6B00] hover:bg-[#e55e00] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base">
+                {formEnviando ? 'Enviando...' : 'Dar o primeiro passo'}
               </button>
               <p className="text-gray-500 text-xs text-center">Segurança garantida. Consulte a nossa <a href="/politica-de-privacidade" className="text-[#F97316] underline hover:brightness-125 transition-colors">Política de Privacidade</a>.</p>
+              </>
+              )}
             </div>
           </div>
         </section>
