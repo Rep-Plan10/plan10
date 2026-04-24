@@ -92,7 +92,7 @@ Deno.serve(async (req) => {
     // IMPORTANTE: enquanto o domínio plan10.com.br não estiver verificado no Resend
     // (resend.com/domains), o serviço só permite envios para o email da conta dona da
     // chave. Após verificar o domínio, troque "to" para ["contato@plan10.com.br"].
-    const TO_EMAIL = Deno.env.get("LEAD_NOTIFICATION_EMAIL") || "plan10consorcios@nextassessoria.com";
+    const TO_EMAIL = Deno.env.get("LEAD_NOTIFICATION_EMAIL") || "contato@plan10.com.br";
 
     const res = await fetch(`${GATEWAY_URL}/emails`, {
       method: "POST",
@@ -102,7 +102,7 @@ Deno.serve(async (req) => {
         "X-Connection-Api-Key": RESEND_API_KEY,
       },
       body: JSON.stringify({
-        from: "Plan10 Consórcios <onboarding@resend.dev>",
+        from: "Plan10 Consórcios <noreply@consorcios.plan10.com.br>",
         to: [TO_EMAIL],
         subject,
         html,
