@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Star, TrendingDown, Trophy, Shield, Award, CheckCircle, DollarSign, FileText, Bike, Plane, Sparkles, Heart, Smartphone, GraduationCap, Rocket, Phone } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import plan10LogoNew from "@/assets/plan10-logo-consorcios.png";
 import portoLogo from "@/assets/porto-logo.png";
 import logoSusep from "@/assets/logo-susep.png";
@@ -260,6 +261,8 @@ export default function Consorcio() {
   const [tipoDropdownAberto, setTipoDropdownAberto] = useState(false);
   const [nichoDropdownAberto, setNichoDropdownAberto] = useState(false);
   const [faixaDropdownAberto, setFaixaDropdownAberto] = useState(false);
+  const [formEnviando, setFormEnviando] = useState(false);
+  const [formSucesso, setFormSucesso] = useState(false);
 
   /* ── Close dropdown on outside click ── */
   useEffect(() => {
@@ -327,8 +330,29 @@ export default function Consorcio() {
     return parseInt(digits).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 });
   };
 
-  const enviarFormulario = () => {
+  const enviarFormulario = async () => {
     if (!formNome || !formWhatsApp) return;
+    setFormEnviando(true);
+
+    // Dispara o e-mail para contato@plan10.com.br via Edge Function (Resend)
+    try {
+      const { error } = await supabase.functions.invoke('send-lead-email', {
+        body: {
+          nome: formNome,
+          telefone: formWhatsApp,
+          email: formEmail || '',
+          tipoConsorcio: formTipo || '',
+          nicho: formNicho || '',
+          faixaCredito: formCredito || '',
+          mensagem: formMensagem || '',
+        },
+      });
+      if (error) console.error('Erro ao enviar email do lead:', error);
+    } catch (err) {
+      console.error('Falha ao invocar send-lead-email:', err);
+    }
+
+    // Mantém o fluxo original de abrir o WhatsApp
     const msg = encodeURIComponent(
       `Olá! Meu nome é ${formNome}.\n` +
       `Tipo de consórcio: ${formTipo || 'não informado'}.\n` +
@@ -339,6 +363,9 @@ export default function Consorcio() {
       `${formMensagem ? 'Mensagem: ' + formMensagem : ''}`
     );
     window.open(`https://api.whatsapp.com/send/?phone=5511938012222&text=${msg}`, '_blank');
+
+    setFormEnviando(false);
+    setFormSucesso(true);
   };
 
   /* ───────────────────── SIMULADOR DATA ───────────────────── */
@@ -1436,6 +1463,16 @@ export default function Consorcio() {
               </p>
             </div>
             <div className="glass rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+              {formSucesso ? (
+                <div className="text-center py-10">
+                  <div className="w-16 h-16 rounded-full bg-[#25D366]/20 flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle size={36} className="text-[#25D366]" />
+                  </div>
+                  <h3 className="font-sora font-bold text-xl text-white mb-2">Proposta solicitada com sucesso!</h3>
+                  <p className="text-gray-300 text-sm">Nosso consultor entrará em contato em breve.</p>
+                </div>
+              ) : (
+              <>
               {/* 8b/8c. Tipo dropdown — removed "Seguro de Vida" and all emojis */}
               <div className="relative w-full" data-tipo-dropdown>
                 <button
@@ -1534,10 +1571,12 @@ export default function Consorcio() {
 
               {/* 8d. Removed info block from form — moved to footer */}
 
-              <button onClick={enviarFormulario} className="w-full bg-[#FF6B00] hover:bg-[#e55e00] text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base">
-                Dar o primeiro passo
+              <button onClick={enviarFormulario} disabled={formEnviando} className="w-full bg-[#FF6B00] hover:bg-[#e55e00] disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base">
+                {formEnviando ? 'Enviando...' : 'Dar o primeiro passo'}
               </button>
               <p className="text-gray-500 text-xs text-center">Segurança garantida. Consulte a nossa <a href="/politica-de-privacidade" className="text-[#F97316] underline hover:brightness-125 transition-colors">Política de Privacidade</a>.</p>
+              </>
+              )}
             </div>
           </div>
         </section>
