@@ -1498,8 +1498,8 @@ export default function Consorcio() {
                   <div className="w-16 h-16 rounded-full bg-[#25D366]/20 flex items-center justify-center mx-auto mb-4">
                     <CheckCircle size={36} className="text-[#25D366]" />
                   </div>
-                  <h3 className="font-sora font-bold text-xl text-white mb-2">Proposta solicitada com sucesso!</h3>
-                  <p className="text-gray-300 text-sm">Nosso consultor entrará em contato em breve.</p>
+                  <h3 className="font-sora font-bold text-xl text-white mb-2">Informações enviadas com sucesso!</h3>
+                  <p className="text-gray-300 text-sm">Nossa equipe entrará em contato com você em breve.</p>
                 </div>
               ) : (
               <>
