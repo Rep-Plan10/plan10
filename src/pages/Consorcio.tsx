@@ -720,13 +720,13 @@ export default function Consorcio() {
                 {
                   cat: 'imovel' as const, title: "Imóvel", img: imgCasaFile,
                   desc: "Casa, apartamento, terreno, reforma, construção, imóvel EUA e Quitação financiamento.\nImóvel próprio com parcelas que cabem no seu bolso.",
-                  popular: true, parcela: "R$ 567,00", parcelaColor: "text-[#F97316]",
+                  popular: true, parcela: "R$ 272,00", parcelaColor: "text-[#F97316]",
                   btnColor: "bg-[#F97316] text-white", cta: "Simular Imóvel",
                 },
                 {
                   cat: 'veiculo' as const, title: "Veículo", img: imgVeiculosFile,
                   desc: "Carro novo, seminovo, moto ou até náutico e placas solares.\nConquiste seu veículo sem juros.",
-                  popular: false, parcela: "R$ 371,00", parcelaColor: "text-[#7C3AED]",
+                  popular: false, parcela: "R$ 322,00", parcelaColor: "text-[#7C3AED]",
                   btnColor: "bg-[#7C3AED] text-white", cta: "Simular Veículo",
                 },
                 {
