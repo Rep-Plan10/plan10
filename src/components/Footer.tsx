@@ -96,17 +96,6 @@ export default function Footer() {
             </a>
           </p>
         </div>
-        <p className="block text-center mt-1 text-xs text-white/40 font-inter">
-          Criado por{" "}
-          <a
-            href="https://www.nextassessoria.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="no-underline text-white/40 transition-colors duration-200 hover:text-white/75"
-          >
-            Next Assessoria
-          </a>
-        </p>
       </div>
     </footer>
   );
