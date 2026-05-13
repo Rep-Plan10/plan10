@@ -1696,6 +1696,17 @@ export default function Consorcio() {
             <p className="text-center text-xs text-white/50">
               © 2026 Plan10 Consórcios. Todos os direitos reservados.
             </p>
+            <p className="block text-center mt-1 text-xs text-white/40 font-inter">
+              Criado por{" "}
+              <a
+                href="https://www.nextassessoria.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="no-underline text-white/40 transition-colors duration-200 hover:text-white/75"
+              >
+                Next Assessoria
+              </a>
+            </p>
           </div>
         </div>
       </footer>
